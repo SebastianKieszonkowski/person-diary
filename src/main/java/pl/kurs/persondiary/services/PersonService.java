@@ -55,7 +55,7 @@ public class PersonService extends AbstractGenericManagementService<Person, Pers
         return repository.findById(id);
     }
 
-    public Employee getEmployeeById(Long id) {
-        return repository.findEmployeeById(id).orElseThrow();
+    public Optional<Employee> getEmployeeById(Long id) {
+        return repository.findEmployeeById(id);
     }
 }

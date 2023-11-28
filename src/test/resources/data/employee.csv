@@ -1,0 +1,10 @@
+email,first_name,last_name,pesel,height,weight,hire_date,position,salary
+'roman1.kowalski@gmail.com','Roman1','Kowalski','92011508452',1.81,61.5,'2010-01-15','Robotnik',4500.0
+'roman2.kowalski@gmail.com','Roman2','Kowalski','92021508452',1.82,62.5,'2010-02-15','Robotnik',4502.0
+'roman3.kowalski@gmail.com','Roman3','Kowalski','92031508452',1.83,63.5,'2010-03-15','Robotnik',4503.0
+'roman4.kowalski@gmail.com','Roman4','Kowalski','92041508452',1.84,64.5,'2010-04-15','Robotnik',4504.0
+'roman5.kowalski@gmail.com','Roman5','Kowalski','92051508452',1.85,65.5,'2010-05-15','Robotnik',4505.0
+'roman6.kowalski@gmail.com','Roman6','Kowalski','92061508452',1.86,66.5,'2010-06-15','Robotnik',4506.0
+'roman7.kowalski@gmail.com','Roman7','Kowalski','92071508452',1.87,67.5,'2010-07-15','Robotnik',4507.0
+'roman8.kowalski@gmail.com','Roman8','Kowalski','92081508452',1.88,68.5,'2010-08-15','Robotnik',4508.0
+'roman9.kowalski@gmail.com','Roman9','Kowalski','92091508452',1.89,69.5,'2010-09-15','Robotnik',4509.0

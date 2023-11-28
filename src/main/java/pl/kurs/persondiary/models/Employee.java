@@ -1,19 +1,15 @@
 package pl.kurs.persondiary.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Transient;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Getter
 @Setter
-@Entity
 @NoArgsConstructor
+@Entity
 //zastanowić się czy pozostałych pól nie potraktować jak osobne tabele, może to będzie łatwiej
 public class Employee extends Person{
     private static final long serialVersionUID = 1L;
@@ -27,8 +23,8 @@ public class Employee extends Person{
     @Column(nullable = false)
     private Double salary;
 
-    @Transient
-    private List<EmployeePosition> employeePositions = new ArrayList<>();
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private Set<EmployeePosition> employeePositions = new HashSet<>();
 
     @Builder
     public Employee(Long id, String firstName, String lastName, String pesel,

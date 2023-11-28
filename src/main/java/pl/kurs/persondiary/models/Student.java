@@ -4,12 +4,13 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.*;
 
+import java.util.Objects;
+
 @Getter
 @Setter
-@Entity
 @NoArgsConstructor
-//@EqualsAndHashCode(exclude = {"serialVersionUID"})
 @ToString //do usuniecia w wersi ostatecznej
+@Entity
 public class Student extends Person{
     private static final long serialVersionUID = 1L;
 
@@ -32,5 +33,21 @@ public class Student extends Person{
         this.studyYear = studyYear;
         this.studyField = studyField;
         this.scholarship = scholarship;
+    }
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Student student = (Student) o;
+        return Objects.equals(universityName, student.universityName) && Objects.equals(studyYear, student.studyYear) && Objects.equals(studyField, student.studyField) && Objects.equals(scholarship, student.scholarship);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), universityName, studyYear, studyField, scholarship);
     }
 }

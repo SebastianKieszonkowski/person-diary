@@ -59,3 +59,4 @@ public class EmployeePosition implements Identificationable {
         return Objects.hash(id, positionName, startDateOnPosition, endDateOnPosition, salary);
     }
 }
+//todo dodać unikalny klucz do stanowisk, składany albo dodatkowe pole

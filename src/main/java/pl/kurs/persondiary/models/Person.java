@@ -9,9 +9,10 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @NoArgsConstructor
 @ToString
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(uniqueConstraints = {@UniqueConstraint(name = "UC_PERSON_PESEL",columnNames = "pesel")})
 public abstract class Person implements Serializable, Identificationable{
     private static final long serialVersionUID = 1L;
 
@@ -26,7 +27,7 @@ public abstract class Person implements Serializable, Identificationable{
     @Column(nullable = false)
     private String lastName;
 
-    @Column(unique = true, nullable = false)//baza danych nie pozwoli na zapis 2 takich samych emaili
+    @Column(unique = true, nullable = false)//baza danych nie pozwoli na zapis 2 takich samych peseli
     private String pesel;
 
     @Column(nullable = false)

@@ -1,5 +1,7 @@
 package pl.kurs.persondiary.services;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import pl.kurs.persondiary.exeptions.MissingIdException;
 import pl.kurs.persondiary.exeptions.ResourceNotFoundException;

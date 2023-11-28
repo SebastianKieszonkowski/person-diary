@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.kurs.persondiary.command.CreateEmployeePositionCommand;
+import pl.kurs.persondiary.command.UpdateEmployeePositionCommand;
 import pl.kurs.persondiary.dto.FullEmployeePositionDto;
 import pl.kurs.persondiary.dto.StatusDto;
 import pl.kurs.persondiary.models.Employee;
@@ -15,6 +16,7 @@ import pl.kurs.persondiary.services.EmployeePositionService;
 import pl.kurs.persondiary.services.singleservice.EmployeeService;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -34,12 +36,26 @@ public class EmployeePositionController {
     @PostMapping
     public ResponseEntity<FullEmployeePositionDto> createEmployeePosition(@RequestBody @Valid CreateEmployeePositionCommand createEmployeePositionCommand) {
         EmployeePosition employeePosition = modelMapper.map(createEmployeePositionCommand, EmployeePosition.class);
-        //employeePosition.setId(null);
         Employee employee = employeeService.get(createEmployeePositionCommand.getEmployeeId());
         employeePosition.setEmployee(employee);
         EmployeePosition employeePositionCreated = employeePositionService.add(employeePosition);
         FullEmployeePositionDto fullEmployeePositionDto = modelMapper.map(employeePositionCreated, FullEmployeePositionDto.class);
         return new ResponseEntity<>(fullEmployeePositionDto, HttpStatus.CREATED);
+    }
+
+    @PatchMapping(path = "/{id}")
+    public ResponseEntity<FullEmployeePositionDto> editEmployeePosition(@PathVariable Long id, @RequestBody @Valid UpdateEmployeePositionCommand updateEmployeePositionCommand){
+        EmployeePosition employeePosition = employeePositionService.findById(id).orElseThrow();
+        Optional.ofNullable(updateEmployeePositionCommand.getPositionName()).ifPresent(employeePosition::setPositionName);
+        Optional.ofNullable(updateEmployeePositionCommand.getStartDateOnPosition()).ifPresent(employeePosition::setStartDateOnPosition);
+        Optional.ofNullable(updateEmployeePositionCommand.getEndDateOnPosition()).ifPresent(employeePosition::setEndDateOnPosition);
+        Optional.ofNullable(updateEmployeePositionCommand.getSalary()).ifPresent(employeePosition::setSalary);
+        Optional.ofNullable(updateEmployeePositionCommand.getEmployeeId()).ifPresent(x -> {
+            Employee employee = employeeService.get(updateEmployeePositionCommand.getEmployeeId());
+            Optional.ofNullable(employee).ifPresent(employeePosition::setEmployee);
+        });
+        FullEmployeePositionDto fullEmployeePositionDto = modelMapper.map(employeePosition, FullEmployeePositionDto.class);
+        return new ResponseEntity<>(fullEmployeePositionDto, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
@@ -59,7 +75,7 @@ public class EmployeePositionController {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<FullEmployeePositionDto> getEmployeePositionById(@PathVariable("id") Long id) {
-        EmployeePosition employeePosition = employeePositionService.get(id);
+        EmployeePosition employeePosition = employeePositionService.findById(id).orElseThrow();
         FullEmployeePositionDto fullEmployeePositionDto = modelMapper.map(employeePosition, FullEmployeePositionDto.class);
         return ResponseEntity.ok(fullEmployeePositionDto);
     }

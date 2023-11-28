@@ -35,7 +35,7 @@ public class PersonController {
 
     @GetMapping(path ="/{id}")
     public ResponseEntity getEmployeeById(@PathVariable("id") Long id) {
-        Employee person = personService.getEmployeeById(id);
+        Employee person = personService.getEmployeeById(id).orElseThrow();
         return ResponseEntity.ok(person);
     }
 
