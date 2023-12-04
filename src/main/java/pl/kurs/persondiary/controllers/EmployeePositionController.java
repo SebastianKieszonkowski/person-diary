@@ -20,7 +20,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(path = "/position")
+@RequestMapping(path = "/positions")
 @Validated
 public class EmployeePositionController {
     private final EmployeePositionService employeePositionService;

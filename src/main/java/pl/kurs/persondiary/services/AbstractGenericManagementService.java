@@ -45,4 +45,6 @@ public abstract class AbstractGenericManagementService<T extends Identificationa
         return repository.findAll();
 
     }
+
+    public abstract void deleteAll();
 }

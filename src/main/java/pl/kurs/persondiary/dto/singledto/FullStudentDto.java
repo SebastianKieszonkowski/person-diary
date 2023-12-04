@@ -1,11 +1,14 @@
 package pl.kurs.persondiary.dto.singledto;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import pl.kurs.persondiary.dto.IPersonDto;
 
 @Getter
 @Setter
-public class FullStudentDto {
+@Builder
+public class FullStudentDto implements IPersonDto {
     private Long id;
     private String firstName;
     private String lastName;

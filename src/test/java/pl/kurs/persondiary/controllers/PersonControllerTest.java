@@ -29,7 +29,7 @@ class PersonControllerTest {
     void shouldAddPerson() throws Exception{
         //given
 
-        Employee employee = new Employee(null, "Roman", "Test", "88071504852", 1.9,
+        Employee employee = new Employee( null, "Roman", "Test", "88071504852", 1.9,
                 100.1, "roman.test@gmail.com", LocalDate.of(1992,2,5), "PM", 22_359.85);
         String json = objectMapper.writeValueAsString(employee);
         //when

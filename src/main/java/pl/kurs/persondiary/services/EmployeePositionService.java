@@ -15,4 +15,9 @@ public class EmployeePositionService extends AbstractGenericManagementService<Em
     public Optional<EmployeePosition> findById(Long id) {
         return Optional.ofNullable(super.get(id));
     }
+
+    @Override
+    public void deleteAll() {
+        super.repository.deleteAll();
+    }
 }

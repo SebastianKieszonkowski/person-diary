@@ -26,3 +26,11 @@ public class PersonDiaryApplication {
     }
 
 }
+//People
+//TYP,Imie,Nazwisko,Pesel,Wzrost,Waga,Email,Data_Zatrudnienia/Emerytury/Start_Studiow,Stanowisko/Rok_Studiow/Kierunek,Stypendium/Pensja/Doswiadczenie
+//Student
+//TYP,Imie,Nazwisko,Pesel,Wzrost,Waga,Email,Nazwa_Uczelni,Rok_Studiow,Kierunek,Stypendium
+//Employee csv
+//TYP,Imie,Nazwisko,Pesel,Wzrost,Waga,Email,Data_Zatrudnienia,Stanowisko,Pensja
+//Pensioner
+//TYP,Imie,Nazwisko,Pesel,Wzrost,Waga,Email,Emerytura,Doswiadczenie

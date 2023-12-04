@@ -1,4 +1,4 @@
-package pl.kurs.persondiary.dto.singledto;
+package pl.kurs.persondiary.dto.viewdto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +10,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Builder
-public class FullEmployeeDto implements IPersonDto {
+public class EmployeeViewDto implements IPersonDto {
+    private String type;
     private Long id;
     private String firstName;
     private String lastName;
@@ -21,5 +22,4 @@ public class FullEmployeeDto implements IPersonDto {
     private LocalDate hireDate;
     private String position;
     private Double salary;
-    private Integer positionHistory;
 }

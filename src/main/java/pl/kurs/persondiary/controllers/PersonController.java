@@ -1,8 +1,13 @@
 package pl.kurs.persondiary.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,51 +15,62 @@ import pl.kurs.persondiary.command.*;
 import pl.kurs.persondiary.command.singleCommand.CreateEmployeeCommand;
 import pl.kurs.persondiary.command.singleCommand.CreatePensionerCommand;
 import pl.kurs.persondiary.command.singleCommand.CreateStudentCommand;
-import pl.kurs.persondiary.models.Employee;
-import pl.kurs.persondiary.models.Pensioner;
-import pl.kurs.persondiary.models.Person;
-import pl.kurs.persondiary.models.Student;
+import pl.kurs.persondiary.dto.IPersonDto;
+import pl.kurs.persondiary.modelfactory.PersonFactory;
+import pl.kurs.persondiary.models.*;
 import pl.kurs.persondiary.services.PersonMapperService;
 import pl.kurs.persondiary.services.PersonService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "/persons")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class PersonController {
-    private final PersonMapperService personMapperService;
-    private final ModelMapper modelMapper;
+
+    //    private final PersonMapperService personMapperService;
     private final PersonService personService;
+    private final ModelMapper modelMapper;
+    private final PersonFactory personFactory;
+
+    //    private final PersonService personService;
 
     @GetMapping()
-    public ResponseEntity getAllEmploy () {
-        List<Person> persons = personService.getAll();
-        return ResponseEntity.ok(persons);
+    public ResponseEntity getPersons(FindPersonQuery query, @PageableDefault Pageable pageable) {
+        List<PersonView> personViewList = personService.findPersonByParameters(query, pageable);
+        List<IPersonDto> personDtoList = personViewList.stream().map(personFactory::createDtoFromView)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(personDtoList, HttpStatus.OK);
     }
-
-    @GetMapping(path ="/{id}")
-    public ResponseEntity getEmployeeById(@PathVariable("id") Long id) {
-        Employee person = personService.getEmployeeById(id).orElseThrow();
-        return ResponseEntity.ok(person);
-    }
-
-    @PostMapping
-    public ResponseEntity createGrade(@RequestBody String createPersonCommand) throws JsonProcessingException {
-        System.out.println(createPersonCommand);
-        Person person = null;
-        ICreatePersonCommand recognisedPerson = personMapperService.recognisePerson(createPersonCommand);
-        if (recognisedPerson.getClass().equals(CreateStudentCommand.class)) {
-            person = modelMapper.map(recognisedPerson, Student.class);
-        } else if (recognisedPerson.getClass().equals(CreateEmployeeCommand.class)) {
-            person = modelMapper.map(recognisedPerson, Employee.class);
-        } else if (recognisedPerson.getClass().equals(CreatePensionerCommand.class)) {
-            person = modelMapper.map(recognisedPerson, Pensioner.class);
-        }
-
-            Person savedPerson = personService.add(person);
-            return new ResponseEntity(HttpStatus.CREATED);
-        }
+//    @GetMapping()
+//    public ResponseEntity getAllEmploy () {
+//        List<Person> persons = personService.getAll();
+//        return ResponseEntity.ok(persons);
+//    }
+//
+//    @GetMapping(path ="/{id}")
+//    public ResponseEntity getEmployeeById(@PathVariable("id") Long id) {
+//        Employee person = personService.getEmployeeById(id).orElseThrow();
+//        return ResponseEntity.ok(person);
+//    }
+//
+//    @PostMapping
+//    public ResponseEntity createGrade(@RequestBody String createPersonCommand) throws JsonProcessingException {
+//        System.out.println(createPersonCommand);
+//        Person person = null;
+//        ICreatePersonCommand recognisedPerson = personMapperService.recognisePerson(createPersonCommand);
+//        if (recognisedPerson.getClass().equals(CreateStudentCommand.class)) {
+//            person = modelMapper.map(recognisedPerson, Student.class);
+//        } else if (recognisedPerson.getClass().equals(CreateEmployeeCommand.class)) {
+//            person = modelMapper.map(recognisedPerson, Employee.class);
+//        } else if (recognisedPerson.getClass().equals(CreatePensionerCommand.class)) {
+//            person = modelMapper.map(recognisedPerson, Pensioner.class);
+//        }
+//
+//            Person savedPerson = personService.add(person);
+//            return new ResponseEntity(HttpStatus.CREATED);
+//        }
 
 //    @PostConstruct
 //    public void initTestData(){
@@ -66,7 +82,7 @@ public class PersonController {
 //    }
 
 
-        //    @GetMapping(path = "/criteria")
+    //    @GetMapping(path = "/criteria")
 //    public ResponseEntity<List<Person>> getPersonByCriteria(@RequestParam(value = "firstName", required = false) String firstName,
 //                                                            @RequestParam(value = "lastName", required = false) String lastName) {
 //        List<Person> persons;
@@ -79,10 +95,11 @@ public class PersonController {
 //        }
 //        return ResponseEntity.ok(persons);
 //    }
-        @GetMapping(value = "/{filter}")
-        public ResponseEntity<List<Person>> filterPersons (@PathVariable("filter") String filter){
-            List<Person> filteredPersons = personService.filterPersonByFilter(filter);
-            return ResponseEntity.ok(filteredPersons);
-        }
 
-    }
+//        @GetMapping(value = "/{filter}")
+//        public ResponseEntity<List<Person>> filterPersons (@PathVariable("filter") String filter){
+//            List<Person> filteredPersons = personService.filterPersonByFilter(filter);
+//            return ResponseEntity.ok(filteredPersons);
+//        }
+
+}
