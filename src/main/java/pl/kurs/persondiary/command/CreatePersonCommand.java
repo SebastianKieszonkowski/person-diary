@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 @Getter
 @AllArgsConstructor
-public class CreatePersonCommand implements ICreatePersonCommand{
+public class CreatePersonCommand{//} implements ICreatePersonCommand{
     @NotNull
     private JsonNode field;
 }

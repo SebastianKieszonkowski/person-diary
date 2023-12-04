@@ -1,24 +1,16 @@
 package pl.kurs.persondiary.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.kurs.persondiary.command.*;
-import pl.kurs.persondiary.command.singleCommand.CreateEmployeeCommand;
-import pl.kurs.persondiary.command.singleCommand.CreatePensionerCommand;
-import pl.kurs.persondiary.command.singleCommand.CreateStudentCommand;
 import pl.kurs.persondiary.dto.IPersonDto;
 import pl.kurs.persondiary.modelfactory.PersonFactory;
 import pl.kurs.persondiary.models.*;
-import pl.kurs.persondiary.services.PersonMapperService;
 import pl.kurs.persondiary.services.PersonService;
 
 import java.util.List;
@@ -27,11 +19,11 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(path = "/persons")
 @RequiredArgsConstructor
+@Validated
 public class PersonController {
-
-    //    private final PersonMapperService personMapperService;
+    //private final PersonMapperService personMapperService;
     private final PersonService personService;
-    private final ModelMapper modelMapper;
+    //private final ModelMapper modelMapper;
     private final PersonFactory personFactory;
 
     //    private final PersonService personService;
@@ -43,6 +35,31 @@ public class PersonController {
                 .collect(Collectors.toList());
         return new ResponseEntity<>(personDtoList, HttpStatus.OK);
     }
+
+    @PostMapping
+    public ResponseEntity createShape(@RequestBody String createPersonCommand) {
+
+        Person person = personFactory.createPerson(createPersonCommand);
+        person = personService.savePerson(person);
+        IPersonDto personDto = personFactory.createDtoFromPerson(person);
+        return new ResponseEntity<>(personDto, HttpStatus.CREATED);
+    }
+    //    @PostMapping
+//    public ResponseEntity createGrade(@RequestBody String createPersonCommand) throws JsonProcessingException {
+//        System.out.println(createPersonCommand);
+//        Person person = null;
+//       ICreatePersonCommand recognisedPerson = personMapperService.recognisePerson(createPersonCommand);
+//        if (recognisedPerson.getClass().equals(CreateStudentCommand.class)) {
+//            person = modelMapper.map(recognisedPerson, Student.class);
+//        } else if (recognisedPerson.getClass().equals(CreateEmployeeCommand.class)) {
+//            person = modelMapper.map(recognisedPerson, Employee.class);
+//        } else if (recognisedPerson.getClass().equals(CreatePensionerCommand.class)) {
+//            person = modelMapper.map(recognisedPerson, Pensioner.class);
+//        }
+//
+//            Person savedPerson = personService.add(person);
+//            return new ResponseEntity(HttpStatus.CREATED);
+//        }
 //    @GetMapping()
 //    public ResponseEntity getAllEmploy () {
 //        List<Person> persons = personService.getAll();
@@ -55,22 +72,7 @@ public class PersonController {
 //        return ResponseEntity.ok(person);
 //    }
 //
-//    @PostMapping
-//    public ResponseEntity createGrade(@RequestBody String createPersonCommand) throws JsonProcessingException {
-//        System.out.println(createPersonCommand);
-//        Person person = null;
-//        ICreatePersonCommand recognisedPerson = personMapperService.recognisePerson(createPersonCommand);
-//        if (recognisedPerson.getClass().equals(CreateStudentCommand.class)) {
-//            person = modelMapper.map(recognisedPerson, Student.class);
-//        } else if (recognisedPerson.getClass().equals(CreateEmployeeCommand.class)) {
-//            person = modelMapper.map(recognisedPerson, Employee.class);
-//        } else if (recognisedPerson.getClass().equals(CreatePensionerCommand.class)) {
-//            person = modelMapper.map(recognisedPerson, Pensioner.class);
-//        }
-//
-//            Person savedPerson = personService.add(person);
-//            return new ResponseEntity(HttpStatus.CREATED);
-//        }
+
 
 //    @PostConstruct
 //    public void initTestData(){

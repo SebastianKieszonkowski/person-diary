@@ -26,6 +26,7 @@ public class Pensioner extends Person {
     @Column(nullable = false)
     private Integer workedYears;
 
+    @Builder
     public Pensioner(Long id, String firstName, String lastName, String pesel, Double height, Double weight, String email, Double pension, Integer workedYears) {
         super(id, firstName, lastName, pesel, height, weight, email);
         this.pension = pension;

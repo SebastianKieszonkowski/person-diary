@@ -40,4 +40,9 @@ public class EmployeeService extends AbstractGenericManagementService<Employee, 
     public List<Employee> findAll() {
         return repository.findAll();
     }
+
+    @Override
+    public String getType() {
+        return "EMPLOYEE";
+    }
 }

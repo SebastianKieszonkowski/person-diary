@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 import java.util.stream.Stream;
 
 @Service
-public class PensionerService extends AbstractGenericManagementService<Pensioner, PensionerRepositories> {
+public class PensionerService extends AbstractGenericManagementService<Pensioner, PensionerRepositories>{
 
     private final JdbcTemplate jdbcTemplate;
     private static final String INSERT_SQL = "insert into pensioner (id, first_name, last_name, pesel, height, weight, email," +
@@ -37,4 +37,8 @@ public class PensionerService extends AbstractGenericManagementService<Pensioner
         super.repository.deleteAll();
     }
 
+    @Override
+    public String getType() {
+        return "PENSIONER";
+    }
 }

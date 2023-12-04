@@ -13,4 +13,7 @@ public interface IManagementService<T> {
     T get(Long id);
 
     List<T> getAll();
+
+    String getType();
+
 }

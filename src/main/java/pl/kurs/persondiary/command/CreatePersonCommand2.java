@@ -7,7 +7,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 
 @Getter
-public class CreatePersonCommand2 implements ICreatePersonCommand{
+public class CreatePersonCommand2{//} implements ICreatePersonCommand{
+
     @NotBlank
     private String firstName;
     @NotBlank

@@ -1,5 +1,6 @@
 package pl.kurs.persondiary.exeptions.excepthandling;
 
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -16,6 +17,13 @@ import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler({ConstraintViolationException.class})
+    public ResponseEntity<ExceptionResponseDto> handleConstraintViolationException(ConstraintViolationException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                new ExceptionResponseDto(List.of(e.getMessage()), "BAD_REQUEST", LocalDateTime.now())
+        );
+    }
 
     @ExceptionHandler({ResourceNotFoundException.class})
     public ResponseEntity<ExceptionResponseDto> handleResourceNotFoundException(ResourceNotFoundException e) {
@@ -52,4 +60,5 @@ public class GlobalExceptionHandler {
                 .map(fe -> "Field: " + fe.getField() + " / rejected value: '" + fe.getRejectedValue() + "' / message: " + fe.getDefaultMessage())
                 .collect(Collectors.toList());
     }
+
 }

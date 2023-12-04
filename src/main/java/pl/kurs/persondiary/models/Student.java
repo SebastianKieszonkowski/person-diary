@@ -32,6 +32,7 @@ public class Student extends Person{
     @Column(nullable = false)
     private Double scholarship;
 
+    @Builder
     public Student(Long id, String firstName, String lastName, String pesel, Double height, Double weight, String email, String universityName, Integer studyYear, String studyField, Double scholarship) {
         super(id, firstName, lastName, pesel, height, weight, email);
         this.universityName = universityName;

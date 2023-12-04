@@ -8,6 +8,7 @@ import java.util.Optional;
 
 @Service
 public class EmployeePositionService extends AbstractGenericManagementService<EmployeePosition, EmployeePositionRepositories> {
+
     public EmployeePositionService(EmployeePositionRepositories repository) {
         super(repository);
     }
@@ -19,5 +20,10 @@ public class EmployeePositionService extends AbstractGenericManagementService<Em
     @Override
     public void deleteAll() {
         super.repository.deleteAll();
+    }
+
+    @Override
+    public String getType() {
+        return null;
     }
 }

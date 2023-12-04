@@ -46,12 +46,12 @@ public class StudentController {
         return new ResponseEntity<>(fullStudentDto, HttpStatus.CREATED);
     }
     @GetMapping
-    public ResponseEntity<List<FullStudentDto>> getAllStudents(@PageableDefault Pageable pageable) {
-        Page<Student> studentsPage = studentService.findAllPageable(pageable);
-        List<FullStudentDto> fullStudentDtoPage = studentsPage.stream()
-                .map(x -> modelMapper.map(x,FullStudentDto.class))
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(fullStudentDtoPage);
+    public ResponseEntity getAllStudents() {
+        List<Student> studentsPage = studentService.getAll();
+//        List<FullStudentDto> fullStudentDtoPage = studentsPage.stream()
+//                .map(x -> modelMapper.map(x,FullStudentDto.class))
+//                .collect(Collectors.toList());
+        return ResponseEntity.ok(studentsPage);
     }
 
     @PostMapping("/upload")

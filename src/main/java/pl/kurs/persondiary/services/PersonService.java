@@ -9,10 +9,16 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.kurs.persondiary.command.FindPersonQuery;
+import pl.kurs.persondiary.models.Employee;
+import pl.kurs.persondiary.models.Person;
 import pl.kurs.persondiary.models.PersonView;
+import pl.kurs.persondiary.services.singleservice.EmployeeService;
+import pl.kurs.persondiary.services.singleservice.PensionerService;
+import pl.kurs.persondiary.services.singleservice.ServiceManager;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -25,6 +31,14 @@ public class PersonService {
 
     @PersistenceContext
     private final EntityManager entityManager;
+    private final ServiceManager serviceManager;
+
+    @Modifying
+    public Person savePerson(Person person){
+        IManagementService<Person> personService = serviceManager.prepareManager(person);
+        Person savedPerson = personService.add(person);
+        return savedPerson;
+    }
 
     @Transactional(readOnly = true)
     public List<PersonView> findPersonByParameters(FindPersonQuery query, Pageable pageable) {

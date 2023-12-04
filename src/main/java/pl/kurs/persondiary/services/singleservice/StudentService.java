@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 import java.util.stream.Stream;
 
 @Service
-public class StudentService extends AbstractGenericManagementService<Student, StudentRepositories> {
+public class StudentService extends AbstractGenericManagementService<Student, StudentRepositories>{
 
     private final JdbcTemplate jdbcTemplate;
     private static final String INSERT_SQL = "insert into student (first_name, last_name," +
@@ -46,5 +46,10 @@ public class StudentService extends AbstractGenericManagementService<Student, St
     @Override
     public void deleteAll() {
         super.repository.deleteAll();
+    }
+
+    @Override
+    public String getType() {
+        return "STUDENT";
     }
 }
