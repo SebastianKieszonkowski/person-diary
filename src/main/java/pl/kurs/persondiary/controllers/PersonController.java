@@ -7,10 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import pl.kurs.persondiary.command.*;
+import pl.kurs.persondiary.command.CreatePersonCommand;
+import pl.kurs.persondiary.command.FindPersonQuery;
 import pl.kurs.persondiary.dto.IPersonDto;
-import pl.kurs.persondiary.modelfactory.PersonFactory;
-import pl.kurs.persondiary.models.*;
+import pl.kurs.persondiary.factory.PersonFactory;
+import pl.kurs.persondiary.models.Person;
+import pl.kurs.persondiary.models.PersonView;
 import pl.kurs.persondiary.services.PersonService;
 
 import java.util.List;
@@ -21,9 +23,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Validated
 public class PersonController {
-    //private final PersonMapperService personMapperService;
     private final PersonService personService;
-    //private final ModelMapper modelMapper;
     private final PersonFactory personFactory;
 
     //    private final PersonService personService;
@@ -37,42 +37,19 @@ public class PersonController {
     }
 
     @PostMapping
-    public ResponseEntity createShape(@RequestBody String createPersonCommand) {
-
-        Person person = personFactory.createPerson(createPersonCommand);
+    public ResponseEntity createShape(@RequestBody CreatePersonCommand createPersonCommand) {
+        //docelowo przenieść to do serwisu
+        Person person = personFactory.create(createPersonCommand);
         person = personService.savePerson(person);
         IPersonDto personDto = personFactory.createDtoFromPerson(person);
         return new ResponseEntity<>(personDto, HttpStatus.CREATED);
     }
-    //    @PostMapping
-//    public ResponseEntity createGrade(@RequestBody String createPersonCommand) throws JsonProcessingException {
-//        System.out.println(createPersonCommand);
-//        Person person = null;
-//       ICreatePersonCommand recognisedPerson = personMapperService.recognisePerson(createPersonCommand);
-//        if (recognisedPerson.getClass().equals(CreateStudentCommand.class)) {
-//            person = modelMapper.map(recognisedPerson, Student.class);
-//        } else if (recognisedPerson.getClass().equals(CreateEmployeeCommand.class)) {
-//            person = modelMapper.map(recognisedPerson, Employee.class);
-//        } else if (recognisedPerson.getClass().equals(CreatePensionerCommand.class)) {
-//            person = modelMapper.map(recognisedPerson, Pensioner.class);
-//        }
-//
-//            Person savedPerson = personService.add(person);
-//            return new ResponseEntity(HttpStatus.CREATED);
-//        }
-//    @GetMapping()
-//    public ResponseEntity getAllEmploy () {
-//        List<Person> persons = personService.getAll();
-//        return ResponseEntity.ok(persons);
-//    }
-//
-//    @GetMapping(path ="/{id}")
-//    public ResponseEntity getEmployeeById(@PathVariable("id") Long id) {
-//        Employee person = personService.getEmployeeById(id).orElseThrow();
-//        return ResponseEntity.ok(person);
-//    }
-//
 
+    @PatchMapping(path = "/{pesel}")
+    public ResponseEntity editPerson(@PathVariable String pesel, @RequestBody CreatePersonCommand updatePersonCommand){
+        PersonView person = personService.findByPesel(pesel);
+        return new ResponseEntity<>(person, HttpStatus.OK);
+    }
 
 //    @PostConstruct
 //    public void initTestData(){
@@ -82,26 +59,5 @@ public class PersonController {
 //        personService.add(new Employee(null, "Karol", "Polak", "97081504858", 1.6, 65.1, "karol.polak@gmail.com", LocalDate.now(), "Developer", 11_399.85));
 //        personService.add(new Student(null, "Piotr", "Gad", "99081504887", 1.85, 72.1, "piotr.gad@gmail.com", "PW", 5, "Mechatronika", 2_000.0));
 //    }
-
-
-    //    @GetMapping(path = "/criteria")
-//    public ResponseEntity<List<Person>> getPersonByCriteria(@RequestParam(value = "firstName", required = false) String firstName,
-//                                                            @RequestParam(value = "lastName", required = false) String lastName) {
-//        List<Person> persons;
-//        if (firstName != null) {
-//            persons = personService.getByFirstName(firstName);
-//        } else if (lastName != null) {
-//            persons = personService.getByLastName(lastName);
-//        } else {
-//            persons = personService.getAll();
-//        }
-//        return ResponseEntity.ok(persons);
-//    }
-
-//        @GetMapping(value = "/{filter}")
-//        public ResponseEntity<List<Person>> filterPersons (@PathVariable("filter") String filter){
-//            List<Person> filteredPersons = personService.filterPersonByFilter(filter);
-//            return ResponseEntity.ok(filteredPersons);
-//        }
 
 }

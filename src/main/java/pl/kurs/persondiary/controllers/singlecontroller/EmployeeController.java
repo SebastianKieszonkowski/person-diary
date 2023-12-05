@@ -4,7 +4,6 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.modelmapper.ModelMapper;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -14,10 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import pl.kurs.persondiary.command.singleCommand.CreateEmployeeCommand;
 import pl.kurs.persondiary.dto.StatusDto;
-import pl.kurs.persondiary.dto.singledto.FullEmployeeDto;
+import pl.kurs.persondiary.dto.viewdto.EmployeeViewDto;
 import pl.kurs.persondiary.models.Employee;
 import pl.kurs.persondiary.models.EmployeePosition;
-import pl.kurs.persondiary.models.Pensioner;
 import pl.kurs.persondiary.services.EmployeePositionService;
 import pl.kurs.persondiary.services.singleservice.EmployeeService;
 
@@ -52,13 +50,13 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public ResponseEntity<FullEmployeeDto> createEmployee(@RequestBody @Valid CreateEmployeeCommand createEmployCommand) {
+    public ResponseEntity createEmployee(@RequestBody @Valid CreateEmployeeCommand createEmployCommand) {
         Employee employeeCreated = employeeService.add(modelMapper.map(createEmployCommand, Employee.class));
         EmployeePosition employeePosition = new EmployeePosition(createEmployCommand.getPosition(),createEmployCommand.getHireDate(),
                 null,createEmployCommand.getSalary(),employeeCreated);
         EmployeePosition employeePositionCreated = employeePositionService.add(employeePosition);
-        FullEmployeeDto fullEmployeeDto = modelMapper.map(employeeCreated, FullEmployeeDto.class);
-        return new ResponseEntity<>(fullEmployeeDto, HttpStatus.CREATED);
+        EmployeeViewDto employeeViewDto = modelMapper.map(employeeCreated, EmployeeViewDto.class);
+        return new ResponseEntity<>(employeeViewDto, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
@@ -71,33 +69,17 @@ public class EmployeeController {
     @GetMapping
     public ResponseEntity getAllEmployee(@PageableDefault Pageable pageable) {
         List<Employee> employeesPage = employeeService.findAll();
-        List<FullEmployeeDto> fullEmployeesDtoPage = employeesPage.stream()
-                .map(x -> modelMapper.map(x,FullEmployeeDto.class))
+        List<EmployeeViewDto> fullEmployeesDtoPage = employeesPage.stream()
+                .map(x -> modelMapper.map(x,EmployeeViewDto.class))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(fullEmployeesDtoPage);
     }
-//    @GetMapping
-//    public ResponseEntity getAllEmployee() {
-//        List<Employee> employeesPage = employeeService.getAll();
-//        List<FullEmployeeDto> fullEmployeesDtoPage = employeesPage.stream()
-//               .map(x -> modelMapper.map(x,FullEmployeeDto.class))
-//               .collect(Collectors.toList());
-//        return ResponseEntity.ok(fullEmployeesDtoPage);
-//    }
-//    }    @GetMapping
-//    public ResponseEntity getAllEmployee(@PageableDefault Pageable pageable) {
-//        Page<Employee> employeesPage = employeeService.findAllPageable(pageable);
-////        List<FullEmployeeDto> fullEmployeesDtoPage = employeesPage.stream()
-////                .map(x -> modelMapper.map(x,FullEmployeeDto.class))
-////                .collect(Collectors.toList());
-//        return ResponseEntity.ok(employeesPage);
-//    }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity getEmployeeById(@PathVariable("id") Long id) {
         Employee employee = employeeService.findById(id);
-        FullEmployeeDto fullEmployeeDto = modelMapper.map(employee, FullEmployeeDto.class);
-        return ResponseEntity.ok(fullEmployeeDto);
+        EmployeeViewDto employeeViewDto = modelMapper.map(employee, EmployeeViewDto.class);
+        return ResponseEntity.ok(employeeViewDto);
         //LazyInitializationException - rozważyć dodanie do exception handlera
     }
 

@@ -4,7 +4,6 @@ package pl.kurs.persondiary.mapping;
 import org.modelmapper.Converter;
 import org.modelmapper.spi.MappingContext;
 import org.springframework.stereotype.Service;
-import pl.kurs.persondiary.dto.singledto.FullStudentDto;
 import pl.kurs.persondiary.dto.viewdto.EmployeeViewDto;
 import pl.kurs.persondiary.models.PersonView;
 

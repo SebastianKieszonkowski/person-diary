@@ -1,10 +1,7 @@
 package pl.kurs.persondiary.services.singleservice;
 
 import org.springframework.stereotype.Service;
-import pl.kurs.persondiary.dto.IPersonDto;
-import pl.kurs.persondiary.modelfactory.PersonCreator;
 import pl.kurs.persondiary.models.Person;
-import pl.kurs.persondiary.models.PersonView;
 import pl.kurs.persondiary.services.IManagementService;
 
 import java.util.Locale;

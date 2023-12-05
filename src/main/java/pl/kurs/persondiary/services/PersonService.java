@@ -13,11 +13,9 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.kurs.persondiary.command.FindPersonQuery;
-import pl.kurs.persondiary.models.Employee;
 import pl.kurs.persondiary.models.Person;
 import pl.kurs.persondiary.models.PersonView;
-import pl.kurs.persondiary.services.singleservice.EmployeeService;
-import pl.kurs.persondiary.services.singleservice.PensionerService;
+import pl.kurs.persondiary.repositories.PersonViewRepository;
 import pl.kurs.persondiary.services.singleservice.ServiceManager;
 
 import java.time.LocalDate;
@@ -32,9 +30,10 @@ public class PersonService {
     @PersistenceContext
     private final EntityManager entityManager;
     private final ServiceManager serviceManager;
+    private final PersonViewRepository personViewRepository;
 
     @Modifying
-    public Person savePerson(Person person){
+    public Person savePerson(Person person) {
         IManagementService<Person> personService = serviceManager.prepareManager(person);
         Person savedPerson = personService.add(person);
         return savedPerson;
@@ -122,6 +121,11 @@ public class PersonService {
         List<PersonView> personViewList = typedQuery.getResultList();
 
         return personViewList;
+    }
+
+    public PersonView findByPesel(String pesel) {
+        PersonView person = personViewRepository.findByPesel(pesel);
+        return person;
     }
     //extends AbstractGenericManagementService<Person, PersonRepository> {
 
