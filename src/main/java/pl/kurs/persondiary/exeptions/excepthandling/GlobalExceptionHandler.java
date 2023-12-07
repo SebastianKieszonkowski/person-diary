@@ -1,6 +1,7 @@
 package pl.kurs.persondiary.exeptions.excepthandling;
 
 import jakarta.validation.ConstraintViolationException;
+import org.hibernate.NonUniqueResultException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import pl.kurs.persondiary.exeptions.ExceptionResponseDto;
 import pl.kurs.persondiary.exeptions.MissingIdException;
 import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
+import pl.kurs.persondiary.exeptions.ResultNotFoundException;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDateTime;
@@ -17,6 +19,20 @@ import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler({ResultNotFoundException.class})
+    public ResponseEntity<ExceptionResponseDto> handleConstraintViolationException(ResultNotFoundException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                new ExceptionResponseDto(List.of(e.getMessage()), "BAD_REQUEST", LocalDateTime.now())
+        );
+    }
+
+    @ExceptionHandler({NonUniqueResultException.class})
+    public ResponseEntity<ExceptionResponseDto> handleConstraintViolationException(NonUniqueResultException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                new ExceptionResponseDto(List.of(e.getMessage()), "BAD_REQUEST", LocalDateTime.now())
+        );
+    }
 
     @ExceptionHandler({ConstraintViolationException.class})
     public ResponseEntity<ExceptionResponseDto> handleConstraintViolationException(ConstraintViolationException e) {

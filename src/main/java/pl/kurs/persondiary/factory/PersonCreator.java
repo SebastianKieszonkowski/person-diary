@@ -10,8 +10,10 @@ import java.util.Map;
 public interface PersonCreator {
     String getType();
     Person create(Map<String, Object> parameters);
+    Person update(Person person, Map<String, Object> parameters);
     IPersonDto createDtoFromView(PersonView personView);
     IPersonDto createDtoFromPerson(Person person);
+
 
     default String getStringParameter(String name, Map<String, Object> parameters){
         return (String) parameters.get(name);

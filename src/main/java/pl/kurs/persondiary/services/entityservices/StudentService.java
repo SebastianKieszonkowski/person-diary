@@ -1,6 +1,5 @@
-package pl.kurs.persondiary.services.singleservice;
+package pl.kurs.persondiary.services.entityservices;
 
-import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -8,10 +7,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import pl.kurs.persondiary.models.Employee;
+import pl.kurs.persondiary.command.CreatePersonCommand;
 import pl.kurs.persondiary.models.Student;
 import pl.kurs.persondiary.repositories.singlerepositories.StudentRepositories;
-import pl.kurs.persondiary.services.AbstractGenericManagementService;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -51,5 +49,15 @@ public class StudentService extends AbstractGenericManagementService<Student, St
     @Override
     public String getType() {
         return "STUDENT";
+    }
+
+    @Override
+    public Student findByPesel(String pesel) {
+        return repository.findByPesel(pesel);
+    }
+
+    @Override
+    public Student updatePerson(Student person, CreatePersonCommand update) {
+        return super.updatePerson(person, update);
     }
 }

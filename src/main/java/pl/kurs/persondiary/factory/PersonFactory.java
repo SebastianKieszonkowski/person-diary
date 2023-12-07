@@ -22,11 +22,15 @@ public class PersonFactory {
     }
 
     public Person create(CreatePersonCommand command){
-        return creators.get(command.getType()).create(command.getParameters());
+        return creators.get(command.getType().toLowerCase(Locale.ROOT)).create(command.getParameters());
+    }
+
+    public Person update(Person person, CreatePersonCommand command){
+        return creators.get(command.getType().toLowerCase(Locale.ROOT)).update(person, command.getParameters());
     }
 
     public IPersonDto createDtoFromView(PersonView personView){
-        return creators.get(personView.getType()).createDtoFromView(personView);
+        return creators.get(personView.getType().toLowerCase(Locale.ROOT)).createDtoFromView(personView);
     }
 
     public IPersonDto createDtoFromPerson(Person person){

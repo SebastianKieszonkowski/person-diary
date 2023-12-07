@@ -1,4 +1,4 @@
-package pl.kurs.persondiary.services;
+package pl.kurs.persondiary.services.entityservices;
 
 import org.springframework.stereotype.Service;
 import pl.kurs.persondiary.models.EmployeePosition;
@@ -14,12 +14,18 @@ public class EmployeePositionService extends AbstractGenericManagementService<Em
     }
 
     public Optional<EmployeePosition> findById(Long id) {
-        return Optional.ofNullable(super.get(id));
+        return repository.findById(id);
+    }
+
+    //do usuniecia
+    @Override
+    public EmployeePosition findByPesel(String pesel) {
+        return null;
     }
 
     @Override
     public void deleteAll() {
-        super.repository.deleteAll();
+        repository.deleteAll();
     }
 
     @Override

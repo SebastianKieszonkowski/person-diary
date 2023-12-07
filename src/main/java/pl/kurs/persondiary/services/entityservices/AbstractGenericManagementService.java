@@ -1,15 +1,14 @@
-package pl.kurs.persondiary.services;
+package pl.kurs.persondiary.services.entityservices;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import pl.kurs.persondiary.command.CreatePersonCommand;
 import pl.kurs.persondiary.exeptions.MissingIdException;
 import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.models.Identificationable;
 
 import java.util.List;
 
-public abstract class AbstractGenericManagementService<T extends Identificationable,
+public abstract class AbstractGenericManagementService<T extends Identificationable ,
         R extends JpaRepository<T, Long>> implements IManagementService<T> {
 
     protected final R repository;
@@ -47,4 +46,18 @@ public abstract class AbstractGenericManagementService<T extends Identificationa
     }
 
     public abstract void deleteAll();
+
+    public T saveAndFlush(T entity){
+        return repository.saveAndFlush(entity);
+    }
+
+    @Override
+    public T updatePerson(T person, CreatePersonCommand update) {
+        return null;
+    }
+
+    //    @Override
+//    public T findByPesel(String pesel) {
+//        return repository.findByPesel(pesel);//.orElseThrow(() -> new ResourceNotFoundException("Nie znalezion elementu"));
+//    }
 }

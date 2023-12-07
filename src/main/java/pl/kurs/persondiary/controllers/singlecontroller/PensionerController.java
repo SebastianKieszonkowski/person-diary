@@ -5,14 +5,12 @@ import lombok.SneakyThrows;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import pl.kurs.persondiary.dto.StatusDto;
 import pl.kurs.persondiary.models.Pensioner;
-import pl.kurs.persondiary.models.Student;
-import pl.kurs.persondiary.services.singleservice.PensionerService;
+import pl.kurs.persondiary.services.entityservices.PensionerService;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

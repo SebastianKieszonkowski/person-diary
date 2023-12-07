@@ -13,7 +13,7 @@ import pl.kurs.persondiary.command.singleCommand.CreateStudentCommand;
 import pl.kurs.persondiary.dto.StatusDto;
 import pl.kurs.persondiary.dto.viewdto.StudentViewDto;
 import pl.kurs.persondiary.models.Student;
-import pl.kurs.persondiary.services.singleservice.StudentService;
+import pl.kurs.persondiary.services.entityservices.StudentService;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

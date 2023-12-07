@@ -1,12 +1,11 @@
-package pl.kurs.persondiary.services.singleservice;
+package pl.kurs.persondiary.services.entityservices;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.kurs.persondiary.command.CreatePersonCommand;
 import pl.kurs.persondiary.models.Employee;
 import pl.kurs.persondiary.models.EmployeePosition;
 import pl.kurs.persondiary.repositories.singlerepositories.EmployeeRepository;
-import pl.kurs.persondiary.services.AbstractGenericManagementService;
-import pl.kurs.persondiary.services.EmployeePositionService;
 
 import java.util.List;
 
@@ -57,5 +56,15 @@ public class EmployeeService extends AbstractGenericManagementService<Employee, 
     @Override
     public String getType() {
         return "EMPLOYEE";
+    }
+
+    @Override
+    public Employee findByPesel(String pesel) {
+        return repository.findByPesel(pesel).orElseThrow();
+    }
+
+    @Override
+    public Employee updatePerson(Employee person, CreatePersonCommand update) {
+        return super.updatePerson(person, update);
     }
 }

@@ -12,8 +12,8 @@ import pl.kurs.persondiary.dto.FullEmployeePositionDto;
 import pl.kurs.persondiary.dto.StatusDto;
 import pl.kurs.persondiary.models.Employee;
 import pl.kurs.persondiary.models.EmployeePosition;
-import pl.kurs.persondiary.services.EmployeePositionService;
-import pl.kurs.persondiary.services.singleservice.EmployeeService;
+import pl.kurs.persondiary.services.entityservices.EmployeePositionService;
+import pl.kurs.persondiary.services.entityservices.EmployeeService;
 
 import java.util.List;
 import java.util.Optional;

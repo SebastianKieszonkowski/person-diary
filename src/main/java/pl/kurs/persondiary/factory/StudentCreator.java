@@ -11,12 +11,13 @@ import pl.kurs.persondiary.models.PersonView;
 import pl.kurs.persondiary.models.Student;
 
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class StudentCreator implements PersonCreator {
 
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
     @Override
     public String getType() {
@@ -38,13 +39,30 @@ public class StudentCreator implements PersonCreator {
     }
 
     @Override
+    public Person update(Person person, @Valid Map<String, Object> parameters) {
+        Student student = (Student) person;
+        Optional.ofNullable(getStringParameter("firstName", parameters)).ifPresent(student::setFirstName);
+        Optional.ofNullable(getStringParameter("lastName", parameters)).ifPresent(student::setLastName);
+        Optional.ofNullable(getStringParameter("pesel", parameters)).ifPresent(student::setPesel);
+        Optional.ofNullable(getDoubleParameter("height", parameters)).ifPresent(student::setHeight);
+        Optional.ofNullable(getDoubleParameter("weight", parameters)).ifPresent(student::setWeight);
+        Optional.ofNullable(getStringParameter("email", parameters)).ifPresent(student::setEmail);
+        Optional.ofNullable(getStringParameter("universityName", parameters)).ifPresent(student::setUniversityName);
+        Optional.ofNullable(getIntegerParameter("studyYear", parameters)).ifPresent(student::setStudyYear);
+        Optional.ofNullable(getStringParameter("studyField", parameters)).ifPresent(student::setStudyField);
+        Optional.ofNullable(getDoubleParameter("scholarship", parameters)).ifPresent(student::setScholarship);
+        return student;
+    }
+
+    @Override
     public IPersonDto createDtoFromView(PersonView personView) {
         return modelMapper.map(personView, StudentViewDto.class);
     }
 
     @Override
     public IPersonDto createDtoFromPerson(Person person) {
-        Student student = (Student)person;
+        Student student = (Student) person;
         return modelMapper.map(student, StudentViewDto.class);
     }
+
 }

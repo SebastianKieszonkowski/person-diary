@@ -47,7 +47,7 @@ public class PersonController {
 
     @PatchMapping(path = "/{pesel}")
     public ResponseEntity editPerson(@PathVariable String pesel, @RequestBody CreatePersonCommand updatePersonCommand){
-        PersonView person = personService.findByPesel(pesel);
+        Person person = personService.updatePerson(pesel, updatePersonCommand);
         return new ResponseEntity<>(person, HttpStatus.OK);
     }
 

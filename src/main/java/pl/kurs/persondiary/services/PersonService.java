@@ -12,11 +12,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.kurs.persondiary.command.CreatePersonCommand;
 import pl.kurs.persondiary.command.FindPersonQuery;
+import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
+import pl.kurs.persondiary.factory.PersonFactory;
 import pl.kurs.persondiary.models.Person;
 import pl.kurs.persondiary.models.PersonView;
 import pl.kurs.persondiary.repositories.PersonViewRepository;
-import pl.kurs.persondiary.services.singleservice.ServiceManager;
+import pl.kurs.persondiary.services.entityservices.IManagementService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -29,14 +32,31 @@ public class PersonService {
 
     @PersistenceContext
     private final EntityManager entityManager;
-    private final ServiceManager serviceManager;
+    private final ServiceFactory serviceFactory;
     private final PersonViewRepository personViewRepository;
+    private final PersonFactory personFactory;
 
     @Modifying
     public Person savePerson(Person person) {
-        IManagementService<Person> personService = serviceManager.prepareManager(person);
+        IManagementService<Person> personService = serviceFactory.prepareManager(person.getClass().getSimpleName());
         Person savedPerson = personService.add(person);
         return savedPerson;
+    }
+
+    // @Transactional(readOnly = true)
+//    @Modifying
+    public Person updatePerson(String pesel, CreatePersonCommand updatePersonCommand) {
+        if( !personViewRepository.existsByPeselAndType(pesel, updatePersonCommand.getType()))
+            throw new ResourceNotFoundException("Result not found");
+        IManagementService<Person> personService2 = serviceFactory.prepareManager(updatePersonCommand.getType());
+        Person dbPerson = personService2.findByPesel(pesel);
+        dbPerson = personFactory.update(dbPerson, updatePersonCommand);
+        return dbPerson;
+    }
+
+    @Transactional(readOnly = true)
+    public boolean existByPeselAndType(String pesel, String type) {
+        return personViewRepository.existsByPeselAndType(pesel, type);
     }
 
     @Transactional(readOnly = true)
@@ -123,10 +143,6 @@ public class PersonService {
         return personViewList;
     }
 
-    public PersonView findByPesel(String pesel) {
-        PersonView person = personViewRepository.findByPesel(pesel);
-        return person;
-    }
     //extends AbstractGenericManagementService<Person, PersonRepository> {
 
 //    public PersonService(PersonRepository repository) {

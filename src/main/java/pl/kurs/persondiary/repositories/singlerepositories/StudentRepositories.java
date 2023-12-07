@@ -4,4 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import pl.kurs.persondiary.models.Student;
 
 public interface StudentRepositories extends JpaRepository<Student, Long> {
+    Student findByPesel(String pesel);
 }
