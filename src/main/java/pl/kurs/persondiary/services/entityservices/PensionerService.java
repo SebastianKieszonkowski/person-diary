@@ -16,11 +16,16 @@ public class PensionerService extends AbstractGenericManagementService<Pensioner
 
     private final JdbcTemplate jdbcTemplate;
     private static final String INSERT_SQL = "insert into pensioner (id, first_name, last_name, pesel, height, weight, email," +
-            " pension, worked_years) values (default, ?, ?, ?, ?, ?, ?, ?, ?)";
+            "version, pension, worked_years) values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     public PensionerService(PensionerRepositories repository, JdbcTemplate jdbcTemplate) {
         super(repository);
         this.jdbcTemplate = jdbcTemplate;
+    }
+
+    @Override
+    public String getType() {
+        return "PENSIONER";
     }
 
     @SneakyThrows
@@ -37,12 +42,12 @@ public class PensionerService extends AbstractGenericManagementService<Pensioner
     }
 
     @Override
-    public String getType() {
-        return "PENSIONER";
+    public Pensioner findByPesel(String pesel) {
+        return repository.findByPesel(pesel).orElseThrow();
     }
 
     @Override
-    public Pensioner findByPesel(String pesel) {
-        return repository.findByPesel(pesel).orElseThrow();
+    public Pensioner edit(Pensioner entity) {
+        return repository.save(entity);
     }
 }

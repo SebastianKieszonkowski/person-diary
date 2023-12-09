@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Validated
 public class PersonController {
+    //serwisy zwracają objekty domenowe
     private final PersonService personService;
     private final PersonFactory personFactory;
 
@@ -38,7 +39,6 @@ public class PersonController {
 
     @PostMapping
     public ResponseEntity createShape(@RequestBody CreatePersonCommand createPersonCommand) {
-        //docelowo przenieść to do serwisu
         Person person = personFactory.create(createPersonCommand);
         person = personService.savePerson(person);
         IPersonDto personDto = personFactory.createDtoFromPerson(person);
@@ -47,8 +47,10 @@ public class PersonController {
 
     @PatchMapping(path = "/{pesel}")
     public ResponseEntity editPerson(@PathVariable String pesel, @RequestBody CreatePersonCommand updatePersonCommand){
+        //tu przerobić żeby person service przyjmował wyszukanego persona
         Person person = personService.updatePerson(pesel, updatePersonCommand);
-        return new ResponseEntity<>(person, HttpStatus.OK);
+        IPersonDto personDto = personFactory.createDtoFromPerson(person);
+        return new ResponseEntity<>(personDto, HttpStatus.OK);
     }
 
 //    @PostConstruct

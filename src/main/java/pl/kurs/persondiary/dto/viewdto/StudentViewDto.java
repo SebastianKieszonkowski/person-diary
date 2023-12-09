@@ -17,6 +17,7 @@ public class StudentViewDto implements IPersonDto {
     private Double height;
     private Double weight;
     private String email;
+    private Integer version;
     private String universityName;
     private Integer studyYear;
     private String studyField;

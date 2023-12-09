@@ -5,7 +5,6 @@ import org.modelmapper.Converter;
 import org.modelmapper.spi.MappingContext;
 import org.springframework.stereotype.Service;
 import pl.kurs.persondiary.dto.viewdto.PensionerViewDto;
-import pl.kurs.persondiary.dto.viewdto.StudentViewDto;
 import pl.kurs.persondiary.models.PersonView;
 
 @Service
@@ -22,6 +21,7 @@ public class PersonViewToPensionerViewDtoCreator implements Converter<PersonView
                 .height(source.getHeight())
                 .weight(source.getWeight())
                 .email(source.getEmail())
+                .version(source.getVersion())
                 .pension(source.getPension())
                 .workedYears(source.getWorkedYears())
                 .build();

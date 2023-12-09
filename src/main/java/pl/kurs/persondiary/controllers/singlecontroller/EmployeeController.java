@@ -38,22 +38,22 @@ public class EmployeeController {
 
     @PostMapping("/upload")
     @SneakyThrows
-    public ResponseEntity addManyAsCsvFile(@RequestParam("file") MultipartFile file){
+    public ResponseEntity addManyAsCsvFile(@RequestParam("file") MultipartFile file) {
         Stream<String> lines = new BufferedReader(new InputStreamReader((file.getInputStream()))).lines();
         lines.map(line -> line.split(","))
-                .map(args -> new Employee(null, args[1],args[2],args[3],Double.parseDouble(args[4]),Double.parseDouble(args[5]),
-                        args[6], LocalDate.parse(args[7]),args[8],Double.parseDouble(args[9])))
-                .map(employeeService::add)
-                .map(employee -> new EmployeePosition(employee.getPosition(),employee.getHireDate(),null, employee.getSalary(), employee))
-                .forEach(employeePositionService::add);
+                .map(args -> new Employee(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
+                        args[6], 0, LocalDate.parse(args[7]), args[8], Double.parseDouble(args[9])))
+                .forEach(employeeService::add);
+        //.map(employee -> new EmployeePosition(employee.getPosition(),employee.getHireDate(),null, employee.getSalary(), employee))
+        //.forEach(employeePositionService::add);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @PostMapping
     public ResponseEntity createEmployee(@RequestBody @Valid CreateEmployeeCommand createEmployCommand) {
         Employee employeeCreated = employeeService.add(modelMapper.map(createEmployCommand, Employee.class));
-        EmployeePosition employeePosition = new EmployeePosition(createEmployCommand.getPosition(),createEmployCommand.getHireDate(),
-                null,createEmployCommand.getSalary(),employeeCreated);
+        EmployeePosition employeePosition = new EmployeePosition(createEmployCommand.getPosition(), createEmployCommand.getHireDate(),
+                null, createEmployCommand.getSalary(), employeeCreated);
         EmployeePosition employeePositionCreated = employeePositionService.add(employeePosition);
         EmployeeViewDto employeeViewDto = modelMapper.map(employeeCreated, EmployeeViewDto.class);
         return new ResponseEntity<>(employeeViewDto, HttpStatus.CREATED);
@@ -65,12 +65,18 @@ public class EmployeeController {
         return new ResponseEntity<>(new StatusDto("Skasowano pracownika o id: " + id), HttpStatus.OK);
     }
 
+    @DeleteMapping
+    public ResponseEntity<StatusDto> deleteAllEmployeeById() {
+        employeeService.deleteAll();
+        return new ResponseEntity<>(new StatusDto("Skasowano Wszystkich pracowników"), HttpStatus.OK);
+    }
+
     // http://localhost:8080/employee?size=1&page=0
     @GetMapping
     public ResponseEntity getAllEmployee(@PageableDefault Pageable pageable) {
         List<Employee> employeesPage = employeeService.findAll();
         List<EmployeeViewDto> fullEmployeesDtoPage = employeesPage.stream()
-                .map(x -> modelMapper.map(x,EmployeeViewDto.class))
+                .map(x -> modelMapper.map(x, EmployeeViewDto.class))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(fullEmployeesDtoPage);
     }

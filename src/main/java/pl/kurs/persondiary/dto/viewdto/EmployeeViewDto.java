@@ -19,6 +19,7 @@ public class EmployeeViewDto implements IPersonDto {
     private Double height;
     private Double weight;
     private String email;
+    private Integer version;
     private LocalDate hireDate;
     private String position;
     private Double salary;

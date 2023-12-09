@@ -18,15 +18,8 @@ public class EmployeeService extends AbstractGenericManagementService<Employee, 
         this.employeePositionService = employeePositionService;
     }
 
-//    @Transactional(readOnly = true)
-//    public List<Employee> findAllPageable(Pageable pageable) {
-//        int startPosition = pageable.getPageNumber() * pageable.getPageSize();
-//        int stopPosition = (pageable.getPageNumber() + 1) * pageable.getPageSize();
-//        return super.repository.findAll(startPosition, stopPosition);
-//    }
-
-
     @Override
+    @Transactional
     public Employee add(Employee entity) {
         Employee employee = super.add(entity);
         EmployeePosition employeePosition = new EmployeePosition(employee.getPosition(),
@@ -36,6 +29,10 @@ public class EmployeeService extends AbstractGenericManagementService<Employee, 
                 employee);
         EmployeePosition employeePositionCreated = employeePositionService.add(employeePosition);
         return employee;
+    }
+    @Override
+    public String getType() {
+        return "EMPLOYEE";
     }
 
     @Override
@@ -54,11 +51,7 @@ public class EmployeeService extends AbstractGenericManagementService<Employee, 
     }
 
     @Override
-    public String getType() {
-        return "EMPLOYEE";
-    }
-
-    @Override
+    @Transactional
     public Employee findByPesel(String pesel) {
         return repository.findByPesel(pesel).orElseThrow();
     }

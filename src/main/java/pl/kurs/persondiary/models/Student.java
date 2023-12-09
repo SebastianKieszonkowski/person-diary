@@ -1,17 +1,16 @@
 package pl.kurs.persondiary.models;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.*;
 import lombok.*;
-
-import java.util.Objects;
+import org.hibernate.validator.constraints.pl.PESEL;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 @ToString //do usuniecia w wersi ostatecznej
 @Entity
@@ -41,17 +40,8 @@ public class Student extends Person{
     @Column(nullable = false)
     private Double scholarship;
 
-    @Builder
-    public Student(Long id, String firstName, String lastName, String pesel, Double height, Double weight, String email, String universityName, Integer studyYear, String studyField, Double scholarship) {
-        super(id, firstName, lastName, pesel, height, weight, email);
-        this.universityName = universityName;
-        this.studyYear = studyYear;
-        this.studyField = studyField;
-        this.scholarship = scholarship;
-    }
-
-    public Student(String firstName, String lastName, String pesel, Double height, Double weight, String email, String universityName, Integer studyYear, String studyField, Double scholarship) {
-        super(firstName, lastName, pesel, height, weight, email);
+    public Student(@NotBlank String firstName, @NotBlank String lastName, @PESEL String pesel, @Positive Double height, @Positive Double weight, @Email String email, Integer version, @NotBlank String universityName, @Min(1) @Max(5) Integer studyYear, @NotBlank String studyField, @Positive Double scholarship) {
+        super(firstName, lastName, pesel, height, weight, email, version);
         this.universityName = universityName;
         this.studyYear = studyYear;
         this.studyField = studyField;

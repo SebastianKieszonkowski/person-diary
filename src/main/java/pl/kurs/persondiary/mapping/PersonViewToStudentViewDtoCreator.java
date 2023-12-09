@@ -22,6 +22,7 @@ public class PersonViewToStudentViewDtoCreator implements Converter<PersonView, 
                 .height(source.getHeight())
                 .weight(source.getWeight())
                 .email(source.getEmail())
+                .version(source.getVersion())
                 .universityName(source.getUniversityName())
                 .studyYear(source.getStudyYear())
                 .studyField(source.getStudyField())

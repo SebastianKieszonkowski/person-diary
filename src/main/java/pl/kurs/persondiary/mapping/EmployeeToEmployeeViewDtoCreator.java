@@ -6,7 +6,6 @@ import org.modelmapper.spi.MappingContext;
 import org.springframework.stereotype.Service;
 import pl.kurs.persondiary.dto.viewdto.EmployeeViewDto;
 import pl.kurs.persondiary.models.Employee;
-import pl.kurs.persondiary.models.PersonView;
 
 @Service
 public class EmployeeToEmployeeViewDtoCreator implements Converter<Employee, EmployeeViewDto> {
@@ -23,6 +22,7 @@ public class EmployeeToEmployeeViewDtoCreator implements Converter<Employee, Emp
                 .height(source.getHeight())
                 .weight(source.getWeight())
                 .email(source.getEmail())
+                .version((source.getVersion()))
                 .hireDate(source.getHireDate())
                 .position(source.getPosition())
                 .salary(source.getSalary())

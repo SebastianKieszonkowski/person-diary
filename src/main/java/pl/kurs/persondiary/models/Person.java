@@ -3,19 +3,17 @@ package pl.kurs.persondiary.models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.*;
 import org.hibernate.validator.constraints.pl.PESEL;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.Objects;
 
 @Getter
 @Setter
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 @ToString
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -53,22 +51,16 @@ public abstract class Person implements Serializable, Identificationable{
     @Column(nullable = false)
     private String email;
 
-    public Person(Long id, String firstName, String lastName, String pesel, Double height, Double weight, String email) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.pesel = pesel;
-        this.height = height;
-        this.weight = weight;
-        this.email = email;
-    }
+    @Version
+    private Integer version;
 
-    public Person(String firstName, String lastName, String pesel, Double height, Double weight, String email) {
+    public Person(@NotBlank String firstName, @NotBlank String lastName, @PESEL String pesel, @Positive Double height, @Positive Double weight, @Email String email, Integer version) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pesel = pesel;
         this.height = height;
         this.weight = weight;
         this.email = email;
+        this.version = version;
     }
 }

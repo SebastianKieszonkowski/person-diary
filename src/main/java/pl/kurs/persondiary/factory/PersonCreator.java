@@ -28,6 +28,9 @@ public interface PersonCreator {
     }
 
     default LocalDate getLocalDataParameter(String name, Map<String,Object> parameters){
-        return LocalDate.parse(parameters.get(name).toString());
+        LocalDate date = null;
+        if(parameters.get(name)!=null)
+            date = LocalDate.parse(parameters.get(name).toString());
+        return date;
     }
 }

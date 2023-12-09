@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -29,8 +28,8 @@ class PersonControllerTest {
     void shouldAddPerson() throws Exception{
         //given
 
-        Employee employee = new Employee( null, "Roman", "Test", "88071504852", 1.9,
-                100.1, "roman.test@gmail.com", LocalDate.of(1992,2,5), "PM", 22_359.85);
+        Employee employee = new Employee( "Roman", "Test", "88071504852", 1.9,
+                100.1, "roman.test@gmail.com",0, LocalDate.of(1992,2,5), "PM", 22_359.85);
         String json = objectMapper.writeValueAsString(employee);
         //when
         postman.perform(MockMvcRequestBuilders.post("/persons")

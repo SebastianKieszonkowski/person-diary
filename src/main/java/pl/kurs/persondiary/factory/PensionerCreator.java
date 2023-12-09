@@ -32,12 +32,13 @@ public class PensionerCreator implements PersonCreator{
                 getDoubleParameter("height", parameters),
                 getDoubleParameter("weight", parameters),
                 getStringParameter("email", parameters),
+                getIntegerParameter("version",parameters),
                 getDoubleParameter("pension", parameters),
                 getIntegerParameter("workedYears", parameters));
     }
 
     @Override
-    public Person update(Person person,@Valid Map<String, Object> parameters) {
+    public Person update(Person person, Map<String, Object> parameters) {
         Pensioner pensioner = (Pensioner) person;
         Optional.ofNullable(getStringParameter("firstName", parameters)).ifPresent(pensioner::setFirstName);
         Optional.ofNullable(getStringParameter("lastName", parameters)).ifPresent(pensioner::setLastName);
@@ -45,6 +46,7 @@ public class PensionerCreator implements PersonCreator{
         Optional.ofNullable(getDoubleParameter("height", parameters)).ifPresent(pensioner::setHeight);
         Optional.ofNullable(getDoubleParameter("weight", parameters)).ifPresent(pensioner::setWeight);
         Optional.ofNullable(getStringParameter("email", parameters)).ifPresent(pensioner::setEmail);
+        Optional.ofNullable(getIntegerParameter("version", parameters)).ifPresent(pensioner::setVersion);
         Optional.ofNullable(getDoubleParameter("pension", parameters)).ifPresent(pensioner::setPension);
         Optional.ofNullable(getIntegerParameter("workedYears", parameters)).ifPresent(pensioner::setWorkedYears);
         return pensioner;

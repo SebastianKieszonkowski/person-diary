@@ -16,11 +16,11 @@ import java.io.InputStreamReader;
 import java.util.stream.Stream;
 
 @Service
-public class StudentService extends AbstractGenericManagementService<Student, StudentRepositories>{
+public class StudentService extends AbstractGenericManagementService<Student, StudentRepositories> {
 
     private final JdbcTemplate jdbcTemplate;
     private static final String INSERT_SQL = "insert into student (first_name, last_name," +
-            " pesel, height, weight, email, university_name, study_year, study_field, scholarship) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            " pesel, height, weight, email,version, university_name, study_year, study_field, scholarship) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 
     public StudentService(StudentRepositories repository, JdbcTemplate jdbcTemplate, StudentRepositories studentRepositories) {
@@ -28,12 +28,17 @@ public class StudentService extends AbstractGenericManagementService<Student, St
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @Override
+    public String getType() {
+        return "STUDENT";
+    }
+
     @SneakyThrows
-    public void addRecordFromFile(MultipartFile file){
+    public void addRecordFromFile(MultipartFile file) {
         Stream<String> lines = new BufferedReader(new InputStreamReader((file.getInputStream()))).lines();
         lines.map(line -> line.split(","))
-                .forEach(args -> jdbcTemplate.update(INSERT_SQL,args[1],args[2],args[3],Double.parseDouble(args[4]),Double.parseDouble(args[5]),
-                        args[6],args[7],Integer.parseInt(args[8]),args[9],Double.parseDouble(args[10])));
+                .forEach(args -> jdbcTemplate.update(INSERT_SQL, args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
+                        args[6], args[7], Integer.parseInt(args[8]), args[9], Double.parseDouble(args[10])));
     }
 
     @Transactional(readOnly = true)
@@ -44,11 +49,6 @@ public class StudentService extends AbstractGenericManagementService<Student, St
     @Override
     public void deleteAll() {
         super.repository.deleteAll();
-    }
-
-    @Override
-    public String getType() {
-        return "STUDENT";
     }
 
     @Override

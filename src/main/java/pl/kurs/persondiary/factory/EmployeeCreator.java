@@ -32,6 +32,7 @@ public class EmployeeCreator implements PersonCreator{
                 getDoubleParameter("height", parameters),
                 getDoubleParameter("weight", parameters),
                 getStringParameter("email", parameters),
+                getIntegerParameter("version",parameters),
                 getLocalDataParameter("hireDate", parameters),
                 getStringParameter("position", parameters),
                 getDoubleParameter("salary", parameters));
@@ -46,6 +47,7 @@ public class EmployeeCreator implements PersonCreator{
         Optional.ofNullable(getDoubleParameter("height", parameters)).ifPresent(employee::setHeight);
         Optional.ofNullable(getDoubleParameter("weight", parameters)).ifPresent(employee::setWeight);
         Optional.ofNullable(getStringParameter("email", parameters)).ifPresent(employee::setEmail);
+        Optional.ofNullable(getIntegerParameter("version", parameters)).ifPresent(employee::setVersion);
         Optional.ofNullable(getLocalDataParameter("hireDate", parameters)).ifPresent(employee::setHireDate);
         Optional.ofNullable(getStringParameter("position", parameters)).ifPresent(employee::setPosition);
         Optional.ofNullable(getDoubleParameter("salary", parameters)).ifPresent(employee::setSalary);

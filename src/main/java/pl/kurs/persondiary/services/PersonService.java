@@ -8,6 +8,7 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
@@ -43,20 +44,17 @@ public class PersonService {
         return savedPerson;
     }
 
-    // @Transactional(readOnly = true)
-//    @Modifying
+    //@Transactional
+    @SneakyThrows
     public Person updatePerson(String pesel, CreatePersonCommand updatePersonCommand) {
         if( !personViewRepository.existsByPeselAndType(pesel, updatePersonCommand.getType()))
             throw new ResourceNotFoundException("Result not found");
         IManagementService<Person> personService2 = serviceFactory.prepareManager(updatePersonCommand.getType());
         Person dbPerson = personService2.findByPesel(pesel);
         dbPerson = personFactory.update(dbPerson, updatePersonCommand);
+        Thread.sleep(10000);
+        Person editedPerson = personService2.add(dbPerson);
         return dbPerson;
-    }
-
-    @Transactional(readOnly = true)
-    public boolean existByPeselAndType(String pesel, String type) {
-        return personViewRepository.existsByPeselAndType(pesel, type);
     }
 
     @Transactional(readOnly = true)

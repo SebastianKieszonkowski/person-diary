@@ -1,15 +1,19 @@
 package pl.kurs.persondiary.models;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.*;
-
-import java.util.Objects;
+import org.hibernate.validator.constraints.pl.PESEL;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 @ToString //do usuniecia w wersi ostatecznej
 @Entity
@@ -25,15 +29,8 @@ public class Pensioner extends Person {
     @Column(nullable = false)
     private Integer workedYears;
 
-    @Builder
-    public Pensioner(Long id, String firstName, String lastName, String pesel, Double height, Double weight, String email, Double pension, Integer workedYears) {
-        super(id, firstName, lastName, pesel, height, weight, email);
-        this.pension = pension;
-        this.workedYears = workedYears;
-    }
-
-    public Pensioner(String firstName, String lastName, String pesel, Double height, Double weight, String email, Double pension, Integer workedYears) {
-        super(firstName, lastName, pesel, height, weight, email);
+    public Pensioner(@NotBlank String firstName, @NotBlank String lastName, @PESEL String pesel, @Positive Double height, @Positive Double weight, @Email String email, Integer version, @Positive Double pension, @PositiveOrZero Integer workedYears) {
+        super(firstName, lastName, pesel, height, weight, email, version);
         this.pension = pension;
         this.workedYears = workedYears;
     }

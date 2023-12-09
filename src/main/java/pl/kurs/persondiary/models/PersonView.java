@@ -42,6 +42,9 @@ public class PersonView {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "version")
+    private Integer version;
+
     @Column(name = "birth_date")
     private LocalDate birthDate;
 

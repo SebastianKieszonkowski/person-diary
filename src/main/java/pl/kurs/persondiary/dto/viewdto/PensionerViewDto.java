@@ -17,6 +17,7 @@ public class PensionerViewDto implements IPersonDto {
     private Double height;
     private Double weight;
     private String email;
+    private Integer version;
     private Double pension;
     private Integer workedYears;
 }

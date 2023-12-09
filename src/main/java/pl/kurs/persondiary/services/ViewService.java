@@ -15,13 +15,13 @@ public class ViewService {
             "END AS birth_date";
 
     private static final String INSERT_SQL = "CREATE OR REPLACE VIEW person_view AS " +
-            "SELECT 'employee' AS type, id, first_name, last_name, pesel, height, weight, email, " + birthDate +", hire_date, position, salary, NULL as pension, NULL as worked_years, NULL as university_name, NULL as study_year," +
+            "SELECT 'employee' AS type, id, first_name, last_name, pesel, height, weight, email, version, " + birthDate +", hire_date, position, salary, NULL as pension, NULL as worked_years, NULL as university_name, NULL as study_year," +
             " NULL as study_field, NULL as scholarship FROM employees " +
             "UNION " +
-            "SELECT 'pensioner' AS type, id, first_name, last_name, pesel, height, weight, email, " + birthDate +", NULL as hire_date, NULL as position, NULL as salary, pension, worked_years, NULL as university_name," +
+            "SELECT 'pensioner' AS type, id, first_name, last_name, pesel, height, weight, email, version, " + birthDate +", NULL as hire_date, NULL as position, NULL as salary, pension, worked_years, NULL as university_name," +
             " NULL as study_year, NULL as study_field, NULL as scholarship FROM pensioners " +
             "UNION " +
-            "SELECT 'student' AS type, id, first_name, last_name, pesel, height, weight, email, " + birthDate +", NULL as hire_date, NULL as position, NULL as salary, NULL as pension, NULL as worked_years, university_name, study_year," +
+            "SELECT 'student' AS type, id, first_name, last_name, pesel, height, weight, email, version, " + birthDate +", NULL as hire_date, NULL as position, NULL as salary, NULL as pension, NULL as worked_years, university_name, study_year," +
             " study_field, scholarship FROM students";
 
     @PostConstruct

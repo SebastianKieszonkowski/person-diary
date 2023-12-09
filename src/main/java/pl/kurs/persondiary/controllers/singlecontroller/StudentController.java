@@ -32,9 +32,10 @@ public class StudentController {
     @PostMapping
     public ResponseEntity createStudent(@RequestBody @Valid CreateStudentCommand createStudentCommand) {
         Student studentCreated = studentService.add(modelMapper.map(createStudentCommand, Student.class));
-         StudentViewDto studentViewDto = modelMapper.map(studentCreated, StudentViewDto.class);
+        StudentViewDto studentViewDto = modelMapper.map(studentCreated, StudentViewDto.class);
         return new ResponseEntity<>(studentViewDto, HttpStatus.CREATED);
     }
+
     @GetMapping
     public ResponseEntity getAllStudents() {
         List<Student> studentsPage = studentService.getAll();
@@ -46,23 +47,23 @@ public class StudentController {
 
     @PostMapping("/upload")
     @SneakyThrows
-    public ResponseEntity addManyAsCsvFile(@RequestParam("file")MultipartFile file){
+    public ResponseEntity addManyAsCsvFile(@RequestParam("file") MultipartFile file) {
         Stream<String> lines = new BufferedReader(new InputStreamReader((file.getInputStream()))).lines();
         lines.map(line -> line.split(","))
-                .map(args -> new Student(null, args[1],args[2],args[3],Double.parseDouble(args[4]),Double.parseDouble(args[5]),
-                        args[6],args[7],Integer.parseInt(args[8]),args[9],Double.parseDouble(args[10])))
+                .map(args -> new Student(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
+                        args[6], 0, args[7], Integer.parseInt(args[8]), args[9], Double.parseDouble(args[10])))
                 .forEach(studentService::add);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @PostMapping("/upload-jdbc")
-    public ResponseEntity addManyAsCsvFileJdbc(@RequestParam("file")MultipartFile file){
+    public ResponseEntity addManyAsCsvFileJdbc(@RequestParam("file") MultipartFile file) {
         studentService.addRecordFromFile(file);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @DeleteMapping
-    public ResponseEntity<StatusDto> deleteAll(){
+    public ResponseEntity<StatusDto> deleteAll() {
         studentService.deleteAll();
         return new ResponseEntity<>(new StatusDto("Skasowano wszystkich studentów"), HttpStatus.OK);
     }

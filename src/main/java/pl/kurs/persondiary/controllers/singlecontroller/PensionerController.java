@@ -27,23 +27,23 @@ public class PensionerController {
 
     @PostMapping("/upload")
     @SneakyThrows
-    public ResponseEntity addManyAsCsvFile(@RequestParam("file") MultipartFile file){
+    public ResponseEntity addManyAsCsvFile(@RequestParam("file") MultipartFile file) {
         Stream<String> lines = new BufferedReader(new InputStreamReader((file.getInputStream()))).lines();
         lines.map(line -> line.split(","))
-                .map(args -> new Pensioner(null, args[1],args[2],args[3],Double.parseDouble(args[4]),Double.parseDouble(args[5]),
-                        args[6],Double.parseDouble(args[7]),Integer.parseInt(args[8])))
+                .map(args -> new Pensioner(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
+                        args[6], 0, Double.parseDouble(args[7]), Integer.parseInt(args[8])))
                 .forEach(pensionerService::add);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @PostMapping("/upload-jdbc")
-    public ResponseEntity addManyAsCsvFileJdbc(@RequestParam("file")MultipartFile file){
+    public ResponseEntity addManyAsCsvFileJdbc(@RequestParam("file") MultipartFile file) {
         pensionerService.addRecordFromFile(file);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @DeleteMapping
-    public ResponseEntity<StatusDto> deleteAll(){
+    public ResponseEntity<StatusDto> deleteAll() {
         pensionerService.deleteAll();
         return new ResponseEntity<>(new StatusDto("Skasowano wszystkich studentów"), HttpStatus.OK);
     }

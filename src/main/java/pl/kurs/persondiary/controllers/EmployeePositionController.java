@@ -10,6 +10,7 @@ import pl.kurs.persondiary.command.CreateEmployeePositionCommand;
 import pl.kurs.persondiary.command.UpdateEmployeePositionCommand;
 import pl.kurs.persondiary.dto.FullEmployeePositionDto;
 import pl.kurs.persondiary.dto.StatusDto;
+import pl.kurs.persondiary.exeptions.IncorrectDateRangeException;
 import pl.kurs.persondiary.models.Employee;
 import pl.kurs.persondiary.models.EmployeePosition;
 import pl.kurs.persondiary.services.entityservices.EmployeePositionService;
@@ -35,6 +36,8 @@ public class EmployeePositionController {
 
     @PostMapping
     public ResponseEntity<FullEmployeePositionDto> createEmployeePosition(@RequestBody @Valid CreateEmployeePositionCommand createEmployeePositionCommand) {
+        if(!employeePositionService.checkDates(createEmployeePositionCommand.getStartDateOnPosition(),createEmployeePositionCommand.getEndDateOnPosition()
+                ,createEmployeePositionCommand.getEmployeeId()).isEmpty()) throw new IncorrectDateRangeException("Podany okres pracy pokrywa się z juz istniejącymi!!!");
         EmployeePosition employeePosition = modelMapper.map(createEmployeePositionCommand, EmployeePosition.class);
         Employee employee = employeeService.get(createEmployeePositionCommand.getEmployeeId());
         employeePosition.setEmployee(employee);
@@ -62,6 +65,12 @@ public class EmployeePositionController {
     public ResponseEntity<StatusDto> deleteEmployeePositionById(@PathVariable("id") Long id) {
         employeePositionService.delete(id);
         return new ResponseEntity<>(new StatusDto("Skasowano rekord stanowiska o id: " + id), HttpStatus.OK);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<StatusDto> deleteAllEmployeePositionById() {
+        employeePositionService.deleteAll();
+        return new ResponseEntity<>(new StatusDto("Skasowano wszystkie rekord stanowiska o id: "), HttpStatus.OK);
     }
 
     @GetMapping

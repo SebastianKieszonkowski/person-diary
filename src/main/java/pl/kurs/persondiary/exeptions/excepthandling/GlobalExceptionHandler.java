@@ -2,15 +2,13 @@ package pl.kurs.persondiary.exeptions.excepthandling;
 
 import jakarta.validation.ConstraintViolationException;
 import org.hibernate.NonUniqueResultException;
+import org.hibernate.StaleObjectStateException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import pl.kurs.persondiary.exeptions.ExceptionResponseDto;
-import pl.kurs.persondiary.exeptions.MissingIdException;
-import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
-import pl.kurs.persondiary.exeptions.ResultNotFoundException;
+import pl.kurs.persondiary.exeptions.*;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDateTime;
@@ -19,6 +17,20 @@ import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler({IncorrectDateRangeException.class})
+    public ResponseEntity<ExceptionResponseDto> handleIncorrectDateRangeException(IncorrectDateRangeException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                new ExceptionResponseDto(List.of(e.getMessage()), "BAD_REQUEST", LocalDateTime.now())
+        );
+    }
+
+    @ExceptionHandler({StaleObjectStateException.class})
+    public ResponseEntity<ExceptionResponseDto> handleStaleObjectStateException(StaleObjectStateException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                new ExceptionResponseDto(List.of(e.getMessage()), "BAD_REQUEST", LocalDateTime.now())
+        );
+    }
 
     @ExceptionHandler({ResultNotFoundException.class})
     public ResponseEntity<ExceptionResponseDto> handleConstraintViolationException(ResultNotFoundException e) {
@@ -39,7 +51,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                 new ExceptionResponseDto(List.of(e.getMessage()), "BAD_REQUEST", LocalDateTime.now())
         );
-    }
+    }//todo poprawić wyglad odpowiedzi
 
     @ExceptionHandler({ResourceNotFoundException.class})
     public ResponseEntity<ExceptionResponseDto> handleResourceNotFoundException(ResourceNotFoundException e) {

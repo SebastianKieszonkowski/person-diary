@@ -22,6 +22,7 @@ public class PersonViewToEmployeeViewDtoCreator implements Converter<PersonView,
                 .height(source.getHeight())
                 .weight(source.getWeight())
                 .email(source.getEmail())
+                .version(source.getVersion())
                 .hireDate(source.getHireDate())
                 .position(source.getPosition())
                 .salary(source.getSalary())
