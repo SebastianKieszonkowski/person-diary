@@ -1,20 +1,19 @@
 package pl.kurs.persondiary.controllers.singlecontroller;
 
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import pl.kurs.persondiary.dto.StatusDto;
 import pl.kurs.persondiary.models.Pensioner;
 import pl.kurs.persondiary.services.entityservices.PensionerService;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.stream.Stream;
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/pensioners")
@@ -25,26 +24,25 @@ public class PensionerController {
     private final PensionerService pensionerService;
     private final ModelMapper modelMapper;
 
-    @PostMapping("/upload")
-    @SneakyThrows
-    public ResponseEntity addManyAsCsvFile(@RequestParam("file") MultipartFile file) {
-        Stream<String> lines = new BufferedReader(new InputStreamReader((file.getInputStream()))).lines();
-        lines.map(line -> line.split(","))
-                .map(args -> new Pensioner(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
-                        args[6], 0, Double.parseDouble(args[7]), Integer.parseInt(args[8])))
-                .forEach(pensionerService::add);
-        return new ResponseEntity(HttpStatus.CREATED);
-    }
 
-    @PostMapping("/upload-jdbc")
-    public ResponseEntity addManyAsCsvFileJdbc(@RequestParam("file") MultipartFile file) {
-        pensionerService.addRecordFromFile(file);
-        return new ResponseEntity(HttpStatus.CREATED);
+    @GetMapping
+    public ResponseEntity getAllPensioners() {
+        List<Pensioner> studentsPage = pensionerService.getAll();
+//        List<FullStudentDto> fullStudentDtoPage = studentsPage.stream()
+//                .map(x -> modelMapper.map(x,FullStudentDto.class))
+//                .collect(Collectors.toList());
+        return ResponseEntity.ok(studentsPage);
     }
+//    @Async
+//    @PostMapping("/upload-jdbc")
+//    public CompletableFuture<ResponseEntity<Void>> addManyAsCsvFileJdbc(@RequestParam("file") MultipartFile file) {
+//        return pensionerService.addRecordFromFile(file)
+//                .thenApply(aVoid -> new ResponseEntity<>(HttpStatus.CREATED));
+//    }
 
     @DeleteMapping
     public ResponseEntity<StatusDto> deleteAll() {
         pensionerService.deleteAll();
-        return new ResponseEntity<>(new StatusDto("Skasowano wszystkich studentów"), HttpStatus.OK);
+        return new ResponseEntity<>(new StatusDto("Skasowano wszystkich emerytów"), HttpStatus.OK);
     }
 }

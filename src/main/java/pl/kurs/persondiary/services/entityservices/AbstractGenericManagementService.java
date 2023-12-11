@@ -1,6 +1,7 @@
 package pl.kurs.persondiary.services.entityservices;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.transaction.annotation.Transactional;
 import pl.kurs.persondiary.command.CreatePersonCommand;
 import pl.kurs.persondiary.exeptions.MissingIdException;
 import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
@@ -18,6 +19,7 @@ public abstract class AbstractGenericManagementService<T extends Identificationa
     }
 
     @Override
+    @Transactional
     public T add(T entity) {
         return repository.save(entity);
     }

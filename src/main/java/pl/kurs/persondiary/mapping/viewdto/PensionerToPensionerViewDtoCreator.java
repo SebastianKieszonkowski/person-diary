@@ -1,4 +1,4 @@
-package pl.kurs.persondiary.mapping;
+package pl.kurs.persondiary.mapping.viewdto;
 
 
 import org.modelmapper.Converter;

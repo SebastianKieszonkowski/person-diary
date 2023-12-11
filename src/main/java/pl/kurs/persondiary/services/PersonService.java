@@ -17,14 +17,18 @@ import pl.kurs.persondiary.command.CreatePersonCommand;
 import pl.kurs.persondiary.command.FindPersonQuery;
 import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.factory.PersonFactory;
-import pl.kurs.persondiary.models.Person;
-import pl.kurs.persondiary.models.PersonView;
+import pl.kurs.persondiary.models.*;
 import pl.kurs.persondiary.repositories.PersonViewRepository;
+import pl.kurs.persondiary.services.entityservices.EmployeeService;
 import pl.kurs.persondiary.services.entityservices.IManagementService;
+import pl.kurs.persondiary.services.entityservices.PensionerService;
+import pl.kurs.persondiary.services.entityservices.StudentService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.atomic.AtomicLong;
 
 
 @Service
@@ -36,6 +40,34 @@ public class PersonService {
     private final ServiceFactory serviceFactory;
     private final PersonViewRepository personViewRepository;
     private final PersonFactory personFactory;
+    private final EmployeeService employeeService;
+    private final PensionerService pensionerService;
+    private final StudentService studentService;
+    private final ProgressService progressService;
+
+    public void importPerson(String line, AtomicLong counter, String taskId) {
+        String[] args = line.split(",");
+        try {
+            if (args[0].toLowerCase(Locale.ROOT).equals("employee")) {
+                Employee employee = new Employee(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
+                        args[6], 0, LocalDate.parse(args[7]), args[8], Double.parseDouble(args[9]));
+                employeeService.add(employee);
+            } else if (args[0].toLowerCase(Locale.ROOT).equals("student")) {
+                Student student = new Student(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
+                        args[6], 0, args[7], Integer.parseInt(args[8]), args[9], Double.parseDouble(args[10]));
+                studentService.add(student);
+            } else if (args[0].toLowerCase(Locale.ROOT).equals("pensioner")) {
+                Pensioner pensioner = new Pensioner(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
+                        args[6], 0, Double.parseDouble(args[7]), Integer.parseInt(args[8]));
+                pensionerService.add(pensioner);
+            }
+        } catch (Exception e) {
+            progressService.logException(taskId, e);
+        }
+
+        Long processedLines = counter.incrementAndGet();
+        progressService.updateProgress(taskId, processedLines);
+    }
 
     @Modifying
     public Person savePerson(Person person) {
@@ -47,12 +79,11 @@ public class PersonService {
     //@Transactional
     @SneakyThrows
     public Person updatePerson(String pesel, CreatePersonCommand updatePersonCommand) {
-        if( !personViewRepository.existsByPeselAndType(pesel, updatePersonCommand.getType()))
+        if (!personViewRepository.existsByPeselAndType(pesel, updatePersonCommand.getType()))
             throw new ResourceNotFoundException("Result not found");
         IManagementService<Person> personService2 = serviceFactory.prepareManager(updatePersonCommand.getType());
         Person dbPerson = personService2.findByPesel(pesel);
         dbPerson = personFactory.update(dbPerson, updatePersonCommand);
-        Thread.sleep(10000);
         Person editedPerson = personService2.add(dbPerson);
         return dbPerson;
     }
@@ -66,16 +97,16 @@ public class PersonService {
         List<Predicate> predicates = new ArrayList<>();
 
         if (query.getType() != null) {
-            String type = "%" + query.getType().toLowerCase() + "%";
-            predicates.add(builder.equal(builder.lower(root.get("type")), type));
+            String type = "%" + query.getType().toLowerCase(Locale.ROOT) + "%";
+            predicates.add(builder.like(builder.lower(root.get("type")), type));
         }
         if (query.getFirstName() != null) {
             String firstName = "%" + query.getFirstName().toLowerCase() + "%";
-            predicates.add(builder.equal(builder.lower(root.get("firstName")), firstName));
+            predicates.add(builder.like(builder.lower(root.get("firstName")), firstName));
         }
         if (query.getLastName() != null) {
             String lastName = "%" + query.getLastName().toLowerCase() + "%";
-            predicates.add(builder.equal(builder.lower(root.get("lastName")), lastName));
+            predicates.add(builder.like(builder.lower(root.get("lastName")), lastName));
         }
         if (query.getPesel() != null) {
             predicates.add(builder.equal(root.get("pesel"), query.getPesel()));

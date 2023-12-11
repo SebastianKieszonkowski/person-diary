@@ -33,14 +33,14 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler({ResultNotFoundException.class})
-    public ResponseEntity<ExceptionResponseDto> handleConstraintViolationException(ResultNotFoundException e) {
+    public ResponseEntity<ExceptionResponseDto> handleResultNotFoundException(ResultNotFoundException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                 new ExceptionResponseDto(List.of(e.getMessage()), "BAD_REQUEST", LocalDateTime.now())
         );
     }
 
     @ExceptionHandler({NonUniqueResultException.class})
-    public ResponseEntity<ExceptionResponseDto> handleConstraintViolationException(NonUniqueResultException e) {
+    public ResponseEntity<ExceptionResponseDto> handleNonUniqueResultException(NonUniqueResultException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                 new ExceptionResponseDto(List.of(e.getMessage()), "BAD_REQUEST", LocalDateTime.now())
         );

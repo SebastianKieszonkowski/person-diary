@@ -1,6 +1,7 @@
 package pl.kurs.persondiary.controllers;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import pl.kurs.persondiary.dto.StatusDto;
 import pl.kurs.persondiary.exeptions.IncorrectDateRangeException;
 import pl.kurs.persondiary.models.Employee;
 import pl.kurs.persondiary.models.EmployeePosition;
+import pl.kurs.persondiary.services.ProgressService;
 import pl.kurs.persondiary.services.entityservices.EmployeePositionService;
 import pl.kurs.persondiary.services.entityservices.EmployeeService;
 
@@ -21,18 +23,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(path = "/positions")
 @Validated
 public class EmployeePositionController {
     private final EmployeePositionService employeePositionService;
     private final EmployeeService employeeService;
     private final ModelMapper modelMapper;
-
-    public EmployeePositionController(EmployeePositionService positionService, EmployeeService employeeService, ModelMapper modelMapper) {
-        this.employeePositionService = positionService;
-        this.employeeService = employeeService;
-        this.modelMapper = modelMapper;
-    }
+    private final ProgressService progressService;
 
     @PostMapping
     public ResponseEntity<FullEmployeePositionDto> createEmployeePosition(@RequestBody @Valid CreateEmployeePositionCommand createEmployeePositionCommand) {

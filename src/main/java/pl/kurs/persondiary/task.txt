@@ -22,6 +22,21 @@ Chcemy miec JEDEN [dokladnie jeden endpoint]
 do dodawania dowolnego typu osoby do naszego systemu, kontrakt musisz opracowac sam, ale kluczowe wymaganie ma byc takie ze:
 "dodanie nowego typu osoby ma byc mozliwe w taki sposob ze nie musze modyfikowac zadnej z klas - tylko dodac nowe"
 podczas dodawania ma byc zrobiona sensowna walidacja oraz obsluga bledow.
+Kontrakt:
+    {
+        "type": "employee",
+        "parameters":{
+            "firstName": "Anna",
+            "lastName": "Mazur",
+            "pesel": "02220466462",
+            "height": 1.75,
+            "weight": 60.0,
+            "email": "anna.mazur@gmail.com",
+            "hireDate": "2023-12-30",
+            "position": "Programista",
+            "salary": 18500.75
+        }
+    }
 
 Chcemy miec JEDEN [dokladnie jeden endpoint]
 do edycji dowolnej osobyw naszym programie,
@@ -36,7 +51,7 @@ nalezy tez zabezpieczyc przypisywanie stanowiska w taki sposob aby daty nie mogl
 Chcemy miec endpoint ktory pozwoli nam załadować plik csv z osobami do naszej bazy danych.
 założenia:
 - chcemy aby mozna było wrzucic dowolnie duzy plik, np: 3GB
-- chcemy aby import wykonywał się w sposób nieblokujący i abyśmy mogli w formie datkowego endpointu zerknac co sie z nim
+- chcemy aby import wykonywał się w sposób nieblokujący i abyśmy mogli w formie dodatkowego endpointu zerknac co sie z nim
 dzieje [status, data stworzenia, data rozpoczecia, ilosc przeprocesowanych wierszy]
 - plik csv wyglada tak:
 TYP,imie,nazwisko,pesel,wzrost,waga,adres email,pozostale parametry dla konkretnej osoby
