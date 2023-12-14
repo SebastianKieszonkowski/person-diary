@@ -36,7 +36,9 @@ public class EmployeePositionService {
         return repository.findAll();
     }
 
-    public List<EmployeePosition> checkDates(LocalDate startNewDate, LocalDate endNewDate, Long employeeId){
+    public List<EmployeePosition> checkDates(LocalDate startNewDate, LocalDate endNewDate, Long employeeId) {
         return repository.checkDates(startNewDate, endNewDate, employeeId);
-    };
+    }
+
+    ;
 }

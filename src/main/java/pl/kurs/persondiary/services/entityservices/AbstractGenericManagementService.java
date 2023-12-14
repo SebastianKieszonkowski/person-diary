@@ -9,7 +9,7 @@ import pl.kurs.persondiary.models.Identificationable;
 
 import java.util.List;
 
-public abstract class AbstractGenericManagementService<T extends Identificationable ,
+public abstract class AbstractGenericManagementService<T extends Identificationable,
         R extends JpaRepository<T, Long>> implements IManagementService<T> {
 
     protected final R repository;
@@ -49,7 +49,7 @@ public abstract class AbstractGenericManagementService<T extends Identificationa
 
     public abstract void deleteAll();
 
-    public T saveAndFlush(T entity){
+    public T saveAndFlush(T entity) {
         return repository.saveAndFlush(entity);
     }
 

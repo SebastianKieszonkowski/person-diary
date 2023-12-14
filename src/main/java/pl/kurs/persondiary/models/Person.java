@@ -18,8 +18,8 @@ import java.io.Serializable;
 @ToString
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //@MappedSuperclass
-@Table(uniqueConstraints = {@UniqueConstraint(name = "UC_PERSON_PESEL",columnNames = "pesel")})
-public abstract class Person implements Serializable, Identificationable{
+@Table(uniqueConstraints = {@UniqueConstraint(name = "UC_PERSON_PESEL", columnNames = "pesel")})
+public abstract class Person implements Serializable, Identificationable {
     private static final long serialVersionUID = 1L;
 
     @Id

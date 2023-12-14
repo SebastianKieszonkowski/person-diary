@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class PensionerCreator implements PersonCreator{
+public class PensionerCreator implements PersonCreator {
 
     private final ModelMapper modelMapper;
 
@@ -32,7 +32,7 @@ public class PensionerCreator implements PersonCreator{
                 getDoubleParameter("height", parameters),
                 getDoubleParameter("weight", parameters),
                 getStringParameter("email", parameters),
-                getIntegerParameter("version",parameters),
+                getIntegerParameter("version", parameters),
                 getDoubleParameter("pension", parameters),
                 getIntegerParameter("workedYears", parameters));
     }
@@ -59,7 +59,7 @@ public class PensionerCreator implements PersonCreator{
 
     @Override
     public IPersonDto createDtoFromPerson(Person person) {
-        Pensioner pensioner = (Pensioner)person;
+        Pensioner pensioner = (Pensioner) person;
         return modelMapper.map(pensioner, PensionerViewDto.class);
     }
 

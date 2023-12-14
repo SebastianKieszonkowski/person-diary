@@ -21,19 +21,19 @@ public class PersonFactory {
         this.creators = creators.stream().collect(Collectors.toMap(PersonCreator::getType, Function.identity()));
     }
 
-    public Person create(CreatePersonCommand command){
+    public Person create(CreatePersonCommand command) {
         return creators.get(command.getType().toLowerCase(Locale.ROOT)).create(command.getParameters());
     }
 
-    public Person update(Person person, CreatePersonCommand command){
+    public Person update(Person person, CreatePersonCommand command) {
         return creators.get(command.getType().toLowerCase(Locale.ROOT)).update(person, command.getParameters());
     }
 
-    public IPersonDto createDtoFromView(PersonView personView){
+    public IPersonDto createDtoFromView(PersonView personView) {
         return creators.get(personView.getType().toLowerCase(Locale.ROOT)).createDtoFromView(personView);
     }
 
-    public IPersonDto createDtoFromPerson(Person person){
+    public IPersonDto createDtoFromPerson(Person person) {
         return creators.get(person.getClass().getSimpleName().toLowerCase(Locale.ROOT)).createDtoFromPerson(person);
     }
 

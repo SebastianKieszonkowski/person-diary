@@ -6,6 +6,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,6 +30,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@CrossOrigin
 @RestController
 @RequestMapping(path = "/persons")
 @RequiredArgsConstructor
@@ -40,8 +42,6 @@ public class PersonController {
     private final PersonFactory personFactory;
     private final ProgressService progressService;
 
-    //    private final PersonService personService;
-
     @GetMapping()
     public ResponseEntity getPersons(FindPersonQuery query, @PageableDefault Pageable pageable) {
         List<PersonView> personViewList = personService.findPersonByParameters(query, pageable);
@@ -51,7 +51,8 @@ public class PersonController {
     }
 
     @PostMapping
-    public ResponseEntity createShape(@RequestBody CreatePersonCommand createPersonCommand) {
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public ResponseEntity createPerson(@RequestBody CreatePersonCommand createPersonCommand) {
         Person person = personFactory.create(createPersonCommand);
         person = personService.savePerson(person);
         IPersonDto personDto = personFactory.createDtoFromPerson(person);
@@ -59,7 +60,8 @@ public class PersonController {
     }
 
     @PatchMapping(path = "/{pesel}")
-    public ResponseEntity editPerson(@PathVariable String pesel, @RequestBody CreatePersonCommand updatePersonCommand){
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public ResponseEntity editPerson(@PathVariable String pesel, @RequestBody CreatePersonCommand updatePersonCommand) {
         //tu przerobić żeby person service przyjmował wyszukanego persona
         Person person = personService.updatePerson(pesel, updatePersonCommand);
         IPersonDto personDto = personFactory.createDtoFromPerson(person);
@@ -68,6 +70,7 @@ public class PersonController {
 
     @Async
     @PostMapping("/upload")
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_IMPORTER')")
     public CompletableFuture<ResponseEntity<Void>> addManyAsCsvFile(@RequestParam("file") MultipartFile file) {
         String taskId = UUID.randomUUID().toString();
         System.out.println(taskId);
@@ -77,7 +80,7 @@ public class PersonController {
         return CompletableFuture.runAsync(() -> {
             progressService.startImport(taskId);
             try (Stream<String> lines = new BufferedReader(new InputStreamReader(file.getInputStream())).lines()) {
-                lines.forEach(line -> personService.importPerson(line,counter,taskId));
+                lines.forEach(line -> personService.importPerson(line, counter, taskId));
                 progressService.completeImport(taskId);
             } catch (IOException e) {
                 throw new RuntimeException("Error processing the file", e);

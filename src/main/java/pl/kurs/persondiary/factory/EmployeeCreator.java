@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class EmployeeCreator implements PersonCreator{
+public class EmployeeCreator implements PersonCreator {
 
     private final ModelMapper modelMapper;
 
@@ -32,7 +32,7 @@ public class EmployeeCreator implements PersonCreator{
                 getDoubleParameter("height", parameters),
                 getDoubleParameter("weight", parameters),
                 getStringParameter("email", parameters),
-                getIntegerParameter("version",parameters),
+                getIntegerParameter("version", parameters),
                 getLocalDataParameter("hireDate", parameters),
                 getStringParameter("position", parameters),
                 getDoubleParameter("salary", parameters));
@@ -61,7 +61,7 @@ public class EmployeeCreator implements PersonCreator{
 
     @Override
     public IPersonDto createDtoFromPerson(Person person) {
-        Employee employee = (Employee)person;
+        Employee employee = (Employee) person;
         return modelMapper.map(employee, EmployeeViewDto.class);
     }
 

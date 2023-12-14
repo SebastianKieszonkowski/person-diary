@@ -32,7 +32,7 @@ public class StudentCreator implements PersonCreator {
                 getDoubleParameter("height", parameters),
                 getDoubleParameter("weight", parameters),
                 getStringParameter("email", parameters),
-                getIntegerParameter("version",parameters),
+                getIntegerParameter("version", parameters),
                 getStringParameter("universityName", parameters),
                 getIntegerParameter("studyYear", parameters),
                 getStringParameter("studyField", parameters),

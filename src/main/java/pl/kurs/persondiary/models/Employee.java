@@ -21,7 +21,7 @@ import java.util.Set;
 @EqualsAndHashCode(exclude = {"employeePositions"})
 @Entity
 @Table(name = "employees")
-public class Employee extends Person{
+public class Employee extends Person {
     private static final long serialVersionUID = 1L;
 
     @PastOrPresent

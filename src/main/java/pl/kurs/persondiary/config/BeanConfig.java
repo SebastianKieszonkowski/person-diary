@@ -16,9 +16,9 @@ import java.util.concurrent.Executors;
 public class BeanConfig implements AsyncConfigurer {
 
     @Bean
-    public ModelMapper getModelMapper(Set<Converter> converters){
+    public ModelMapper getModelMapper(Set<Converter> converters) {
         ModelMapper mapper = new ModelMapper();
-        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);//STRICT
         converters.forEach(mapper::addConverter);
         return mapper;
     }

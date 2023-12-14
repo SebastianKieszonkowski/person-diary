@@ -30,6 +30,7 @@ public class EmployeeService extends AbstractGenericManagementService<Employee, 
         EmployeePosition employeePositionCreated = employeePositionService.add(employeePosition);
         return employee;
     }
+
     @Override
     public String getType() {
         return "EMPLOYEE";
@@ -41,7 +42,7 @@ public class EmployeeService extends AbstractGenericManagementService<Employee, 
     }
 
 
-    public Employee findById(Long id){
+    public Employee findById(Long id) {
         return repository.findById(id).orElseThrow();
     }
 

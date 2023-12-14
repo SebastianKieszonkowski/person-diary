@@ -49,6 +49,7 @@ public class StudentController {
 //                .collect(Collectors.toList());
         return ResponseEntity.ok(studentsPage);
     }
+
     @Async
     @PostMapping("/upload")
     public CompletableFuture<ResponseEntity<Void>> addManyAsCsvFile(@RequestParam("file") MultipartFile file) {
@@ -62,7 +63,7 @@ public class StudentController {
                 for (int i = 0; i < totalLines; i++) {
                     String[] args = lineList.get(i).split(",");
                     Student student = new Student(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
-                        args[6], 0, args[7], Integer.parseInt(args[8]), args[9], Double.parseDouble(args[10]));
+                            args[6], 0, args[7], Integer.parseInt(args[8]), args[9], Double.parseDouble(args[10]));
                     studentService.add(student);
                     // Update progress
                     //progressService.updateProgress(taskId, (i + 1) * 100 / totalLines);

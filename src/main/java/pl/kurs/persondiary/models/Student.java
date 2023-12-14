@@ -15,13 +15,8 @@ import org.hibernate.validator.constraints.pl.PESEL;
 @ToString //do usuniecia w wersi ostatecznej
 @Entity
 @Table(name = "students")
-public class Student extends Person{
+public class Student extends Person {
     private static final long serialVersionUID = 1L;
-
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(nullable = false)
-//    private Long id;
 
     @NotBlank
     @Column(nullable = false)

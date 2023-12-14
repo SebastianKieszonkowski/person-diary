@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.kurs.persondiary.command.CreateEmployeePositionCommand;
@@ -33,9 +34,11 @@ public class EmployeePositionController {
     private final ProgressService progressService;
 
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_EMPLOYEE')")
     public ResponseEntity<FullEmployeePositionDto> createEmployeePosition(@RequestBody @Valid CreateEmployeePositionCommand createEmployeePositionCommand) {
-        if(!employeePositionService.checkDates(createEmployeePositionCommand.getStartDateOnPosition(),createEmployeePositionCommand.getEndDateOnPosition()
-                ,createEmployeePositionCommand.getEmployeeId()).isEmpty()) throw new IncorrectDateRangeException("Podany okres pracy pokrywa się z juz istniejącymi!!!");
+        if (!employeePositionService.checkDates(createEmployeePositionCommand.getStartDateOnPosition(), createEmployeePositionCommand.getEndDateOnPosition()
+                , createEmployeePositionCommand.getEmployeeId()).isEmpty())
+            throw new IncorrectDateRangeException("Podany okres pracy pokrywa się z juz istniejącymi!!!");
         EmployeePosition employeePosition = modelMapper.map(createEmployeePositionCommand, EmployeePosition.class);
         Employee employee = employeeService.get(createEmployeePositionCommand.getEmployeeId());
         employeePosition.setEmployee(employee);
@@ -45,7 +48,7 @@ public class EmployeePositionController {
     }
 
     @PatchMapping(path = "/{id}")
-    public ResponseEntity<FullEmployeePositionDto> editEmployeePosition(@PathVariable Long id, @RequestBody @Valid UpdateEmployeePositionCommand updateEmployeePositionCommand){
+    public ResponseEntity<FullEmployeePositionDto> editEmployeePosition(@PathVariable Long id, @RequestBody @Valid UpdateEmployeePositionCommand updateEmployeePositionCommand) {
         EmployeePosition employeePosition = employeePositionService.findById(id).orElseThrow();
         Optional.ofNullable(updateEmployeePositionCommand.getPositionName()).ifPresent(employeePosition::setPositionName);
         Optional.ofNullable(updateEmployeePositionCommand.getStartDateOnPosition()).ifPresent(employeePosition::setStartDateOnPosition);
@@ -75,7 +78,7 @@ public class EmployeePositionController {
     public ResponseEntity<List<FullEmployeePositionDto>> getAllEmployeesPosition() {
         List<EmployeePosition> employeePositions = employeePositionService.getAll();
         List<FullEmployeePositionDto> fullEmployeesPositionsDto = employeePositions.stream()
-                .map(x -> modelMapper.map(x,FullEmployeePositionDto.class))
+                .map(x -> modelMapper.map(x, FullEmployeePositionDto.class))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(fullEmployeesPositionsDto);
     }

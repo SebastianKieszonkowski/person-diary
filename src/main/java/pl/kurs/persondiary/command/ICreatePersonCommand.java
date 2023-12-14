@@ -1,5 +1,5 @@
 package pl.kurs.persondiary.command;
 
-public interface ICreatePersonCommand  {
+public interface ICreatePersonCommand {
     String getType();
 }
