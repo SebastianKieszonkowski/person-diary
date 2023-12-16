@@ -1,11 +1,9 @@
 package pl.kurs.persondiary.services;
 
-import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 @RequiredArgsConstructor
 public class ViewService {
     private final JdbcTemplate jdbcTemplate;
@@ -24,7 +22,7 @@ public class ViewService {
             "SELECT 'student' AS type, id, first_name, last_name, pesel, height, weight, email, version, " + birthDate + ", NULL as hire_date, NULL as position, NULL as salary, NULL as pension, NULL as worked_years, university_name, study_year," +
             " study_field, scholarship FROM students";
 
-    @PostConstruct
+   // @PostConstruct
     public void createView() {
         jdbcTemplate.execute(INSERT_SQL);
 

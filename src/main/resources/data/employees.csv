@@ -1,0 +1,21 @@
+first_name,last_name,pesel,height,weight,email,version,hire_date,position,salary
+'Katarzyna','Nowak','67121848249',1.75,70,'katarzyna.nowak@gmail.com',0,'2023-11-30','Programista',18500.75
+'Adam','Kowalski','63122546315',1.8,80,'adam.kowalski@gmail.com',0,'2023-11-29','Inżynier R&D',17000.5
+'Marta','Wójcik','87112939738',1.68,55,'marta.wojcik@gmail.com',0,'2023-11-28','Analityk Finansowy',15699.2
+'Piotr','Jankowski','82120351732',1.78,75,'piotr.jankowski@gmail.com',0,'2023-11-27','Specjalista ds. Marketingu',14200.75
+'Julia','Szymańska','81041588771',1.6,70,'julia.szymanska@gmail.com',0,'2023-11-26','Inżynier Produkcji',12000.0
+'Robert','Nowak','94092037651',1.85,90,'robert.nowak@gmail.com',0,'2023-11-25','Kierownik Projektu',22500.0
+'Kinga','Kowalczyk','94091932575',1.72,63,'kinga.kowalczyk@gmail.com',0,'2023-11-24','Specjalista ds. HR',13000.0
+'Wojciech','Adamczyk','49032436249',1.78,85,'wojciech.adamczyk@gmail.com',0,'2023-11-23','Architekt',14000.25
+'Magdalena','Mazur','62031439433',1.75,60,'magdalena.mazur@gmail.com',0,'2023-11-22','Inżynier Elektroniczny',16000.0
+'Michał','Nowakowski','92022168152',1.81,70,'michal.nowakowski@gmail.com',0,'2023-11-21','Inżynier Chemiczny',17000.0
+'Zofia','Włodarczyk','73010464913',1.7,58,'zofia.wlodarczyk@gmail.com',0,'2023-11-20','Analityk Biznesowy',15800.75
+'Jan','Sawicki','92102933186',1.75,80,'jan.sawicki@gmail.com',0,'2023-11-19','Programista',17800.5
+'Kamila','Kaczmarek','67041987581',1.65,68,'kamila.kaczmarek@gmail.com',0,'2023-11-18','Inżynier R&D',15600.25
+'Jakub','Kowal','74080626492',1.77,75,'jakub.kowal@gmail.com',0,'2023-11-17','Kierownik Produkcji',19000.0
+'Anna','Lewandowska','61043041548',1.73,60,'anna.lewandowska@gmail.com',0,'2023-11-16','Specjalista ds. IT',14800.75
+'Łukasz','Kwiatkowsi','06292475351',1.76,68,'lukasz.kwiatkowski@gmail.com',0,'2023-11-15','Analityk Finansowy',16000.0
+'Marta','Sikorska','84052787911',1.68,72,'marta.sikorska@gmail.com',0,'2023-11-14','Inżynier Produkcji',13000.25
+'Marek','Piotrowski','72053099883',1.85,85,'marek.piotrowski@gmail.com',0,'2023-11-13','Architekt',14200.0
+'Natalia','Borowska','80082222925',1.67,55,'natalia.borowska@gmail.com',0,'2023-11-12','Specjalista ds. HR',15300.0
+'Tomasz','Słowik','03291882687',1.79,72,'tomasz.slowik@gmail.com',0,'2023-11-11','Inżynier Elektroniczny',17000.0

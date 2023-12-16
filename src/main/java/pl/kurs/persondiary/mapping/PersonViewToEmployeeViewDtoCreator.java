@@ -15,7 +15,7 @@ public class PersonViewToEmployeeViewDtoCreator implements Converter<PersonView,
         PersonView source = mappingContext.getSource();
         return EmployeeViewDto.builder()
                 .type(source.getType())
-                .id(source.getId())
+                .id(source.getSubId())
                 .firstName(source.getFirstName())
                 .lastName(source.getLastName())
                 .pesel(source.getPesel())

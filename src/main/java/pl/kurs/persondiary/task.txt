@@ -63,7 +63,14 @@ Dodawac osoby moze tylko ADMIN
 Edytowac osoby moze admin
 Importowac osoby moze tylko admin lub importer.
 przypisywac stanowisko moze tylko ADMIN lub inny EMPLOYEE
-
+{
+  "username": "KarolImporter",
+  "password": "importer"
+}
+{
+  "username": "AdamAdmin",
+  "password": "admin"
+}
 
 Testy:
 calosc nalezy pokryc testami integracyjnymi.

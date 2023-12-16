@@ -70,7 +70,7 @@ public class PersonController {
 
     @Async
     @PostMapping("/upload")
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_IMPORTER')")
+    //@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_IMPORTER')")
     public CompletableFuture<ResponseEntity<Void>> addManyAsCsvFile(@RequestParam("file") MultipartFile file) {
         String taskId = UUID.randomUUID().toString();
         System.out.println(taskId);

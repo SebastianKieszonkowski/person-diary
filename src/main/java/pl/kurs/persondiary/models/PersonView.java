@@ -1,8 +1,6 @@
 package pl.kurs.persondiary.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Immutable;
@@ -23,6 +21,9 @@ public class PersonView {
     @Id
     @Column(name = "id")
     private Long id;
+
+    @Column(name = "sub_id")
+    private Long subId;
 
     @Column(name = "first_name")
     private String firstName;

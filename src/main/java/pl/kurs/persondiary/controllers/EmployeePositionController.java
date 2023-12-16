@@ -15,7 +15,6 @@ import pl.kurs.persondiary.dto.StatusDto;
 import pl.kurs.persondiary.exeptions.IncorrectDateRangeException;
 import pl.kurs.persondiary.models.Employee;
 import pl.kurs.persondiary.models.EmployeePosition;
-import pl.kurs.persondiary.services.ProgressService;
 import pl.kurs.persondiary.services.entityservices.EmployeePositionService;
 import pl.kurs.persondiary.services.entityservices.EmployeeService;
 
@@ -31,7 +30,6 @@ public class EmployeePositionController {
     private final EmployeePositionService employeePositionService;
     private final EmployeeService employeeService;
     private final ModelMapper modelMapper;
-    private final ProgressService progressService;
 
     @PostMapping
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_EMPLOYEE')")

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog-ext.xsd">
+
+    <changeSet id="20231215_011_sk" author="Sebastian">
+        <loadData tableName="students"
+                  encoding="UTF-8"
+                  file="/data/students.csv"
+                  quotchar="'"
+                  separator=",">
+            <!--   <column name="id" type="numeric" header="first_name"/> -->
+            <column name="first_name" type="string" header="first_name"/>
+            <column name="last_name" type="string" header="last_name"/>
+            <column name="pesel" type="string" header="pesel"/>
+            <column name="height" type="double" header="height"/>
+            <column name="weight" type="double" header="weight"/>
+            <column name="email" type="string" header="email"/>
+            <column name="version" type="numeric" header="version"/>
+            <column name="university_name" type="string" header="university_name"/>
+            <column name="study_year" type="numeric" header="study_year"/>
+            <column name="study_field" type="string" header="study_field"/>
+            <column name="scholarship" type="double" header="scholarship"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet id="20231215_012_sk" author="Sebastian">
+        <loadData tableName="pensioners"
+                  encoding="UTF-8"
+                  file="/data/pensioners.csv"
+                  quotchar="'"
+                  separator=",">
+            <!--   <column name="id" type="numeric" header="first_name"/> -->
+            <column name="first_name" type="string" header="first_name"/>
+            <column name="last_name" type="string" header="last_name"/>
+            <column name="pesel" type="string" header="pesel"/>
+            <column name="height" type="double" header="height"/>
+            <column name="weight" type="double" header="weight"/>
+            <column name="email" type="string" header="email"/>
+            <column name="version" type="numeric" header="version"/>
+            <column name="pension" type="double" header="pension"/>
+            <column name="worked_years" type="numeric" header="worked_years"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet id="20231215_013_sk" author="Sebastian">
+        <loadData tableName="employees"
+                  encoding="UTF-8"
+                  file="/data/employees.csv"
+                  quotchar="'"
+                  separator=",">
+            <!--   <column name="id" type="numeric" header="first_name"/> -->
+            <column name="first_name" type="string" header="first_name"/>
+            <column name="last_name" type="string" header="last_name"/>
+            <column name="pesel" type="string" header="pesel"/>
+            <column name="height" type="double" header="height"/>
+            <column name="weight" type="double" header="weight"/>
+            <column name="email" type="string" header="email"/>
+            <column name="version" type="numeric" header="version"/>
+            <column name="position" type="string" header="position"/>
+            <column name="hire_date" type="date" header="hire_date"/>
+            <column name="salary" type="double" header="salary"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet id="20231215_014_sk" author="Sebastian">
+        <loadData tableName="positions"
+                  encoding="UTF-8"
+                  file="/data/positions.csv"
+                  quotchar="'"
+                  separator=",">
+            <column name="end_date_on_position" type="date" header="end_date_on_position"/>
+            <column name="position_name" type="string" header="position_name"/>
+            <column name="salary" type="double" header="salary"/>
+            <column name="start_date_on_position" type="date" header="start_date_onPosition"/>
+            <column name="employee_id" type="numeric" header="employee_id"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

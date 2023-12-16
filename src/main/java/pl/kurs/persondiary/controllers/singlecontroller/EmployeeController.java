@@ -89,12 +89,4 @@ public class EmployeeController {
         //LazyInitializationException - rozważyć dodanie do exception handlera
     }
 
-    //todo
-    //wczytywanie do bazy danych
-    //Dla employee dodać usuwanie człowieka z historią pozycji
-    //Dla stanowisk dodać sprawdzanie czy dodane stanowisko ma odpowiednie daty
-    //wyszukiwanie po pesel
-    //wyszukiwanie po latach
-    //wyszukiwanie po pułci itp.
-    //testy z bazą h2
 }

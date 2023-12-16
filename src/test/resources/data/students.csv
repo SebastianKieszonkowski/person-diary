@@ -1,0 +1,20 @@
+first_name,last_name,pesel,height,weight,email,version,university_name,study_year,study_field,scholarship
+'Katarzyna','Nowak','72082782183',1.75,70,'katarzyna.nowak@gmail.com',0,'Uniwersytet Warszawski',2,'Psychologia',1500.0
+'Adam','Kowalski','85012795694',1.8,80,'adam.kowalski@gmail.com',0,'Politechnika Krakowska',3,'Informatyka',1800.0
+'Marta','Wójcik','89110459476',1.68,55,'marta.wojcik@gmail.com',0,'Akademia Górniczo-Hutnicza',1,'Architektura',1600.0
+'Piotr','Jankowski','50071961799',1.78,75,'piotr.jankowski@gmail.com',0,'Uniwersytet Gdański',4,'Inżynieria Elektryczna',2000.0
+'Julia','Szymańska','73122535891',1.6,70,'julia.szymanska@gmail.com',0,'Politechnika Wrocławska',2,'Inżynieria Chemiczna',1700.0
+'Robert','Nowak','53102165229',1.85,90,'robert.nowak@gmail.com',0,'Uniwersytet Łódzki',3,'Matematyka',1300.0
+'Kinga','Kowalczyk','03271724972',1.72,63,'kinga.kowalczyk@gmail.com',0,'Politechnika Poznańska',1,'Informatyka',1600.0
+'Wojciech','Adamczyk','84071342162',1.78,85,'wojciech.adamczyk@gmail.com',0,'Akademia Medyczna',4,'Medycyna',2500.0
+'Magdalena','Mazur','79032355428',1.75,60,'magdalena.mazur@gmail.com',0,'Uniwersytet Jagielloński',2,'Psychologia',1200.0
+'Michał','Nowakowski','54082895915',1.81,70,'michal.nowakowski@gmail.com',0,'Politechnika Warszawska',4,'Informatyka',1800.0
+'Zofia','Włodarczyk','82110227274',1.7,58,'zofia.wlodarczyk@gmail.com',0,'Uniwersytet Wrocławski',1,'Chemia',1500.0
+'Jan','Sawicki','91121855589',1.75,80,'jan.sawicki@gmail.com',0,'Uniwersytet Śląski',5,'Prawo',2000.0
+'Kamila','Kaczmarek','59053077114',1.65,68,'kamila.kaczmarek@gmail.com',0,'Politechnika Lubelska',3,'Inżynieria Elektroniczna',1700.0
+'Jakub','Kowal','96040187982',1.77,75,'jakub.kowal@gmail.com',0,'Uniwersytet Opolski',2,'Informatyka',1600.0
+'Anna','Lewandowska','95070292778',1.73,60,'anna.lewandowska@gmail.com',0,'Politechnika Gdańska',3,'Architektura',1400.0
+'Łukasz','Kwiatkowsi','57071012333',1.76,68,'lukasz.kwiatkowski@gmail.com',0,'Akademia Sztuk Pięknych',2,'Sztuka',1200.0
+'Marta','Sikorska','77112618922',1.68,72,'marta.sikorska@gmail.com',0,'Uniwersytet Gdański',4,'Inżynieria Chemiczna',1700.0
+'Marek','Piotrowski','83100327888',1.85,85,'marek.piotrowski@gmail.com',0,'Politechnika Krakowska',1,'Informatyka',1600.0
+'Natalia','Borowska','82111413928',1.67,55,'natalia.borowska@gmail.com',0,'Uniwersytet Warszawski',2,'Psychologia',1500.0
