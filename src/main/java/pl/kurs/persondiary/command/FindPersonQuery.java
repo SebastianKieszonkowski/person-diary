@@ -3,7 +3,6 @@ package pl.kurs.persondiary.command;
 
 import lombok.*;
 
-@Data
 @Getter
 @Setter
 @AllArgsConstructor
@@ -19,13 +18,22 @@ public class FindPersonQuery {
     private Double weightFrom;
     private Double weightTo;
     private String email;
+    private Integer versionFrom;
+    private Integer versionTo;
     private String gender;
-    private Double salaryFrom;
-    private Double salaryTo;
     private Integer ageFrom;
     private Integer ageTo;
+    private Double salaryFrom;
+    private Double salaryTo;
+    private String position;
     private String universityName;
+    private Integer studyYearFrom;
+    private Integer studyYeaTo;
+    private String studyField;
+    private Double scholarshipFrom;
+    private Double scholarshipTo;
+    private Double pensionFrom;
+    private Double pensionTo;
     private Integer workedYearsFrom;
     private Integer workedYearsTo;
-    //dodac kolejne dla poszczegulnych typów osób
 }

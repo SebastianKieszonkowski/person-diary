@@ -2,7 +2,7 @@ first_name,last_name,pesel,height,weight,email,version,hire_date,position,salary
 'Katarzyna','Nowak','67121848249',1.75,70,'katarzyna.nowak@gmail.com',0,'2023-11-30','Programista',18500.75
 'Adam','Kowalski','63122546315',1.8,80,'adam.kowalski@gmail.com',0,'2023-11-29','Inżynier R&D',17000.5
 'Marta','Wójcik','87112939738',1.68,55,'marta.wojcik@gmail.com',0,'2023-11-28','Analityk Finansowy',15699.2
-'Piotr','Jankowski','82120351732',1.78,75,'piotr.jankowski@gmail.com',0,'2023-11-27','Specjalista ds. Marketingu',14200.75
+'Piotr','Jankowski','82120351732',1.78,150,'piotr.jankowski@gmail.com',0,'2023-11-27','Specjalista ds. Marketingu',14200.75
 'Julia','Szymańska','81041588771',1.6,70,'julia.szymanska@gmail.com',0,'2023-11-26','Inżynier Produkcji',12000.0
 'Robert','Nowak','94092037651',1.85,90,'robert.nowak@gmail.com',0,'2023-11-25','Kierownik Projektu',22500.0
 'Kinga','Kowalczyk','94091932575',1.72,63,'kinga.kowalczyk@gmail.com',0,'2023-11-24','Specjalista ds. HR',13000.0

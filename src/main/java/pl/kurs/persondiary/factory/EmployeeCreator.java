@@ -1,9 +1,10 @@
 package pl.kurs.persondiary.factory;
 
-import jakarta.validation.Valid;
+import jakarta.validation.Validator;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import pl.kurs.persondiary.command.singleCommand.CreateEmployeeCommand;
 import pl.kurs.persondiary.dto.IPersonDto;
 import pl.kurs.persondiary.dto.viewdto.EmployeeViewDto;
 import pl.kurs.persondiary.models.Employee;
@@ -18,6 +19,7 @@ import java.util.Optional;
 public class EmployeeCreator implements PersonCreator {
 
     private final ModelMapper modelMapper;
+    private final Validator validator;
 
     @Override
     public String getType() {
@@ -25,17 +27,20 @@ public class EmployeeCreator implements PersonCreator {
     }
 
     @Override
-    public Person create(@Valid Map<String, Object> parameters) {
-        return new Employee(getStringParameter("firstName", parameters),
+    public Person create(Map<String, Object> parameters) {
+        CreateEmployeeCommand createEmployeeCommand = new CreateEmployeeCommand(
+                getStringParameter("firstName", parameters),
                 getStringParameter("lastName", parameters),
                 getStringParameter("pesel", parameters),
                 getDoubleParameter("height", parameters),
                 getDoubleParameter("weight", parameters),
                 getStringParameter("email", parameters),
-                getIntegerParameter("version", parameters),
                 getLocalDataParameter("hireDate", parameters),
                 getStringParameter("position", parameters),
                 getDoubleParameter("salary", parameters));
+
+        commandValidator(createEmployeeCommand, (org.springframework.validation.Validator) validator);
+        return modelMapper.map(createEmployeeCommand, Employee.class);
     }
 
     @Override

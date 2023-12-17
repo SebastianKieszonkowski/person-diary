@@ -18,20 +18,12 @@ import org.hibernate.validator.constraints.pl.PESEL;
 public class Student extends Person {
     private static final long serialVersionUID = 1L;
 
-    @NotBlank
     @Column(nullable = false)
     private String universityName;
-
-    @Min(1)
-    @Max(5)
     @Column(nullable = false)
     private Integer studyYear;
-
-    @NotBlank
     @Column(nullable = false)
     private String studyField;
-
-    @Positive
     @Column(nullable = false)
     private Double scholarship;
 

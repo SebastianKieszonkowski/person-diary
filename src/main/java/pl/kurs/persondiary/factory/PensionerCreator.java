@@ -1,9 +1,10 @@
 package pl.kurs.persondiary.factory;
 
-import jakarta.validation.Valid;
+import jakarta.validation.Validator;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import pl.kurs.persondiary.command.singleCommand.CreatePensionerCommand;
 import pl.kurs.persondiary.dto.IPersonDto;
 import pl.kurs.persondiary.dto.viewdto.PensionerViewDto;
 import pl.kurs.persondiary.models.Pensioner;
@@ -18,6 +19,7 @@ import java.util.Optional;
 public class PensionerCreator implements PersonCreator {
 
     private final ModelMapper modelMapper;
+    private final Validator validator;
 
     @Override
     public String getType() {
@@ -25,16 +27,19 @@ public class PensionerCreator implements PersonCreator {
     }
 
     @Override
-    public Person create(@Valid Map<String, Object> parameters) {
-        return new Pensioner(getStringParameter("firstName", parameters),
+    public Person create(Map<String, Object> parameters) {
+        CreatePensionerCommand createPensionerCommand = new CreatePensionerCommand(
+                getStringParameter("firstName", parameters),
                 getStringParameter("lastName", parameters),
                 getStringParameter("pesel", parameters),
                 getDoubleParameter("height", parameters),
                 getDoubleParameter("weight", parameters),
                 getStringParameter("email", parameters),
-                getIntegerParameter("version", parameters),
                 getDoubleParameter("pension", parameters),
                 getIntegerParameter("workedYears", parameters));
+
+        commandValidator(createPensionerCommand, (org.springframework.validation.Validator) validator);
+        return modelMapper.map(createPensionerCommand, Pensioner.class);
     }
 
     @Override

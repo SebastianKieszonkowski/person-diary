@@ -34,7 +34,7 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/
             <column name="role_id" type="integer">
                 <constraints nullable="false"/>
             </column>
-            <!-- <primaryKey name="pk_user_roles" columnNames="id_user, role_id"/> -->
+         <!--    <primaryKey name="pk_user_roles" columnNames="id_user, role_id"/> -->
         </createTable>
 
         <addForeignKeyConstraint constraintName="fk_user_roles_users"
@@ -49,13 +49,9 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/
                                  referencedColumnNames="id"/>
     </changeSet>
 
-    <changeSet id="20231215_004_sk" author="Sebastian">
-            <createSequence sequenceName="hibernate_sequence" startValue="1" incrementBy="1"/>
-    </changeSet>
-
     <changeSet id="20231215_006_sk" author="Sebastian">
         <createTable tableName="students">
-           <column name="id" type="bigint" autoIncrement="true">
+            <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="first_name" type="varchar(255)">
@@ -187,7 +183,7 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/
             </column>
         </createTable>
 
-        <!-- Definicja klucza obcego dla employee_id -->
+        <!-- Definicja klucza obcego dla employee_id-->
         <addForeignKeyConstraint constraintName="fk_employee_position_employee"
                                  baseTableName="positions" baseColumnNames="employee_id"
                                  referencedTableName="employees" referencedColumnNames="id"/>

@@ -1,9 +1,11 @@
 package pl.kurs.persondiary.factory;
 
 import jakarta.validation.Valid;
+import jakarta.validation.Validator;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import pl.kurs.persondiary.command.singleCommand.CreateStudentCommand;
 import pl.kurs.persondiary.dto.IPersonDto;
 import pl.kurs.persondiary.dto.viewdto.StudentViewDto;
 import pl.kurs.persondiary.models.Person;
@@ -18,6 +20,7 @@ import java.util.Optional;
 public class StudentCreator implements PersonCreator {
 
     private final ModelMapper modelMapper;
+    private final Validator validator;
 
     @Override
     public String getType() {
@@ -26,17 +29,20 @@ public class StudentCreator implements PersonCreator {
 
     @Override
     public Person create(@Valid Map<String, Object> parameters) {
-        return new Student(getStringParameter("firstName", parameters),
+        CreateStudentCommand createStudentCommand = new CreateStudentCommand(
+                getStringParameter("firstName", parameters),
                 getStringParameter("lastName", parameters),
                 getStringParameter("pesel", parameters),
                 getDoubleParameter("height", parameters),
                 getDoubleParameter("weight", parameters),
                 getStringParameter("email", parameters),
-                getIntegerParameter("version", parameters),
                 getStringParameter("universityName", parameters),
                 getIntegerParameter("studyYear", parameters),
                 getStringParameter("studyField", parameters),
                 getDoubleParameter("scholarship", parameters));
+
+        commandValidator(createStudentCommand, (org.springframework.validation.Validator) validator);
+        return modelMapper.map(createStudentCommand, Student.class);
     }
 
     @Override

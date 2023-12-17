@@ -27,27 +27,21 @@ public abstract class Person implements Serializable, Identificationable {
     @Column(nullable = false)
     private Long id;
 
-    @NotBlank
     @Column(nullable = false)
     private String firstName;
 
-    @NotBlank
     @Column(nullable = false)
     private String lastName;
 
-    @PESEL
     @Column(unique = true, nullable = false)//baza danych nie pozwoli na zapis 2 takich samych peseli
     private String pesel;
 
-    @Positive
     @Column(nullable = false)
     private Double height;
 
-    @Positive
     @Column(nullable = false)
     private Double weight;
 
-    @Email
     @Column(nullable = false)
     private String email;
 

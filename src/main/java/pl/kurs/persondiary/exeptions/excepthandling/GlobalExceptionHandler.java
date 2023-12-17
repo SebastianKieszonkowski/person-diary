@@ -18,6 +18,13 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler({IllegalArgumentException.class})
+    public ResponseEntity<ExceptionResponseDto> handleIllegalArgumentException(IllegalArgumentException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                new ExceptionResponseDto(List.of(e.getMessage()), "BAD_REQUEST", LocalDateTime.now())
+        );
+    }
+
     @ExceptionHandler({IncorrectDateRangeException.class})
     public ResponseEntity<ExceptionResponseDto> handleIncorrectDateRangeException(IncorrectDateRangeException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(

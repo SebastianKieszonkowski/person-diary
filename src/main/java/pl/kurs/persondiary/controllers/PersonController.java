@@ -1,5 +1,6 @@
 package pl.kurs.persondiary.controllers;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -52,7 +53,7 @@ public class PersonController {
 
     @PostMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity createPerson(@RequestBody CreatePersonCommand createPersonCommand) {
+    public ResponseEntity createPerson(@RequestBody @Valid CreatePersonCommand createPersonCommand) {
         Person person = personFactory.create(createPersonCommand);
         person = personService.savePerson(person);
         IPersonDto personDto = personFactory.createDtoFromPerson(person);

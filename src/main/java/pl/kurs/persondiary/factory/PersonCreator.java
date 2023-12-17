@@ -1,5 +1,9 @@
 package pl.kurs.persondiary.factory;
 
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.DataBinder;
+import org.springframework.validation.Validator;
+import pl.kurs.persondiary.command.ICreatePersonCommand;
 import pl.kurs.persondiary.dto.IPersonDto;
 import pl.kurs.persondiary.models.Person;
 import pl.kurs.persondiary.models.PersonView;
@@ -36,5 +40,15 @@ public interface PersonCreator {
         if (parameters.get(name) != null)
             date = LocalDate.parse(parameters.get(name).toString());
         return date;
+    }
+
+    default void commandValidator(ICreatePersonCommand createPersonCommand, Validator validator){
+        DataBinder binder = new DataBinder(createPersonCommand);
+        binder.setValidator(validator);
+        binder.validate();
+        BindingResult bindingResult = binder.getBindingResult();
+        if (bindingResult.hasErrors()) {
+            throw new IllegalArgumentException("Invalid validation: " + bindingResult.toString());
+        }
     }
 }

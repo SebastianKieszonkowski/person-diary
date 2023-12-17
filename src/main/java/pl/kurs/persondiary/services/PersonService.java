@@ -23,7 +23,9 @@ import pl.kurs.persondiary.services.entityservices.EmployeeService;
 import pl.kurs.persondiary.services.entityservices.IManagementService;
 import pl.kurs.persondiary.services.entityservices.PensionerService;
 import pl.kurs.persondiary.services.entityservices.StudentService;
+import pl.kurs.persondiary.services.querybuilder.QueryFactoryComponent;
 
+import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +46,8 @@ public class PersonService {
     private final PensionerService pensionerService;
     private final StudentService studentService;
     private final ProgressService progressService;
+
+    private final QueryFactoryComponent queryFactoryComponent;
 
     public void importPerson(String line, AtomicLong counter, String taskId) {
         String[] args = line.split(",");
@@ -89,6 +93,7 @@ public class PersonService {
     }
 
     @Transactional(readOnly = true)
+    @SneakyThrows
     public List<PersonView> findPersonByParameters(FindPersonQuery query, Pageable pageable) {
 
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
@@ -96,69 +101,13 @@ public class PersonService {
         Root<PersonView> root = criteriaQuery.from(PersonView.class);
         List<Predicate> predicates = new ArrayList<>();
 
-        if (query.getType() != null) {
-            String type = "%" + query.getType().toLowerCase(Locale.ROOT) + "%";
-            predicates.add(builder.like(builder.lower(root.get("type")), type));
-        }
-        if (query.getFirstName() != null) {
-            String firstName = "%" + query.getFirstName().toLowerCase() + "%";
-            predicates.add(builder.like(builder.lower(root.get("firstName")), firstName));
-        }
-        if (query.getLastName() != null) {
-            String lastName = "%" + query.getLastName().toLowerCase() + "%";
-            predicates.add(builder.like(builder.lower(root.get("lastName")), lastName));
-        }
-        if (query.getPesel() != null) {
-            predicates.add(builder.equal(root.get("pesel"), query.getPesel()));
-        }
-        if (query.getEmail() != null) {
-            String email = "%" + query.getEmail().toLowerCase() + "%";
-            predicates.add(builder.like(builder.lower(root.get("email")), email));
-        }
-        if (query.getHeightFrom() != null) {
-            predicates.add(builder.greaterThanOrEqualTo(root.get("height"), query.getHeightFrom()));
-        }
-        if (query.getHeightTo() != null) {
-            predicates.add(builder.lessThanOrEqualTo(root.get("height"), query.getHeightTo()));
-        }
-        if (query.getWeightFrom() != null) {
-            predicates.add(builder.greaterThanOrEqualTo(root.get("weight"), query.getWeightFrom()));
-        }
-        if (query.getWeightTo() != null) {
-            predicates.add(builder.lessThanOrEqualTo(root.get("weight"), query.getWeightFrom()));
-        }
-        if (query.getGender() != null) {
-            if (query.getGender().toString().equals("female")) {
-                predicates.add(builder.like(builder.lower(root.get("firstName")), "%a"));
-            } else {
-                predicates.add(builder.notLike(builder.lower(root.get("firstName")), "%a"));
+        for (Field field : FindPersonQuery.class.getDeclaredFields()) {
+            field.setAccessible(true);
+            Object value = field.get(query);
+            if (value != null) {
+                predicates.add(queryFactoryComponent.buildPredicate(field.getName(), builder, root, value));
             }
         }
-        if (query.getAgeFrom() != null) {
-            LocalDate dateFrom = LocalDate.now().minusYears(query.getAgeFrom());
-            predicates.add(builder.lessThanOrEqualTo(root.get("birthDate"), dateFrom));
-        }
-        if (query.getAgeTo() != null) {
-            LocalDate dateTo = LocalDate.now().minusYears(query.getAgeTo());
-            predicates.add(builder.greaterThanOrEqualTo(root.get("birthDate"), dateTo));
-        }
-        if (query.getSalaryFrom() != null) {
-            predicates.add(builder.greaterThanOrEqualTo(root.get("salary"), query.getSalaryFrom()));
-        }
-        if (query.getSalaryTo() != null) {
-            predicates.add(builder.lessThanOrEqualTo(root.get("salary"), query.getSalaryTo()));
-        }
-        if (query.getUniversityName() != null) {
-            String universityName = "%" + query.getUniversityName().toLowerCase() + "%";
-            predicates.add(builder.like(builder.lower(root.get("universityName")), universityName));
-        }
-        if (query.getWorkedYearsFrom() != null) {
-            predicates.add(builder.greaterThanOrEqualTo(root.get("workedYears"), query.getWorkedYearsFrom()));
-        }
-        if (query.getWorkedYearsTo() != null) {
-            predicates.add(builder.lessThanOrEqualTo(root.get("workedYears"), query.getWorkedYearsTo()));
-        }
-
 
         if (predicates.size() != 0) {
             criteriaQuery.where(predicates.toArray(new Predicate[predicates.size()]));

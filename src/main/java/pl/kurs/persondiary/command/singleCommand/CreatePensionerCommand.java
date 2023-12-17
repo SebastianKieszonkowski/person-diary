@@ -1,11 +1,8 @@
 package pl.kurs.persondiary.command.singleCommand;
 
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.pl.PESEL;
@@ -14,25 +11,22 @@ import pl.kurs.persondiary.command.ICreatePersonCommand;
 @Getter
 @Setter
 @AllArgsConstructor
-@Builder
 public class CreatePensionerCommand implements ICreatePersonCommand {
 
-    @NotBlank
-    private String type;
     @NotBlank
     private String firstName;
     @NotBlank
     private String lastName;
     @PESEL
     private String pesel;
-    @NotNull
+    @Positive
     private Double height;
-    @NotNull
+    @Positive
     private Double weight;
     @Email
     private String email;
-    @NotNull
+    @Positive
     private Double pension;
-    @NotNull
+    @PositiveOrZero
     private Integer workedYears;
 }

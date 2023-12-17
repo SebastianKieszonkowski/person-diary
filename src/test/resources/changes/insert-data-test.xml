@@ -80,4 +80,25 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/
         </loadData>
     </changeSet>
 
+    <changeSet id="20231217_010_sk" author="Sebastian">
+        <loadData tableName="user_role"
+                  encoding="UTF-8"
+                  file="/data/roles.csv"
+                  quotchar="'"
+                  separator=",">
+            <column name="name" type="string" header="name"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet id="20231217_011_sk" author="Sebastian">
+        <loadData tableName="users"
+                  encoding="UTF-8"
+                  file="/data/users.csv"
+                  quotchar="'"
+                  separator=",">
+            <column name="username" type="string" header="username"/>
+            <column name="password" type="string" header="password"/>
+        </loadData>
+    </changeSet>
+
 </databaseChangeLog>

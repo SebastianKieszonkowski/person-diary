@@ -23,6 +23,34 @@ do dodawania dowolnego typu osoby do naszego systemu, kontrakt musisz opracowac 
 "dodanie nowego typu osoby ma byc mozliwe w taki sposob ze nie musze modyfikowac zadnej z klas - tylko dodac nowe"
 podczas dodawania ma byc zrobiona sensowna walidacja oraz obsluga bledow.
 Kontrakt:
+   {
+        "type": "student",
+        "parameters":{
+            "firstName": "Anna",
+            "lastName": "Mazur",
+            "pesel": "02220466462",
+            "height": 1.75,
+            "weight": 60.0,
+            "email": "anna.mazur@gmail.com",
+            "universityName": "Politechnika Poznańska",
+            "studyYear": 1,
+            "studyField": "Informatyka",
+            "scholarship": 1600.0
+        }
+    }
+       {
+            "type": "pensioner",
+            "parameters":{
+                "firstName": "Anna",
+                "lastName": "Mazur",
+                "pesel": "72030491266",
+                "height": 1.75,
+                "weight": 60.0,
+                "email": "anna.mazur@gmail.com",
+                "pension": 4600.25,
+                "workedYears": 35
+            }
+        }
     {
         "type": "employee",
         "parameters":{

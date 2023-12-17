@@ -21,11 +21,8 @@ import org.hibernate.validator.constraints.pl.PESEL;
 public class Pensioner extends Person {
     private static final long serialVersionUID = 1L;
 
-    @Positive
     @Column(nullable = false)
     private Double pension;
-
-    @PositiveOrZero
     @Column(nullable = false)
     private Integer workedYears;
 
