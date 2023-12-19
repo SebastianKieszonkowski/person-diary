@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.pl.PESEL;
 import pl.kurs.persondiary.command.ICreatePersonCommand;
+import pl.kurs.persondiary.validations.PositionName;
 
 import java.time.LocalDate;
 
@@ -30,6 +31,7 @@ public class CreateEmployeeCommand implements ICreatePersonCommand {
     @PastOrPresent
     private LocalDate hireDate;
     @NotBlank
+    @PositionName
     private String position;
     @Positive
     private Double salary;

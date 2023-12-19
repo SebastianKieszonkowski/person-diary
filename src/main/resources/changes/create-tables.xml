@@ -261,9 +261,9 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/
     <changeSet id="20231215_010_sk" author="Sebastian">
         <createView viewName="person_view" replaceIfExists="true">
             <![CDATA[
-                SELECT  ROW_NUMBER() OVER (ORDER BY type, pesel) AS id, type, sub_id, first_name, last_name, pesel, height, weight, email, version, birth_date, hire_date, position, salary, pension, worked_years, university_name, study_year, study_field, scholarship
+                SELECT id, type, first_name, last_name, pesel, height, weight, email, version, birth_date, hire_date, position, salary, pension, worked_years, university_name, study_year, study_field, scholarship
     FROM (
-            SELECT 'employee' AS type, id AS sub_id, first_name, last_name, pesel, height, weight, email, version,
+            SELECT 'employee' AS type, id, first_name, last_name, pesel, height, weight, email, version,
             CASE WHEN SUBSTRING(pesel, 3, 2) > '20' AND SUBSTRING(pesel, 3, 2) < '33' THEN
                 CAST(CONCAT('20', SUBSTRING(pesel, 1, 2), '-', SUBSTRING(pesel, 3, 2) - 20 , '-', SUBSTRING(pesel, 5, 2)) AS DATE)
             ELSE
@@ -272,7 +272,7 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/
             NULL as study_field, NULL as scholarship
             FROM employees
             UNION
-            SELECT 'pensioner' AS type, id AS sub_id, first_name, last_name, pesel, height, weight, email, version,
+            SELECT 'pensioner' AS type, id, first_name, last_name, pesel, height, weight, email, version,
             CASE WHEN SUBSTRING(pesel, 3, 2) > '20' AND SUBSTRING(pesel, 3, 2) < '33' THEN
                 CAST(CONCAT('20', SUBSTRING(pesel, 1, 2), '-', SUBSTRING(pesel, 3, 2) - 20 , '-', SUBSTRING(pesel, 5, 2)) AS DATE)
             ELSE
@@ -281,7 +281,7 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/
             NULL as study_year, NULL as study_field, NULL as scholarship
             FROM pensioners
             UNION
-            SELECT 'student' AS type, id AS sub_id, first_name, last_name, pesel, height, weight, email, version,
+            SELECT 'student' AS type, id, first_name, last_name, pesel, height, weight, email, version,
             CASE WHEN SUBSTRING(pesel, 3, 2) > '20' AND SUBSTRING(pesel, 3, 2) < '33' THEN
                 CAST(CONCAT('20', SUBSTRING(pesel, 1, 2), '-', SUBSTRING(pesel, 3, 2) - 20 , '-', SUBSTRING(pesel, 5, 2)) AS DATE)
             ELSE

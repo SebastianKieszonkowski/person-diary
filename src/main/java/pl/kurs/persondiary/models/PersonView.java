@@ -22,9 +22,6 @@ public class PersonView {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "sub_id")
-    private Long subId;
-
     @Column(name = "first_name")
     private String firstName;
 

@@ -14,7 +14,7 @@ public class PersonViewToPensionerViewDtoCreator implements Converter<PersonView
         PersonView source = mappingContext.getSource();
         return PensionerViewDto.builder()
                 .type(source.getType())
-                .id(source.getSubId())
+                .id(source.getId())
                 .firstName(source.getFirstName())
                 .lastName(source.getLastName())
                 .pesel(source.getPesel())

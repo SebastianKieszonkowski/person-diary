@@ -1,11 +1,7 @@
 package pl.kurs.persondiary.models;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
 import lombok.*;
-import org.hibernate.validator.constraints.pl.PESEL;
 
 import java.io.Serializable;
 
@@ -13,7 +9,7 @@ import java.io.Serializable;
 @Setter
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @EqualsAndHashCode
 @ToString
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -48,7 +44,7 @@ public abstract class Person implements Serializable, Identificationable {
     @Version
     private Integer version;
 
-    public Person(@NotBlank String firstName, @NotBlank String lastName, @PESEL String pesel, @Positive Double height, @Positive Double weight, @Email String email, Integer version) {
+    public Person( String firstName,  String lastName,  String pesel,  Double height, Double weight, String email, Integer version) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pesel = pesel;

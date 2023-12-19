@@ -19,7 +19,7 @@ public class BeanConfig implements AsyncConfigurer {
     @Bean
     public ModelMapper getModelMapper(Set<Converter> converters) {
         ModelMapper mapper = new ModelMapper();
-        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);//STRICT
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         converters.forEach(mapper::addConverter);
         return mapper;
     }

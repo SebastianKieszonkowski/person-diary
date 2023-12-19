@@ -32,7 +32,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicLong;
 
-
 @Service
 @RequiredArgsConstructor
 public class PersonService {
@@ -90,6 +89,11 @@ public class PersonService {
         dbPerson = personFactory.update(dbPerson, updatePersonCommand);
         Person editedPerson = personService2.add(dbPerson);
         return dbPerson;
+    }
+
+    @Transactional(readOnly = true)
+    public boolean isPersonExists(String pesel, String type){
+        return personViewRepository.existsByPeselAndType(pesel, type);
     }
 
     @Transactional(readOnly = true)

@@ -4,7 +4,12 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
-http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog-ext.xsd">
+ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog-ext.xsd">
+    <!--
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog-ext.xsd"
+     -->
     <changeSet id="20231215_001_sk" author="Sebastian">
         <createTable tableName="users">
             <column name="id_user" type="bigint" autoIncrement="true">
@@ -34,7 +39,9 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/
             <column name="role_id" type="integer">
                 <constraints nullable="false"/>
             </column>
-         <!--    <primaryKey name="pk_user_roles" columnNames="id_user, role_id"/> -->
+
+            <!--    <primaryKey name="pk_user_roles" columnNames="id_user, role_id"/> -->
+
         </createTable>
 
         <addForeignKeyConstraint constraintName="fk_user_roles_users"
@@ -184,17 +191,28 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/
         </createTable>
 
         <!-- Definicja klucza obcego dla employee_id-->
+
         <addForeignKeyConstraint constraintName="fk_employee_position_employee"
                                  baseTableName="positions" baseColumnNames="employee_id"
                                  referencedTableName="employees" referencedColumnNames="id"/>
     </changeSet>
 
+
+    <changeSet id="20231215_004_sk" author="Sebastian">
+        <createTable tableName="hibernate_sequences">
+            <column name="sequence_name" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="next_val" type="bigint"/>
+        </createTable>
+    </changeSet>
+
     <changeSet id="20231215_010_sk" author="Sebastian">
         <createView viewName="person_view" replaceIfExists="true">
             <![CDATA[
-                SELECT  ROW_NUMBER() OVER (ORDER BY type, pesel) AS id, type, sub_id, first_name, last_name, pesel, height, weight, email, version, birth_date, hire_date, position, salary, pension, worked_years, university_name, study_year, study_field, scholarship
+                SELECT id, type, first_name, last_name, pesel, height, weight, email, version, birth_date, hire_date, position, salary, pension, worked_years, university_name, study_year, study_field, scholarship
     FROM (
-            SELECT 'employee' AS type, id AS sub_id, first_name, last_name, pesel, height, weight, email, version,
+            SELECT 'employee' AS type, id, first_name, last_name, pesel, height, weight, email, version,
             CASE WHEN SUBSTRING(pesel, 3, 2) > '20' AND SUBSTRING(pesel, 3, 2) < '33' THEN
                 CAST(CONCAT('20', SUBSTRING(pesel, 1, 2), '-', SUBSTRING(pesel, 3, 2) - 20 , '-', SUBSTRING(pesel, 5, 2)) AS DATE)
             ELSE
@@ -203,7 +221,7 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/
             NULL as study_field, NULL as scholarship
             FROM employees
             UNION
-            SELECT 'pensioner' AS type, id AS sub_id, first_name, last_name, pesel, height, weight, email, version,
+            SELECT 'pensioner' AS type, id, first_name, last_name, pesel, height, weight, email, version,
             CASE WHEN SUBSTRING(pesel, 3, 2) > '20' AND SUBSTRING(pesel, 3, 2) < '33' THEN
                 CAST(CONCAT('20', SUBSTRING(pesel, 1, 2), '-', SUBSTRING(pesel, 3, 2) - 20 , '-', SUBSTRING(pesel, 5, 2)) AS DATE)
             ELSE
@@ -212,7 +230,7 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/
             NULL as study_year, NULL as study_field, NULL as scholarship
             FROM pensioners
             UNION
-            SELECT 'student' AS type, id AS sub_id, first_name, last_name, pesel, height, weight, email, version,
+            SELECT 'student' AS type, id, first_name, last_name, pesel, height, weight, email, version,
             CASE WHEN SUBSTRING(pesel, 3, 2) > '20' AND SUBSTRING(pesel, 3, 2) < '33' THEN
                 CAST(CONCAT('20', SUBSTRING(pesel, 1, 2), '-', SUBSTRING(pesel, 3, 2) - 20 , '-', SUBSTRING(pesel, 5, 2)) AS DATE)
             ELSE

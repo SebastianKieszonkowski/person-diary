@@ -3,14 +3,12 @@ package pl.kurs.persondiary.models;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.*;
 import lombok.*;
-import org.hibernate.validator.constraints.pl.PESEL;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @EqualsAndHashCode
 @ToString //do usuniecia w wersi ostatecznej
 @Entity
@@ -27,7 +25,8 @@ public class Student extends Person {
     @Column(nullable = false)
     private Double scholarship;
 
-    public Student(@NotBlank String firstName, @NotBlank String lastName, @PESEL String pesel, @Positive Double height, @Positive Double weight, @Email String email, Integer version, @NotBlank String universityName, @Min(1) @Max(5) Integer studyYear, @NotBlank String studyField, @Positive Double scholarship) {
+    public Student(String firstName, String lastName, String pesel, Double height, Double weight, String email,
+                   Integer version, String universityName, Integer studyYear, String studyField, Double scholarship) {
         super(firstName, lastName, pesel, height, weight, email, version);
         this.universityName = universityName;
         this.studyYear = studyYear;

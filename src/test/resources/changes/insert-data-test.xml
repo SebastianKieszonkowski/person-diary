@@ -6,81 +6,85 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
 http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog-ext.xsd">
 
-    <changeSet id="20231215_011_sk" author="Sebastian">
-        <loadData tableName="students"
-                  encoding="UTF-8"
-                  file="/data/students.csv"
-                  quotchar="'"
-                  separator=",">
-            <!--   <column name="id" type="numeric" header="first_name"/> -->
-            <column name="first_name" type="string" header="first_name"/>
-            <column name="last_name" type="string" header="last_name"/>
-            <column name="pesel" type="string" header="pesel"/>
-            <column name="height" type="double" header="height"/>
-            <column name="weight" type="double" header="weight"/>
-            <column name="email" type="string" header="email"/>
-            <column name="version" type="numeric" header="version"/>
-            <column name="university_name" type="string" header="university_name"/>
-            <column name="study_year" type="numeric" header="study_year"/>
-            <column name="study_field" type="string" header="study_field"/>
-            <column name="scholarship" type="double" header="scholarship"/>
-        </loadData>
+    <changeSet id="20231215_005_sk" author="Sebastian">
+        <insert tableName="hibernate_sequences">
+            <column name="sequence_name" value="default"/>
+            <column name="next_val" valueNumeric="100"/>
+        </insert>
     </changeSet>
 
-    <changeSet id="20231215_012_sk" author="Sebastian">
-        <loadData tableName="pensioners"
-                  encoding="UTF-8"
-                  file="/data/pensioners.csv"
-                  quotchar="'"
-                  separator=",">
-            <!--   <column name="id" type="numeric" header="first_name"/> -->
-            <column name="first_name" type="string" header="first_name"/>
-            <column name="last_name" type="string" header="last_name"/>
-            <column name="pesel" type="string" header="pesel"/>
-            <column name="height" type="double" header="height"/>
-            <column name="weight" type="double" header="weight"/>
-            <column name="email" type="string" header="email"/>
-            <column name="version" type="numeric" header="version"/>
-            <column name="pension" type="double" header="pension"/>
-            <column name="worked_years" type="numeric" header="worked_years"/>
-        </loadData>
-    </changeSet>
+      <changeSet id="20231215_011_sk" author="Sebastian">
+          <loadData tableName="students"
+                    encoding="UTF-8"
+                    file="/data/students.csv"
+                    quotchar="'"
+                    separator=",">
+              <column name="first_name" type="string" header="first_name"/>
+              <column name="last_name" type="string" header="last_name"/>
+              <column name="pesel" type="string" header="pesel"/>
+              <column name="height" type="double" header="height"/>
+              <column name="weight" type="double" header="weight"/>
+              <column name="email" type="string" header="email"/>
+              <column name="version" type="numeric" header="version"/>
+              <column name="university_name" type="string" header="university_name"/>
+              <column name="study_year" type="numeric" header="study_year"/>
+              <column name="study_field" type="string" header="study_field"/>
+              <column name="scholarship" type="double" header="scholarship"/>
+          </loadData>
+      </changeSet>
 
-    <changeSet id="20231215_013_sk" author="Sebastian">
-        <loadData tableName="employees"
-                  encoding="UTF-8"
-                  file="/data/employees.csv"
-                  quotchar="'"
-                  separator=",">
-            <!--   <column name="id" type="numeric" header="first_name"/> -->
-            <column name="first_name" type="string" header="first_name"/>
-            <column name="last_name" type="string" header="last_name"/>
-            <column name="pesel" type="string" header="pesel"/>
-            <column name="height" type="double" header="height"/>
-            <column name="weight" type="double" header="weight"/>
-            <column name="email" type="string" header="email"/>
-            <column name="version" type="numeric" header="version"/>
-            <column name="position" type="string" header="position"/>
-            <column name="hire_date" type="date" header="hire_date"/>
-            <column name="salary" type="double" header="salary"/>
-        </loadData>
-    </changeSet>
+      <changeSet id="20231215_012_sk" author="Sebastian">
+          <loadData tableName="pensioners"
+                    encoding="UTF-8"
+                    file="/data/pensioners.csv"
+                    quotchar="'"
+                    separator=",">
+              <column name="first_name" type="string" header="first_name"/>
+              <column name="last_name" type="string" header="last_name"/>
+              <column name="pesel" type="string" header="pesel"/>
+              <column name="height" type="double" header="height"/>
+              <column name="weight" type="double" header="weight"/>
+              <column name="email" type="string" header="email"/>
+              <column name="version" type="numeric" header="version"/>
+              <column name="pension" type="double" header="pension"/>
+              <column name="worked_years" type="numeric" header="worked_years"/>
+          </loadData>
+      </changeSet>
 
-    <changeSet id="20231215_014_sk" author="Sebastian">
-        <loadData tableName="positions"
-                  encoding="UTF-8"
-                  file="/data/positions.csv"
-                  quotchar="'"
-                  separator=",">
-            <column name="end_date_on_position" type="date" header="end_date_on_position"/>
-            <column name="position_name" type="string" header="position_name"/>
-            <column name="salary" type="double" header="salary"/>
-            <column name="start_date_on_position" type="date" header="start_date_onPosition"/>
-            <column name="employee_id" type="numeric" header="employee_id"/>
-        </loadData>
-    </changeSet>
+      <changeSet id="20231215_013_sk" author="Sebastian">
+          <loadData tableName="employees"
+                    encoding="UTF-8"
+                    file="/data/employees.csv"
+                    quotchar="'"
+                    separator=",">
+              <column name="first_name" type="string" header="first_name"/>
+              <column name="last_name" type="string" header="last_name"/>
+              <column name="pesel" type="string" header="pesel"/>
+              <column name="height" type="double" header="height"/>
+              <column name="weight" type="double" header="weight"/>
+              <column name="email" type="string" header="email"/>
+              <column name="version" type="numeric" header="version"/>
+              <column name="position" type="string" header="position"/>
+              <column name="hire_date" type="date" header="hire_date"/>
+              <column name="salary" type="double" header="salary"/>
+          </loadData>
+      </changeSet>
 
-    <changeSet id="20231217_010_sk" author="Sebastian">
+      <changeSet id="20231215_014_sk" author="Sebastian">
+          <loadData tableName="positions"
+                    encoding="UTF-8"
+                    file="/data/positions.csv"
+                    quotchar="'"
+                    separator=",">
+              <column name="end_date_on_position" type="date" header="end_date_on_position"/>
+              <column name="position_name" type="string" header="position_name"/>
+              <column name="salary" type="double" header="salary"/>
+              <column name="start_date_on_position" type="date" header="start_date_onPosition"/>
+              <column name="employee_id" type="numeric" header="employee_id"/>
+          </loadData>
+      </changeSet>
+
+  <!--  <changeSet id="20231217_010_sk" author="Sebastian">
         <loadData tableName="user_role"
                   encoding="UTF-8"
                   file="/data/roles.csv"
@@ -99,6 +103,59 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/
             <column name="username" type="string" header="username"/>
             <column name="password" type="string" header="password"/>
         </loadData>
+    </changeSet> -->
+
+    <changeSet id="20231217_001_sk" author="Sebastian">
+        <insert tableName="user_role">
+            <column name="name" value="ROLE_ADMIN"/>
+        </insert>
+        <insert tableName="user_role">
+            <column name="name" value="ROLE_USER"/>
+        </insert>
+        <insert tableName="user_role">
+            <column name="name" value="ROLE_IMPORTER"/>
+        </insert>
+        <insert tableName="user_role">
+            <column name="name" value="ROLE_EMPLOYEE"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="20231217_002_sk" author="Sebastian">
+        <insert tableName="users">
+            <column name="username" value="AdamAdmin"/>
+            <column name="password" value="$2a$10$QOzts1Q2Qn.dS4.IFLiiEOBkWyS6DXwFnTa6/QEGGrH8Qa3NQoJ/e"/>
+        </insert>
+        <insert tableName="users">
+            <column name="username" value="JanekUser"/>
+            <column name="password" value="$2a$10$nnI3pCjCXAEUOPCMfc39.Odac1wMAXG4d3Kly9FvJeNz2nNGb1.xK"/>
+        </insert>
+        <insert tableName="users">
+            <column name="username" value="KarolImporter"/>
+            <column name="password" value="$2a$10$5ZwHo/GmNtbUb.e9oalX9uQBt.p/iMgnrmelLVV6TuxxHN.iGAe4O"/>
+        </insert>
+        <insert tableName="users">
+            <column name="username" value="DarekEmployee"/>
+            <column name="password" value="$2a$10$zRli3xAGjv.GOWm.eJRKv.OegqqXB78fHmLbhJUDVy50cjvRlAIbC"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="20231217_003_sk" author="Sebastian">
+        <insert tableName="user_roles">
+            <column name="id_user" value="1"/>
+            <column name="role_id" value="1"/>
+        </insert>
+        <insert tableName="user_roles">
+            <column name="id_user" value="2"/>
+            <column name="role_id" value="2"/>
+        </insert>
+        <insert tableName="user_roles">
+            <column name="id_user" value="3"/>
+            <column name="role_id" value="3"/>
+        </insert>
+        <insert tableName="user_roles">
+            <column name="id_user" value="4"/>
+            <column name="role_id" value="4"/>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>
