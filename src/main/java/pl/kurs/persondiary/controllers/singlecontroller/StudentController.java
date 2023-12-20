@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import pl.kurs.persondiary.command.singleCommand.CreateStudentCommand;
+import pl.kurs.persondiary.command.CreateStudentCommand;
 import pl.kurs.persondiary.dto.StatusDto;
 import pl.kurs.persondiary.dto.viewdto.StudentViewDto;
 import pl.kurs.persondiary.models.Student;

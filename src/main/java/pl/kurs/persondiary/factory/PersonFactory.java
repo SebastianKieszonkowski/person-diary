@@ -2,6 +2,7 @@ package pl.kurs.persondiary.factory;
 
 import org.springframework.stereotype.Service;
 import pl.kurs.persondiary.command.CreatePersonCommand;
+import pl.kurs.persondiary.command.UpdatePersonCommand;
 import pl.kurs.persondiary.dto.IPersonDto;
 import pl.kurs.persondiary.models.Person;
 import pl.kurs.persondiary.models.PersonView;
@@ -25,7 +26,7 @@ public class PersonFactory {
         return creators.get(command.getType().toLowerCase(Locale.ROOT)).create(command.getParameters());
     }
 
-    public Person update(Person person, CreatePersonCommand command) {
+    public Person update(Person person, UpdatePersonCommand command) {
         return creators.get(command.getType().toLowerCase(Locale.ROOT)).update(person, command.getParameters());
     }
 
@@ -37,5 +38,8 @@ public class PersonFactory {
         return creators.get(person.getClass().getSimpleName().toLowerCase(Locale.ROOT)).createDtoFromPerson(person);
     }
 
+    public Person createPersonFromView(PersonView personView) {
+        return creators.get(personView.getType().toLowerCase(Locale.ROOT)).createPersonFromView(personView);
+    }
 }
 

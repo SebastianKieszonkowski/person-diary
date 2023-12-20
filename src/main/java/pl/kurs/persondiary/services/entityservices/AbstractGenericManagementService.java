@@ -2,8 +2,6 @@ package pl.kurs.persondiary.services.entityservices;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
-import pl.kurs.persondiary.command.CreatePersonCommand;
-import pl.kurs.persondiary.exeptions.MissingIdException;
 import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.models.Identificationable;
 
@@ -21,7 +19,13 @@ public abstract class AbstractGenericManagementService<T extends Identificationa
     @Override
     @Transactional
     public T add(T entity) {
-        return repository.save(entity);
+        return repository.saveAndFlush(entity);
+    }
+
+    @Override
+    @Transactional
+    public T edit(T entity) {
+        return repository.saveAndFlush(entity);
     }
 
     @Override
@@ -30,36 +34,21 @@ public abstract class AbstractGenericManagementService<T extends Identificationa
     }
 
     @Override
-    public T edit(T entity) {
-        if (entity.getId() == null)
-            throw new MissingIdException("Brak Id w encji do edycji!!!");
-        return repository.save(entity);
-    }
-
-    @Override
     public T get(Long id) {
-        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Nie znaleziono encji o id: " + id));
+        return repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Not found entity with id: " + id));
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<T> getAll() {
         return repository.findAll();
-
-    }
-
-    public abstract void deleteAll();
-
-    public T saveAndFlush(T entity) {
-        return repository.saveAndFlush(entity);
     }
 
     @Override
-    public T updatePerson(T person, CreatePersonCommand update) {
-        return null;
+    public void deleteAll(){
+        repository.deleteAll();
     }
 
-    //    @Override
-//    public T findByPesel(String pesel) {
-//        return repository.findByPesel(pesel);//.orElseThrow(() -> new ResourceNotFoundException("Nie znalezion elementu"));
-//    }
+
 }

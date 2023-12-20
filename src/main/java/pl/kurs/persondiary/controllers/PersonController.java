@@ -12,9 +12,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import pl.kurs.persondiary.command.CreatePersonCommand;
-import pl.kurs.persondiary.command.FindPersonQuery;
+import pl.kurs.persondiary.command.UpdatePersonCommand;
 import pl.kurs.persondiary.dto.IPersonDto;
 import pl.kurs.persondiary.factory.PersonFactory;
+import pl.kurs.persondiary.models.FindPersonQuery;
 import pl.kurs.persondiary.models.Person;
 import pl.kurs.persondiary.models.PersonView;
 import pl.kurs.persondiary.models.ProgressInfo;
@@ -46,7 +47,8 @@ public class PersonController {
     @GetMapping()
     public ResponseEntity getPersons(FindPersonQuery query, @PageableDefault Pageable pageable) {
         List<PersonView> personViewList = personService.findPersonByParameters(query, pageable);
-        List<IPersonDto> personDtoList = personViewList.stream().map(personFactory::createDtoFromView)
+        List<IPersonDto> personDtoList = personViewList.stream()
+                .map(personFactory::createDtoFromView)
                 .collect(Collectors.toList());
         return new ResponseEntity<>(personDtoList, HttpStatus.OK);
     }
@@ -62,9 +64,11 @@ public class PersonController {
 
     @PatchMapping(path = "/{pesel}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity editPerson(@PathVariable String pesel, @RequestBody CreatePersonCommand updatePersonCommand) {
-        //tu przerobić żeby person service przyjmował wyszukanego persona
-        Person person = personService.updatePerson(pesel, updatePersonCommand);
+    public ResponseEntity editPerson(@PathVariable String pesel, @RequestBody @Valid UpdatePersonCommand updatePersonCommand) {
+        PersonView personView = personService.getPersonByTypeAndPesel(pesel, updatePersonCommand.getType());
+        Person personToUpdate = personFactory.createPersonFromView(personView);
+        personToUpdate = personFactory.update(personToUpdate, updatePersonCommand);
+        Person person = personService.updatePerson(personToUpdate);
         IPersonDto personDto = personFactory.createDtoFromPerson(person);
         return new ResponseEntity<>(personDto, HttpStatus.OK);
     }

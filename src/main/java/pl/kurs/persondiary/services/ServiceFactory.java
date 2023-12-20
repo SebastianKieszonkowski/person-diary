@@ -18,6 +18,6 @@ public class ServiceFactory {
     }
 
     public IManagementService prepareManager(String type) {
-        return creators.get(type.toUpperCase(Locale.ROOT));
+        return creators.get(type.toLowerCase(Locale.ROOT));
     }
 }

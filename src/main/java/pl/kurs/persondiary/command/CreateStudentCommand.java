@@ -1,4 +1,4 @@
-package pl.kurs.persondiary.command.singleCommand;
+package pl.kurs.persondiary.command;
 
 
 import jakarta.validation.constraints.*;
@@ -6,12 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.pl.PESEL;
-import pl.kurs.persondiary.command.ICreatePersonCommand;
 
 @Getter
 @Setter
 @AllArgsConstructor
-public class CreatePensionerCommand implements ICreatePersonCommand {
+public class CreateStudentCommand implements ICreatePersonCommand {
 
     @NotBlank
     private String firstName;
@@ -25,8 +24,13 @@ public class CreatePensionerCommand implements ICreatePersonCommand {
     private Double weight;
     @Email
     private String email;
+    @NotBlank
+    private String universityName;
+    @Min(1)
+    @Max(5)
+    private Integer studyYear;
+    @NotBlank
+    private String studyField;
     @Positive
-    private Double pension;
-    @PositiveOrZero
-    private Integer workedYears;
+    private Double scholarship;
 }

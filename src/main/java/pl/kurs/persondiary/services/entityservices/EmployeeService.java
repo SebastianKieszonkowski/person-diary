@@ -2,12 +2,10 @@ package pl.kurs.persondiary.services.entityservices;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.kurs.persondiary.command.CreatePersonCommand;
+import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.models.Employee;
 import pl.kurs.persondiary.models.EmployeePosition;
 import pl.kurs.persondiary.repositories.singlerepositories.EmployeeRepository;
-
-import java.util.List;
 
 @Service
 public class EmployeeService extends AbstractGenericManagementService<Employee, EmployeeRepository> {
@@ -16,6 +14,11 @@ public class EmployeeService extends AbstractGenericManagementService<Employee, 
     public EmployeeService(EmployeeRepository repository, EmployeePositionService employeePositionService) {
         super(repository);
         this.employeePositionService = employeePositionService;
+    }
+
+    @Override
+    public String getType() {
+        return "employee";
     }
 
     @Override
@@ -32,33 +35,20 @@ public class EmployeeService extends AbstractGenericManagementService<Employee, 
     }
 
     @Override
-    public String getType() {
-        return "EMPLOYEE";
-    }
-
-    @Override
-    public void deleteAll() {
-        repository.deleteAll();
-    }
-
-
-    public Employee findById(Long id) {
-        return repository.findById(id).orElseThrow();
-    }
-
-    @Transactional(readOnly = true)
-    public List<Employee> findAll() {
-        return repository.findAll();
-    }
-
-    @Override
     @Transactional
-    public Employee findByPesel(String pesel) {
-        return repository.findByPesel(pesel).orElseThrow();
+    public Employee edit(Employee entity) {
+        Employee employee = super.add(entity);
+        EmployeePosition employeePosition = new EmployeePosition(employee.getPosition(),
+                employee.getHireDate(),
+                null,
+                employee.getSalary(),
+                employee);
+        EmployeePosition employeePositionCreated = employeePositionService.editActualPosition(employeePosition);
+        return employee;
     }
 
-    @Override
-    public Employee updatePerson(Employee person, CreatePersonCommand update) {
-        return super.updatePerson(person, update);
+    public Employee findPersonByPesel(String pesel){
+        return repository.getByPesel(pesel)
+                .orElseThrow(() -> new ResourceNotFoundException("Not found entity with pesel: " + pesel));
     }
 }

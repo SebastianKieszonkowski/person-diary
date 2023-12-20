@@ -22,6 +22,8 @@ public interface PersonCreator {
 
     IPersonDto createDtoFromPerson(Person person);
 
+    Person createPersonFromView(PersonView personView);
+
 
     default String getStringParameter(String name, Map<String, Object> parameters) {
         return (String) parameters.get(name);

@@ -1,6 +1,7 @@
 package pl.kurs.persondiary.models;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,11 +9,11 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
+@EqualsAndHashCode(exclude = {"employee"})
 @Entity
 @Table(name = "positions")
 public class EmployeePosition implements Identificationable {
@@ -47,17 +48,4 @@ public class EmployeePosition implements Identificationable {
         this.employee = employee;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        EmployeePosition that = (EmployeePosition) o;
-        return Objects.equals(id, that.id) && Objects.equals(positionName, that.positionName) && Objects.equals(startDateOnPosition, that.startDateOnPosition) && Objects.equals(endDateOnPosition, that.endDateOnPosition) && Objects.equals(salary, that.salary);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, positionName, startDateOnPosition, endDateOnPosition, salary);
-    }
 }
-//todo dodać unikalny klucz do stanowisk, składany albo dodatkowe pole

@@ -7,7 +7,7 @@ import pl.kurs.persondiary.models.Employee;
 import java.util.List;
 import java.util.Optional;
 
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+public interface EmployeeRepository extends JpaRepository<Employee, Long>{
 
     @Query("SELECT e FROM Employee e LEFT JOIN FETCH e.employeePositions")
     List<Employee> findAll();
@@ -16,5 +16,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     Optional<Employee> findById(Long id);
 
     @Query("SELECT e FROM Employee e LEFT JOIN FETCH e.employeePositions WHERE e.pesel = :pesel")
-    Optional<Employee> findByPesel(String pesel);
+    Optional<Employee> getByPesel(String pesel);
+
 }

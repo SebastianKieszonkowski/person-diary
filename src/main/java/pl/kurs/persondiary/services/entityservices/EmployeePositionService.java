@@ -28,6 +28,16 @@ public class EmployeePositionService {
         return repository.saveAndFlush(employeePosition);
     }
 
+    public EmployeePosition editActualPosition(EmployeePosition employeePosition) {
+        EmployeePosition positionToUpdate = repository.getByEmployeeAndAndEndDateOnPosition(employeePosition.getEmployee().getId());
+        employeePosition.setId(positionToUpdate.getId());
+
+        if (!employeePosition.equals(positionToUpdate)) {
+            positionToUpdate = repository.saveAndFlush(employeePosition);
+        }
+        return positionToUpdate;
+    }
+
     public void delete(Long id) {
         repository.deleteById(id);
     }
@@ -40,5 +50,4 @@ public class EmployeePositionService {
         return repository.checkDates(startNewDate, endNewDate, employeeId);
     }
 
-    ;
 }

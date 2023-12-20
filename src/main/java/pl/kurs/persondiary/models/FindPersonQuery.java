@@ -1,4 +1,4 @@
-package pl.kurs.persondiary.command;
+package pl.kurs.persondiary.models;
 
 
 import lombok.*;

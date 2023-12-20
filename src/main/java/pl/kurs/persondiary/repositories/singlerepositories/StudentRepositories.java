@@ -3,6 +3,9 @@ package pl.kurs.persondiary.repositories.singlerepositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import pl.kurs.persondiary.models.Student;
 
+import java.util.Optional;
+
 public interface StudentRepositories extends JpaRepository<Student, Long> {
-    Student findByPesel(String pesel);
+
+    Optional<Student> getByPesel(String pesel);
 }

@@ -15,4 +15,7 @@ public interface EmployeePositionRepositories extends JpaRepository<EmployeePosi
             "OR :startNewDate BETWEEN ep.startDateOnPosition AND COALESCE(ep.endDateOnPosition, '2050-12-31')) " +
             "AND ep.employee.id = :employeeId")
     List<EmployeePosition> checkDates(LocalDate startNewDate, LocalDate endNewDate, Long employeeId);
+
+    @Query("SELECT ep FROM EmployeePosition ep WHERE ep.employee.id = :employeeId AND ep.endDateOnPosition IS NULL")
+    EmployeePosition getByEmployeeAndAndEndDateOnPosition(Long employeeId);
 }

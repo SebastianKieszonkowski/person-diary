@@ -1,4 +1,4 @@
-package pl.kurs.persondiary.command.singleCommand;
+package pl.kurs.persondiary.command;
 
 
 import jakarta.validation.constraints.*;
@@ -7,14 +7,11 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.pl.PESEL;
 import pl.kurs.persondiary.command.ICreatePersonCommand;
-import pl.kurs.persondiary.validations.PositionName;
-
-import java.time.LocalDate;
 
 @Getter
 @Setter
 @AllArgsConstructor
-public class CreateEmployeeCommand implements ICreatePersonCommand {
+public class CreatePensionerCommand implements ICreatePersonCommand {
 
     @NotBlank
     private String firstName;
@@ -28,12 +25,8 @@ public class CreateEmployeeCommand implements ICreatePersonCommand {
     private Double weight;
     @Email
     private String email;
-    @PastOrPresent
-    private LocalDate hireDate;
-    @NotBlank
-    @PositionName
-    private String position;
     @Positive
-    private Double salary;
-
+    private Double pension;
+    @PositiveOrZero
+    private Integer workedYears;
 }

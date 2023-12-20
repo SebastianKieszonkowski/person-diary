@@ -13,8 +13,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.kurs.persondiary.command.CreatePersonCommand;
-import pl.kurs.persondiary.command.FindPersonQuery;
 import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.factory.PersonFactory;
 import pl.kurs.persondiary.models.*;
@@ -38,12 +36,14 @@ public class PersonService {
 
     @PersistenceContext
     private final EntityManager entityManager;
-    private final ServiceFactory serviceFactory;
     private final PersonViewRepository personViewRepository;
+    private final ServiceFactory serviceFactory;
     private final PersonFactory personFactory;
+
     private final EmployeeService employeeService;
     private final PensionerService pensionerService;
     private final StudentService studentService;
+
     private final ProgressService progressService;
 
     private final QueryFactoryComponent queryFactoryComponent;
@@ -79,16 +79,16 @@ public class PersonService {
         return savedPerson;
     }
 
-    //@Transactional
-    @SneakyThrows
-    public Person updatePerson(String pesel, CreatePersonCommand updatePersonCommand) {
-        if (!personViewRepository.existsByPeselAndType(pesel, updatePersonCommand.getType()))
-            throw new ResourceNotFoundException("Result not found");
-        IManagementService<Person> personService2 = serviceFactory.prepareManager(updatePersonCommand.getType());
-        Person dbPerson = personService2.findByPesel(pesel);
-        dbPerson = personFactory.update(dbPerson, updatePersonCommand);
-        Person editedPerson = personService2.add(dbPerson);
-        return dbPerson;
+    public Person updatePerson(Person person) {
+        IManagementService<Person> updatePersonService = serviceFactory.prepareManager(person.getClass().getSimpleName());
+        Person editedPerson = updatePersonService.edit(person);
+        return editedPerson;
+    }
+
+    @Transactional(readOnly = true)
+    public PersonView getPersonByTypeAndPesel(String pesel, String type){
+        return personViewRepository.findByPeselAndType(pesel, type)
+                .orElseThrow(() -> new ResourceNotFoundException("The resource to modify does not exist!"));
     }
 
     @Transactional(readOnly = true)

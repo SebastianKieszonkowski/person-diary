@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import pl.kurs.persondiary.command.CreatePersonCommand;
+import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.models.Student;
 import pl.kurs.persondiary.repositories.singlerepositories.StudentRepositories;
 
@@ -30,7 +30,17 @@ public class StudentService extends AbstractGenericManagementService<Student, St
 
     @Override
     public String getType() {
-        return "STUDENT";
+        return "student";
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Student> findAllPageable(Pageable pageable) {
+        return repository.findAll(pageable);
+    }
+
+    public Student findPersonByPesel(String pesel){
+        return repository.getByPesel(pesel)
+                .orElseThrow(() -> new ResourceNotFoundException("Not found entity with pesel: " + pesel));
     }
 
     @SneakyThrows
@@ -41,23 +51,4 @@ public class StudentService extends AbstractGenericManagementService<Student, St
                         args[6], args[7], Integer.parseInt(args[8]), args[9], Double.parseDouble(args[10])));
     }
 
-    @Transactional(readOnly = true)
-    public Page<Student> findAllPageable(Pageable pageable) {
-        return repository.findAll(pageable);
-    }
-
-    @Override
-    public void deleteAll() {
-        super.repository.deleteAll();
-    }
-
-    @Override
-    public Student findByPesel(String pesel) {
-        return repository.findByPesel(pesel);
-    }
-
-    @Override
-    public Student updatePerson(Student person, CreatePersonCommand update) {
-        return super.updatePerson(person, update);
-    }
 }

@@ -5,7 +5,7 @@ import jakarta.validation.Validator;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import pl.kurs.persondiary.command.singleCommand.CreateStudentCommand;
+import pl.kurs.persondiary.command.CreateStudentCommand;
 import pl.kurs.persondiary.dto.IPersonDto;
 import pl.kurs.persondiary.dto.viewdto.StudentViewDto;
 import pl.kurs.persondiary.models.Person;
@@ -73,4 +73,8 @@ public class StudentCreator implements PersonCreator {
         return modelMapper.map(student, StudentViewDto.class);
     }
 
+    @Override
+    public Person createPersonFromView(PersonView personView) {
+        return modelMapper.map(personView,Student.class);
+    }
 }

@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import pl.kurs.persondiary.command.singleCommand.CreateEmployeeCommand;
+import pl.kurs.persondiary.command.CreateEmployeeCommand;
 import pl.kurs.persondiary.dto.StatusDto;
 import pl.kurs.persondiary.dto.viewdto.EmployeeViewDto;
 import pl.kurs.persondiary.models.Employee;
@@ -74,7 +74,7 @@ public class EmployeeController {
     // http://localhost:8080/employee?size=1&page=0
     @GetMapping
     public ResponseEntity getAllEmployee(@PageableDefault Pageable pageable) {
-        List<Employee> employeesPage = employeeService.findAll();
+        List<Employee> employeesPage = employeeService.getAll();
         List<EmployeeViewDto> fullEmployeesDtoPage = employeesPage.stream()
                 .map(x -> modelMapper.map(x, EmployeeViewDto.class))
                 .collect(Collectors.toList());
@@ -83,7 +83,7 @@ public class EmployeeController {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity getEmployeeById(@PathVariable("id") Long id) {
-        Employee employee = employeeService.findById(id);
+        Employee employee = employeeService.get(id);
         EmployeeViewDto employeeViewDto = modelMapper.map(employee, EmployeeViewDto.class);
         return ResponseEntity.ok(employeeViewDto);
         //LazyInitializationException - rozważyć dodanie do exception handlera

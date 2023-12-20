@@ -4,7 +4,7 @@ import jakarta.validation.Validator;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import pl.kurs.persondiary.command.singleCommand.CreatePensionerCommand;
+import pl.kurs.persondiary.command.CreatePensionerCommand;
 import pl.kurs.persondiary.dto.IPersonDto;
 import pl.kurs.persondiary.dto.viewdto.PensionerViewDto;
 import pl.kurs.persondiary.models.Pensioner;
@@ -66,6 +66,11 @@ public class PensionerCreator implements PersonCreator {
     public IPersonDto createDtoFromPerson(Person person) {
         Pensioner pensioner = (Pensioner) person;
         return modelMapper.map(pensioner, PensionerViewDto.class);
+    }
+
+    @Override
+    public Person createPersonFromView(PersonView personView) {
+        return modelMapper.map(personView, Pensioner.class);
     }
 
 }

@@ -2,6 +2,7 @@ package pl.kurs.persondiary.services.entityservices;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.models.Pensioner;
 import pl.kurs.persondiary.repositories.singlerepositories.PensionerRepositories;
 
@@ -20,7 +21,12 @@ public class PensionerService extends AbstractGenericManagementService<Pensioner
 
     @Override
     public String getType() {
-        return "PENSIONER";
+        return "pensioner";
+    }
+
+    public Pensioner findPersonByPesel(String pesel){
+        return repository.getByPesel(pesel)
+                .orElseThrow(() -> new ResourceNotFoundException("Not found entity with pesel: " + pesel));
     }
 
 //    @SneakyThrows
@@ -46,18 +52,4 @@ public class PensionerService extends AbstractGenericManagementService<Pensioner
 //        });
 //    }
 
-    @Override
-    public void deleteAll() {
-        super.repository.deleteAll();
-    }
-
-    @Override
-    public Pensioner findByPesel(String pesel) {
-        return repository.findByPesel(pesel).orElseThrow();
-    }
-
-    @Override
-    public Pensioner edit(Pensioner entity) {
-        return repository.save(entity);
-    }
 }

@@ -3,7 +3,7 @@ package pl.kurs.persondiary.mapping;
 
 import org.modelmapper.Converter;
 import org.modelmapper.spi.MappingContext;
-import pl.kurs.persondiary.command.singleCommand.CreateEmployeeCommand;
+import pl.kurs.persondiary.command.CreateEmployeeCommand;
 import pl.kurs.persondiary.models.Employee;
 
 //@Service
