@@ -5,6 +5,7 @@ import org.hibernate.NonUniqueResultException;
 import org.hibernate.StaleObjectStateException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -32,10 +33,17 @@ public class GlobalExceptionHandler {
         );
     }
 
+    @ExceptionHandler({ObjectOptimisticLockingFailureException.class})
+    public ResponseEntity<ExceptionResponseDto> handleObjectOptimisticLockingFailureException(ObjectOptimisticLockingFailureException e) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(
+                new ExceptionResponseDto(List.of(e.getMessage()), "CONFLICT", LocalDateTime.now())
+        );
+    }
+
     @ExceptionHandler({StaleObjectStateException.class})
     public ResponseEntity<ExceptionResponseDto> handleStaleObjectStateException(StaleObjectStateException e) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                new ExceptionResponseDto(List.of(e.getMessage()), "BAD_REQUEST", LocalDateTime.now())
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(
+                new ExceptionResponseDto(List.of(e.getMessage()), "CONFLICT", LocalDateTime.now())
         );
     }
 

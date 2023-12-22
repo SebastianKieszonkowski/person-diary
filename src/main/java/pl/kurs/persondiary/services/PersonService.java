@@ -10,10 +10,8 @@ import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.factory.PersonFactory;
 import pl.kurs.persondiary.models.*;
 import pl.kurs.persondiary.repositories.PersonViewRepository;
@@ -72,7 +70,7 @@ public class PersonService {
         progressService.updateProgress(taskId, processedLines);
     }
 
-    @Modifying
+    @Transactional
     public Person savePerson(Person person) {
         IManagementService<Person> personService = serviceFactory.prepareManager(person.getClass().getSimpleName());
         Person savedPerson = personService.add(person);
@@ -86,9 +84,9 @@ public class PersonService {
     }
 
     @Transactional(readOnly = true)
-    public PersonView getPersonByTypeAndPesel(String pesel, String type){
-        return personViewRepository.findByPeselAndType(pesel, type)
-                .orElseThrow(() -> new ResourceNotFoundException("The resource to modify does not exist!"));
+    public Person getPersonByTypeAndPesel(String pesel, String type){
+        IManagementService<Person> updatePersonService = serviceFactory.prepareManager(type);
+        return updatePersonService.findByPesel(pesel);
     }
 
     @Transactional(readOnly = true)

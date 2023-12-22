@@ -1,12 +1,13 @@
 package pl.kurs.persondiary.services.entityservices;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.models.EmployeePosition;
 import pl.kurs.persondiary.repositories.EmployeePositionRepositories;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EmployeePositionService {
@@ -16,8 +17,9 @@ public class EmployeePositionService {
         this.repository = repositories;
     }
 
-    public Optional<EmployeePosition> findById(Long id) {
-        return repository.findById(id);
+    public EmployeePosition findById(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Not found entity with Id: " + id));
     }
 
     public void deleteAll() {
@@ -29,7 +31,7 @@ public class EmployeePositionService {
     }
 
     public EmployeePosition editActualPosition(EmployeePosition employeePosition) {
-        EmployeePosition positionToUpdate = repository.getByEmployeeAndAndEndDateOnPosition(employeePosition.getEmployee().getId());
+        EmployeePosition positionToUpdate = repository.getByEmployeeAndEndDateOnPosition(employeePosition.getEmployee().getId());
         employeePosition.setId(positionToUpdate.getId());
 
         if (!employeePosition.equals(positionToUpdate)) {
@@ -46,6 +48,7 @@ public class EmployeePositionService {
         return repository.findAll();
     }
 
+    @Transactional(readOnly = true)
     public List<EmployeePosition> checkDates(LocalDate startNewDate, LocalDate endNewDate, Long employeeId) {
         return repository.checkDates(startNewDate, endNewDate, employeeId);
     }

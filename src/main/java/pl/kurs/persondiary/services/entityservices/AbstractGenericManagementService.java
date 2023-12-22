@@ -23,9 +23,8 @@ public abstract class AbstractGenericManagementService<T extends Identificationa
     }
 
     @Override
-    @Transactional
     public T edit(T entity) {
-        return repository.saveAndFlush(entity);
+        return repository.save(entity);
     }
 
     @Override
@@ -34,6 +33,7 @@ public abstract class AbstractGenericManagementService<T extends Identificationa
     }
 
     @Override
+    @Transactional(readOnly = true)
     public T get(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Not found entity with id: " + id));

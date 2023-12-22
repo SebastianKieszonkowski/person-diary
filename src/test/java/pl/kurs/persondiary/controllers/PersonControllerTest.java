@@ -27,8 +27,10 @@ import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest(classes = PersonDiaryApplication.class, properties = "src/test/resources/application.properties")
@@ -451,7 +453,7 @@ class PersonControllerTest {
     }
 
     @Test
-    void shouldReturnExceptionBecauseUserIsForbidenToPostRequest() throws Exception {
+    void shouldReturnExceptionBecauseUserIsForbidenToPostRequestToPost() throws Exception {
         //given
         CreateEmployeeCommand employee = new CreateEmployeeCommand("Waldemar", "Karolak", "79102593767", 1.72, 78.5,
                 "waldemar.karolak@wp.pl", LocalDate.of(2018, 10, 25), "Kowal", 7000.45);
@@ -482,7 +484,7 @@ class PersonControllerTest {
     }
 
     @Test
-    void shouldReturnExceptionBecauseUserIsUnauthorized() throws Exception {
+    void shouldReturnExceptionBecauseUserIsUnauthorizedToPost() throws Exception {
         //given
         CreateEmployeeCommand employee = new CreateEmployeeCommand("Waldemar", "Karolak", "79102593767", 1.72, 78.5,
                 "waldemar.karolak@wp.pl", LocalDate.of(2018, 10, 25), "Kowal", 7000.45);
@@ -581,7 +583,7 @@ class PersonControllerTest {
         boolean isExist = personService.isPersonExists(pensioner.getPesel(), type);
         assertEquals(isExist, true);
 
-        postman.perform(MockMvcRequestBuilders.patch("/persons/"+pensioner.getPesel())
+        postman.perform(MockMvcRequestBuilders.patch("/persons/" + pensioner.getPesel())
                 .header("Authorization", "Bearer " + tokenAdmin)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(studentJson))
@@ -632,7 +634,7 @@ class PersonControllerTest {
         boolean isExist = personService.isPersonExists(employee.getPesel(), type);
         assertEquals(isExist, true);
 
-        postman.perform(MockMvcRequestBuilders.patch("/persons/"+employee.getPesel())
+        postman.perform(MockMvcRequestBuilders.patch("/persons/" + employee.getPesel())
                 .header("Authorization", "Bearer " + tokenAdmin)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(studentJson))
@@ -663,7 +665,7 @@ class PersonControllerTest {
         CreatePensionerCommand pensioner = new CreatePensionerCommand("Natalia", "Borowska", pesel, 1.67, 55.0,
                 "natalia.borowska@gmail.com", 5200.25, 28);
 
-        //changes1
+        //changes
         pensioner.setPension(3700.69);
         Map<String, Object> pensionerMap = new HashMap<>();
         pensionerMap.put("pension", pensioner.getPension());
@@ -672,43 +674,38 @@ class PersonControllerTest {
         createPersonCommand.setParameters(pensionerMap);
         String pensionerJson = objectMapper.writeValueAsString(createPersonCommand);
 
-        //changes2
-        pensioner.setEmail("n.borowska@wp.com");
-        Map<String, Object> pensionerMap2 = new HashMap<>();
-        pensionerMap2.put("email", pensioner.getEmail());
-        CreatePersonCommand createPersonCommand2 = new CreatePersonCommand();
-        createPersonCommand2.setType(type);
-        createPersonCommand2.setParameters(pensionerMap2);
-        String pensionerJson2 = objectMapper.writeValueAsString(createPersonCommand2);
-
         // when
         ExecutorService executorService = Executors.newFixedThreadPool(2);
         CountDownLatch latch = new CountDownLatch(2);
 
-        executorService.submit(() -> {
+        Future<?> future1 = executorService.submit(() -> {
             try {
-                postman.perform(MockMvcRequestBuilders.patch("/persons/"+pesel)
+                postman.perform(MockMvcRequestBuilders.patch("/persons/" + pesel)
                         .header("Authorization", "Bearer " + tokenAdmin)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(pensionerJson))
                         .andExpect(status().isOk());
+                return true;
             } catch (Exception e) {
                 e.printStackTrace();
+                return false;
             } finally {
                 latch.countDown();
             }
         });
 
-        executorService.submit(() -> {
+        Future<?> future2 = executorService.submit(() -> {
             try {
                 Thread.sleep(100);
                 postman.perform(MockMvcRequestBuilders.patch("/persons/"+pesel)
                         .header("Authorization", "Bearer " + tokenAdmin)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(pensionerJson2))
-                        .andExpect(status().isOk()); // assuming the controller maps the exception to a 409 Conflict status isConflict()
+                        .content(pensionerJson))
+                        .andExpect(status().isConflict());
+                return true;
             } catch (Exception e) {
                 e.printStackTrace();
+                return false;
             } finally {
                 latch.countDown();
             }
@@ -716,5 +713,9 @@ class PersonControllerTest {
 
         latch.await();
         executorService.shutdown();
+
+        // then
+        assertTrue((Boolean) future1.get()); // Sprawdza, czy pierwsza asercja się powiodła
+        assertTrue((Boolean) future2.get()); // Sprawdza, czy druga asercja się powiodła
     }
 }

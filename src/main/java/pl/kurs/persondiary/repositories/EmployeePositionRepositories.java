@@ -6,6 +6,7 @@ import pl.kurs.persondiary.models.EmployeePosition;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public interface EmployeePositionRepositories extends JpaRepository<EmployeePosition, Long> {
 
@@ -17,5 +18,7 @@ public interface EmployeePositionRepositories extends JpaRepository<EmployeePosi
     List<EmployeePosition> checkDates(LocalDate startNewDate, LocalDate endNewDate, Long employeeId);
 
     @Query("SELECT ep FROM EmployeePosition ep WHERE ep.employee.id = :employeeId AND ep.endDateOnPosition IS NULL")
-    EmployeePosition getByEmployeeAndAndEndDateOnPosition(Long employeeId);
+    EmployeePosition getByEmployeeAndEndDateOnPosition(Long employeeId);
+
+    Optional<EmployeePosition> findById(Long id);
 }

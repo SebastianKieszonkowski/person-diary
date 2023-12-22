@@ -8,6 +8,8 @@ public interface IManagementService<T> {
 
     T edit(T entity);
 
+    T findByPesel(String pesel);
+
     void delete(Long id);
 
     T get(Long id);

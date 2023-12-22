@@ -38,7 +38,9 @@ public class StudentService extends AbstractGenericManagementService<Student, St
         return repository.findAll(pageable);
     }
 
-    public Student findPersonByPesel(String pesel){
+    @Override
+    @Transactional(readOnly = true)
+    public Student findByPesel(String pesel) {
         return repository.getByPesel(pesel)
                 .orElseThrow(() -> new ResourceNotFoundException("Not found entity with pesel: " + pesel));
     }
