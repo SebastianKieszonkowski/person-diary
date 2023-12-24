@@ -9,6 +9,7 @@ import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import pl.kurs.persondiary.dto.ExceptionResponseDto;
 import pl.kurs.persondiary.exeptions.*;
 
 import java.sql.SQLIntegrityConstraintViolationException;
@@ -56,8 +57,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler({ResultNotFoundException.class})
     public ResponseEntity<ExceptionResponseDto> handleResultNotFoundException(ResultNotFoundException e) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
-                new ExceptionResponseDto(List.of(e.getMessage()), "BAD_REQUEST", LocalDateTime.now())
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                new ExceptionResponseDto(List.of(e.getMessage()), "NOT_FOUND", LocalDateTime.now())
         );
     }
 
@@ -73,7 +74,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                 new ExceptionResponseDto(List.of(e.getMessage()), "BAD_REQUEST", LocalDateTime.now())
         );
-    }//todo poprawić wyglad odpowiedzi
+    }
 
     @ExceptionHandler({ResourceNotFoundException.class})
     public ResponseEntity<ExceptionResponseDto> handleResourceNotFoundException(ResourceNotFoundException e) {
@@ -102,7 +103,6 @@ public class GlobalExceptionHandler {
                 new ExceptionResponseDto(getMessagesListFromMethodArgumentNotValidException(e), "BAD_REQUEST", LocalDateTime.now())
         );
     }
-
 
     private List<String> getMessagesListFromMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         return e.getFieldErrors()

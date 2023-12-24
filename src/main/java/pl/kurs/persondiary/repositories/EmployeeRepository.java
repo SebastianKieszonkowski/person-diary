@@ -7,7 +7,7 @@ import pl.kurs.persondiary.models.Employee;
 import java.util.List;
 import java.util.Optional;
 
-public interface EmployeeRepository extends JpaRepository<Employee, Long>{
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     @Query("SELECT e FROM Employee e LEFT JOIN FETCH e.employeePositions")
     List<Employee> findAll();

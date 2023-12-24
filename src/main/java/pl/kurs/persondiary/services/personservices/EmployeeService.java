@@ -1,4 +1,4 @@
-package pl.kurs.persondiary.services.entityservices;
+package pl.kurs.persondiary.services.personservices;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -7,6 +7,7 @@ import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.models.Employee;
 import pl.kurs.persondiary.models.EmployeePosition;
 import pl.kurs.persondiary.repositories.EmployeeRepository;
+import pl.kurs.persondiary.services.EmployeePositionService;
 
 import java.util.Optional;
 
@@ -79,12 +80,10 @@ public class EmployeeService extends AbstractGenericManagementService<Employee, 
     @Transactional
     public EmployeePosition updatePosition(EmployeePosition modifyPosition) {
         EmployeePosition existPosition = employeePositionService.findById(modifyPosition.getId());
-
         Optional.ofNullable(modifyPosition.getPositionName()).ifPresent(existPosition::setPositionName);
         Optional.ofNullable(modifyPosition.getStartDateOnPosition()).ifPresent(existPosition::setStartDateOnPosition);
         Optional.ofNullable(modifyPosition.getEndDateOnPosition()).ifPresent(existPosition::setEndDateOnPosition);
         Optional.ofNullable(modifyPosition.getSalary()).ifPresent(existPosition::setSalary);
-
         return employeePositionService.add(existPosition);
     }
 

@@ -1,4 +1,4 @@
-package pl.kurs.persondiary.services.entityservices;
+package pl.kurs.persondiary.services;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,7 +31,9 @@ public class EmployeePositionService {
     }
 
     public EmployeePosition editActualPosition(EmployeePosition employeePosition) {
-        EmployeePosition positionToUpdate = repository.getByEmployeeAndEndDateOnPosition(employeePosition.getEmployee().getId());
+        Long id = employeePosition.getEmployee().getId();
+        EmployeePosition positionToUpdate = repository.getByEmployeeAndEndDateOnPosition(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Not found entity with Id: " + id));
         employeePosition.setId(positionToUpdate.getId());
 
         if (!employeePosition.equals(positionToUpdate)) {

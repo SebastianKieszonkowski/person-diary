@@ -41,7 +41,6 @@ public class WebSecurityConfig {
                 .requestMatchers(request -> request.getRequestURI().equals("/authenticate") && request.getMethod().equals("POST")).permitAll()
                 .requestMatchers(request -> request.getRequestURI().equals("/register") && request.getMethod().equals("POST")).permitAll()
                 .requestMatchers(request -> request.getRequestURI().startsWith("/h2-console")).permitAll()
-                 //   .requestMatchers(request -> request.getRequestURI().equals("/persons/upload") && request.getMethod().equals("POST")).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)

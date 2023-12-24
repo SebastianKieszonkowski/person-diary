@@ -13,7 +13,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@EqualsAndHashCode(exclude = {"employeePositions"})
+@EqualsAndHashCode(callSuper = true, exclude = {"employeePositions"})
 @Entity
 @Table(name = "employees")
 public class Employee extends Person {
@@ -28,13 +28,6 @@ public class Employee extends Person {
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<EmployeePosition> employeePositions = new HashSet<>();
-
-//    public Employee(Long id, @NotBlank String firstName, @NotBlank String lastName, @PESEL String pesel, @Positive Double height, @Positive Double weight, @Email String email, Integer version, @PastOrPresent LocalDate hireDate, @NotBlank String position, @Positive Double salary) {
-//        super(id, firstName, lastName, pesel, height, weight, email, version);
-//        this.hireDate = hireDate;
-//        this.position = position;
-//        this.salary = salary;
-//    }
 
     public Employee(String firstName, String lastName, String pesel, Double height, Double weight, String email, Integer version,
                     LocalDate hireDate, String position, Double salary) {

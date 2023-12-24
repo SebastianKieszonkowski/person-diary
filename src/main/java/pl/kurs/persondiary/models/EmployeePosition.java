@@ -10,9 +10,10 @@ import org.hibernate.annotations.FetchMode;
 
 import java.time.LocalDate;
 
-@NoArgsConstructor
+
 @Getter
 @Setter
+@NoArgsConstructor
 @EqualsAndHashCode(exclude = {"employee"})
 @Entity
 @Table(name = "positions")

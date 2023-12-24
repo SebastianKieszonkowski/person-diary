@@ -70,11 +70,25 @@ Chcemy miec JEDEN [dokladnie jeden endpoint]
 do edycji dowolnej osobyw naszym programie,
 uwaga: podczas edycji musisz obsluzyc nastepujacy problem: dane nie mogą być ot tak nadpisane przez inna transakcje,
 jeśli edytujesz dane, a coś właśnie zmieniło dane ktore edytujesz, to powinien wyskoczyc odpowiedni wyjatek.
+{
+            "type": "pensioner",
+            "parameters":{
+                "lastName": "Mazur",
+                "email": "anna.mazur@gmail.com",
+                "workedYears": 35
+            }
+        }
 
 Chcemy miec endpoint do zarządzania stanowiskami danego pracownika.
 pracownik na danym stanowisku moze pracowac <od, do>, na stanowisku o nazwie XYZ i otrzymujac pensje ABC.
 stanowiska nie mogą się pokrywać datami (daty nie moga na siebie nachodzic)
 nalezy tez zabezpieczyc przypisywanie stanowiska w taki sposob aby daty nie mogly sie pokrywac z istniejacymi stanowiskami.
+    {
+        "positionName": "Inżynier Elektroniczny",
+        "startDateOnPosition": "2010-11-11",
+        "endDateOnPosition": "2015-11-11",
+        "salary": 8000.0
+    }
 
 Chcemy miec endpoint ktory pozwoli nam załadować plik csv z osobami do naszej bazy danych.
 założenia:

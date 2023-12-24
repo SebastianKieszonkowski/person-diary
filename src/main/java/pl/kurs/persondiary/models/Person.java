@@ -1,7 +1,10 @@
 package pl.kurs.persondiary.models;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 
@@ -9,11 +12,8 @@ import java.io.Serializable;
 @Setter
 @Entity
 @NoArgsConstructor
-//@AllArgsConstructor
 @EqualsAndHashCode
-@ToString
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-//@MappedSuperclass
 @Table(uniqueConstraints = {@UniqueConstraint(name = "UC_PERSON_PESEL", columnNames = "pesel")})
 public abstract class Person implements Serializable, Identificationable {
     private static final long serialVersionUID = 1L;
@@ -29,7 +29,7 @@ public abstract class Person implements Serializable, Identificationable {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(unique = true, nullable = false)//baza danych nie pozwoli na zapis 2 takich samych peseli
+    @Column(unique = true, nullable = false)
     private String pesel;
 
     @Column(nullable = false)
@@ -44,7 +44,7 @@ public abstract class Person implements Serializable, Identificationable {
     @Version
     private Integer version;
 
-    public Person( String firstName,  String lastName,  String pesel,  Double height, Double weight, String email, Integer version) {
+    public Person(String firstName, String lastName, String pesel, Double height, Double weight, String email, Integer version) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pesel = pesel;

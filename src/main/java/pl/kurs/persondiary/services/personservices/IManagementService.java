@@ -1,4 +1,4 @@
-package pl.kurs.persondiary.services.entityservices;
+package pl.kurs.persondiary.services.personservices;
 
 import java.util.List;
 

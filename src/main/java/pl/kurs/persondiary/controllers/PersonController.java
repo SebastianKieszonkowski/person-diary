@@ -24,30 +24,27 @@ import pl.kurs.persondiary.factory.PersonFactory;
 import pl.kurs.persondiary.models.*;
 import pl.kurs.persondiary.services.PersonService;
 import pl.kurs.persondiary.services.ProgressService;
-import pl.kurs.persondiary.services.entityservices.EmployeeService;
+import pl.kurs.persondiary.services.personservices.EmployeeService;
 
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-@CrossOrigin
 @RestController
 @RequestMapping(path = "/persons")
 @RequiredArgsConstructor
 @Validated
 public class PersonController {
 
-    //serwisy zwracają objekty domenowe
     private final PersonService personService;
     private final PersonFactory personFactory;
     private final ProgressService progressService;
     private final EmployeeService employeeService;
     private final ModelMapper modelMapper;
 
-
     @GetMapping()
-    public ResponseEntity getPersons(FindPersonQuery query, @PageableDefault Pageable pageable) {
+    public ResponseEntity<List<ISimplePersonDto>> getPersons(FindPersonQuery query, @PageableDefault Pageable pageable) {
         List<PersonView> personViewList = personService.findPersonByParameters(query, pageable);
         List<ISimplePersonDto> personDtoList = personViewList.stream()
                 .map(personFactory::createSimpleDtoFromView)
@@ -57,7 +54,7 @@ public class PersonController {
 
     @PostMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity createPerson(@RequestBody @Valid CreatePersonCommand createPersonCommand) {
+    public ResponseEntity<IFullPersonDto> createPerson(@RequestBody @Valid CreatePersonCommand createPersonCommand) {
         Person person = personFactory.create(createPersonCommand);
         person = personService.savePerson(person);
         IFullPersonDto personDto = personFactory.createDtoFromPerson(person);
@@ -66,7 +63,7 @@ public class PersonController {
 
     @PatchMapping(path = "/{pesel}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity editPerson(@PathVariable String pesel, @RequestBody @Valid UpdatePersonCommand updatePersonCommand) {
+    public ResponseEntity<IFullPersonDto> editPerson(@PathVariable String pesel, @RequestBody @Valid UpdatePersonCommand updatePersonCommand) {
         Person personToUpdate = personService.getPersonByTypeAndPesel(pesel, updatePersonCommand.getType());
         personToUpdate = personFactory.update(personToUpdate, updatePersonCommand);
         Person person = personService.updatePerson(personToUpdate);
@@ -75,7 +72,7 @@ public class PersonController {
     }
 
     @GetMapping(path = "/{pesel}/position")
-    public ResponseEntity getAllEmployeesPosition(@PathVariable String pesel) {
+    public ResponseEntity<List<FullEmployeePositionDto>> getAllEmployeesPosition(@PathVariable String pesel) {
         Set<EmployeePosition> employeePositions = employeeService.findPersonByPeselWithPosition(pesel).getEmployeePositions();
         List<FullEmployeePositionDto> fullEmployeesPositionsDto = employeePositions.stream()
                 .map(x -> modelMapper.map(x, FullEmployeePositionDto.class))
@@ -96,7 +93,8 @@ public class PersonController {
     }
 
     @PatchMapping(path = "/{pesel}/position/{id}")
-    public ResponseEntity editEmployeePosition(@PathVariable String pesel, @PathVariable Long id, @RequestBody @Valid UpdateEmployeePositionCommand updateEmployeePositionCommand) {
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_EMPLOYEE')")
+    public ResponseEntity<FullEmployeePositionDto> editEmployeePosition(@PathVariable String pesel, @PathVariable Long id, @RequestBody UpdateEmployeePositionCommand updateEmployeePositionCommand) {
         Employee employee = employeeService.findByPesel(pesel);
         EmployeePosition employeePositionToUpdate = modelMapper.map(updateEmployeePositionCommand, EmployeePosition.class);
         employeePositionToUpdate.setEmployee(employee);
@@ -108,7 +106,7 @@ public class PersonController {
 
     @PostMapping("/upload")
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_IMPORTER')")
-    public ResponseEntity addManyAsCsvFile(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<StatusDto> importCsvFile(@RequestParam("file") MultipartFile file) {
         String taskId = UUID.randomUUID().toString();
         progressService.startProgress(taskId);
         if (!personService.getIsImportInProgress().get()) {
@@ -117,12 +115,11 @@ public class PersonController {
             progressService.abortedImport(taskId);
             throw new ImportConcurrencyException("Cannot start import because another one is in progress, please try again later!");
         }
-
         return new ResponseEntity<>(new StatusDto("Data import has started. Task number: " + taskId), HttpStatus.OK);
     }
 
     @GetMapping("/importCsv/{taskId}")
-    public ResponseEntity getProgress(@PathVariable String taskId) {
+    public ResponseEntity<ProgressInfo> getProgress(@PathVariable String taskId) {
         ProgressInfo progress = progressService.getProgressInfo(taskId);
         return ResponseEntity.ok(progress);
     }

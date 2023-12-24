@@ -18,21 +18,6 @@ public class UserController {
     private PasswordEncoder passwordEncoder;
     private UserRepository userRepository;
 
-//    @PostConstruct
-//    public void init() {
-//        UserRole adminRole = new UserRole("ROLE_ADMIN");
-//        UserRole userRole = new UserRole("ROLE_USER");
-//        UserRole importerRole = new UserRole("ROLE_IMPORTER");
-//        UserRole userEmployee = new UserRole("ROLE_EMPLOYEE");
-//
-//        User admin = new User("AdamAdmin", passwordEncoder.encode("admin"), Set.of(adminRole));
-//        User user = new User("JanekUser", passwordEncoder.encode("user"), Set.of(userRole));
-//        User importer = new User("KarolImporter", passwordEncoder.encode("importer"), Set.of(importerRole));
-//        User employee = new User("DarekEmployee", passwordEncoder.encode("employee"), Set.of(userEmployee));
-//
-//        userRepository.saveAll(List.of(admin, user, importer, employee));
-//    }
-
     @PostMapping("/register")
     public ResponseEntity<UserDto> addUser(@RequestBody UserDto userDto) {
         User newUser = mapper.map(userDto, User.class);
@@ -41,6 +26,4 @@ public class UserController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(mapper.map(savedUser, UserDto.class));
     }
-
-
 }

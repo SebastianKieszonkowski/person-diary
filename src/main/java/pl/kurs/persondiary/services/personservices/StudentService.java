@@ -1,8 +1,6 @@
-package pl.kurs.persondiary.services.entityservices;
+package pl.kurs.persondiary.services.personservices;
 
 import lombok.SneakyThrows;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,11 +29,6 @@ public class StudentService extends AbstractGenericManagementService<Student, St
     @Override
     public String getType() {
         return "student";
-    }
-
-    @Transactional(readOnly = true)
-    public Page<Student> findAllPageable(Pageable pageable) {
-        return repository.findAll(pageable);
     }
 
     @Override

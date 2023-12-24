@@ -12,7 +12,6 @@ public class PeselValidator implements ConstraintValidator<Pesel, String> {
 
     @Override
     public void initialize(Pesel constraintAnnotation) {
-
     }
 
     @Override
@@ -33,7 +32,6 @@ public class PeselValidator implements ConstraintValidator<Pesel, String> {
 
         int monthOffset = month / 20;
         month = month % 20;
-
         int century = (monthOffset == 0) ? 1900 : (monthOffset == 1) ? 2000 : 2100;
         year += century;
 

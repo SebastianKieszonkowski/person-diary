@@ -18,7 +18,7 @@ public interface EmployeePositionRepositories extends JpaRepository<EmployeePosi
     List<EmployeePosition> checkDates(LocalDate startNewDate, LocalDate endNewDate, Long employeeId);
 
     @Query("SELECT ep FROM EmployeePosition ep WHERE ep.employee.id = :employeeId AND ep.endDateOnPosition IS NULL")
-    EmployeePosition getByEmployeeAndEndDateOnPosition(Long employeeId);
+    Optional<EmployeePosition> getByEmployeeAndEndDateOnPosition(Long employeeId);
 
     Optional<EmployeePosition> findById(Long id);
 }

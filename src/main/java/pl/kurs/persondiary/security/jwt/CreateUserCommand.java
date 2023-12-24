@@ -6,10 +6,7 @@ import java.util.List;
 
 @Getter
 public class CreateUserCommand {
-
     private String username;
-
     private String password;
-
     private List<String> roles;
 }

@@ -20,9 +20,8 @@ import pl.kurs.persondiary.command.*;
 import pl.kurs.persondiary.dto.FullEmployeePositionDto;
 import pl.kurs.persondiary.models.EmployeePosition;
 import pl.kurs.persondiary.repositories.PersonViewRepository;
-import pl.kurs.persondiary.security.jwt.UserRepository;
+import pl.kurs.persondiary.services.EmployeePositionService;
 import pl.kurs.persondiary.services.PersonService;
-import pl.kurs.persondiary.services.entityservices.EmployeePositionService;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -51,14 +50,7 @@ class PersonControllerTest {
     private PersonViewRepository personViewRepository;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private ObjectMapper objectMapper;
-
-
-    @Autowired
-    private PersonController personController;
 
     @Autowired
     private EmployeePositionService employeePositionService;
@@ -117,7 +109,7 @@ class PersonControllerTest {
 
     @Test
     @WithMockUser(username = "JanekUser", roles = {"USER"})
-    void shouldReturnPersonWithHeight183cm() throws Exception {
+    void getPersonsShouldReturnPersonWithHeight183cm() throws Exception {
         postman.perform(MockMvcRequestBuilders.get("/persons?heightFrom=2.10&heightTo=2.12"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].type").value("student"))
@@ -136,7 +128,7 @@ class PersonControllerTest {
 
     @Test
     @WithMockUser(username = "JanekUser", roles = {"USER"})
-    void shouldReturnPersonWithWeight150kg() throws Exception {
+    void getPersonsShouldReturnPersonWithWeight150kg() throws Exception {
         postman.perform(MockMvcRequestBuilders.get("/persons?weightFrom=149&weightTo=151"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].type").value("employee"))
@@ -154,7 +146,7 @@ class PersonControllerTest {
 
     @Test
     @WithMockUser(username = "JanekUser", roles = {"USER"})
-    void shouldReturnFemaleAgeBetween25And30YearsOldAndStudentType() throws Exception {
+    void getPersonsShouldReturnFemaleAgeBetween25And30YearsOldAndStudentType() throws Exception {
         postman.perform(MockMvcRequestBuilders.get("/persons?gender=female&ageFrom=25&ageTo=30&type=stud"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].type").value("student"))
@@ -173,14 +165,14 @@ class PersonControllerTest {
 
     @Test
     @WithMockUser(username = "JanekUser", roles = {"USER"})
-    void shouldReturn10people() throws Exception {
+    void getPersonsShouldReturn10people() throws Exception {
         postman.perform(MockMvcRequestBuilders.get("/persons"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(10));
     }
 
     @Test
-    void shouldReturnBadRequestForInvalidSalaryToValue() throws Exception {
+    void getPersonsShouldReturnBadRequestForInvalidSalaryToValue() throws Exception {
         //given
         String userToken = getUserToken();
         //then
@@ -194,13 +186,13 @@ class PersonControllerTest {
     }
 
     @Test
-    void shouldReturnUnauthorizedException() throws Exception {
+    void getPersonsShouldReturnUnauthorizedException() throws Exception {
         postman.perform(MockMvcRequestBuilders.get("/persons"))
                 .andExpect(status().isUnauthorized());
     }
 
     @Test
-    void shouldAddStudent() throws Exception {
+    void createPersonShouldAddStudent() throws Exception {
         //given
         String adminToken = getAdminToken();
 
@@ -251,7 +243,7 @@ class PersonControllerTest {
     }
 
     @Test
-    void shouldAddPensioner() throws Exception {
+    void createPersonShouldAddPensioner() throws Exception {
         //given
         String adminToken = getAdminToken();
 
@@ -298,7 +290,7 @@ class PersonControllerTest {
     }
 
     @Test
-    void shouldAddEmployee() throws Exception {
+    void createPersonShouldAddEmployee() throws Exception {
         //given
         String adminToken = getAdminToken();
 
@@ -348,7 +340,7 @@ class PersonControllerTest {
 
     @Test
     @WithMockUser(username = "AdamAdmin", roles = {"ADMIN"})
-    void shouldReturnUC_STUDENT_PESELException() throws Exception {
+    void createPersonShouldReturnUC_STUDENT_PESELException() throws Exception {
         //given
         CreateStudentCommand student = new CreateStudentCommand("Katarzyna", "Nowak", "72082782183", 1.75, 70.0,
                 "katarzyna.nowak@gmail.com", "Uniwersytet Warszawski", 2, "Psychologia", 1500.00);
@@ -384,7 +376,7 @@ class PersonControllerTest {
 
     @Test
     @WithMockUser(username = "AdamAdmin", roles = {"ADMIN"})
-    void shouldReturnExceptionWhenTypeIsPensionerAndDataIsForStudent() throws Exception {
+    void createPersonShouldReturnExceptionWhenTypeIsPensionerAndDataIsForStudent() throws Exception {
         //given
         CreateStudentCommand student = new CreateStudentCommand("Katarzyna", "Nowak", "03300214957", 1.75, 70.0,
                 "katarzyna.nowak@gmail.com", "Uniwersytet Warszawski", 2, "Psychologia", 1500.00);
@@ -420,7 +412,7 @@ class PersonControllerTest {
 
     @Test
     @WithMockUser(username = "AdamAdmin", roles = {"ADMIN"})
-    void shouldReturnExceptionWhenPersonTypeNotExists() throws Exception {
+    void createPersonShouldReturnExceptionWhenPersonTypeNotExists() throws Exception {
         //given
         CreateStudentCommand student = new CreateStudentCommand("Katarzyna", "Nowak", "03300214957", 1.75, 70.0,
                 "katarzyna.nowak@gmail.com", "Uniwersytet Warszawski", 2, "Psychologia", 1500.00);
@@ -456,7 +448,7 @@ class PersonControllerTest {
 
     @Test
     @WithMockUser(username = "AdamAdmin", roles = {"ADMIN"})
-    void shouldReturnExceptionBecauseTeacherNotExistsInPositionNameDictionary() throws Exception {
+    void createPersonShouldReturnExceptionBecauseTeacherNotExistsInPositionNameDictionary() throws Exception {
         //given
         CreateEmployeeCommand employee = new CreateEmployeeCommand("Waldemar", "Karolak", "79102593767", 1.72, 78.5,
                 "waldemar.karolak@wp.pl", LocalDate.of(2018, 10, 25), "Teacher", 7000.45);
@@ -490,7 +482,7 @@ class PersonControllerTest {
     }
 
     @Test
-    void shouldReturnExceptionBecauseUserIsForbiddenToPostRequest() throws Exception {
+    void createPersonShouldReturnExceptionBecauseUserIsForbidden() throws Exception {
         //given
         String userToken = getUserToken();
 
@@ -523,7 +515,7 @@ class PersonControllerTest {
     }
 
     @Test
-    void shouldReturnExceptionBecauseUserIsUnauthorizedToPost() throws Exception {
+    void createPersonShouldReturnExceptionBecauseUserIsUnauthorized() throws Exception {
         //given
         CreateEmployeeCommand employee = new CreateEmployeeCommand("Waldemar", "Karolak", "79102593767", 1.72, 78.5,
                 "waldemar.karolak@wp.pl", LocalDate.of(2018, 10, 25), "Kowal", 7000.45);
@@ -553,7 +545,7 @@ class PersonControllerTest {
     }
 
     @Test
-    void shouldEditStudent() throws Exception {
+    void editPersonShouldEditStudent() throws Exception {
         //given
         String adminToken = getAdminToken();
 
@@ -604,7 +596,7 @@ class PersonControllerTest {
     }
 
     @Test
-    void shouldEditPensioner() throws Exception {
+    void editPersonShouldEditPensioner() throws Exception {
         //given
         String adminToken = getAdminToken();
         CreatePensionerCommand pensioner = new CreatePensionerCommand("Tomasz", "Słowik", "61100992655", 1.79, 72.0,
@@ -649,7 +641,7 @@ class PersonControllerTest {
 
     @Test
     @WithMockUser(username = "AdamAdmin", roles = {"ADMIN"})
-    void shouldEditEmployee() throws Exception {
+    void editPersonShouldEditEmployee() throws Exception {
         //given
         CreateEmployeeCommand employee = new CreateEmployeeCommand("Katarzyna", "Nowak", "67121848249", 1.75, 70.0,
                 "katarzyna.nowak@gmail.com", LocalDate.of(2023, 11, 30), "Programista", 17000.45);
@@ -693,7 +685,7 @@ class PersonControllerTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenConcurrentModificationOccurs() throws Exception {
+    void editPersonShouldThrowExceptionWhenConcurrentModificationOccurs() throws Exception {
         // given
         String adminToken = getAdminToken();
 
@@ -750,7 +742,7 @@ class PersonControllerTest {
     }
 
     @Test
-    void shouldReturnExceptionBecauseUserIsForbiddenToPatchRequest() throws Exception {
+    void editPersonShouldReturnExceptionBecauseUserIsForbidden() throws Exception {
         //given
         String employeeToken = getEmployeeToken();
 
@@ -789,7 +781,7 @@ class PersonControllerTest {
 
     @Test
     @WithMockUser(username = "DarekEmployee", roles = {"EMPLOYEE"})
-    void shouldTryAddEmployeePositionToEmployeeWithPesel03291882687AndThrowExceptionWhenWorkPeriodCoversAnother() throws Exception {
+    void createEmployeePositionShouldTryAddEmployeePositionToEmployeeWithPesel03291882687AndThrowExceptionWhenWorkPeriodCoversAnother() throws Exception {
         //given
         CreateEmployeePositionCommand createEmployeePositionCommand = new CreateEmployeePositionCommand("Elektryk Zakładowy", LocalDate.of(1994, 1, 1),
                 LocalDate.of(2001, 1, 1), 8500.0);
@@ -812,7 +804,7 @@ class PersonControllerTest {
 
     @Test
     @WithMockUser(username = "DarekEmployee", roles = {"EMPLOYEE"})
-    void shouldTryAddEmployeePositionToEmployeeWithPesel03291882687AndThrowExceptionWhenWorkPeriodOverlapsTwoOther() throws Exception {
+    void createEmployeePositionShouldTryAddEmployeePositionToEmployeeWithPesel03291882687AndThrowExceptionWhenWorkPeriodOverlapsTwoOther() throws Exception {
         //given
         CreateEmployeePositionCommand createEmployeePositionCommand = new CreateEmployeePositionCommand("Elektryk Zakładowy", LocalDate.of(1999, 1, 1),
                 LocalDate.of(2011, 1, 1), 8500.0);
@@ -835,7 +827,7 @@ class PersonControllerTest {
 
     @Test
     @WithMockUser(username = "DarekEmployee", roles = {"EMPLOYEE"})
-    void shouldTryAddEmployeePositionToEmployeeWithPesel03291882687AndThrowExceptionWhenWorkPeriodsIncludedInAnother() throws Exception {
+    void createEmployeePositionShouldTryAddEmployeePositionToEmployeeWithPesel03291882687AndThrowExceptionWhenWorkPeriodsIncludedInAnother() throws Exception {
         //given
         CreateEmployeePositionCommand createEmployeePositionCommand = new CreateEmployeePositionCommand("Elektryk Zakładowy", LocalDate.of(2011, 1, 1),
                 LocalDate.of(2014, 1, 1), 8500.0);
@@ -857,7 +849,7 @@ class PersonControllerTest {
     }
 
     @Test
-    void shouldAddEmployeePositionToEmployeeWithPesel03291882687() throws Exception {
+    void createEmployeePositionShouldAddEmployeePositionToEmployeeWithPesel03291882687() throws Exception {
         // given
         String employeeToken = getEmployeeToken();
         CreateEmployeePositionCommand createEmployeePositionCommand = new CreateEmployeePositionCommand("Elektryk Zakładowy", LocalDate.of(2001, 1, 1),
@@ -889,7 +881,7 @@ class PersonControllerTest {
     }
 
     @Test
-    public void shouldUploadFileAsAdministrator() throws Exception {
+    void importCsvFileShouldUploadFileAsAdministrator() throws Exception {
         // given
         String adminToken = getAdminToken();
         File file = ResourceUtils.getFile("classpath:data/people_data.csv");
@@ -940,7 +932,7 @@ class PersonControllerTest {
     }
 
     @Test
-    public void shouldUploadFileAsImporter() throws Exception {
+    void importCsvFileShouldUploadFileAsImporter() throws Exception {
         // given
         String importerToken = getImporterToken();
         File file = ResourceUtils.getFile("classpath:data/people_data3.csv");
@@ -991,7 +983,7 @@ class PersonControllerTest {
     }
 
     @Test
-    public void shouldInterruptFirstImportWhenSecondImportStarts() throws Exception {
+    void importCsvFileShouldInterruptFirstImportWhenSecondImportStarts() throws Exception {
         // given
         String adminToken = getAdminToken();
         File firstFile = ResourceUtils.getFile("classpath:data/people_data2.csv");
@@ -1048,7 +1040,7 @@ class PersonControllerTest {
     }
 
     @Test
-    public void shouldThrowExceptionBecauseUserEmployeeUserIsForbiddenToImport() throws Exception {
+    void importCsvFileShouldThrowExceptionBecauseUserEmployeeUserIsForbidden() throws Exception {
         // given
         String employeeToken = getEmployeeToken();
         File file = ResourceUtils.getFile("classpath:data/people_data3.csv");
@@ -1064,6 +1056,5 @@ class PersonControllerTest {
                 .header("Authorization", "Bearer " + employeeToken))
                 .andExpect(status().isForbidden());
     }
-
 
 }

@@ -6,6 +6,5 @@ import pl.kurs.persondiary.models.Student;
 import java.util.Optional;
 
 public interface StudentRepositories extends JpaRepository<Student, Long> {
-
     Optional<Student> getByPesel(String pesel);
 }

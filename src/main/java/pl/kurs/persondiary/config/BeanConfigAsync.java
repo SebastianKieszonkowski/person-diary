@@ -22,9 +22,9 @@ public class BeanConfigAsync implements AsyncConfigurer {
     @Bean
     public Executor taskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(10); // Ustawienie liczby wątków core
-        executor.setMaxPoolSize(20);  // Maksymalna liczba wątków
-        executor.setQueueCapacity(50); // Pojemność kolejki
+        executor.setCorePoolSize(10);
+        executor.setMaxPoolSize(20);
+        executor.setQueueCapacity(50);
         executor.setThreadNamePrefix("Async-Executor-");
         executor.initialize();
         return executor;

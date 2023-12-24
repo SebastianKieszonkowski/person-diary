@@ -1,4 +1,4 @@
-package pl.kurs.persondiary.services.entityservices;
+package pl.kurs.persondiary.services.personservices;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,7 +46,7 @@ public abstract class AbstractGenericManagementService<T extends Identificationa
     }
 
     @Override
-    public void deleteAll(){
+    public void deleteAll() {
         repository.deleteAll();
     }
 

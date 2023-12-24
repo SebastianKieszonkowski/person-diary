@@ -27,7 +27,6 @@ public interface PersonCreator {
 
     Person createPersonFromView(PersonView personView);
 
-
     default String getStringParameter(String name, Map<String, Object> parameters) {
         return (String) parameters.get(name);
     }
@@ -47,7 +46,7 @@ public interface PersonCreator {
         return date;
     }
 
-    default void commandValidator(ICreatePersonCommand createPersonCommand, Validator validator){
+    default void commandValidator(ICreatePersonCommand createPersonCommand, Validator validator) {
         DataBinder binder = new DataBinder(createPersonCommand);
         binder.setValidator(validator);
         binder.validate();

@@ -1,13 +1,10 @@
 package pl.kurs.persondiary.dto;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor
 public class StatusDto {
-    private String status;
-
-    public StatusDto(String status) {
-        this.status = status;
-    }
-
-    public String getStatus() {
-        return status;
-    }
+    private final String status;
 }

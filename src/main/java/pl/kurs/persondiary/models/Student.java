@@ -3,14 +3,15 @@ package pl.kurs.persondiary.models;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
 @NoArgsConstructor
-//@AllArgsConstructor
-@EqualsAndHashCode
-@ToString //do usuniecia w wersi ostatecznej
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "students")
 public class Student extends Person {

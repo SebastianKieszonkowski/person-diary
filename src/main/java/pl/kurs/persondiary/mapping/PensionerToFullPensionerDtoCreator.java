@@ -1,6 +1,5 @@
 package pl.kurs.persondiary.mapping;
 
-
 import org.modelmapper.Converter;
 import org.modelmapper.spi.MappingContext;
 import org.springframework.stereotype.Service;
@@ -9,6 +8,7 @@ import pl.kurs.persondiary.models.Pensioner;
 
 @Service
 public class PensionerToFullPensionerDtoCreator implements Converter<Pensioner, FullPensionerDto> {
+
     @Override
     public FullPensionerDto convert(MappingContext<Pensioner, FullPensionerDto> mappingContext) {
         Pensioner source = mappingContext.getSource();

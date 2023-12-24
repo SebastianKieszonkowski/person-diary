@@ -16,10 +16,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import pl.kurs.persondiary.models.*;
 import pl.kurs.persondiary.repositories.PersonViewRepository;
-import pl.kurs.persondiary.services.entityservices.EmployeeService;
-import pl.kurs.persondiary.services.entityservices.IManagementService;
-import pl.kurs.persondiary.services.entityservices.PensionerService;
-import pl.kurs.persondiary.services.entityservices.StudentService;
+import pl.kurs.persondiary.services.personservices.EmployeeService;
+import pl.kurs.persondiary.services.personservices.IManagementService;
+import pl.kurs.persondiary.services.personservices.PensionerService;
+import pl.kurs.persondiary.services.personservices.StudentService;
 import pl.kurs.persondiary.services.querybuilder.QueryFactoryComponent;
 
 import java.io.BufferedReader;
@@ -40,35 +40,34 @@ public class PersonService {
 
     @PersistenceContext
     private final EntityManager entityManager;
-    private final PersonViewRepository personViewRepository;
-    private final ServiceFactory serviceFactory;
+    private final QueryFactoryComponent queryFactoryComponent;
+    private final FactoryPersonService factoryPersonService;
 
     private final EmployeeService employeeService;
     private final PensionerService pensionerService;
     private final StudentService studentService;
-
     private final ProgressService progressService;
 
-    private final QueryFactoryComponent queryFactoryComponent;
+    private final PersonViewRepository personViewRepository;
 
     private final AtomicBoolean isImportInProgress = new AtomicBoolean(false);
 
     @Transactional
     public Person savePerson(Person person) {
-        IManagementService<Person> personService = serviceFactory.prepareManager(person.getClass().getSimpleName());
+        IManagementService<Person> personService = factoryPersonService.prepareManager(person.getClass().getSimpleName());
         Person savedPerson = personService.add(person);
         return savedPerson;
     }
 
     public Person updatePerson(Person person) {
-        IManagementService<Person> updatePersonService = serviceFactory.prepareManager(person.getClass().getSimpleName());
+        IManagementService<Person> updatePersonService = factoryPersonService.prepareManager(person.getClass().getSimpleName());
         Person editedPerson = updatePersonService.edit(person);
         return editedPerson;
     }
 
     @Transactional(readOnly = true)
     public Person getPersonByTypeAndPesel(String pesel, String type) {
-        IManagementService<Person> updatePersonService = serviceFactory.prepareManager(type);
+        IManagementService<Person> updatePersonService = factoryPersonService.prepareManager(type);
         return updatePersonService.findByPesel(pesel);
     }
 
