@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import pl.kurs.persondiary.command.CreateEmployeeCommand;
 import pl.kurs.persondiary.dto.StatusDto;
-import pl.kurs.persondiary.dto.viewdto.EmployeeViewDto;
+import pl.kurs.persondiary.dto.FullEmployeeDto;
 import pl.kurs.persondiary.models.Employee;
 import pl.kurs.persondiary.models.EmployeePosition;
 import pl.kurs.persondiary.services.entityservices.EmployeePositionService;
@@ -55,8 +55,8 @@ public class EmployeeController {
         EmployeePosition employeePosition = new EmployeePosition(createEmployCommand.getPosition(), createEmployCommand.getHireDate(),
                 null, createEmployCommand.getSalary(), employeeCreated);
         EmployeePosition employeePositionCreated = employeePositionService.add(employeePosition);
-        EmployeeViewDto employeeViewDto = modelMapper.map(employeeCreated, EmployeeViewDto.class);
-        return new ResponseEntity<>(employeeViewDto, HttpStatus.CREATED);
+        FullEmployeeDto fullEmployeeDto = modelMapper.map(employeeCreated, FullEmployeeDto.class);
+        return new ResponseEntity<>(fullEmployeeDto, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
@@ -75,8 +75,8 @@ public class EmployeeController {
     @GetMapping
     public ResponseEntity getAllEmployee(@PageableDefault Pageable pageable) {
         List<Employee> employeesPage = employeeService.getAll();
-        List<EmployeeViewDto> fullEmployeesDtoPage = employeesPage.stream()
-                .map(x -> modelMapper.map(x, EmployeeViewDto.class))
+        List<FullEmployeeDto> fullEmployeesDtoPage = employeesPage.stream()
+                .map(x -> modelMapper.map(x, FullEmployeeDto.class))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(fullEmployeesDtoPage);
     }
@@ -84,8 +84,8 @@ public class EmployeeController {
     @GetMapping(value = "/{id}")
     public ResponseEntity getEmployeeById(@PathVariable("id") Long id) {
         Employee employee = employeeService.get(id);
-        EmployeeViewDto employeeViewDto = modelMapper.map(employee, EmployeeViewDto.class);
-        return ResponseEntity.ok(employeeViewDto);
+        FullEmployeeDto fullEmployeeDto = modelMapper.map(employee, FullEmployeeDto.class);
+        return ResponseEntity.ok(fullEmployeeDto);
         //LazyInitializationException - rozważyć dodanie do exception handlera
     }
 

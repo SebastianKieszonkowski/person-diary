@@ -19,10 +19,10 @@ end_date_on_position,position_name,salary,start_date_on_position,employee_id
 'null','Architekt',14200.0,'2023-11-13',18
 'null','Specjalista ds. HR',15300.0,'2025-11-12',19
 'null','Inżynier Elektroniczny',17000.0,'2023-11-11',20
-'2015-12-30','Monter Elektryczny',5500.75,'2010-12-30',20
-'2000-12-31','Pomocnik Elektryka',5500.75,'1995-01-01',20
-'1995-12-31','Praktykant',5500.75,'1990-01-01',19
+'2015-12-30','Monter Elektryczny',10500.75,'2010-12-30',20
+'2000-12-31','Pomocnik Elektryka',5500.75,'1995-01-15',20
+'1995-01-01','Praktykant',5500.75,'1990-01-01',19
 '2005-12-31','Asystent HR',7000.75,'2000-01-01',19
-'2020-12-31','Mlodszy specjalista HR',8000.75,'2010-01-01',19
-'1978-12-31','Mlodszy specjalista HR',800.75,'1980-01-01',19
+'2020-12-31','Analityk Finansowy',8000.75,'2010-01-01',19
+'1989-12-31','Mlodszy specjalista HR',800.75,'1978-01-01',19
 '2022-12-31','Wolny strzelec',800.75,'2021-01-01',19

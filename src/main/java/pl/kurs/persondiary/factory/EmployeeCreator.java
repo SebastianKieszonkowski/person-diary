@@ -5,8 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import pl.kurs.persondiary.command.CreateEmployeeCommand;
-import pl.kurs.persondiary.dto.IPersonDto;
-import pl.kurs.persondiary.dto.viewdto.EmployeeViewDto;
+import pl.kurs.persondiary.dto.*;
 import pl.kurs.persondiary.models.Employee;
 import pl.kurs.persondiary.models.Person;
 import pl.kurs.persondiary.models.PersonView;
@@ -60,14 +59,19 @@ public class EmployeeCreator implements PersonCreator {
     }
 
     @Override
-    public IPersonDto createDtoFromView(PersonView personView) {
-        return modelMapper.map(personView, EmployeeViewDto.class);
+    public IFullPersonDto createDtoFromView(PersonView personView) {
+        return modelMapper.map(personView, FullEmployeeDto.class);
     }
 
     @Override
-    public IPersonDto createDtoFromPerson(Person person) {
+    public ISimplePersonDto createSimpleDtoFromView(PersonView personView) {
+        return modelMapper.map(personView, SimpleEmployeeDto.class);
+    }
+
+    @Override
+    public IFullPersonDto createDtoFromPerson(Person person) {
         Employee employee = (Employee) person;
-        return modelMapper.map(employee, EmployeeViewDto.class);
+        return modelMapper.map(employee, FullEmployeeDto.class);
     }
 
     @Override

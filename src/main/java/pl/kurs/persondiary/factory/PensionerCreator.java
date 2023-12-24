@@ -5,8 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import pl.kurs.persondiary.command.CreatePensionerCommand;
-import pl.kurs.persondiary.dto.IPersonDto;
-import pl.kurs.persondiary.dto.viewdto.PensionerViewDto;
+import pl.kurs.persondiary.dto.*;
 import pl.kurs.persondiary.models.Pensioner;
 import pl.kurs.persondiary.models.Person;
 import pl.kurs.persondiary.models.PersonView;
@@ -58,14 +57,19 @@ public class PensionerCreator implements PersonCreator {
     }
 
     @Override
-    public IPersonDto createDtoFromView(PersonView personView) {
-        return modelMapper.map(personView, PensionerViewDto.class);
+    public IFullPersonDto createDtoFromView(PersonView personView) {
+        return modelMapper.map(personView, FullPensionerDto.class);
     }
 
     @Override
-    public IPersonDto createDtoFromPerson(Person person) {
+    public ISimplePersonDto createSimpleDtoFromView(PersonView personView) {
+        return modelMapper.map(personView, SimplePensionerDto.class);
+    }
+
+    @Override
+    public IFullPersonDto createDtoFromPerson(Person person) {
         Pensioner pensioner = (Pensioner) person;
-        return modelMapper.map(pensioner, PensionerViewDto.class);
+        return modelMapper.map(pensioner, FullPensionerDto.class);
     }
 
     @Override

@@ -6,7 +6,7 @@ import pl.kurs.persondiary.exeptions.IncorrectDateRangeException;
 import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.models.Employee;
 import pl.kurs.persondiary.models.EmployeePosition;
-import pl.kurs.persondiary.repositories.singlerepositories.EmployeeRepository;
+import pl.kurs.persondiary.repositories.EmployeeRepository;
 
 import java.util.Optional;
 

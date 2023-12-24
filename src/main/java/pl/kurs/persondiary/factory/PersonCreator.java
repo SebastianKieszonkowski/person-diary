@@ -4,7 +4,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
 import org.springframework.validation.Validator;
 import pl.kurs.persondiary.command.ICreatePersonCommand;
-import pl.kurs.persondiary.dto.IPersonDto;
+import pl.kurs.persondiary.dto.IFullPersonDto;
+import pl.kurs.persondiary.dto.ISimplePersonDto;
 import pl.kurs.persondiary.models.Person;
 import pl.kurs.persondiary.models.PersonView;
 
@@ -18,9 +19,11 @@ public interface PersonCreator {
 
     Person update(Person person, Map<String, Object> parameters);
 
-    IPersonDto createDtoFromView(PersonView personView);
+    IFullPersonDto createDtoFromView(PersonView personView);
 
-    IPersonDto createDtoFromPerson(Person person);
+    ISimplePersonDto createSimpleDtoFromView(PersonView personView);
+
+    IFullPersonDto createDtoFromPerson(Person person);
 
     Person createPersonFromView(PersonView personView);
 

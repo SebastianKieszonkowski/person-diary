@@ -1,20 +1,20 @@
-package pl.kurs.persondiary.mapping.viewdto;
+package pl.kurs.persondiary.mapping;
 
 
 import org.modelmapper.Converter;
 import org.modelmapper.spi.MappingContext;
 import org.springframework.stereotype.Service;
-import pl.kurs.persondiary.dto.viewdto.StudentViewDto;
-import pl.kurs.persondiary.models.Student;
+import pl.kurs.persondiary.dto.SimpleStudentDto;
+import pl.kurs.persondiary.models.PersonView;
 
 @Service
-public class StudentToStudentViewDtoCreator implements Converter<Student, StudentViewDto> {
+public class PersonViewToSimpleStudentDtoCreator implements Converter<PersonView, SimpleStudentDto> {
 
     @Override
-    public StudentViewDto convert(MappingContext<Student, StudentViewDto> mappingContext) {
-        Student source = mappingContext.getSource();
-        return StudentViewDto.builder()
-                .type("student")
+    public SimpleStudentDto convert(MappingContext<PersonView, SimpleStudentDto> mappingContext) {
+        PersonView source = mappingContext.getSource();
+        return SimpleStudentDto.builder()
+                .type(source.getType())
                 .id(source.getId())
                 .firstName(source.getFirstName())
                 .lastName(source.getLastName())
@@ -22,11 +22,11 @@ public class StudentToStudentViewDtoCreator implements Converter<Student, Studen
                 .height(source.getHeight())
                 .weight(source.getWeight())
                 .email(source.getEmail())
-                .version((source.getVersion()))
+                .version(source.getVersion())
                 .universityName(source.getUniversityName())
+                .studyYear(source.getStudyYear())
                 .studyField(source.getStudyField())
                 .scholarship(source.getScholarship())
-                .studyYear(source.getStudyYear())
                 .build();
     }
 }

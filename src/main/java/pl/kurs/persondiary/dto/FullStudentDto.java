@@ -1,14 +1,13 @@
-package pl.kurs.persondiary.dto.viewdto;
+package pl.kurs.persondiary.dto;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import pl.kurs.persondiary.dto.IPersonDto;
 
 @Getter
 @Setter
 @Builder
-public class PensionerViewDto implements IPersonDto {
+public class FullStudentDto implements IFullPersonDto {
     private String type;
     private Long id;
     private String firstName;
@@ -18,6 +17,8 @@ public class PensionerViewDto implements IPersonDto {
     private Double weight;
     private String email;
     private Integer version;
-    private Double pension;
-    private Integer workedYears;
+    private String universityName;
+    private Integer studyYear;
+    private String studyField;
+    private Double scholarship;
 }

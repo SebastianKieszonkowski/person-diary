@@ -19,6 +19,13 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler({ImportConcurrencyException.class})
+    public ResponseEntity<ExceptionResponseDto> handleImportConcurrencyException(ImportConcurrencyException e) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(
+                new ExceptionResponseDto(List.of(e.getMessage()), "CONFLICT", LocalDateTime.now())
+        );
+    }
+
     @ExceptionHandler({IllegalArgumentException.class})
     public ResponseEntity<ExceptionResponseDto> handleIllegalArgumentException(IllegalArgumentException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(

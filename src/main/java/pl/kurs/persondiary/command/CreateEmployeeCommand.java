@@ -1,12 +1,14 @@
 package pl.kurs.persondiary.command;
 
 
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.pl.PESEL;
-import pl.kurs.persondiary.command.ICreatePersonCommand;
+import pl.kurs.persondiary.validations.Pesel;
 import pl.kurs.persondiary.validations.PositionName;
 
 import java.time.LocalDate;
@@ -20,7 +22,7 @@ public class CreateEmployeeCommand implements ICreatePersonCommand {
     private String firstName;
     @NotBlank
     private String lastName;
-    @PESEL
+    @Pesel
     private String pesel;
     @Positive
     private Double height;

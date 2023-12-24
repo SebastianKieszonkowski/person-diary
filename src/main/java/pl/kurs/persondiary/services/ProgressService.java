@@ -24,11 +24,10 @@ public class ProgressService {
     }
 
     public void logException(String taskId, Exception e) {
-        try (PrintWriter out = new PrintWriter(new FileWriter("src/importlogs/logs.txt", true))) {
+        try (PrintWriter out = new PrintWriter(new FileWriter("src/main/resources/logs.txt", true))) {
             ProgressInfo info = progressMap.getOrDefault(taskId, new ProgressInfo());
             out.println("Task ID: " + taskId + " | Time: " + LocalDateTime.now() + " | Error: " + e.getMessage());
             info.setFailureLines(info.getFailureLines() + 1);
-            //updateProgress(taskId, info.getProcessedLines());
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
@@ -44,6 +43,12 @@ public class ProgressService {
         ProgressInfo info = progressMap.getOrDefault(taskId, new ProgressInfo());
         info.setStartTime(LocalDateTime.now());
         info.setStatus("In Progress");
+        progressMap.put(taskId, info);
+    }
+
+    public void abortedImport(String taskId) {
+        ProgressInfo info = progressMap.getOrDefault(taskId, new ProgressInfo());
+        info.setStatus("Aborted");
         progressMap.put(taskId, info);
     }
 

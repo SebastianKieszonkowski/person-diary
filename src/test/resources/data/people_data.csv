@@ -1,0 +1,1000 @@
+Employee,NameEmp0,LastSTEmp0,23322314455,1.8469861704566282,76,NameEmp0.lastname@onet.pl,1992-08-28,kierownik seals,11595
+Pensioner,NamePen0,LastSTPen0,23322327092,1.5563436193451479,53,NamePen0.lastname@onet.pl,4105,8
+Student,NameStu0,LastSTStu0,23322337088,1.9585424175318242,93,NameStu0.lastname@onet.pl,Uczelnia_0,1,Nazwa kierunku_0,3913
+Employee,NameEmp1,LastSTEmp1,23322217286,1.8175274314660967,58,NameEmp1.lastname@onet.pl,2017-07-08,elektryk zakładowy,6379
+Pensioner,NamePen1,LastSTPen1,23322228768,1.6596325692492457,77,NamePen1.lastname@onet.pl,5597,27
+Student,NameStu1,LastSTStu1,23322237337,1.891840535277459,77,NameStu1.lastname@onet.pl,Uczelnia_1,4,Nazwa kierunku_1,4267
+Employee,NameEmp2,LastSTEmp2,23322110475,1.6360851823918647,76,NameEmp2.lastname@onet.pl,1958-11-06,mlodszy specjalista hr,7554
+Pensioner,NamePen2,LastSTPen2,23322121091,1.855515529497497,56,NamePen2.lastname@onet.pl,6468,22
+Student,NameStu2,LastSTStu2,23322135035,1.9076303708796742,47,NameStu2.lastname@onet.pl,Uczelnia_2,5,Nazwa kierunku_2,4447
+Employee,NameEmp3,LastSTEmp3,23322010686,1.9976897788605084,69,NameEmp3.lastname@onet.pl,1986-01-16,mlodszy specjalista hr,11643
+Pensioner,NamePen3,LastSTPen3,23322021294,1.5818122143947515,50,NamePen3.lastname@onet.pl,5307,4
+Student,NameStu3,LastSTStu3,23322032521,1.6785525713947738,61,NameStu3.lastname@onet.pl,Uczelnia_3,3,Nazwa kierunku_3,3017
+Employee,NameEmp4,LastSTEmp4,23321916239,1.7290192392478958,51,NameEmp4.lastname@onet.pl,2015-12-23,pomocnik elektryka,6825
+Pensioner,NamePen4,LastSTPen4,23321921685,1.977490469055106,80,NamePen4.lastname@onet.pl,5480,38
+Student,NameStu4,LastSTStu4,23321937713,1.880274666065832,48,NameStu4.lastname@onet.pl,Uczelnia_4,2,Nazwa kierunku_4,3906
+Employee,NameEmp5,LastSTEmp5,23321814270,1.661690946326986,75,NameEmp5.lastname@onet.pl,1953-04-08,specjalista ds. hr,13228
+Pensioner,NamePen5,LastSTPen5,23321821833,1.8165491576062818,56,NamePen5.lastname@onet.pl,4498,42
+Student,NameStu5,LastSTStu5,23321837498,1.851601376847951,71,NameStu5.lastname@onet.pl,Uczelnia_5,2,Nazwa kierunku_5,1645
+Employee,NameEmp6,LastSTEmp6,23321714659,1.8694458951588522,65,NameEmp6.lastname@onet.pl,1963-08-03,wolny strzelec,5107
+Pensioner,NamePen6,LastSTPen6,23321728408,1.9603133030591449,58,NamePen6.lastname@onet.pl,6927,8
+Student,NameStu6,LastSTStu6,23321733534,1.515676102521488,54,NameStu6.lastname@onet.pl,Uczelnia_6,3,Nazwa kierunku_6,2140
+Employee,NameEmp7,LastSTEmp7,23321613731,1.8379897252199944,78,NameEmp7.lastname@onet.pl,1990-09-06,specjalista ds. marketingu,8464
+Pensioner,NamePen7,LastSTPen7,23321629238,1.845693044516366,56,NamePen7.lastname@onet.pl,4166,38
+Student,NameStu7,LastSTStu7,23321638739,1.8034357165279218,68,NameStu7.lastname@onet.pl,Uczelnia_7,3,Nazwa kierunku_7,1086
+Employee,NameEmp8,LastSTEmp8,23321512071,1.5481790628577188,61,NameEmp8.lastname@onet.pl,2005-01-20,inżynier r&d,9697
+Pensioner,NamePen8,LastSTPen8,23321526463,1.9475656477512493,50,NamePen8.lastname@onet.pl,5797,12
+Student,NameStu8,LastSTStu8,23321534306,1.8079453297916825,96,NameStu8.lastname@onet.pl,Uczelnia_8,5,Nazwa kierunku_8,3921
+Employee,NameEmp9,LastSTEmp9,23321418613,1.5002270870914767,81,NameEmp9.lastname@onet.pl,1952-03-14,analityk finansowy,7453
+Pensioner,NamePen9,LastSTPen9,23321429488,1.5385515776924015,50,NamePen9.lastname@onet.pl,4001,44
+Student,NameStu9,LastSTStu9,23321434129,1.8268684091987548,75,NameStu9.lastname@onet.pl,Uczelnia_9,1,Nazwa kierunku_9,2287
+Employee,NameEmp10,LastSTEmp10,23321318010,1.5624018187221431,86,NameEmp10.lastname@onet.pl,1993-06-03,kierownik projektu,6675
+Pensioner,NamePen10,LastSTPen10,23321329294,1.5441706871976135,91,NamePen10.lastname@onet.pl,6843,16
+Student,NameStu10,LastSTStu10,23321331215,1.773905153709316,55,NameStu10.lastname@onet.pl,Uczelnia_10,2,Nazwa kierunku_10,4256
+Employee,NameEmp11,LastSTEmp11,23321219194,1.755453291965636,89,NameEmp11.lastname@onet.pl,1968-01-12,asystent hr,9783
+Pensioner,NamePen11,LastSTPen11,23321227471,1.858277389508822,97,NamePen11.lastname@onet.pl,5841,36
+Student,NameStu11,LastSTStu11,23321231615,1.9036155164681978,53,NameStu11.lastname@onet.pl,Uczelnia_11,5,Nazwa kierunku_11,2019
+Employee,NameEmp12,LastSTEmp12,23321115918,1.7726675753713859,53,NameEmp12.lastname@onet.pl,1989-10-28,wolny strzelec,7634
+Pensioner,NamePen12,LastSTPen12,23321129655,1.8306510068033257,57,NamePen12.lastname@onet.pl,7629,25
+Student,NameStu12,LastSTStu12,23321131521,1.7084047621752072,98,NameStu12.lastname@onet.pl,Uczelnia_12,4,Nazwa kierunku_12,2274
+Employee,NameEmp13,LastSTEmp13,23321015630,1.9221898029034432,65,NameEmp13.lastname@onet.pl,2009-10-23,analityk biznesowy,5040
+Pensioner,NamePen13,LastSTPen13,23321023460,1.7646759960585865,86,NamePen13.lastname@onet.pl,7625,9
+Student,NameStu13,LastSTStu13,23321039737,1.5605202986454758,47,NameStu13.lastname@onet.pl,Uczelnia_13,4,Nazwa kierunku_13,4868
+Employee,NameEmp14,LastSTEmp14,23320915766,1.6574642192820015,55,NameEmp14.lastname@onet.pl,2009-04-12,kierownik produkcji,11793
+Pensioner,NamePen14,LastSTPen14,23320929932,1.5414996301783437,87,NamePen14.lastname@onet.pl,6135,44
+Student,NameStu14,LastSTStu14,23320930594,1.7920459118794128,81,NameStu14.lastname@onet.pl,Uczelnia_14,5,Nazwa kierunku_14,4098
+Employee,NameEmp15,LastSTEmp15,23320811083,1.5150558743190856,71,NameEmp15.lastname@onet.pl,1988-06-27,programista,5064
+Pensioner,NamePen15,LastSTPen15,23320821280,1.7694210668263357,56,NamePen15.lastname@onet.pl,6679,17
+Student,NameStu15,LastSTStu15,23320836693,1.6076679133799068,48,NameStu15.lastname@onet.pl,Uczelnia_15,1,Nazwa kierunku_15,4011
+Employee,NameEmp16,LastSTEmp16,23320714242,1.921436542145479,79,NameEmp16.lastname@onet.pl,2004-02-23,architekt,6492
+Pensioner,NamePen16,LastSTPen16,23320721139,1.8308454400347292,83,NamePen16.lastname@onet.pl,7359,48
+Student,NameStu16,LastSTStu16,23320738481,1.9251404179053697,93,NameStu16.lastname@onet.pl,Uczelnia_16,4,Nazwa kierunku_16,4067
+Employee,NameEmp17,LastSTEmp17,23320619393,1.5486186228145664,95,NameEmp17.lastname@onet.pl,1959-04-05,mlodszy specjalista hr,6312
+Pensioner,NamePen17,LastSTPen17,23320625801,1.945513523954889,67,NamePen17.lastname@onet.pl,5163,6
+Student,NameStu17,LastSTStu17,23320632222,1.9412052755980524,62,NameStu17.lastname@onet.pl,Uczelnia_17,3,Nazwa kierunku_17,2257
+Employee,NameEmp18,LastSTEmp18,23320517587,1.6735341071603584,89,NameEmp18.lastname@onet.pl,1994-05-22,specjalista ds. marketingu,11025
+Pensioner,NamePen18,LastSTPen18,23320527203,1.929828797399222,48,NamePen18.lastname@onet.pl,4515,16
+Student,NameStu18,LastSTStu18,23320534217,1.52548944383454,57,NameStu18.lastname@onet.pl,Uczelnia_18,1,Nazwa kierunku_18,4536
+Employee,NameEmp19,LastSTEmp19,23320411640,1.7274475855591007,88,NameEmp19.lastname@onet.pl,1954-03-11,specjalista ds. marketingu,8993
+Pensioner,NamePen19,LastSTPen19,23320429088,1.5748950159349617,63,NamePen19.lastname@onet.pl,5329,28
+Student,NameStu19,LastSTStu19,23320436893,1.5972683263727856,95,NameStu19.lastname@onet.pl,Uczelnia_19,5,Nazwa kierunku_19,2300
+Employee,NameEmp20,LastSTEmp20,23320311535,1.8390664037345927,62,NameEmp20.lastname@onet.pl,2015-05-23,elektryk zakładowy,10867
+Pensioner,NamePen20,LastSTPen20,23320326416,1.745932274108109,71,NamePen20.lastname@onet.pl,6251,9
+Student,NameStu20,LastSTStu20,23320338411,1.7326249722892078,71,NameStu20.lastname@onet.pl,Uczelnia_20,4,Nazwa kierunku_20,3973
+Employee,NameEmp21,LastSTEmp21,23320210390,1.500603368396125,82,NameEmp21.lastname@onet.pl,1991-03-19,asystent hr,10043
+Pensioner,NamePen21,LastSTPen21,23320225257,1.9646481269438245,97,NamePen21.lastname@onet.pl,6732,44
+Student,NameStu21,LastSTStu21,23320230967,1.8238804133980304,71,NameStu21.lastname@onet.pl,Uczelnia_21,5,Nazwa kierunku_21,4749
+Employee,NameEmp22,LastSTEmp22,23320110524,1.6245333240091056,63,NameEmp22.lastname@onet.pl,2015-04-20,pomocnik elektryka,7942
+Pensioner,NamePen22,LastSTPen22,23320129195,1.9267495426198613,58,NamePen22.lastname@onet.pl,6193,48
+Student,NameStu22,LastSTStu22,23320139045,1.5860943077551966,80,NameStu22.lastname@onet.pl,Uczelnia_22,3,Nazwa kierunku_22,3164
+Employee,NameEmp23,LastSTEmp23,23313011448,1.523939778777602,69,NameEmp23.lastname@onet.pl,2001-01-20,elektryk zakładowy,7360
+Pensioner,NamePen23,LastSTPen23,23313022082,1.7248436824813003,79,NamePen23.lastname@onet.pl,5563,30
+Student,NameStu23,LastSTStu23,23313031710,1.8416028308249994,96,NameStu23.lastname@onet.pl,Uczelnia_23,3,Nazwa kierunku_23,2670
+Employee,NameEmp24,LastSTEmp24,23312910849,1.5967231755833942,50,NameEmp24.lastname@onet.pl,2006-10-15,kierownik produkcji,12460
+Pensioner,NamePen24,LastSTPen24,23312924316,1.5570781335822315,64,NamePen24.lastname@onet.pl,5844,35
+Student,NameStu24,LastSTStu24,23312938084,1.9860018424593289,91,NameStu24.lastname@onet.pl,Uczelnia_24,2,Nazwa kierunku_24,4283
+Employee,NameEmp25,LastSTEmp25,23312811907,1.7130581667243794,71,NameEmp25.lastname@onet.pl,2019-10-04,kowal,10351
+Pensioner,NamePen25,LastSTPen25,23312829107,1.5799295137131713,53,NamePen25.lastname@onet.pl,4337,44
+Student,NameStu25,LastSTStu25,23312830065,1.8673610414712145,58,NameStu25.lastname@onet.pl,Uczelnia_25,4,Nazwa kierunku_25,1920
+Employee,NameEmp26,LastSTEmp26,23312712881,1.9344369860579327,90,NameEmp26.lastname@onet.pl,1980-10-10,programista,5877
+Pensioner,NamePen26,LastSTPen26,23312727478,1.6374791752860638,65,NamePen26.lastname@onet.pl,6917,23
+Student,NameStu26,LastSTStu26,23312734139,1.5383355792985431,68,NameStu26.lastname@onet.pl,Uczelnia_26,2,Nazwa kierunku_26,3498
+Employee,NameEmp27,LastSTEmp27,23312612976,1.8523702708653544,87,NameEmp27.lastname@onet.pl,1965-09-25,kierownik projektu,10390
+Pensioner,NamePen27,LastSTPen27,23312625570,1.9541277738768932,83,NamePen27.lastname@onet.pl,6133,30
+Student,NameStu27,LastSTStu27,23312639406,1.6101955595285091,89,NameStu27.lastname@onet.pl,Uczelnia_27,2,Nazwa kierunku_27,1643
+Employee,NameEmp28,LastSTEmp28,23312515680,1.5397470509970215,92,NameEmp28.lastname@onet.pl,1977-08-27,kierownik produkcji,11469
+Pensioner,NamePen28,LastSTPen28,23312523311,1.7991890313387002,46,NamePen28.lastname@onet.pl,5041,16
+Student,NameStu28,LastSTStu28,23312534999,1.5407753637809944,70,NameStu28.lastname@onet.pl,Uczelnia_28,3,Nazwa kierunku_28,3161
+Employee,NameEmp29,LastSTEmp29,23312411433,1.9937867688415944,76,NameEmp29.lastname@onet.pl,1993-08-11,praktykant,7295
+Pensioner,NamePen29,LastSTPen29,23312421041,1.9015946151707555,63,NamePen29.lastname@onet.pl,6913,19
+Student,NameStu29,LastSTStu29,23312435846,1.7233377767939186,96,NameStu29.lastname@onet.pl,Uczelnia_29,2,Nazwa kierunku_29,2919
+Employee,NameEmp30,LastSTEmp30,23312314565,1.669309678280224,79,NameEmp30.lastname@onet.pl,2009-07-07,kierownik projektu,14823
+Pensioner,NamePen30,LastSTPen30,23312325351,1.8000599635749912,47,NamePen30.lastname@onet.pl,7636,31
+Student,NameStu30,LastSTStu30,23312332191,1.6740693168140746,50,NameStu30.lastname@onet.pl,Uczelnia_30,4,Nazwa kierunku_30,3167
+Employee,NameEmp31,LastSTEmp31,23312216185,1.8727748804496598,74,NameEmp31.lastname@onet.pl,2018-10-20,wolny strzelec,12004
+Pensioner,NamePen31,LastSTPen31,23312220388,1.7395041623233956,69,NamePen31.lastname@onet.pl,7230,15
+Student,NameStu31,LastSTStu31,23312232105,1.8293225367055992,95,NameStu31.lastname@onet.pl,Uczelnia_31,1,Nazwa kierunku_31,4175
+Employee,NameEmp32,LastSTEmp32,23312115274,1.739242784443157,69,NameEmp32.lastname@onet.pl,1961-05-05,monter elektryczny,14879
+Pensioner,NamePen32,LastSTPen32,23312122800,1.7605535959347227,95,NamePen32.lastname@onet.pl,4326,15
+Student,NameStu32,LastSTStu32,23312139732,1.8442239168443357,53,NameStu32.lastname@onet.pl,Uczelnia_32,3,Nazwa kierunku_32,2581
+Employee,NameEmp33,LastSTEmp33,23312015960,1.5540810572268597,56,NameEmp33.lastname@onet.pl,1991-04-02,specjalista ds.it,14167
+Pensioner,NamePen33,LastSTPen33,23312023256,1.9305987191222806,93,NamePen33.lastname@onet.pl,5861,7
+Student,NameStu33,LastSTStu33,23312037330,1.8688381087472599,95,NameStu33.lastname@onet.pl,Uczelnia_33,2,Nazwa kierunku_33,4461
+Employee,NameEmp34,LastSTEmp34,23311918063,1.7297015878063413,70,NameEmp34.lastname@onet.pl,1964-01-07,praktykant,10166
+Pensioner,NamePen34,LastSTPen34,23311921962,1.590153720207999,70,NamePen34.lastname@onet.pl,5095,47
+Student,NameStu34,LastSTStu34,23311932275,1.7284213743734065,84,NameStu34.lastname@onet.pl,Uczelnia_34,2,Nazwa kierunku_34,2298
+Employee,NameEmp35,LastSTEmp35,23311810378,1.9068905184852603,64,NameEmp35.lastname@onet.pl,1980-05-18,architekt,11376
+Pensioner,NamePen35,LastSTPen35,23311824868,1.5683812661087342,92,NamePen35.lastname@onet.pl,6425,7
+Student,NameStu35,LastSTStu35,23311831987,1.8593892554510962,76,NameStu35.lastname@onet.pl,Uczelnia_35,2,Nazwa kierunku_35,1992
+Employee,NameEmp36,LastSTEmp36,23311718086,1.6387331361665618,85,NameEmp36.lastname@onet.pl,1996-06-16,asystent hr,12990
+Pensioner,NamePen36,LastSTPen36,23311720325,1.7112819064284877,71,NamePen36.lastname@onet.pl,4399,18
+Student,NameStu36,LastSTStu36,23311735942,1.936679946380798,89,NameStu36.lastname@onet.pl,Uczelnia_36,2,Nazwa kierunku_36,1320
+Employee,NameEmp37,LastSTEmp37,23311618567,1.9856301745623983,83,NameEmp37.lastname@onet.pl,1993-03-18,analityk biznesowy,11826
+Pensioner,NamePen37,LastSTPen37,23311627508,1.8587403348871694,50,NamePen37.lastname@onet.pl,6857,8
+Student,NameStu37,LastSTStu37,23311636572,1.5660039987144616,77,NameStu37.lastname@onet.pl,Uczelnia_37,3,Nazwa kierunku_37,3794
+Employee,NameEmp38,LastSTEmp38,23311519869,1.5163900591831783,60,NameEmp38.lastname@onet.pl,1995-02-25,inżynier elektroniczny,10589
+Pensioner,NamePen38,LastSTPen38,23311523722,1.5592082457557832,83,NamePen38.lastname@onet.pl,4984,23
+Student,NameStu38,LastSTStu38,23311531008,1.8279231335670743,89,NameStu38.lastname@onet.pl,Uczelnia_38,3,Nazwa kierunku_38,4604
+Employee,NameEmp39,LastSTEmp39,23311411253,1.5424878049790753,60,NameEmp39.lastname@onet.pl,2016-12-02,mlodszy specjalista hr,5456
+Pensioner,NamePen39,LastSTPen39,23311422376,1.9055481389256774,56,NamePen39.lastname@onet.pl,5035,19
+Student,NameStu39,LastSTStu39,23311439867,1.7672313907326236,62,NameStu39.lastname@onet.pl,Uczelnia_39,5,Nazwa kierunku_39,3031
+Employee,NameEmp40,LastSTEmp40,23311311042,1.5175032409084355,48,NameEmp40.lastname@onet.pl,1994-06-21,analityk finansowy,12374
+Pensioner,NamePen40,LastSTPen40,23311326442,1.5578027556054423,82,NamePen40.lastname@onet.pl,4788,26
+Student,NameStu40,LastSTStu40,23311333500,1.5466212868689824,96,NameStu40.lastname@onet.pl,Uczelnia_40,1,Nazwa kierunku_40,2924
+Employee,NameEmp41,LastSTEmp41,23311211869,1.8289274797393755,78,NameEmp41.lastname@onet.pl,1998-02-28,monter elektryczny,8881
+Pensioner,NamePen41,LastSTPen41,23311222710,1.6822611147945343,98,NamePen41.lastname@onet.pl,7002,29
+Student,NameStu41,LastSTStu41,23311237991,1.8593264156999187,88,NameStu41.lastname@onet.pl,Uczelnia_41,3,Nazwa kierunku_41,4007
+Employee,NameEmp42,LastSTEmp42,23311110251,1.998955478260285,46,NameEmp42.lastname@onet.pl,1974-02-05,pomocnik elektryka,8746
+Pensioner,NamePen42,LastSTPen42,23311124666,1.688463240335747,95,NamePen42.lastname@onet.pl,5811,36
+Student,NameStu42,LastSTStu42,23311132374,1.6500048012420265,80,NameStu42.lastname@onet.pl,Uczelnia_42,5,Nazwa kierunku_42,1834
+Employee,NameEmp43,LastSTEmp43,23311019435,1.8123787969413854,61,NameEmp43.lastname@onet.pl,1993-08-14,analityk finansowy,5308
+Pensioner,NamePen43,LastSTPen43,23311026327,1.8678107383793185,98,NamePen43.lastname@onet.pl,6521,46
+Student,NameStu43,LastSTStu43,23311036115,1.6482549919723528,95,NameStu43.lastname@onet.pl,Uczelnia_43,3,Nazwa kierunku_43,1612
+Employee,NameEmp44,LastSTEmp44,23310912965,1.519705149523977,77,NameEmp44.lastname@onet.pl,1979-04-01,kierownik produkcji,12134
+Pensioner,NamePen44,LastSTPen44,23310927276,1.5653105534204057,52,NamePen44.lastname@onet.pl,4628,1
+Student,NameStu44,LastSTStu44,23310935003,1.5186947100370793,63,NameStu44.lastname@onet.pl,Uczelnia_44,1,Nazwa kierunku_44,1822
+Employee,NameEmp45,LastSTEmp45,23310815224,1.9706479959261254,60,NameEmp45.lastname@onet.pl,2002-02-12,pomocnik elektryka,12390
+Pensioner,NamePen45,LastSTPen45,23310825551,1.702575101034419,59,NamePen45.lastname@onet.pl,4041,17
+Student,NameStu45,LastSTStu45,23310830381,1.681122465542539,67,NameStu45.lastname@onet.pl,Uczelnia_45,5,Nazwa kierunku_45,4111
+Employee,NameEmp46,LastSTEmp46,23310714838,1.5800595996050864,87,NameEmp46.lastname@onet.pl,2009-11-25,analityk biznesowy,12302
+Pensioner,NamePen46,LastSTPen46,23310725411,1.7468296957364842,76,NamePen46.lastname@onet.pl,4180,7
+Student,NameStu46,LastSTStu46,23310739582,1.8203203418621319,61,NameStu46.lastname@onet.pl,Uczelnia_46,5,Nazwa kierunku_46,3272
+Employee,NameEmp47,LastSTEmp47,23310619866,1.8586679607053147,88,NameEmp47.lastname@onet.pl,1979-12-22,inżynier r&d,6975
+Pensioner,NamePen47,LastSTPen47,23310623004,1.661879078581653,80,NamePen47.lastname@onet.pl,4173,12
+Student,NameStu47,LastSTStu47,23310632671,1.5186646045602505,83,NameStu47.lastname@onet.pl,Uczelnia_47,4,Nazwa kierunku_47,3852
+Employee,NameEmp48,LastSTEmp48,23310515268,1.9226080569877693,68,NameEmp48.lastname@onet.pl,1953-01-16,specjalista ds. marketingu,9439
+Pensioner,NamePen48,LastSTPen48,23310529658,1.5815574957164582,60,NamePen48.lastname@onet.pl,5885,46
+Student,NameStu48,LastSTStu48,23310536561,1.978342566476782,88,NameStu48.lastname@onet.pl,Uczelnia_48,2,Nazwa kierunku_48,3772
+Employee,NameEmp49,LastSTEmp49,23310417145,1.62162890792366,59,NameEmp49.lastname@onet.pl,1958-06-25,kierownik projektu,7027
+Pensioner,NamePen49,LastSTPen49,23310423025,1.6816290866818298,59,NamePen49.lastname@onet.pl,7429,24
+Student,NameStu49,LastSTStu49,23310432660,1.5310599643957459,58,NameStu49.lastname@onet.pl,Uczelnia_49,2,Nazwa kierunku_49,3805
+Employee,NameEmp50,LastSTEmp50,23310310617,1.6585483813313948,92,NameEmp50.lastname@onet.pl,1991-12-02,analityk finansowy,8651
+Pensioner,NamePen50,LastSTPen50,23310326921,1.6431184174623985,73,NamePen50.lastname@onet.pl,5102,29
+Student,NameStu50,LastSTStu50,23310335784,1.981116224319406,93,NameStu50.lastname@onet.pl,Uczelnia_50,2,Nazwa kierunku_50,4351
+Employee,NameEmp51,LastSTEmp51,23310218539,1.6554123936731229,84,NameEmp51.lastname@onet.pl,1962-04-14,kowal,10037
+Pensioner,NamePen51,LastSTPen51,23310228191,1.808133959361108,68,NamePen51.lastname@onet.pl,4272,37
+Student,NameStu51,LastSTStu51,23310234276,1.7477347303875033,68,NameStu51.lastname@onet.pl,Uczelnia_51,2,Nazwa kierunku_51,3340
+Employee,NameEmp52,LastSTEmp52,23310114921,1.5385714026593051,75,NameEmp52.lastname@onet.pl,1998-07-10,specjalista ds.it,8565
+Pensioner,NamePen52,LastSTPen52,23310121434,1.5337650844830444,89,NamePen52.lastname@onet.pl,4752,32
+Student,NameStu52,LastSTStu52,23310139848,1.9106298097409038,65,NameStu52.lastname@onet.pl,Uczelnia_52,3,Nazwa kierunku_52,4423
+Employee,NameEmp53,LastSTEmp53,23303118921,1.5631210946442518,97,NameEmp53.lastname@onet.pl,1998-09-17,kowal,13727
+Pensioner,NamePen53,LastSTPen53,23303124483,1.7851186866680009,88,NamePen53.lastname@onet.pl,4292,48
+Student,NameStu53,LastSTStu53,23303133854,1.8249292758052704,75,NameStu53.lastname@onet.pl,Uczelnia_53,2,Nazwa kierunku_53,1787
+Employee,NameEmp54,LastSTEmp54,23303012552,1.8516299544067576,66,NameEmp54.lastname@onet.pl,2017-06-11,wolny strzelec,13283
+Pensioner,NamePen54,LastSTPen54,23303029864,1.7624092910018363,54,NamePen54.lastname@onet.pl,5728,11
+Student,NameStu54,LastSTStu54,23303031608,1.7299696641603775,99,NameStu54.lastname@onet.pl,Uczelnia_54,4,Nazwa kierunku_54,4503
+Employee,NameEmp55,LastSTEmp55,23302914581,1.6973298779337112,83,NameEmp55.lastname@onet.pl,1977-07-27,elektryk zakładowy,9149
+Pensioner,NamePen55,LastSTPen55,23302929790,1.562062175529153,96,NamePen55.lastname@onet.pl,4207,6
+Student,NameStu55,LastSTStu55,23302938701,1.9341621218605767,89,NameStu55.lastname@onet.pl,Uczelnia_55,5,Nazwa kierunku_55,4533
+Employee,NameEmp56,LastSTEmp56,23302817345,1.6633841252735007,84,NameEmp56.lastname@onet.pl,1962-01-24,inżynier r&d,6347
+Pensioner,NamePen56,LastSTPen56,23302821252,1.8556833906626542,93,NamePen56.lastname@onet.pl,5696,31
+Student,NameStu56,LastSTStu56,23302838621,1.71416916006638,63,NameStu56.lastname@onet.pl,Uczelnia_56,5,Nazwa kierunku_56,4960
+Employee,NameEmp57,LastSTEmp57,23302712201,1.7068896117380625,66,NameEmp57.lastname@onet.pl,1982-02-03,architekt,14944
+Pensioner,NamePen57,LastSTPen57,23302729462,1.9843820704372772,97,NamePen57.lastname@onet.pl,4249,48
+Student,NameStu57,LastSTStu57,23302734281,1.8716314103115528,62,NameStu57.lastname@onet.pl,Uczelnia_57,4,Nazwa kierunku_57,4543
+Employee,NameEmp58,LastSTEmp58,23302616584,1.9403826857251105,69,NameEmp58.lastname@onet.pl,2013-07-07,inżynier r&d,11262
+Pensioner,NamePen58,LastSTPen58,23302628712,1.8725447783078557,81,NamePen58.lastname@onet.pl,5440,14
+Student,NameStu58,LastSTStu58,23302635970,1.753710061602129,51,NameStu58.lastname@onet.pl,Uczelnia_58,2,Nazwa kierunku_58,3900
+Employee,NameEmp59,LastSTEmp59,23302516917,1.5685407726119136,69,NameEmp59.lastname@onet.pl,1965-05-20,specjalista ds. hr,10375
+Pensioner,NamePen59,LastSTPen59,23302527254,1.756184558746142,66,NamePen59.lastname@onet.pl,4538,32
+Student,NameStu59,LastSTStu59,23302537422,1.5489934181461043,89,NameStu59.lastname@onet.pl,Uczelnia_59,3,Nazwa kierunku_59,4353
+Employee,NameEmp60,LastSTEmp60,23302414324,1.7985549711587212,91,NameEmp60.lastname@onet.pl,1999-09-11,inżynier produkcji,9370
+Pensioner,NamePen60,LastSTPen60,23302423833,1.9339550043835405,49,NamePen60.lastname@onet.pl,4562,34
+Student,NameStu60,LastSTStu60,23302434295,1.7837179379434214,94,NameStu60.lastname@onet.pl,Uczelnia_60,2,Nazwa kierunku_60,3661
+Employee,NameEmp61,LastSTEmp61,23302316285,1.79452631852645,98,NameEmp61.lastname@onet.pl,1956-07-16,pomocnik elektryka,14512
+Pensioner,NamePen61,LastSTPen61,23302320178,1.7972663007837715,90,NamePen61.lastname@onet.pl,4189,2
+Student,NameStu61,LastSTStu61,23302332830,1.5354959244256294,87,NameStu61.lastname@onet.pl,Uczelnia_61,1,Nazwa kierunku_61,2102
+Employee,NameEmp62,LastSTEmp62,23302218259,1.753726927727385,68,NameEmp62.lastname@onet.pl,2018-06-10,programista,6531
+Pensioner,NamePen62,LastSTPen62,23302226201,1.579797210309461,93,NamePen62.lastname@onet.pl,7315,6
+Student,NameStu62,LastSTStu62,23302233232,1.967200976081987,92,NameStu62.lastname@onet.pl,Uczelnia_62,5,Nazwa kierunku_62,3131
+Employee,NameEmp63,LastSTEmp63,23302119932,1.9835528577215957,91,NameEmp63.lastname@onet.pl,1999-03-25,specjalista ds.it,9285
+Pensioner,NamePen63,LastSTPen63,23302124540,1.5182107220731453,82,NamePen63.lastname@onet.pl,4895,38
+Student,NameStu63,LastSTStu63,23302134181,1.570454658560908,63,NameStu63.lastname@onet.pl,Uczelnia_63,4,Nazwa kierunku_63,3068
+Employee,NameEmp64,LastSTEmp64,23302019168,1.9869551073567377,50,NameEmp64.lastname@onet.pl,1951-02-01,wolny strzelec,11721
+Pensioner,NamePen64,LastSTPen64,23302028393,1.6419447615897091,61,NamePen64.lastname@onet.pl,5245,25
+Student,NameStu64,LastSTStu64,23302034629,1.777071145338026,66,NameStu64.lastname@onet.pl,Uczelnia_64,1,Nazwa kierunku_64,1076
+Employee,NameEmp65,LastSTEmp65,23301919759,1.762997891333394,52,NameEmp65.lastname@onet.pl,1982-04-28,wolny strzelec,7722
+Pensioner,NamePen65,LastSTPen65,23301926482,1.6296087651247544,75,NamePen65.lastname@onet.pl,4521,14
+Student,NameStu65,LastSTStu65,23301938241,1.9735620371746294,49,NameStu65.lastname@onet.pl,Uczelnia_65,3,Nazwa kierunku_65,2909
+Employee,NameEmp66,LastSTEmp66,23301818453,1.9037479879525165,77,NameEmp66.lastname@onet.pl,2018-10-11,elektryk zakładowy,5004
+Pensioner,NamePen66,LastSTPen66,23301826979,1.5027010107426926,46,NamePen66.lastname@onet.pl,4178,13
+Student,NameStu66,LastSTStu66,23301833884,1.810897726945739,91,NameStu66.lastname@onet.pl,Uczelnia_66,4,Nazwa kierunku_66,3716
+Employee,NameEmp67,LastSTEmp67,23301718154,1.7427954352770898,71,NameEmp67.lastname@onet.pl,1951-11-14,praktykant,5148
+Pensioner,NamePen67,LastSTPen67,23301722871,1.975940235712821,92,NamePen67.lastname@onet.pl,6641,40
+Student,NameStu67,LastSTStu67,23301734128,1.7232162162575997,97,NameStu67.lastname@onet.pl,Uczelnia_67,5,Nazwa kierunku_67,1283
+Employee,NameEmp68,LastSTEmp68,23301619181,1.5099057392529915,82,NameEmp68.lastname@onet.pl,1995-08-21,specjalista ds.it,7796
+Pensioner,NamePen68,LastSTPen68,23301621129,1.5550751762892088,49,NamePen68.lastname@onet.pl,5098,22
+Student,NameStu68,LastSTStu68,23301639513,1.933300710992169,48,NameStu68.lastname@onet.pl,Uczelnia_68,5,Nazwa kierunku_68,3229
+Employee,NameEmp69,LastSTEmp69,23301519452,1.9269878557331863,65,NameEmp69.lastname@onet.pl,1951-01-16,inżynier produkcji,7580
+Pensioner,NamePen69,LastSTPen69,23301523642,1.5321985966125538,73,NamePen69.lastname@onet.pl,7768,21
+Student,NameStu69,LastSTStu69,23301536657,1.904350497048951,86,NameStu69.lastname@onet.pl,Uczelnia_69,5,Nazwa kierunku_69,1569
+Employee,NameEmp70,LastSTEmp70,23301411744,1.5298869207907795,83,NameEmp70.lastname@onet.pl,1968-03-13,inżynier elektroniczny,13462
+Pensioner,NamePen70,LastSTPen70,23301421823,1.8198573229990413,73,NamePen70.lastname@onet.pl,5925,45
+Student,NameStu70,LastSTStu70,23301435665,1.5647096533941962,46,NameStu70.lastname@onet.pl,Uczelnia_70,3,Nazwa kierunku_70,2569
+Employee,NameEmp71,LastSTEmp71,23301312199,1.5669820392586455,62,NameEmp71.lastname@onet.pl,2003-05-12,analityk biznesowy,6034
+Pensioner,NamePen71,LastSTPen71,23301323748,1.6360896657858437,96,NamePen71.lastname@onet.pl,7846,3
+Student,NameStu71,LastSTStu71,23301334375,1.8062087899725245,95,NameStu71.lastname@onet.pl,Uczelnia_71,1,Nazwa kierunku_71,3814
+Employee,NameEmp72,LastSTEmp72,23301212965,1.8993696397454514,77,NameEmp72.lastname@onet.pl,2004-04-23,mlodszy specjalista hr,10536
+Pensioner,NamePen72,LastSTPen72,23301220264,1.5144613644225107,87,NamePen72.lastname@onet.pl,5684,42
+Student,NameStu72,LastSTStu72,23301239843,1.6301921148038543,60,NameStu72.lastname@onet.pl,Uczelnia_72,4,Nazwa kierunku_72,4114
+Employee,NameEmp73,LastSTEmp73,23301113242,1.6740010643799403,68,NameEmp73.lastname@onet.pl,1986-08-01,asystent hr,13878
+Pensioner,NamePen73,LastSTPen73,23301125319,1.9131812017867191,71,NamePen73.lastname@onet.pl,4872,28
+Student,NameStu73,LastSTStu73,23301137943,1.6659234882675562,47,NameStu73.lastname@onet.pl,Uczelnia_73,3,Nazwa kierunku_73,2405
+Employee,NameEmp74,LastSTEmp74,23301013240,1.5010193075911868,47,NameEmp74.lastname@onet.pl,1969-12-13,analityk finansowy,14861
+Pensioner,NamePen74,LastSTPen74,23301029767,1.631210009914044,98,NamePen74.lastname@onet.pl,4169,7
+Student,NameStu74,LastSTStu74,23301039609,1.598683731384133,98,NameStu74.lastname@onet.pl,Uczelnia_74,3,Nazwa kierunku_74,3324
+Employee,NameEmp75,LastSTEmp75,23300912607,1.9684284773583491,92,NameEmp75.lastname@onet.pl,2001-05-28,specjalista ds.it,10688
+Pensioner,NamePen75,LastSTPen75,23300924105,1.6227601624430048,45,NamePen75.lastname@onet.pl,5491,4
+Student,NameStu75,LastSTStu75,23300934970,1.949063108686523,56,NameStu75.lastname@onet.pl,Uczelnia_75,1,Nazwa kierunku_75,3240
+Employee,NameEmp76,LastSTEmp76,23300813202,1.72134721639484,60,NameEmp76.lastname@onet.pl,1980-01-19,inżynier produkcji,12323
+Pensioner,NamePen76,LastSTPen76,23300827635,1.8252681410162486,74,NamePen76.lastname@onet.pl,4167,6
+Student,NameStu76,LastSTStu76,23300839721,1.7989049127757006,91,NameStu76.lastname@onet.pl,Uczelnia_76,3,Nazwa kierunku_76,4673
+Employee,NameEmp77,LastSTEmp77,23300712361,1.8354845786065446,70,NameEmp77.lastname@onet.pl,2000-09-17,monter elektryczny,8152
+Pensioner,NamePen77,LastSTPen77,23300728595,1.64284089315614,99,NamePen77.lastname@onet.pl,7577,17
+Student,NameStu77,LastSTStu77,23300734085,1.8566743761915112,75,NameStu77.lastname@onet.pl,Uczelnia_77,1,Nazwa kierunku_77,1307
+Employee,NameEmp78,LastSTEmp78,23300617396,1.8628216434034195,93,NameEmp78.lastname@onet.pl,1978-12-13,praktykant,7842
+Pensioner,NamePen78,LastSTPen78,23300623579,1.6528581647232645,69,NamePen78.lastname@onet.pl,6477,18
+Student,NameStu78,LastSTStu78,23300630772,1.9033899553982636,61,NameStu78.lastname@onet.pl,Uczelnia_78,3,Nazwa kierunku_78,4083
+Employee,NameEmp79,LastSTEmp79,23300516637,1.6831756226311658,68,NameEmp79.lastname@onet.pl,1955-03-22,asystent hr,8417
+Pensioner,NamePen79,LastSTPen79,23300525784,1.8816705601856145,66,NamePen79.lastname@onet.pl,6448,30
+Student,NameStu79,LastSTStu79,23300536813,1.9775778914460231,87,NameStu79.lastname@onet.pl,Uczelnia_79,5,Nazwa kierunku_79,3068
+Employee,NameEmp80,LastSTEmp80,23300412361,1.885893923876219,95,NameEmp80.lastname@onet.pl,2004-12-12,analityk finansowy,10440
+Pensioner,NamePen80,LastSTPen80,23300420649,1.5427161154500484,75,NamePen80.lastname@onet.pl,6020,17
+Student,NameStu80,LastSTStu80,23300432634,1.8534348238080993,74,NameStu80.lastname@onet.pl,Uczelnia_80,4,Nazwa kierunku_80,2328
+Employee,NameEmp81,LastSTEmp81,23300310298,1.786378787618831,66,NameEmp81.lastname@onet.pl,1974-08-24,kierownik produkcji,14023
+Pensioner,NamePen81,LastSTPen81,23300328118,1.5565451345077677,51,NamePen81.lastname@onet.pl,5483,4
+Student,NameStu81,LastSTStu81,23300336674,1.622308536272881,90,NameStu81.lastname@onet.pl,Uczelnia_81,1,Nazwa kierunku_81,4935
+Employee,NameEmp82,LastSTEmp82,23300219746,1.7030781208934116,68,NameEmp82.lastname@onet.pl,1983-03-09,asystent hr,9735
+Pensioner,NamePen82,LastSTPen82,23300225756,1.6429121007234297,88,NamePen82.lastname@onet.pl,4943,9
+Student,NameStu82,LastSTStu82,23300230760,1.5246269054241135,77,NameStu82.lastname@onet.pl,Uczelnia_82,2,Nazwa kierunku_82,2758
+Employee,NameEmp83,LastSTEmp83,23300119146,1.7253643549884847,77,NameEmp83.lastname@onet.pl,2010-06-06,specjalista ds.it,10288
+Pensioner,NamePen83,LastSTPen83,23300120797,1.7985660135396722,94,NamePen83.lastname@onet.pl,7161,39
+Student,NameStu83,LastSTStu83,23300139571,1.8933279359970616,77,NameStu83.lastname@onet.pl,Uczelnia_83,1,Nazwa kierunku_83,4168
+Employee,NameEmp84,LastSTEmp84,23293013814,1.8353672462522335,62,NameEmp84.lastname@onet.pl,2005-06-10,asystent hr,9015
+Pensioner,NamePen84,LastSTPen84,23293023543,1.5120420392007072,70,NamePen84.lastname@onet.pl,5818,48
+Student,NameStu84,LastSTStu84,23293032467,1.9413805896403207,86,NameStu84.lastname@onet.pl,Uczelnia_84,2,Nazwa kierunku_84,1862
+Employee,NameEmp85,LastSTEmp85,23292917420,1.63654792155087,55,NameEmp85.lastname@onet.pl,1953-03-10,monter elektryczny,7639
+Pensioner,NamePen85,LastSTPen85,23292927594,1.6023557656091203,93,NamePen85.lastname@onet.pl,4419,12
+Student,NameStu85,LastSTStu85,23292938161,1.6568711871495239,53,NameStu85.lastname@onet.pl,Uczelnia_85,3,Nazwa kierunku_85,2146
+Employee,NameEmp86,LastSTEmp86,23292814678,1.5397103330315605,49,NameEmp86.lastname@onet.pl,2005-06-16,asystent hr,9760
+Pensioner,NamePen86,LastSTPen86,23292828197,1.630215683068988,50,NamePen86.lastname@onet.pl,5634,39
+Student,NameStu86,LastSTStu86,23292831701,1.668179448558039,53,NameStu86.lastname@onet.pl,Uczelnia_86,4,Nazwa kierunku_86,2894
+Employee,NameEmp87,LastSTEmp87,23292717176,1.8347821586082194,87,NameEmp87.lastname@onet.pl,1950-02-11,mlodszy specjalista hr,5068
+Pensioner,NamePen87,LastSTPen87,23292720948,1.9443722512692916,77,NamePen87.lastname@onet.pl,4778,25
+Student,NameStu87,LastSTStu87,23292730254,1.781605904963757,96,NameStu87.lastname@onet.pl,Uczelnia_87,2,Nazwa kierunku_87,1316
+Employee,NameEmp88,LastSTEmp88,23292610357,1.855578000451879,58,NameEmp88.lastname@onet.pl,2010-05-18,monter elektryczny,11528
+Pensioner,NamePen88,LastSTPen88,23292627790,1.5889731942802574,94,NamePen88.lastname@onet.pl,7884,25
+Student,NameStu88,LastSTStu88,23292636934,1.580819651228207,60,NameStu88.lastname@onet.pl,Uczelnia_88,3,Nazwa kierunku_88,4351
+Employee,NameEmp89,LastSTEmp89,23292512288,1.6104491090290767,93,NameEmp89.lastname@onet.pl,2017-06-22,analityk finansowy,5248
+Pensioner,NamePen89,LastSTPen89,23292525529,1.7924109329014382,60,NamePen89.lastname@onet.pl,5893,46
+Student,NameStu89,LastSTStu89,23292535882,1.7244475199444902,77,NameStu89.lastname@onet.pl,Uczelnia_89,5,Nazwa kierunku_89,4500
+Employee,NameEmp90,LastSTEmp90,23292414615,1.815315621473145,78,NameEmp90.lastname@onet.pl,1955-11-26,elektryk zakładowy,9443
+Pensioner,NamePen90,LastSTPen90,23292429399,1.9889497136057088,91,NamePen90.lastname@onet.pl,5099,43
+Student,NameStu90,LastSTStu90,23292432580,1.7408484676923002,71,NameStu90.lastname@onet.pl,Uczelnia_90,1,Nazwa kierunku_90,2214
+Employee,NameEmp91,LastSTEmp91,23292315564,1.9698490489470863,74,NameEmp91.lastname@onet.pl,2008-11-23,mlodszy specjalista hr,5990
+Pensioner,NamePen91,LastSTPen91,23292326081,1.8457009646510731,84,NamePen91.lastname@onet.pl,4544,44
+Student,NameStu91,LastSTStu91,23292333468,1.755348629148438,92,NameStu91.lastname@onet.pl,Uczelnia_91,5,Nazwa kierunku_91,4891
+Employee,NameEmp92,LastSTEmp92,23292215059,1.9444620955456777,47,NameEmp92.lastname@onet.pl,1951-12-14,asystent hr,9759
+Pensioner,NamePen92,LastSTPen92,23292223752,1.7744037602585543,52,NamePen92.lastname@onet.pl,6544,4
+Student,NameStu92,LastSTStu92,23292235603,1.6157726870315272,71,NameStu92.lastname@onet.pl,Uczelnia_92,5,Nazwa kierunku_92,2231
+Employee,NameEmp93,LastSTEmp93,23292113968,1.8661846083294973,79,NameEmp93.lastname@onet.pl,1978-10-16,kowal,9516
+Pensioner,NamePen93,LastSTPen93,23292122800,1.7016534601968383,61,NamePen93.lastname@onet.pl,4025,15
+Student,NameStu93,LastSTStu93,23292135640,1.9813050114927708,84,NameStu93.lastname@onet.pl,Uczelnia_93,1,Nazwa kierunku_93,4599
+Employee,NameEmp94,LastSTEmp94,23292015631,1.607879025230517,90,NameEmp94.lastname@onet.pl,1982-02-14,inżynier elektroniczny,9319
+Pensioner,NamePen94,LastSTPen94,23292022384,1.6701972023124902,83,NamePen94.lastname@onet.pl,6461,10
+Student,NameStu94,LastSTStu94,23292032580,1.9538362600086066,92,NameStu94.lastname@onet.pl,Uczelnia_94,1,Nazwa kierunku_94,4620
+Employee,NameEmp95,LastSTEmp95,23291910886,1.5515327726244832,81,NameEmp95.lastname@onet.pl,1991-08-20,specjalista ds. hr,12831
+Pensioner,NamePen95,LastSTPen95,23291925020,1.7872217409926967,53,NamePen95.lastname@onet.pl,4669,14
+Student,NameStu95,LastSTStu95,23291937261,1.8205307718320887,91,NameStu95.lastname@onet.pl,Uczelnia_95,5,Nazwa kierunku_95,1639
+Employee,NameEmp96,LastSTEmp96,23291816556,1.659705025101157,88,NameEmp96.lastname@onet.pl,2008-08-06,pomocnik elektryka,10088
+Pensioner,NamePen96,LastSTPen96,23291820983,1.8509659403467302,61,NamePen96.lastname@onet.pl,5101,48
+Student,NameStu96,LastSTStu96,23291833416,1.8997874338556189,90,NameStu96.lastname@onet.pl,Uczelnia_96,2,Nazwa kierunku_96,2404
+Employee,NameEmp97,LastSTEmp97,23291712627,1.5817414700503,53,NameEmp97.lastname@onet.pl,2008-08-16,monter elektryczny,10022
+Pensioner,NamePen97,LastSTPen97,23291728340,1.5138296336475525,76,NamePen97.lastname@onet.pl,5833,25
+Student,NameStu97,LastSTStu97,23291732207,1.5857674577347594,95,NameStu97.lastname@onet.pl,Uczelnia_97,5,Nazwa kierunku_97,2777
+Employee,NameEmp98,LastSTEmp98,23291611551,1.7400777974795936,55,NameEmp98.lastname@onet.pl,1998-06-20,asystent hr,12279
+Pensioner,NamePen98,LastSTPen98,23291621633,1.9664929116302925,75,NamePen98.lastname@onet.pl,6723,46
+Student,NameStu98,LastSTStu98,23291630515,1.8338089428457462,69,NameStu98.lastname@onet.pl,Uczelnia_98,2,Nazwa kierunku_98,3391
+Employee,NameEmp99,LastSTEmp99,23291513577,1.8887812192299327,89,NameEmp99.lastname@onet.pl,2011-10-11,analityk finansowy,10557
+Pensioner,NamePen99,LastSTPen99,23291523553,1.6822011023274956,85,NamePen99.lastname@onet.pl,4868,38
+Student,NameStu99,LastSTStu99,23291531658,1.8107155329639224,49,NameStu99.lastname@onet.pl,Uczelnia_99,4,Nazwa kierunku_99,2008
+Employee,NameEmp100,LastSTEmp100,23291414994,1.6504433300638848,93,NameEmp100.lastname@onet.pl,2012-12-23,specjalista ds. marketingu,9403
+Pensioner,NamePen100,LastSTPen100,23291424248,1.5100664521260456,51,NamePen100.lastname@onet.pl,5563,11
+Student,NameStu100,LastSTStu100,23291433052,1.7035983001550359,65,NameStu100.lastname@onet.pl,Uczelnia_100,1,Nazwa kierunku_100,1567
+Employee,NameEmp101,LastSTEmp101,23291318998,1.6347586354134136,65,NameEmp101.lastname@onet.pl,1969-03-05,programista,13147
+Pensioner,NamePen101,LastSTPen101,23291329891,1.5429045759212514,91,NamePen101.lastname@onet.pl,7520,16
+Student,NameStu101,LastSTStu101,23291339659,1.5250045700041748,47,NameStu101.lastname@onet.pl,Uczelnia_101,4,Nazwa kierunku_101,1753
+Employee,NameEmp102,LastSTEmp102,23291211164,1.5892260634340052,55,NameEmp102.lastname@onet.pl,2002-11-07,inżynier chemiczny,6718
+Pensioner,NamePen102,LastSTPen102,23291220049,1.5471958945025568,65,NamePen102.lastname@onet.pl,6293,27
+Student,NameStu102,LastSTStu102,23291232300,1.5655710865565575,52,NameStu102.lastname@onet.pl,Uczelnia_102,5,Nazwa kierunku_102,3426
+Employee,NameEmp103,LastSTEmp103,23291114711,1.6130323128288413,51,NameEmp103.lastname@onet.pl,1995-03-10,inżynier chemiczny,12326
+Pensioner,NamePen103,LastSTPen103,23291121169,1.999169685557973,64,NamePen103.lastname@onet.pl,5751,0
+Student,NameStu103,LastSTStu103,23291131698,1.7850343809493974,55,NameStu103.lastname@onet.pl,Uczelnia_103,5,Nazwa kierunku_103,1900
+Employee,NameEmp104,LastSTEmp104,23291011566,1.6587329908788488,85,NameEmp104.lastname@onet.pl,1973-02-13,analityk biznesowy,13143
+Pensioner,NamePen104,LastSTPen104,23291027425,1.9057139163083838,50,NamePen104.lastname@onet.pl,4133,19
+Student,NameStu104,LastSTStu104,23291032297,1.5386190047274473,56,NameStu104.lastname@onet.pl,Uczelnia_104,2,Nazwa kierunku_104,1474
+Employee,NameEmp105,LastSTEmp105,23290917665,1.6225711846376434,54,NameEmp105.lastname@onet.pl,2006-06-22,specjalista ds. marketingu,5835
+Pensioner,NamePen105,LastSTPen105,23290926101,1.7581383039305607,49,NamePen105.lastname@onet.pl,6251,0
+Student,NameStu105,LastSTStu105,23290932153,1.7641906492035382,81,NameStu105.lastname@onet.pl,Uczelnia_105,4,Nazwa kierunku_105,4104
+Employee,NameEmp106,LastSTEmp106,23290817227,1.566411350283883,63,NameEmp106.lastname@onet.pl,2018-02-07,inżynier elektroniczny,10555
+Pensioner,NamePen106,LastSTPen106,23290820725,1.661215206061295,64,NamePen106.lastname@onet.pl,5055,19
+Student,NameStu106,LastSTStu106,23290832112,1.5282756727499076,89,NameStu106.lastname@onet.pl,Uczelnia_106,4,Nazwa kierunku_106,4054
+Employee,NameEmp107,LastSTEmp107,23290715633,1.5182095717524078,69,NameEmp107.lastname@onet.pl,1960-04-21,inżynier chemiczny,13218
+Pensioner,NamePen107,LastSTPen107,23290724122,1.6062134058773485,99,NamePen107.lastname@onet.pl,6046,1
+Student,NameStu107,LastSTStu107,23290738393,1.5148246808566097,88,NameStu107.lastname@onet.pl,Uczelnia_107,1,Nazwa kierunku_107,2039
+Employee,NameEmp108,LastSTEmp108,23290610568,1.6539167678455184,87,NameEmp108.lastname@onet.pl,1954-12-04,elektryk zakładowy,5018
+Pensioner,NamePen108,LastSTPen108,23290623842,1.5660909001632344,70,NamePen108.lastname@onet.pl,6920,28
+Student,NameStu108,LastSTStu108,23290636994,1.893201210483543,59,NameStu108.lastname@onet.pl,Uczelnia_108,5,Nazwa kierunku_108,4266
+Employee,NameEmp109,LastSTEmp109,23290519667,1.8115667857699262,80,NameEmp109.lastname@onet.pl,1984-12-04,asystent hr,9271
+Pensioner,NamePen109,LastSTPen109,23290527335,1.613039196798811,53,NamePen109.lastname@onet.pl,6425,26
+Student,NameStu109,LastSTStu109,23290535909,1.7341304364171435,50,NameStu109.lastname@onet.pl,Uczelnia_109,1,Nazwa kierunku_109,2408
+Employee,NameEmp110,LastSTEmp110,23290417034,1.946753440305436,64,NameEmp110.lastname@onet.pl,1959-04-14,inżynier chemiczny,6845
+Pensioner,NamePen110,LastSTPen110,23290421228,1.859185269445205,77,NamePen110.lastname@onet.pl,4128,43
+Student,NameStu110,LastSTStu110,23290434054,1.6844557972391383,92,NameStu110.lastname@onet.pl,Uczelnia_110,5,Nazwa kierunku_110,3234
+Employee,NameEmp111,LastSTEmp111,23290314837,1.9433340248779798,72,NameEmp111.lastname@onet.pl,1979-11-19,specjalista ds. hr,13452
+Pensioner,NamePen111,LastSTPen111,23290326424,1.6897946753045927,67,NamePen111.lastname@onet.pl,6018,24
+Student,NameStu111,LastSTStu111,23290337313,1.8994859361424872,54,NameStu111.lastname@onet.pl,Uczelnia_111,4,Nazwa kierunku_111,2619
+Employee,NameEmp112,LastSTEmp112,23290216725,1.9373383226360414,93,NameEmp112.lastname@onet.pl,1955-09-13,inżynier r&d,9653
+Pensioner,NamePen112,LastSTPen112,23290224929,1.6353284613917367,81,NamePen112.lastname@onet.pl,5940,38
+Student,NameStu112,LastSTStu112,23290239002,1.7931428660226527,61,NameStu112.lastname@onet.pl,Uczelnia_112,2,Nazwa kierunku_112,1269
+Employee,NameEmp113,LastSTEmp113,23290114782,1.8690496555670613,47,NameEmp113.lastname@onet.pl,1959-10-10,inżynier elektroniczny,5283
+Pensioner,NamePen113,LastSTPen113,23290123925,1.9222591099105746,78,NamePen113.lastname@onet.pl,4957,12
+Student,NameStu113,LastSTStu113,23290137333,1.818469599249408,91,NameStu113.lastname@onet.pl,Uczelnia_113,1,Nazwa kierunku_113,3438
+Employee,NameEmp114,LastSTEmp114,23283114902,1.992970122317819,81,NameEmp114.lastname@onet.pl,2004-12-13,kowal,14855
+Pensioner,NamePen114,LastSTPen114,23283124820,1.8396289876172365,56,NamePen114.lastname@onet.pl,7048,42
+Student,NameStu114,LastSTStu114,23283135777,1.6379030467698894,71,NameStu114.lastname@onet.pl,Uczelnia_114,2,Nazwa kierunku_114,4397
+Employee,NameEmp115,LastSTEmp115,23283013980,1.7474808545330127,47,NameEmp115.lastname@onet.pl,2017-10-08,elektryk zakładowy,6960
+Pensioner,NamePen115,LastSTPen115,23283028036,1.6222950673489402,48,NamePen115.lastname@onet.pl,7372,17
+Student,NameStu115,LastSTStu115,23283030491,1.851822951312963,63,NameStu115.lastname@onet.pl,Uczelnia_115,2,Nazwa kierunku_115,3215
+Employee,NameEmp116,LastSTEmp116,23282919230,1.526042957839572,93,NameEmp116.lastname@onet.pl,1964-06-25,specjalista ds. marketingu,6027
+Pensioner,NamePen116,LastSTPen116,23282923520,1.5063201662568368,57,NamePen116.lastname@onet.pl,7305,48
+Student,NameStu116,LastSTStu116,23282933188,1.6218558139317039,58,NameStu116.lastname@onet.pl,Uczelnia_116,2,Nazwa kierunku_116,2788
+Employee,NameEmp117,LastSTEmp117,23282814009,1.9168421877606097,57,NameEmp117.lastname@onet.pl,1950-01-23,praktykant,8516
+Pensioner,NamePen117,LastSTPen117,23282826372,1.6462171145225208,71,NamePen117.lastname@onet.pl,5290,46
+Student,NameStu117,LastSTStu117,23282837123,1.881002009889029,57,NameStu117.lastname@onet.pl,Uczelnia_117,3,Nazwa kierunku_117,2914
+Employee,NameEmp118,LastSTEmp118,23282711558,1.6215630878785279,99,NameEmp118.lastname@onet.pl,1952-09-19,inżynier r&d,12828
+Pensioner,NamePen118,LastSTPen118,23282727704,1.5729628552997927,80,NamePen118.lastname@onet.pl,4568,42
+Student,NameStu118,LastSTStu118,23282732349,1.6925305289767982,66,NameStu118.lastname@onet.pl,Uczelnia_118,1,Nazwa kierunku_118,4961
+Employee,NameEmp119,LastSTEmp119,23282616406,1.5112819631361254,77,NameEmp119.lastname@onet.pl,2007-07-25,inżynier chemiczny,12989
+Pensioner,NamePen119,LastSTPen119,23282620530,1.7916308844478088,48,NamePen119.lastname@onet.pl,6506,13
+Student,NameStu119,LastSTStu119,23282639706,1.877225536167988,46,NameStu119.lastname@onet.pl,Uczelnia_119,2,Nazwa kierunku_119,3770
+Employee,NameEmp120,LastSTEmp120,23282517004,1.8921705838879903,45,NameEmp120.lastname@onet.pl,2008-02-07,wolny strzelec,7153
+Pensioner,NamePen120,LastSTPen120,23282521680,1.5406661340939167,95,NamePen120.lastname@onet.pl,5146,28
+Student,NameStu120,LastSTStu120,23282535178,1.7689031368041404,75,NameStu120.lastname@onet.pl,Uczelnia_120,5,Nazwa kierunku_120,3576
+Employee,NameEmp121,LastSTEmp121,23282410232,1.5537648733939355,45,NameEmp121.lastname@onet.pl,2000-02-12,inżynier chemiczny,13009
+Pensioner,NamePen121,LastSTPen121,23282420226,1.7308366565847748,84,NamePen121.lastname@onet.pl,6709,9
+Student,NameStu121,LastSTStu121,23282431228,1.9873553255837186,80,NameStu121.lastname@onet.pl,Uczelnia_121,2,Nazwa kierunku_121,2781
+Employee,NameEmp122,LastSTEmp122,23282313544,1.7149412714327281,87,NameEmp122.lastname@onet.pl,1977-09-03,elektryk zakładowy,6354
+Pensioner,NamePen122,LastSTPen122,23282323350,1.7033898950829767,61,NamePen122.lastname@onet.pl,7876,33
+Student,NameStu122,LastSTStu122,23282339914,1.6198469381335892,62,NameStu122.lastname@onet.pl,Uczelnia_122,5,Nazwa kierunku_122,4552
+Employee,NameEmp123,LastSTEmp123,23282212553,1.8555228802139514,65,NameEmp123.lastname@onet.pl,1950-07-16,inżynier r&d,12803
+Pensioner,NamePen123,LastSTPen123,23282222875,1.9673280533596258,99,NamePen123.lastname@onet.pl,5321,33
+Student,NameStu123,LastSTStu123,23282230008,1.7394919490908105,96,NameStu123.lastname@onet.pl,Uczelnia_123,2,Nazwa kierunku_123,4439
+Employee,NameEmp124,LastSTEmp124,23282113965,1.6996885075596944,49,NameEmp124.lastname@onet.pl,1999-06-05,kowal,9311
+Pensioner,NamePen124,LastSTPen124,23282120629,1.7539667394602798,76,NamePen124.lastname@onet.pl,6572,11
+Student,NameStu124,LastSTStu124,23282132435,1.918292071547298,70,NameStu124.lastname@onet.pl,Uczelnia_124,2,Nazwa kierunku_124,1495
+Employee,NameEmp125,LastSTEmp125,23282014336,1.5239202121630429,98,NameEmp125.lastname@onet.pl,1987-09-23,inżynier elektroniczny,14821
+Pensioner,NamePen125,LastSTPen125,23282026550,1.609253239450615,81,NamePen125.lastname@onet.pl,6006,31
+Student,NameStu125,LastSTStu125,23282031787,1.8234812069796908,65,NameStu125.lastname@onet.pl,Uczelnia_125,5,Nazwa kierunku_125,1225
+Employee,NameEmp126,LastSTEmp126,23281916618,1.5836777869202268,97,NameEmp126.lastname@onet.pl,1979-10-01,kierownik seals,11585
+Pensioner,NamePen126,LastSTPen126,23281924301,1.8717926382396715,55,NamePen126.lastname@onet.pl,4658,27
+Student,NameStu126,LastSTStu126,23281931343,1.5775311692657323,94,NameStu126.lastname@onet.pl,Uczelnia_126,5,Nazwa kierunku_126,4337
+Employee,NameEmp127,LastSTEmp127,23281814214,1.6956057148831571,99,NameEmp127.lastname@onet.pl,2015-12-07,specjalista ds.it,12468
+Pensioner,NamePen127,LastSTPen127,23281821619,1.760353360395995,49,NamePen127.lastname@onet.pl,6426,24
+Student,NameStu127,LastSTStu127,23281832140,1.7589350832129402,75,NameStu127.lastname@onet.pl,Uczelnia_127,4,Nazwa kierunku_127,4786
+Employee,NameEmp128,LastSTEmp128,23281717991,1.5419277174838448,64,NameEmp128.lastname@onet.pl,2019-03-03,kierownik projektu,12460
+Pensioner,NamePen128,LastSTPen128,23281721669,1.573689512582381,60,NamePen128.lastname@onet.pl,7222,27
+Student,NameStu128,LastSTStu128,23281736672,1.6399596346287735,47,NameStu128.lastname@onet.pl,Uczelnia_128,4,Nazwa kierunku_128,1255
+Employee,NameEmp129,LastSTEmp129,23281617020,1.6593662759440022,64,NameEmp129.lastname@onet.pl,2000-11-24,kierownik seals,8873
+Pensioner,NamePen129,LastSTPen129,23281620193,1.6036977276752662,65,NamePen129.lastname@onet.pl,5989,24
+Student,NameStu129,LastSTStu129,23281635256,1.895895619992232,81,NameStu129.lastname@onet.pl,Uczelnia_129,4,Nazwa kierunku_129,3331
+Employee,NameEmp130,LastSTEmp130,23281516997,1.5308505874712033,75,NameEmp130.lastname@onet.pl,1977-12-24,wolny strzelec,9780
+Pensioner,NamePen130,LastSTPen130,23281529671,1.5426796310537167,83,NamePen130.lastname@onet.pl,6075,36
+Student,NameStu130,LastSTStu130,23281533335,1.7158356025978208,87,NameStu130.lastname@onet.pl,Uczelnia_130,4,Nazwa kierunku_130,2347
+Employee,NameEmp131,LastSTEmp131,23281416457,1.850746914033766,73,NameEmp131.lastname@onet.pl,2016-11-09,wolny strzelec,8069
+Pensioner,NamePen131,LastSTPen131,23281425082,1.6387836711734096,97,NamePen131.lastname@onet.pl,5232,28
+Student,NameStu131,LastSTStu131,23281432247,1.9256174335993792,71,NameStu131.lastname@onet.pl,Uczelnia_131,5,Nazwa kierunku_131,3752
+Employee,NameEmp132,LastSTEmp132,23281318794,1.8420776447150882,54,NameEmp132.lastname@onet.pl,2006-04-20,inżynier elektroniczny,5123
+Pensioner,NamePen132,LastSTPen132,23281329292,1.5527116674382337,81,NamePen132.lastname@onet.pl,7840,5
+Student,NameStu132,LastSTStu132,23281334733,1.9093135401122825,51,NameStu132.lastname@onet.pl,Uczelnia_132,5,Nazwa kierunku_132,4080
+Employee,NameEmp133,LastSTEmp133,23281213527,1.5993010692487217,55,NameEmp133.lastname@onet.pl,2004-09-16,elektryk zakładowy,13181
+Pensioner,NamePen133,LastSTPen133,23281228007,1.7689828137769819,73,NamePen133.lastname@onet.pl,5183,1
+Student,NameStu133,LastSTStu133,23281233652,1.9155096644034424,97,NameStu133.lastname@onet.pl,Uczelnia_133,1,Nazwa kierunku_133,1306
+Employee,NameEmp134,LastSTEmp134,23281114341,1.9650457643145298,87,NameEmp134.lastname@onet.pl,1955-09-11,inżynier elektroniczny,11045
+Pensioner,NamePen134,LastSTPen134,23281121105,1.6550555707228691,59,NamePen134.lastname@onet.pl,7784,0
+Student,NameStu134,LastSTStu134,23281136863,1.9621590025103692,56,NameStu134.lastname@onet.pl,Uczelnia_134,5,Nazwa kierunku_134,3719
+Employee,NameEmp135,LastSTEmp135,23281019266,1.698751591312881,67,NameEmp135.lastname@onet.pl,2018-03-10,kierownik projektu,9740
+Pensioner,NamePen135,LastSTPen135,23281025463,1.7880554105054778,66,NamePen135.lastname@onet.pl,5534,14
+Student,NameStu135,LastSTStu135,23281031721,1.632143004292061,90,NameStu135.lastname@onet.pl,Uczelnia_135,1,Nazwa kierunku_135,1194
+Employee,NameEmp136,LastSTEmp136,23280914926,1.5343613252014479,80,NameEmp136.lastname@onet.pl,2017-09-02,wolny strzelec,11379
+Pensioner,NamePen136,LastSTPen136,23280923259,1.7443945324173333,77,NamePen136.lastname@onet.pl,6119,39
+Student,NameStu136,LastSTStu136,23280939867,1.7504918028983294,90,NameStu136.lastname@onet.pl,Uczelnia_136,1,Nazwa kierunku_136,4284
+Employee,NameEmp137,LastSTEmp137,23280813137,1.583288673927001,71,NameEmp137.lastname@onet.pl,1972-03-09,pomocnik elektryka,6799
+Pensioner,NamePen137,LastSTPen137,23280828817,1.694117950922876,55,NamePen137.lastname@onet.pl,4353,36
+Student,NameStu137,LastSTStu137,23280831724,1.8181604616406182,46,NameStu137.lastname@onet.pl,Uczelnia_137,5,Nazwa kierunku_137,4432
+Employee,NameEmp138,LastSTEmp138,23280717479,1.5501063486072184,45,NameEmp138.lastname@onet.pl,2015-05-07,kierownik produkcji,13460
+Pensioner,NamePen138,LastSTPen138,23280726694,1.9507764533314935,60,NamePen138.lastname@onet.pl,5557,33
+Student,NameStu138,LastSTStu138,23280733761,1.7871186865635236,69,NameStu138.lastname@onet.pl,Uczelnia_138,2,Nazwa kierunku_138,2840
+Employee,NameEmp139,LastSTEmp139,23280611675,1.5110538427354512,54,NameEmp139.lastname@onet.pl,1992-12-06,kierownik produkcji,13891
+Pensioner,NamePen139,LastSTPen139,23280620311,1.8530713519477713,67,NamePen139.lastname@onet.pl,7804,38
+Student,NameStu139,LastSTStu139,23280630013,1.9363912305503057,92,NameStu139.lastname@onet.pl,Uczelnia_139,1,Nazwa kierunku_139,3993
+Employee,NameEmp140,LastSTEmp140,23280519664,1.8960534369161337,64,NameEmp140.lastname@onet.pl,2012-07-10,programista,5306
+Pensioner,NamePen140,LastSTPen140,23280522616,1.8146750951421045,68,NamePen140.lastname@onet.pl,4118,38
+Student,NameStu140,LastSTStu140,23280536779,1.8791803407444092,95,NameStu140.lastname@onet.pl,Uczelnia_140,2,Nazwa kierunku_140,4505
+Employee,NameEmp141,LastSTEmp141,23280414931,1.8333435442179709,56,NameEmp141.lastname@onet.pl,2013-02-07,kierownik seals,10273
+Pensioner,NamePen141,LastSTPen141,23280424001,1.9255506328191907,88,NamePen141.lastname@onet.pl,7818,37
+Student,NameStu141,LastSTStu141,23280436288,1.6605964990050461,89,NameStu141.lastname@onet.pl,Uczelnia_141,5,Nazwa kierunku_141,2902
+Employee,NameEmp142,LastSTEmp142,23280312799,1.9680885855702615,99,NameEmp142.lastname@onet.pl,1956-07-14,kierownik produkcji,10367
+Pensioner,NamePen142,LastSTPen142,23280327699,1.664517444879773,58,NamePen142.lastname@onet.pl,5039,28
+Student,NameStu142,LastSTStu142,23280335225,1.9278145741298784,83,NameStu142.lastname@onet.pl,Uczelnia_142,1,Nazwa kierunku_142,2613
+Employee,NameEmp143,LastSTEmp143,23280213742,1.7184348209455031,55,NameEmp143.lastname@onet.pl,1965-10-21,inżynier chemiczny,5746
+Pensioner,NamePen143,LastSTPen143,23280221112,1.7698522852237906,62,NamePen143.lastname@onet.pl,7106,47
+Student,NameStu143,LastSTStu143,23280238936,1.854910069013945,77,NameStu143.lastname@onet.pl,Uczelnia_143,5,Nazwa kierunku_143,2825
+Employee,NameEmp144,LastSTEmp144,23280118996,1.949821150526375,76,NameEmp144.lastname@onet.pl,1987-02-14,praktykant,9896
+Pensioner,NamePen144,LastSTPen144,23280124146,1.8831639454168232,73,NamePen144.lastname@onet.pl,4525,2
+Student,NameStu144,LastSTStu144,23280133982,1.5103785627655282,95,NameStu144.lastname@onet.pl,Uczelnia_144,3,Nazwa kierunku_144,2453
+Employee,NameEmp145,LastSTEmp145,23273118159,1.6788493987831397,70,NameEmp145.lastname@onet.pl,1978-03-23,analityk biznesowy,12118
+Pensioner,NamePen145,LastSTPen145,23273124789,1.9943796925116102,87,NamePen145.lastname@onet.pl,7484,4
+Student,NameStu145,LastSTStu145,23273131958,1.6506912386503099,56,NameStu145.lastname@onet.pl,Uczelnia_145,1,Nazwa kierunku_145,4787
+Employee,NameEmp146,LastSTEmp146,23273012825,1.5071410796198292,83,NameEmp146.lastname@onet.pl,1968-03-12,mlodszy specjalista hr,7466
+Pensioner,NamePen146,LastSTPen146,23273029992,1.886922840578131,75,NamePen146.lastname@onet.pl,5848,39
+Student,NameStu146,LastSTStu146,23273034636,1.575716284221459,67,NameStu146.lastname@onet.pl,Uczelnia_146,3,Nazwa kierunku_146,4564
+Employee,NameEmp147,LastSTEmp147,23272917135,1.6454284821514755,69,NameEmp147.lastname@onet.pl,1954-04-10,inżynier produkcji,14439
+Pensioner,NamePen147,LastSTPen147,23272928744,1.9867059255377746,82,NamePen147.lastname@onet.pl,4522,47
+Student,NameStu147,LastSTStu147,23272937037,1.7623925648312109,96,NameStu147.lastname@onet.pl,Uczelnia_147,1,Nazwa kierunku_147,4065
+Employee,NameEmp148,LastSTEmp148,23272811575,1.70205796875568,65,NameEmp148.lastname@onet.pl,2002-02-17,kierownik projektu,6160
+Pensioner,NamePen148,LastSTPen148,23272822023,1.548617422938754,47,NamePen148.lastname@onet.pl,4957,11
+Student,NameStu148,LastSTStu148,23272839654,1.8954287689905351,66,NameStu148.lastname@onet.pl,Uczelnia_148,4,Nazwa kierunku_148,4863
+Employee,NameEmp149,LastSTEmp149,23272711418,1.6393241993966268,51,NameEmp149.lastname@onet.pl,1998-03-18,programista,12580
+Pensioner,NamePen149,LastSTPen149,23272728231,1.5206087355423494,91,NamePen149.lastname@onet.pl,6042,7
+Student,NameStu149,LastSTStu149,23272734476,1.825053226238232,52,NameStu149.lastname@onet.pl,Uczelnia_149,1,Nazwa kierunku_149,3324
+Employee,NameEmp150,LastSTEmp150,23272618997,1.8681516757470142,83,NameEmp150.lastname@onet.pl,1994-03-12,architekt,11831
+Pensioner,NamePen150,LastSTPen150,23272624802,1.8368236082013607,51,NamePen150.lastname@onet.pl,6496,45
+Student,NameStu150,LastSTStu150,23272636883,1.9277174410052302,69,NameStu150.lastname@onet.pl,Uczelnia_150,5,Nazwa kierunku_150,2608
+Employee,NameEmp151,LastSTEmp151,23272514027,1.710897059423571,80,NameEmp151.lastname@onet.pl,2010-10-19,architekt,14688
+Pensioner,NamePen151,LastSTPen151,23272524303,1.8890457905686022,45,NamePen151.lastname@onet.pl,5297,16
+Student,NameStu151,LastSTStu151,23272537004,1.5317428961471173,56,NameStu151.lastname@onet.pl,Uczelnia_151,4,Nazwa kierunku_151,1655
+Employee,NameEmp152,LastSTEmp152,23272415004,1.6259482883648881,78,NameEmp152.lastname@onet.pl,1968-11-05,monter elektryczny,14408
+Pensioner,NamePen152,LastSTPen152,23272428318,1.5644061500710311,57,NamePen152.lastname@onet.pl,6408,2
+Student,NameStu152,LastSTStu152,23272437691,1.6609258200946138,92,NameStu152.lastname@onet.pl,Uczelnia_152,3,Nazwa kierunku_152,2731
+Employee,NameEmp153,LastSTEmp153,23272314661,1.6629531511100768,55,NameEmp153.lastname@onet.pl,1960-09-13,inżynier chemiczny,5986
+Pensioner,NamePen153,LastSTPen153,23272329523,1.53010566502507,45,NamePen153.lastname@onet.pl,4233,22
+Student,NameStu153,LastSTStu153,23272334408,1.8759706968041894,73,NameStu153.lastname@onet.pl,Uczelnia_153,1,Nazwa kierunku_153,3387
+Employee,NameEmp154,LastSTEmp154,23272212672,1.8130105388754076,59,NameEmp154.lastname@onet.pl,1966-02-27,analityk finansowy,12461
+Pensioner,NamePen154,LastSTPen154,23272227066,1.9995996091738468,67,NamePen154.lastname@onet.pl,6285,23
+Student,NameStu154,LastSTStu154,23272234447,1.749389933018377,77,NameStu154.lastname@onet.pl,Uczelnia_154,2,Nazwa kierunku_154,4514
+Employee,NameEmp155,LastSTEmp155,23272112800,1.7236063830697828,54,NameEmp155.lastname@onet.pl,2001-12-18,wolny strzelec,6014
+Pensioner,NamePen155,LastSTPen155,23272129604,1.6780280207360303,48,NamePen155.lastname@onet.pl,5364,39
+Student,NameStu155,LastSTStu155,23272130341,1.592695493645745,63,NameStu155.lastname@onet.pl,Uczelnia_155,3,Nazwa kierunku_155,1079
+Employee,NameEmp156,LastSTEmp156,23272013275,1.7379408891882917,92,NameEmp156.lastname@onet.pl,1994-06-17,mlodszy specjalista hr,7159
+Pensioner,NamePen156,LastSTPen156,23272029134,1.686730611201762,80,NamePen156.lastname@onet.pl,4388,41
+Student,NameStu156,LastSTStu156,23272037286,1.6397996615473271,80,NameStu156.lastname@onet.pl,Uczelnia_156,1,Nazwa kierunku_156,2477
+Employee,NameEmp157,LastSTEmp157,23271912062,1.6235964256159692,73,NameEmp157.lastname@onet.pl,1966-04-17,asystent hr,6873
+Pensioner,NamePen157,LastSTPen157,23271924011,1.954406908090389,83,NamePen157.lastname@onet.pl,4018,11
+Student,NameStu157,LastSTStu157,23271938834,1.8527729618285005,67,NameStu157.lastname@onet.pl,Uczelnia_157,4,Nazwa kierunku_157,2316
+Employee,NameEmp158,LastSTEmp158,23271816601,1.5532166772962386,47,NameEmp158.lastname@onet.pl,1965-04-22,wolny strzelec,6739
+Pensioner,NamePen158,LastSTPen158,23271821203,1.606829903716624,84,NamePen158.lastname@onet.pl,5811,40
+Student,NameStu158,LastSTStu158,23271833522,1.709333851225011,99,NameStu158.lastname@onet.pl,Uczelnia_158,5,Nazwa kierunku_158,2218
+Employee,NameEmp159,LastSTEmp159,23271710338,1.704853583677361,57,NameEmp159.lastname@onet.pl,1989-05-24,asystent hr,11635
+Pensioner,NamePen159,LastSTPen159,23271729381,1.8110839506621472,58,NamePen159.lastname@onet.pl,6069,35
+Student,NameStu159,LastSTStu159,23271738552,1.6147821158085185,77,NameStu159.lastname@onet.pl,Uczelnia_159,1,Nazwa kierunku_159,2396
+Employee,NameEmp160,LastSTEmp160,23271617674,1.8531264759397756,78,NameEmp160.lastname@onet.pl,1998-10-08,inżynier produkcji,8021
+Pensioner,NamePen160,LastSTPen160,23271627405,1.822338727731267,54,NamePen160.lastname@onet.pl,6327,36
+Student,NameStu160,LastSTStu160,23271638611,1.611913561004288,67,NameStu160.lastname@onet.pl,Uczelnia_160,2,Nazwa kierunku_160,1115
+Employee,NameEmp161,LastSTEmp161,23271510797,1.5056388585174096,73,NameEmp161.lastname@onet.pl,1993-06-07,specjalista ds.it,11637
+Pensioner,NamePen161,LastSTPen161,23271527964,1.789852414823805,63,NamePen161.lastname@onet.pl,4861,46
+Student,NameStu161,LastSTStu161,23271532109,1.9202105882582887,64,NameStu161.lastname@onet.pl,Uczelnia_161,4,Nazwa kierunku_161,3706
+Employee,NameEmp162,LastSTEmp162,23271410097,1.600309456371105,92,NameEmp162.lastname@onet.pl,1994-09-02,specjalista ds. marketingu,5860
+Pensioner,NamePen162,LastSTPen162,23271424175,1.7473159463578665,86,NamePen162.lastname@onet.pl,6587,12
+Student,NameStu162,LastSTStu162,23271439082,1.7127573938927934,70,NameStu162.lastname@onet.pl,Uczelnia_162,4,Nazwa kierunku_162,3718
+Employee,NameEmp163,LastSTEmp163,23271311182,1.645297489396913,59,NameEmp163.lastname@onet.pl,1962-01-28,mlodszy specjalista hr,9235
+Pensioner,NamePen163,LastSTPen163,23271326470,1.8922117498525701,98,NamePen163.lastname@onet.pl,5910,0
+Student,NameStu163,LastSTStu163,23271331683,1.532649552960337,87,NameStu163.lastname@onet.pl,Uczelnia_163,4,Nazwa kierunku_163,4660
+Employee,NameEmp164,LastSTEmp164,23271217002,1.6387057514429715,95,NameEmp164.lastname@onet.pl,1976-08-18,inżynier r&d,7101
+Pensioner,NamePen164,LastSTPen164,23271227139,1.7533788994668555,99,NamePen164.lastname@onet.pl,6651,9
+Student,NameStu164,LastSTStu164,23271232498,1.7079472342763613,69,NameStu164.lastname@onet.pl,Uczelnia_164,4,Nazwa kierunku_164,1006
+Employee,NameEmp165,LastSTEmp165,23271113073,1.9545837047082772,73,NameEmp165.lastname@onet.pl,2008-06-04,inżynier produkcji,13396
+Pensioner,NamePen165,LastSTPen165,23271127066,1.5707604130142288,98,NamePen165.lastname@onet.pl,5751,23
+Student,NameStu165,LastSTStu165,23271130447,1.5483507351413937,76,NameStu165.lastname@onet.pl,Uczelnia_165,2,Nazwa kierunku_165,1796
+Employee,NameEmp166,LastSTEmp166,23271016083,1.669235235156723,89,NameEmp166.lastname@onet.pl,1984-06-14,kierownik projektu,9468
+Pensioner,NamePen166,LastSTPen166,23271025393,1.5113790696988674,90,NamePen166.lastname@onet.pl,6878,37
+Student,NameStu166,LastSTStu166,23271039241,1.7910341148287845,58,NameStu166.lastname@onet.pl,Uczelnia_166,5,Nazwa kierunku_166,4664
+Employee,NameEmp167,LastSTEmp167,23270912116,1.7501145626600731,54,NameEmp167.lastname@onet.pl,2003-12-11,pomocnik elektryka,11349
+Pensioner,NamePen167,LastSTPen167,23270921847,1.6015503122902213,78,NamePen167.lastname@onet.pl,7420,48
+Student,NameStu167,LastSTStu167,23270935196,1.6283120889044282,54,NameStu167.lastname@onet.pl,Uczelnia_167,1,Nazwa kierunku_167,3262
+Employee,NameEmp168,LastSTEmp168,23270813715,1.915300709221981,66,NameEmp168.lastname@onet.pl,1988-12-16,architekt,6877
+Pensioner,NamePen168,LastSTPen168,23270825247,1.9147762516298676,78,NamePen168.lastname@onet.pl,7930,6
+Student,NameStu168,LastSTStu168,23270837559,1.6761344117788055,49,NameStu168.lastname@onet.pl,Uczelnia_168,1,Nazwa kierunku_168,2209
+Employee,NameEmp169,LastSTEmp169,23270719174,1.5417029504758637,79,NameEmp169.lastname@onet.pl,2019-04-28,analityk biznesowy,11812
+Pensioner,NamePen169,LastSTPen169,23270724538,1.6614483483335472,52,NamePen169.lastname@onet.pl,7499,28
+Student,NameStu169,LastSTStu169,23270739144,1.9347537714809104,75,NameStu169.lastname@onet.pl,Uczelnia_169,5,Nazwa kierunku_169,3581
+Employee,NameEmp170,LastSTEmp170,23270619863,1.6422631819764366,70,NameEmp170.lastname@onet.pl,1977-12-10,kierownik produkcji,5960
+Pensioner,NamePen170,LastSTPen170,23270627676,1.979024632874954,69,NamePen170.lastname@onet.pl,4233,10
+Student,NameStu170,LastSTStu170,23270632964,1.7919731390979672,64,NameStu170.lastname@onet.pl,Uczelnia_170,3,Nazwa kierunku_170,1250
+Employee,NameEmp171,LastSTEmp171,23270518313,1.545451116255734,89,NameEmp171.lastname@onet.pl,2003-06-08,kierownik projektu,7937
+Pensioner,NamePen171,LastSTPen171,23270521917,1.877294061918757,76,NamePen171.lastname@onet.pl,5964,8
+Student,NameStu171,LastSTStu171,23270534773,1.86588025532336,57,NameStu171.lastname@onet.pl,Uczelnia_171,2,Nazwa kierunku_171,1934
+Employee,NameEmp172,LastSTEmp172,23270415632,1.7833033982041635,98,NameEmp172.lastname@onet.pl,1992-03-27,inżynier elektroniczny,14482
+Pensioner,NamePen172,LastSTPen172,23270420479,1.9441484559849442,50,NamePen172.lastname@onet.pl,4657,15
+Student,NameStu172,LastSTStu172,23270430542,1.7666003315606793,54,NameStu172.lastname@onet.pl,Uczelnia_172,5,Nazwa kierunku_172,3470
+Employee,NameEmp173,LastSTEmp173,23270318408,1.6833415437705883,85,NameEmp173.lastname@onet.pl,1973-09-05,specjalista ds. marketingu,8296
+Pensioner,NamePen173,LastSTPen173,23270326570,1.893879269341967,69,NamePen173.lastname@onet.pl,5003,10
+Student,NameStu173,LastSTStu173,23270337011,1.6203415881778676,58,NameStu173.lastname@onet.pl,Uczelnia_173,5,Nazwa kierunku_173,2277
+Employee,NameEmp174,LastSTEmp174,23270211425,1.564443510733711,75,NameEmp174.lastname@onet.pl,2015-01-20,specjalista ds. hr,10873
+Pensioner,NamePen174,LastSTPen174,23270228123,1.568132171079331,79,NamePen174.lastname@onet.pl,6745,27
+Student,NameStu174,LastSTStu174,23270231802,1.6629016153739453,70,NameStu174.lastname@onet.pl,Uczelnia_174,2,Nazwa kierunku_174,3116
+Employee,NameEmp175,LastSTEmp175,23270111278,1.709864791265264,53,NameEmp175.lastname@onet.pl,2009-06-28,inżynier elektroniczny,8786
+Pensioner,NamePen175,LastSTPen175,23270124453,1.6084170531837607,96,NamePen175.lastname@onet.pl,7664,21
+Student,NameStu175,LastSTStu175,23270135567,1.6396390724153176,47,NameStu175.lastname@onet.pl,Uczelnia_175,3,Nazwa kierunku_175,2310
+Employee,NameEmp176,LastSTEmp176,23263016175,1.5757728185437627,53,NameEmp176.lastname@onet.pl,1984-11-19,inżynier chemiczny,13471
+Pensioner,NamePen176,LastSTPen176,23263021324,1.515781542769036,45,NamePen176.lastname@onet.pl,5936,7
+Student,NameStu176,LastSTStu176,23263031769,1.6525955333450941,90,NameStu176.lastname@onet.pl,Uczelnia_176,4,Nazwa kierunku_176,2390
+Employee,NameEmp177,LastSTEmp177,23262911272,1.669633474492166,47,NameEmp177.lastname@onet.pl,1977-12-12,kierownik seals,9346
+Pensioner,NamePen177,LastSTPen177,23262926269,1.7715603923527843,94,NamePen177.lastname@onet.pl,6598,35
+Student,NameStu177,LastSTStu177,23262935972,1.6553876868665791,62,NameStu177.lastname@onet.pl,Uczelnia_177,1,Nazwa kierunku_177,4660
+Employee,NameEmp178,LastSTEmp178,23262818807,1.6518548221050302,79,NameEmp178.lastname@onet.pl,2005-01-21,praktykant,7055
+Pensioner,NamePen178,LastSTPen178,23262826208,1.7612718866765957,48,NamePen178.lastname@onet.pl,6399,1
+Student,NameStu178,LastSTStu178,23262838028,1.5253963232807153,72,NameStu178.lastname@onet.pl,Uczelnia_178,3,Nazwa kierunku_178,2908
+Employee,NameEmp179,LastSTEmp179,23262719761,1.657046523802827,65,NameEmp179.lastname@onet.pl,2002-07-14,specjalista ds. hr,7140
+Pensioner,NamePen179,LastSTPen179,23262723064,1.5639603443770924,48,NamePen179.lastname@onet.pl,5458,12
+Student,NameStu179,LastSTStu179,23262737312,1.5460565483716535,96,NameStu179.lastname@onet.pl,Uczelnia_179,2,Nazwa kierunku_179,1470
+Employee,NameEmp180,LastSTEmp180,23262610377,1.8605818999782326,69,NameEmp180.lastname@onet.pl,1976-11-25,analityk biznesowy,7030
+Pensioner,NamePen180,LastSTPen180,23262627178,1.8085650879386488,67,NamePen180.lastname@onet.pl,4822,1
+Student,NameStu180,LastSTStu180,23262632095,1.5818478799008928,64,NameStu180.lastname@onet.pl,Uczelnia_180,3,Nazwa kierunku_180,1305
+Employee,NameEmp181,LastSTEmp181,23262513835,1.6934222829415517,65,NameEmp181.lastname@onet.pl,1993-12-05,specjalista ds.it,5465
+Pensioner,NamePen181,LastSTPen181,23262521126,1.826043447751779,68,NamePen181.lastname@onet.pl,4529,10
+Student,NameStu181,LastSTStu181,23262532355,1.8014536426205314,88,NameStu181.lastname@onet.pl,Uczelnia_181,5,Nazwa kierunku_181,4175
+Employee,NameEmp182,LastSTEmp182,23262415565,1.8510167133523772,62,NameEmp182.lastname@onet.pl,2015-07-24,analityk biznesowy,12801
+Pensioner,NamePen182,LastSTPen182,23262421461,1.5290642789813667,52,NamePen182.lastname@onet.pl,7900,46
+Student,NameStu182,LastSTStu182,23262433342,1.5066153097065302,95,NameStu182.lastname@onet.pl,Uczelnia_182,3,Nazwa kierunku_182,1883
+Employee,NameEmp183,LastSTEmp183,23262312595,1.730586208846363,55,NameEmp183.lastname@onet.pl,2007-06-26,analityk finansowy,8390
+Pensioner,NamePen183,LastSTPen183,23262325759,1.6737965120691023,66,NamePen183.lastname@onet.pl,6877,20
+Student,NameStu183,LastSTStu183,23262330711,1.7243845645165687,66,NameStu183.lastname@onet.pl,Uczelnia_183,3,Nazwa kierunku_183,2011
+Employee,NameEmp184,LastSTEmp184,23262213252,1.7325831099105506,68,NameEmp184.lastname@onet.pl,2007-05-15,elektryk zakładowy,9244
+Pensioner,NamePen184,LastSTPen184,23262222867,1.8430398018990635,85,NamePen184.lastname@onet.pl,6456,44
+Student,NameStu184,LastSTStu184,23262230598,1.834555700024674,83,NameStu184.lastname@onet.pl,Uczelnia_184,2,Nazwa kierunku_184,3544
+Employee,NameEmp185,LastSTEmp185,23262113600,1.6280892935387334,66,NameEmp185.lastname@onet.pl,1951-04-14,kierownik projektu,14099
+Pensioner,NamePen185,LastSTPen185,23262126386,1.7499738323856227,99,NamePen185.lastname@onet.pl,7842,38
+Student,NameStu185,LastSTStu185,23262130795,1.6188661045325565,60,NameStu185.lastname@onet.pl,Uczelnia_185,4,Nazwa kierunku_185,2703
+Employee,NameEmp186,LastSTEmp186,23262014701,1.5918470947339485,80,NameEmp186.lastname@onet.pl,1964-02-24,kierownik seals,10866
+Pensioner,NamePen186,LastSTPen186,23262022032,1.8641913132422965,46,NamePen186.lastname@onet.pl,7045,12
+Student,NameStu186,LastSTStu186,23262035899,1.9176682314141609,58,NameStu186.lastname@onet.pl,Uczelnia_186,4,Nazwa kierunku_186,4149
+Employee,NameEmp187,LastSTEmp187,23261916081,1.8778935357765647,60,NameEmp187.lastname@onet.pl,1994-07-13,inżynier produkcji,13751
+Pensioner,NamePen187,LastSTPen187,23261926801,1.5868203632431075,62,NamePen187.lastname@onet.pl,6977,39
+Student,NameStu187,LastSTStu187,23261935518,1.7289719279694749,74,NameStu187.lastname@onet.pl,Uczelnia_187,2,Nazwa kierunku_187,2298
+Employee,NameEmp188,LastSTEmp188,23261817319,1.9515023403584217,46,NameEmp188.lastname@onet.pl,1972-06-13,programista,11944
+Pensioner,NamePen188,LastSTPen188,23261824019,1.8548397255961473,77,NamePen188.lastname@onet.pl,7162,33
+Student,NameStu188,LastSTStu188,23261832075,1.557220593831318,65,NameStu188.lastname@onet.pl,Uczelnia_188,1,Nazwa kierunku_188,2233
+Employee,NameEmp189,LastSTEmp189,23261714207,1.5827773528279547,72,NameEmp189.lastname@onet.pl,1989-02-06,kierownik projektu,5594
+Pensioner,NamePen189,LastSTPen189,23261725602,1.6401084512789845,97,NamePen189.lastname@onet.pl,7759,26
+Student,NameStu189,LastSTStu189,23261736081,1.8874727902259307,47,NameStu189.lastname@onet.pl,Uczelnia_189,2,Nazwa kierunku_189,4352
+Employee,NameEmp190,LastSTEmp190,23261619795,1.5274231482552976,81,NameEmp190.lastname@onet.pl,1966-01-13,monter elektryczny,9196
+Pensioner,NamePen190,LastSTPen190,23261620095,1.7332338178167144,91,NamePen190.lastname@onet.pl,5726,28
+Student,NameStu190,LastSTStu190,23261638505,1.8543275577285174,47,NameStu190.lastname@onet.pl,Uczelnia_190,4,Nazwa kierunku_190,2487
+Employee,NameEmp191,LastSTEmp191,23261515058,1.8486076671818013,75,NameEmp191.lastname@onet.pl,1969-12-22,analityk biznesowy,9420
+Pensioner,NamePen191,LastSTPen191,23261522388,1.6654252388550057,94,NamePen191.lastname@onet.pl,6062,41
+Student,NameStu191,LastSTStu191,23261539892,1.79924092301752,79,NameStu191.lastname@onet.pl,Uczelnia_191,2,Nazwa kierunku_191,1765
+Employee,NameEmp192,LastSTEmp192,23261416581,1.5930875976238181,86,NameEmp192.lastname@onet.pl,2009-02-01,specjalista ds. marketingu,6835
+Pensioner,NamePen192,LastSTPen192,23261423309,1.8508151082736586,95,NamePen192.lastname@onet.pl,7987,20
+Student,NameStu192,LastSTStu192,23261430536,1.6435694588352727,55,NameStu192.lastname@onet.pl,Uczelnia_192,1,Nazwa kierunku_192,2306
+Employee,NameEmp193,LastSTEmp193,23261318620,1.9651588896520014,46,NameEmp193.lastname@onet.pl,1958-09-21,kowal,14505
+Pensioner,NamePen193,LastSTPen193,23261324848,1.5650696960545876,64,NamePen193.lastname@onet.pl,4882,18
+Student,NameStu193,LastSTStu193,23261331795,1.6409359905142242,92,NameStu193.lastname@onet.pl,Uczelnia_193,4,Nazwa kierunku_193,3485
+Employee,NameEmp194,LastSTEmp194,23261213431,1.7515583506174708,83,NameEmp194.lastname@onet.pl,2018-12-10,kierownik produkcji,8040
+Pensioner,NamePen194,LastSTPen194,23261229842,1.9434510327165644,70,NamePen194.lastname@onet.pl,6625,28
+Student,NameStu194,LastSTStu194,23261232673,1.6396210425829876,59,NameStu194.lastname@onet.pl,Uczelnia_194,2,Nazwa kierunku_194,4497
+Employee,NameEmp195,LastSTEmp195,23261111192,1.8129274748356383,51,NameEmp195.lastname@onet.pl,2015-02-24,specjalista ds.it,10423
+Pensioner,NamePen195,LastSTPen195,23261123396,1.7299091178759152,47,NamePen195.lastname@onet.pl,7927,3
+Student,NameStu195,LastSTStu195,23261133326,1.7804861327555908,55,NameStu195.lastname@onet.pl,Uczelnia_195,1,Nazwa kierunku_195,3738
+Employee,NameEmp196,LastSTEmp196,23261014601,1.7897298257203182,56,NameEmp196.lastname@onet.pl,2015-10-16,specjalista ds. marketingu,8088
+Pensioner,NamePen196,LastSTPen196,23261024506,1.5200007100853878,56,NamePen196.lastname@onet.pl,7499,16
+Student,NameStu196,LastSTStu196,23261037449,1.5452406115702342,65,NameStu196.lastname@onet.pl,Uczelnia_196,3,Nazwa kierunku_196,2683
+Employee,NameEmp197,LastSTEmp197,23260917296,1.9054312094028452,93,NameEmp197.lastname@onet.pl,2009-03-18,inżynier elektroniczny,13231
+Pensioner,NamePen197,LastSTPen197,23260928380,1.7258255750374565,89,NamePen197.lastname@onet.pl,5350,15
+Student,NameStu197,LastSTStu197,23260935823,1.661715909589871,83,NameStu197.lastname@onet.pl,Uczelnia_197,3,Nazwa kierunku_197,3928
+Employee,NameEmp198,LastSTEmp198,23260812111,1.7298370734599258,63,NameEmp198.lastname@onet.pl,1979-05-06,inżynier r&d,12897
+Pensioner,NamePen198,LastSTPen198,23260828076,1.9084350459515602,97,NamePen198.lastname@onet.pl,4439,1
+Student,NameStu198,LastSTStu198,23260837291,1.731459215223754,69,NameStu198.lastname@onet.pl,Uczelnia_198,4,Nazwa kierunku_198,2581
+Employee,NameEmp199,LastSTEmp199,23260713933,1.8172662283274021,66,NameEmp199.lastname@onet.pl,1968-03-21,elektryk zakładowy,5071
+Pensioner,NamePen199,LastSTPen199,23260726526,1.9431152463324717,74,NamePen199.lastname@onet.pl,4976,20
+Student,NameStu199,LastSTStu199,23260733052,1.8202359277808398,88,NameStu199.lastname@onet.pl,Uczelnia_199,4,Nazwa kierunku_199,3530
+Employee,NameEmp200,LastSTEmp200,23260619945,1.8423401992277486,85,NameEmp200.lastname@onet.pl,2012-08-18,mlodszy specjalista hr,12611
+Pensioner,NamePen200,LastSTPen200,23260628363,1.7443485095118536,92,NamePen200.lastname@onet.pl,7167,12
+Student,NameStu200,LastSTStu200,23260634271,1.7157102898314296,81,NameStu200.lastname@onet.pl,Uczelnia_200,1,Nazwa kierunku_200,1167
+Employee,NameEmp201,LastSTEmp201,23260514837,1.9406330993101948,60,NameEmp201.lastname@onet.pl,2019-01-22,elektryk zakładowy,10377
+Pensioner,NamePen201,LastSTPen201,23260523848,1.7019839685542772,48,NamePen201.lastname@onet.pl,5610,19
+Student,NameStu201,LastSTStu201,23260531498,1.5851663841417847,99,NameStu201.lastname@onet.pl,Uczelnia_201,5,Nazwa kierunku_201,4847
+Employee,NameEmp202,LastSTEmp202,23260411089,1.971252165701383,61,NameEmp202.lastname@onet.pl,2016-01-18,kierownik projektu,9575
+Pensioner,NamePen202,LastSTPen202,23260427868,1.580263733922653,71,NamePen202.lastname@onet.pl,4380,37
+Student,NameStu202,LastSTStu202,23260437643,1.7814397057789162,73,NameStu202.lastname@onet.pl,Uczelnia_202,2,Nazwa kierunku_202,2837
+Employee,NameEmp203,LastSTEmp203,23260311883,1.6884829270290016,60,NameEmp203.lastname@onet.pl,2006-02-04,inżynier r&d,8989
+Pensioner,NamePen203,LastSTPen203,23260328994,1.7241469499380555,57,NamePen203.lastname@onet.pl,4079,6
+Student,NameStu203,LastSTStu203,23260331717,1.8208743934403557,97,NameStu203.lastname@onet.pl,Uczelnia_203,1,Nazwa kierunku_203,2806
+Employee,NameEmp204,LastSTEmp204,23260215503,1.987709150896575,97,NameEmp204.lastname@onet.pl,1958-03-21,specjalista ds. hr,7140
+Pensioner,NamePen204,LastSTPen204,23260221027,1.5737724825784905,85,NamePen204.lastname@onet.pl,6522,25
+Student,NameStu204,LastSTStu204,23260232640,1.8211110377042325,80,NameStu204.lastname@onet.pl,Uczelnia_204,1,Nazwa kierunku_204,4746
+Employee,NameEmp205,LastSTEmp205,23260118874,1.8256613548737644,95,NameEmp205.lastname@onet.pl,1959-11-10,programista,14299
+Pensioner,NamePen205,LastSTPen205,23260128368,1.6739611775510868,94,NamePen205.lastname@onet.pl,7131,20
+Student,NameStu205,LastSTStu205,23260132985,1.796809596131796,83,NameStu205.lastname@onet.pl,Uczelnia_205,3,Nazwa kierunku_205,4918
+Employee,NameEmp206,LastSTEmp206,23253119193,1.8059697937651937,80,NameEmp206.lastname@onet.pl,1971-05-12,inżynier chemiczny,8281
+Pensioner,NamePen206,LastSTPen206,23253120325,1.8963428695917934,98,NamePen206.lastname@onet.pl,5214,21
+Student,NameStu206,LastSTStu206,23253130333,1.9533338352603329,78,NameStu206.lastname@onet.pl,Uczelnia_206,3,Nazwa kierunku_206,2695
+Employee,NameEmp207,LastSTEmp207,23253018705,1.8636644087707894,47,NameEmp207.lastname@onet.pl,1971-03-12,analityk biznesowy,9852
+Pensioner,NamePen207,LastSTPen207,23253022046,1.5004065282278256,67,NamePen207.lastname@onet.pl,7468,35
+Student,NameStu207,LastSTStu207,23253039420,1.9695533172747541,76,NameStu207.lastname@onet.pl,Uczelnia_207,4,Nazwa kierunku_207,1043
+Employee,NameEmp208,LastSTEmp208,23252915186,1.9048891762481486,65,NameEmp208.lastname@onet.pl,1978-06-24,kierownik projektu,8972
+Pensioner,NamePen208,LastSTPen208,23252928431,1.696557115023118,55,NamePen208.lastname@onet.pl,4060,4
+Student,NameStu208,LastSTStu208,23252931085,1.8911445333738188,96,NameStu208.lastname@onet.pl,Uczelnia_208,2,Nazwa kierunku_208,3034
+Employee,NameEmp209,LastSTEmp209,23252811871,1.726526055909922,78,NameEmp209.lastname@onet.pl,1950-05-03,kierownik projektu,10022
+Pensioner,NamePen209,LastSTPen209,23252826321,1.5799330854316203,86,NamePen209.lastname@onet.pl,4669,1
+Student,NameStu209,LastSTStu209,23252838237,1.5768761216387113,52,NameStu209.lastname@onet.pl,Uczelnia_209,3,Nazwa kierunku_209,1682
+Employee,NameEmp210,LastSTEmp210,23252718013,1.5199997551442797,95,NameEmp210.lastname@onet.pl,2013-06-16,inżynier r&d,10377
+Pensioner,NamePen210,LastSTPen210,23252725520,1.9665687142727712,65,NamePen210.lastname@onet.pl,7773,40
+Student,NameStu210,LastSTStu210,23252733999,1.8914988896395484,67,NameStu210.lastname@onet.pl,Uczelnia_210,1,Nazwa kierunku_210,2275
+Employee,NameEmp211,LastSTEmp211,23252610417,1.660030626083444,58,NameEmp211.lastname@onet.pl,1959-08-27,analityk biznesowy,6807
+Pensioner,NamePen211,LastSTPen211,23252624806,1.9494932107350196,77,NamePen211.lastname@onet.pl,7811,9
+Student,NameStu211,LastSTStu211,23252631463,1.9911309214846193,87,NameStu211.lastname@onet.pl,Uczelnia_211,2,Nazwa kierunku_211,3110
+Employee,NameEmp212,LastSTEmp212,23252516100,1.6403344648353047,72,NameEmp212.lastname@onet.pl,1962-12-28,kowal,12189
+Pensioner,NamePen212,LastSTPen212,23252529398,1.6495600510213901,79,NamePen212.lastname@onet.pl,7765,1
+Student,NameStu212,LastSTStu212,23252532949,1.7322172826622924,92,NameStu212.lastname@onet.pl,Uczelnia_212,3,Nazwa kierunku_212,2993
+Employee,NameEmp213,LastSTEmp213,23252414018,1.8624189293880458,73,NameEmp213.lastname@onet.pl,1969-01-18,asystent hr,14930
+Pensioner,NamePen213,LastSTPen213,23252425646,1.9071994993193533,72,NamePen213.lastname@onet.pl,7185,33
+Student,NameStu213,LastSTStu213,23252435165,1.9505911779400522,87,NameStu213.lastname@onet.pl,Uczelnia_213,5,Nazwa kierunku_213,2523
+Employee,NameEmp214,LastSTEmp214,23252314312,1.5296783177508644,45,NameEmp214.lastname@onet.pl,1963-01-05,wolny strzelec,8650
+Pensioner,NamePen214,LastSTPen214,23252326279,1.9007595564779827,89,NamePen214.lastname@onet.pl,5067,33
+Student,NameStu214,LastSTStu214,23252334896,1.8705728553522054,90,NameStu214.lastname@onet.pl,Uczelnia_214,4,Nazwa kierunku_214,4386
+Employee,NameEmp215,LastSTEmp215,23252210567,1.7090077881652053,86,NameEmp215.lastname@onet.pl,1996-12-11,kierownik produkcji,10461
+Pensioner,NamePen215,LastSTPen215,23252229906,1.6466554691057425,75,NamePen215.lastname@onet.pl,7920,28
+Student,NameStu215,LastSTStu215,23252230496,1.5789560556018056,97,NameStu215.lastname@onet.pl,Uczelnia_215,3,Nazwa kierunku_215,1159
+Employee,NameEmp216,LastSTEmp216,23252115329,1.5245973295721211,56,NameEmp216.lastname@onet.pl,1995-11-01,inżynier chemiczny,5085
+Pensioner,NamePen216,LastSTPen216,23252124887,1.7728936520184362,54,NamePen216.lastname@onet.pl,5449,37
+Student,NameStu216,LastSTStu216,23252136279,1.6832280532453636,56,NameStu216.lastname@onet.pl,Uczelnia_216,3,Nazwa kierunku_216,2944
+Employee,NameEmp217,LastSTEmp217,23252018553,1.8960788623927767,59,NameEmp217.lastname@onet.pl,1991-06-21,asystent hr,14596
+Pensioner,NamePen217,LastSTPen217,23252026112,1.730190105137649,47,NamePen217.lastname@onet.pl,4702,0
+Student,NameStu217,LastSTStu217,23252035839,1.9414573695049122,63,NameStu217.lastname@onet.pl,Uczelnia_217,2,Nazwa kierunku_217,1432
+Employee,NameEmp218,LastSTEmp218,23251915805,1.7578747070841814,49,NameEmp218.lastname@onet.pl,2004-04-12,elektryk zakładowy,11747
+Pensioner,NamePen218,LastSTPen218,23251926096,1.647495502898921,61,NamePen218.lastname@onet.pl,5099,34
+Student,NameStu218,LastSTStu218,23251939395,1.658296887969978,68,NameStu218.lastname@onet.pl,Uczelnia_218,3,Nazwa kierunku_218,4287
+Employee,NameEmp219,LastSTEmp219,23251813942,1.6598618245634404,98,NameEmp219.lastname@onet.pl,2015-07-21,pomocnik elektryka,5743
+Pensioner,NamePen219,LastSTPen219,23251827208,1.7195279047461831,77,NamePen219.lastname@onet.pl,4145,31
+Student,NameStu219,LastSTStu219,23251836516,1.7517736738322418,72,NameStu219.lastname@onet.pl,Uczelnia_219,3,Nazwa kierunku_219,2304
+Employee,NameEmp220,LastSTEmp220,23251710775,1.8433222374057299,59,NameEmp220.lastname@onet.pl,1973-07-25,inżynier elektroniczny,10707
+Pensioner,NamePen220,LastSTPen220,23251726210,1.7208983814384122,76,NamePen220.lastname@onet.pl,6957,46
+Student,NameStu220,LastSTStu220,23251733176,1.662112060795556,94,NameStu220.lastname@onet.pl,Uczelnia_220,3,Nazwa kierunku_220,2876
+Employee,NameEmp221,LastSTEmp221,23251614629,1.5267240473804038,87,NameEmp221.lastname@onet.pl,2016-11-07,inżynier produkcji,9287
+Pensioner,NamePen221,LastSTPen221,23251627963,1.6918132084758022,95,NamePen221.lastname@onet.pl,7948,33
+Student,NameStu221,LastSTStu221,23251639397,1.8979289111918,48,NameStu221.lastname@onet.pl,Uczelnia_221,1,Nazwa kierunku_221,4549
+Employee,NameEmp222,LastSTEmp222,23251510300,1.8997110097840415,52,NameEmp222.lastname@onet.pl,1969-08-10,pomocnik elektryka,8588
+Pensioner,NamePen222,LastSTPen222,23251522048,1.98357256021536,90,NamePen222.lastname@onet.pl,4373,24
+Student,NameStu222,LastSTStu222,23251530802,1.9831736196231398,55,NameStu222.lastname@onet.pl,Uczelnia_222,1,Nazwa kierunku_222,2680
+Employee,NameEmp223,LastSTEmp223,23251410761,1.811507283573492,76,NameEmp223.lastname@onet.pl,2003-12-12,inżynier chemiczny,7279
+Pensioner,NamePen223,LastSTPen223,23251420679,1.719793356249009,66,NamePen223.lastname@onet.pl,5574,44
+Student,NameStu223,LastSTStu223,23251431101,1.66285928937615,49,NameStu223.lastname@onet.pl,Uczelnia_223,3,Nazwa kierunku_223,1613
+Employee,NameEmp224,LastSTEmp224,23251311987,1.5120951696070228,48,NameEmp224.lastname@onet.pl,1990-10-02,programista,11158
+Pensioner,NamePen224,LastSTPen224,23251324256,1.695225728925919,54,NamePen224.lastname@onet.pl,5447,17
+Student,NameStu224,LastSTStu224,23251337426,1.928297487185549,82,NameStu224.lastname@onet.pl,Uczelnia_224,2,Nazwa kierunku_224,4923
+Employee,NameEmp225,LastSTEmp225,23251212145,1.816480310319521,75,NameEmp225.lastname@onet.pl,1998-03-18,inżynier elektroniczny,11749
+Pensioner,NamePen225,LastSTPen225,23251221593,1.8811957719432493,66,NamePen225.lastname@onet.pl,4962,49
+Student,NameStu225,LastSTStu225,23251230563,1.7713917095927847,59,NameStu225.lastname@onet.pl,Uczelnia_225,3,Nazwa kierunku_225,2894
+Employee,NameEmp226,LastSTEmp226,23251110566,1.8383394094915528,53,NameEmp226.lastname@onet.pl,1975-06-08,specjalista ds.it,5102
+Pensioner,NamePen226,LastSTPen226,23251121159,1.8582183085633024,89,NamePen226.lastname@onet.pl,6255,23
+Student,NameStu226,LastSTStu226,23251134097,1.717908275342245,67,NameStu226.lastname@onet.pl,Uczelnia_226,1,Nazwa kierunku_226,1357
+Employee,NameEmp227,LastSTEmp227,23251013225,1.5562045282711616,96,NameEmp227.lastname@onet.pl,2016-11-21,architekt,5569
+Pensioner,NamePen227,LastSTPen227,23251026788,1.9511957364721133,63,NamePen227.lastname@onet.pl,4402,40
+Student,NameStu227,LastSTStu227,23251036793,1.6496972534167087,50,NameStu227.lastname@onet.pl,Uczelnia_227,1,Nazwa kierunku_227,1948
+Employee,NameEmp228,LastSTEmp228,23250916887,1.7883970389935722,82,NameEmp228.lastname@onet.pl,2007-11-26,architekt,12467
+Pensioner,NamePen228,LastSTPen228,23250921715,1.966726428948252,68,NamePen228.lastname@onet.pl,4048,14
+Student,NameStu228,LastSTStu228,23250932676,1.5726557915321173,81,NameStu228.lastname@onet.pl,Uczelnia_228,5,Nazwa kierunku_228,2646
+Employee,NameEmp229,LastSTEmp229,23250817307,1.7797703895068002,67,NameEmp229.lastname@onet.pl,1989-04-11,analityk finansowy,12142
+Pensioner,NamePen229,LastSTPen229,23250828494,1.9890862277899384,59,NamePen229.lastname@onet.pl,5966,28
+Student,NameStu229,LastSTStu229,23250838076,1.6652582432734042,87,NameStu229.lastname@onet.pl,Uczelnia_229,4,Nazwa kierunku_229,2036
+Employee,NameEmp230,LastSTEmp230,23250715687,1.5909495293488531,62,NameEmp230.lastname@onet.pl,1950-07-13,kowal,5782
+Pensioner,NamePen230,LastSTPen230,23250723401,1.6580329361476531,61,NamePen230.lastname@onet.pl,5171,32
+Student,NameStu230,LastSTStu230,23250732078,1.9681921988374906,99,NameStu230.lastname@onet.pl,Uczelnia_230,3,Nazwa kierunku_230,2110
+Employee,NameEmp231,LastSTEmp231,23250615644,1.9158304739720184,79,NameEmp231.lastname@onet.pl,1986-12-08,kowal,13404
+Pensioner,NamePen231,LastSTPen231,23250629787,1.9449895035276952,64,NamePen231.lastname@onet.pl,6874,10
+Student,NameStu231,LastSTStu231,23250633118,1.5590998290241749,52,NameStu231.lastname@onet.pl,Uczelnia_231,1,Nazwa kierunku_231,1325
+Employee,NameEmp232,LastSTEmp232,23250515559,1.6344765886936667,90,NameEmp232.lastname@onet.pl,1960-05-25,wolny strzelec,12951
+Pensioner,NamePen232,LastSTPen232,23250525349,1.7005943434647994,72,NamePen232.lastname@onet.pl,5716,12
+Student,NameStu232,LastSTStu232,23250534917,1.9423279382769985,99,NameStu232.lastname@onet.pl,Uczelnia_232,1,Nazwa kierunku_232,4007
+Employee,NameEmp233,LastSTEmp233,23250414346,1.685538963552072,46,NameEmp233.lastname@onet.pl,2012-05-15,programista,5326
+Pensioner,NamePen233,LastSTPen233,23250420094,1.7222891212582505,65,NamePen233.lastname@onet.pl,4316,6
+Student,NameStu233,LastSTStu233,23250435618,1.651255795318474,84,NameStu233.lastname@onet.pl,Uczelnia_233,2,Nazwa kierunku_233,2022
+Employee,NameEmp234,LastSTEmp234,23250311721,1.831682373949093,60,NameEmp234.lastname@onet.pl,2002-09-05,monter elektryczny,6738
+Pensioner,NamePen234,LastSTPen234,23250329204,1.617310722034381,95,NamePen234.lastname@onet.pl,5967,21
+Student,NameStu234,LastSTStu234,23250331340,1.694377302645456,69,NameStu234.lastname@onet.pl,Uczelnia_234,2,Nazwa kierunku_234,4111
+Employee,NameEmp235,LastSTEmp235,23250217281,1.5202561062276172,56,NameEmp235.lastname@onet.pl,2009-03-08,inżynier chemiczny,7800
+Pensioner,NamePen235,LastSTPen235,23250225975,1.6474468182224988,81,NamePen235.lastname@onet.pl,6435,38
+Student,NameStu235,LastSTStu235,23250237026,1.6136206878156851,60,NameStu235.lastname@onet.pl,Uczelnia_235,2,Nazwa kierunku_235,2194
+Employee,NameEmp236,LastSTEmp236,23250119611,1.7223994154233135,57,NameEmp236.lastname@onet.pl,2002-04-23,monter elektryczny,13631
+Pensioner,NamePen236,LastSTPen236,23250128384,1.5938448847405353,73,NamePen236.lastname@onet.pl,4655,23
+Student,NameStu236,LastSTStu236,23250135796,1.5129845671713058,92,NameStu236.lastname@onet.pl,Uczelnia_236,3,Nazwa kierunku_236,4363
+Employee,NameEmp237,LastSTEmp237,23243015394,1.8644734959160059,56,NameEmp237.lastname@onet.pl,1974-12-22,architekt,10858
+Pensioner,NamePen237,LastSTPen237,23243029900,1.7304730787506952,95,NamePen237.lastname@onet.pl,4060,24
+Student,NameStu237,LastSTStu237,23243032727,1.7596310112380278,88,NameStu237.lastname@onet.pl,Uczelnia_237,1,Nazwa kierunku_237,3336
+Employee,NameEmp238,LastSTEmp238,23242912445,1.751506538142487,96,NameEmp238.lastname@onet.pl,1996-12-26,analityk finansowy,8688
+Pensioner,NamePen238,LastSTPen238,23242929713,1.5539636676334785,47,NamePen238.lastname@onet.pl,6910,16
+Student,NameStu238,LastSTStu238,23242932176,1.790952742056889,65,NameStu238.lastname@onet.pl,Uczelnia_238,4,Nazwa kierunku_238,4838
+Employee,NameEmp239,LastSTEmp239,23242819920,1.6180864361327885,83,NameEmp239.lastname@onet.pl,2009-06-06,specjalista ds.it,10304
+Pensioner,NamePen239,LastSTPen239,23242828116,1.6794532309121448,69,NamePen239.lastname@onet.pl,7255,34
+Student,NameStu239,LastSTStu239,23242837630,1.8004490430999196,91,NameStu239.lastname@onet.pl,Uczelnia_239,2,Nazwa kierunku_239,1231
+Employee,NameEmp240,LastSTEmp240,23242714561,1.7468462968904868,81,NameEmp240.lastname@onet.pl,2019-04-21,inżynier elektroniczny,13582
+Pensioner,NamePen240,LastSTPen240,23242725706,1.8757107945147073,52,NamePen240.lastname@onet.pl,4560,34
+Student,NameStu240,LastSTStu240,23242730851,1.6356289848327656,90,NameStu240.lastname@onet.pl,Uczelnia_240,5,Nazwa kierunku_240,3232
+Employee,NameEmp241,LastSTEmp241,23242612772,1.5775411128306662,93,NameEmp241.lastname@onet.pl,1989-01-14,specjalista ds. hr,13794
+Pensioner,NamePen241,LastSTPen241,23242628979,1.742541707561156,64,NamePen241.lastname@onet.pl,7327,30
+Student,NameStu241,LastSTStu241,23242635150,1.6950133320923912,62,NameStu241.lastname@onet.pl,Uczelnia_241,3,Nazwa kierunku_241,4014
+Employee,NameEmp242,LastSTEmp242,23242518223,1.7753660941949891,95,NameEmp242.lastname@onet.pl,1988-09-01,wolny strzelec,10885
+Pensioner,NamePen242,LastSTPen242,23242524071,1.8637100374221383,70,NamePen242.lastname@onet.pl,4786,11
+Student,NameStu242,LastSTStu242,23242535958,1.7054737113976437,67,NameStu242.lastname@onet.pl,Uczelnia_242,4,Nazwa kierunku_242,4235
+Employee,NameEmp243,LastSTEmp243,23242410488,1.6226163657554653,49,NameEmp243.lastname@onet.pl,1990-07-08,architekt,11664
+Pensioner,NamePen243,LastSTPen243,23242425474,1.7455085516513387,85,NamePen243.lastname@onet.pl,6111,2
+Student,NameStu243,LastSTStu243,23242430886,1.9636771134120659,62,NameStu243.lastname@onet.pl,Uczelnia_243,3,Nazwa kierunku_243,4377
+Employee,NameEmp244,LastSTEmp244,23242318057,1.6824252692669721,82,NameEmp244.lastname@onet.pl,1957-07-24,specjalista ds. hr,8550
+Pensioner,NamePen244,LastSTPen244,23242328917,1.8099172163136856,94,NamePen244.lastname@onet.pl,4761,4
+Student,NameStu244,LastSTStu244,23242334428,1.608977241796981,58,NameStu244.lastname@onet.pl,Uczelnia_244,2,Nazwa kierunku_244,4679
+Employee,NameEmp245,LastSTEmp245,23242210566,1.688196850845038,57,NameEmp245.lastname@onet.pl,2003-09-03,mlodszy specjalista hr,5310
+Pensioner,NamePen245,LastSTPen245,23242226753,1.7254791516956534,49,NamePen245.lastname@onet.pl,7897,13
+Student,NameStu245,LastSTStu245,23242239048,1.7090744674515514,66,NameStu245.lastname@onet.pl,Uczelnia_245,5,Nazwa kierunku_245,1280
+Employee,NameEmp246,LastSTEmp246,23242110172,1.964038470978888,80,NameEmp246.lastname@onet.pl,2002-07-13,kowal,12850
+Pensioner,NamePen246,LastSTPen246,23242121894,1.754507342655939,45,NamePen246.lastname@onet.pl,6061,0
+Student,NameStu246,LastSTStu246,23242130966,1.6947053637655103,47,NameStu246.lastname@onet.pl,Uczelnia_246,3,Nazwa kierunku_246,3013
+Employee,NameEmp247,LastSTEmp247,23242015283,1.780328353698931,54,NameEmp247.lastname@onet.pl,2001-04-17,wolny strzelec,9783
+Pensioner,NamePen247,LastSTPen247,23242027739,1.9086091090596227,49,NamePen247.lastname@onet.pl,5257,1
+Student,NameStu247,LastSTStu247,23242037075,1.9649160337176992,81,NameStu247.lastname@onet.pl,Uczelnia_247,1,Nazwa kierunku_247,2201
+Employee,NameEmp248,LastSTEmp248,23241913341,1.8903284852736932,90,NameEmp248.lastname@onet.pl,2008-02-24,inżynier r&d,5627
+Pensioner,NamePen248,LastSTPen248,23241923748,1.973051598364007,81,NamePen248.lastname@onet.pl,7355,48
+Student,NameStu248,LastSTStu248,23241939356,1.6617509553506526,54,NameStu248.lastname@onet.pl,Uczelnia_248,4,Nazwa kierunku_248,2593
+Employee,NameEmp249,LastSTEmp249,23241815781,1.988528766669523,48,NameEmp249.lastname@onet.pl,2019-04-28,specjalista ds.it,9893
+Pensioner,NamePen249,LastSTPen249,23241820523,1.6661800809018452,52,NamePen249.lastname@onet.pl,4639,42
+Student,NameStu249,LastSTStu249,23241838183,1.6748903753342654,61,NameStu249.lastname@onet.pl,Uczelnia_249,4,Nazwa kierunku_249,1910
+Employee,NameEmp250,LastSTEmp250,23241712689,1.7821446395447191,54,NameEmp250.lastname@onet.pl,1971-05-13,kierownik projektu,10399
+Pensioner,NamePen250,LastSTPen250,23241725093,1.5494005439275007,56,NamePen250.lastname@onet.pl,4769,24
+Student,NameStu250,LastSTStu250,23241730802,1.6912331690337377,78,NameStu250.lastname@onet.pl,Uczelnia_250,3,Nazwa kierunku_250,4738
+Employee,NameEmp251,LastSTEmp251,23241611557,1.805605787543679,65,NameEmp251.lastname@onet.pl,1988-09-26,specjalista ds. hr,7493
+Pensioner,NamePen251,LastSTPen251,23241624161,1.5085229443889365,84,NamePen251.lastname@onet.pl,6722,45
+Student,NameStu251,LastSTStu251,23241639040,1.9456921782158794,73,NameStu251.lastname@onet.pl,Uczelnia_251,4,Nazwa kierunku_251,1769
+Employee,NameEmp252,LastSTEmp252,23241519045,1.5441060859558815,87,NameEmp252.lastname@onet.pl,2019-12-25,analityk biznesowy,11398
+Pensioner,NamePen252,LastSTPen252,23241520391,1.765373215059023,89,NamePen252.lastname@onet.pl,6173,34
+Student,NameStu252,LastSTStu252,23241538988,1.6718937191926375,71,NameStu252.lastname@onet.pl,Uczelnia_252,2,Nazwa kierunku_252,2676
+Employee,NameEmp253,LastSTEmp253,23241415446,1.5593905283901501,78,NameEmp253.lastname@onet.pl,1988-09-07,analityk biznesowy,8704
+Pensioner,NamePen253,LastSTPen253,23241428389,1.5362464022197915,47,NamePen253.lastname@onet.pl,4713,34
+Student,NameStu253,LastSTStu253,23241430437,1.756057018690001,47,NameStu253.lastname@onet.pl,Uczelnia_253,1,Nazwa kierunku_253,2715
+Employee,NameEmp254,LastSTEmp254,23241310159,1.8146327578110326,93,NameEmp254.lastname@onet.pl,1987-07-17,analityk biznesowy,14883
+Pensioner,NamePen254,LastSTPen254,23241325773,1.5290224586459442,72,NamePen254.lastname@onet.pl,6102,37
+Student,NameStu254,LastSTStu254,23241338138,1.9886544306081935,80,NameStu254.lastname@onet.pl,Uczelnia_254,4,Nazwa kierunku_254,1582
+Employee,NameEmp255,LastSTEmp255,23241211267,1.7535582972418748,96,NameEmp255.lastname@onet.pl,1960-06-20,monter elektryczny,7484
+Pensioner,NamePen255,LastSTPen255,23241227737,1.9838799920257972,98,NamePen255.lastname@onet.pl,5531,25
+Student,NameStu255,LastSTStu255,23241234954,1.877887948165799,48,NameStu255.lastname@onet.pl,Uczelnia_255,3,Nazwa kierunku_255,3732
+Employee,NameEmp256,LastSTEmp256,23241112126,1.7061459592436823,83,NameEmp256.lastname@onet.pl,1985-08-27,pomocnik elektryka,13199
+Pensioner,NamePen256,LastSTPen256,23241127946,1.839410609452286,61,NamePen256.lastname@onet.pl,5620,18
+Student,NameStu256,LastSTStu256,23241136615,1.8017731785449493,82,NameStu256.lastname@onet.pl,Uczelnia_256,3,Nazwa kierunku_256,4806
+Employee,NameEmp257,LastSTEmp257,23241015866,1.996232374848189,96,NameEmp257.lastname@onet.pl,1958-01-07,inżynier produkcji,14122
+Pensioner,NamePen257,LastSTPen257,23241025464,1.63108065551448,99,NamePen257.lastname@onet.pl,4143,26
+Student,NameStu257,LastSTStu257,23241038443,1.6461306358268537,82,NameStu257.lastname@onet.pl,Uczelnia_257,4,Nazwa kierunku_257,1901
+Employee,NameEmp258,LastSTEmp258,23240914844,1.9618103267301612,68,NameEmp258.lastname@onet.pl,1987-03-24,architekt,7528
+Pensioner,NamePen258,LastSTPen258,23240921234,1.7249252679834703,50,NamePen258.lastname@onet.pl,5348,33
+Student,NameStu258,LastSTStu258,23240935376,1.5477038065403343,54,NameStu258.lastname@onet.pl,Uczelnia_258,1,Nazwa kierunku_258,2456
+Employee,NameEmp259,LastSTEmp259,23240815910,1.5029530437422205,69,NameEmp259.lastname@onet.pl,1989-03-04,inżynier elektroniczny,5377
+Pensioner,NamePen259,LastSTPen259,23240826296,1.7632837739944942,69,NamePen259.lastname@onet.pl,6471,32
+Student,NameStu259,LastSTStu259,23240839519,1.7256980305181164,45,NameStu259.lastname@onet.pl,Uczelnia_259,1,Nazwa kierunku_259,2329
+Employee,NameEmp260,LastSTEmp260,23240711380,1.5451393971286644,72,NameEmp260.lastname@onet.pl,1954-02-28,kierownik produkcji,10208
+Pensioner,NamePen260,LastSTPen260,23240725752,1.9075745726124587,91,NamePen260.lastname@onet.pl,6762,48
+Student,NameStu260,LastSTStu260,23240738096,1.6898562885357729,56,NameStu260.lastname@onet.pl,Uczelnia_260,5,Nazwa kierunku_260,2111
+Employee,NameEmp261,LastSTEmp261,23240614137,1.7058763963072983,88,NameEmp261.lastname@onet.pl,1960-08-11,wolny strzelec,5040
+Pensioner,NamePen261,LastSTPen261,23240624190,1.7778286257829086,51,NamePen261.lastname@onet.pl,7662,12
+Student,NameStu261,LastSTStu261,23240633999,1.6708574401544376,77,NameStu261.lastname@onet.pl,Uczelnia_261,1,Nazwa kierunku_261,3737
+Employee,NameEmp262,LastSTEmp262,23240513121,1.6376288785947717,78,NameEmp262.lastname@onet.pl,1998-04-26,inżynier elektroniczny,11594
+Pensioner,NamePen262,LastSTPen262,23240529045,1.8117378140763511,97,NamePen262.lastname@onet.pl,4691,13
+Student,NameStu262,LastSTStu262,23240537545,1.6792789796378744,73,NameStu262.lastname@onet.pl,Uczelnia_262,5,Nazwa kierunku_262,1651
+Employee,NameEmp263,LastSTEmp263,23240416811,1.9932186792592779,46,NameEmp263.lastname@onet.pl,1983-10-09,elektryk zakładowy,6075
+Pensioner,NamePen263,LastSTPen263,23240426488,1.7173119681341218,53,NamePen263.lastname@onet.pl,6841,43
+Student,NameStu263,LastSTStu263,23240434357,1.6641543655841557,68,NameStu263.lastname@onet.pl,Uczelnia_263,1,Nazwa kierunku_263,2247
+Employee,NameEmp264,LastSTEmp264,23240310297,1.6403793140161476,64,NameEmp264.lastname@onet.pl,1965-02-23,specjalista ds.it,11783
+Pensioner,NamePen264,LastSTPen264,23240321848,1.7127678456079427,82,NamePen264.lastname@onet.pl,5403,23
+Student,NameStu264,LastSTStu264,23240334154,1.9101463152093874,76,NameStu264.lastname@onet.pl,Uczelnia_264,3,Nazwa kierunku_264,2442
+Employee,NameEmp265,LastSTEmp265,23240215446,1.7748922524814952,80,NameEmp265.lastname@onet.pl,2007-05-27,pomocnik elektryka,7060
+Pensioner,NamePen265,LastSTPen265,23240223971,1.8818215629753399,83,NamePen265.lastname@onet.pl,4931,12
+Student,NameStu265,LastSTStu265,23240232914,1.5969279385104864,48,NameStu265.lastname@onet.pl,Uczelnia_265,4,Nazwa kierunku_265,2754
+Employee,NameEmp266,LastSTEmp266,23240115932,1.537429031624252,71,NameEmp266.lastname@onet.pl,1972-11-14,inżynier elektroniczny,9703
+Pensioner,NamePen266,LastSTPen266,23240128534,1.7798353421543092,55,NamePen266.lastname@onet.pl,5184,2
+Student,NameStu266,LastSTStu266,23240137836,1.6733210569263455,47,NameStu266.lastname@onet.pl,Uczelnia_266,2,Nazwa kierunku_266,4306
+Employee,NameEmp267,LastSTEmp267,23233119400,1.8033363337794324,82,NameEmp267.lastname@onet.pl,2012-10-14,kowal,9041
+Pensioner,NamePen267,LastSTPen267,23233121498,1.91180797606285,65,NamePen267.lastname@onet.pl,6057,11
+Student,NameStu267,LastSTStu267,23233132583,1.9052297549596175,77,NameStu267.lastname@onet.pl,Uczelnia_267,1,Nazwa kierunku_267,2465
+Employee,NameEmp268,LastSTEmp268,23233014831,1.571178935115887,45,NameEmp268.lastname@onet.pl,1956-06-21,pomocnik elektryka,8979
+Pensioner,NamePen268,LastSTPen268,23233023851,1.815601800641554,98,NamePen268.lastname@onet.pl,7506,14
+Student,NameStu268,LastSTStu268,23233035068,1.590845798906964,46,NameStu268.lastname@onet.pl,Uczelnia_268,2,Nazwa kierunku_268,2195
+Employee,NameEmp269,LastSTEmp269,23232914955,1.627514547110916,97,NameEmp269.lastname@onet.pl,1954-09-01,pomocnik elektryka,5205
+Pensioner,NamePen269,LastSTPen269,23232923707,1.9281408591782745,53,NamePen269.lastname@onet.pl,7949,37
+Student,NameStu269,LastSTStu269,23232937483,1.7766346555574621,67,NameStu269.lastname@onet.pl,Uczelnia_269,5,Nazwa kierunku_269,1946
+Employee,NameEmp270,LastSTEmp270,23232811667,1.6297327165362527,70,NameEmp270.lastname@onet.pl,1988-05-26,analityk biznesowy,8591
+Pensioner,NamePen270,LastSTPen270,23232822514,1.9007743131362171,55,NamePen270.lastname@onet.pl,7769,36
+Student,NameStu270,LastSTStu270,23232838726,1.6148673222064114,76,NameStu270.lastname@onet.pl,Uczelnia_270,3,Nazwa kierunku_270,3018
+Employee,NameEmp271,LastSTEmp271,23232719530,1.7761545472087226,59,NameEmp271.lastname@onet.pl,2006-03-12,architekt,14078
+Pensioner,NamePen271,LastSTPen271,23232721919,1.5732757632301695,75,NamePen271.lastname@onet.pl,6991,37
+Student,NameStu271,LastSTStu271,23232732622,1.77286255043996,60,NameStu271.lastname@onet.pl,Uczelnia_271,3,Nazwa kierunku_271,1945
+Employee,NameEmp272,LastSTEmp272,23232618004,1.5390153389088024,82,NameEmp272.lastname@onet.pl,2008-12-03,kowal,11701
+Pensioner,NamePen272,LastSTPen272,23232629377,1.768334318478797,76,NamePen272.lastname@onet.pl,4910,44
+Student,NameStu272,LastSTStu272,23232634196,1.873260396240024,57,NameStu272.lastname@onet.pl,Uczelnia_272,2,Nazwa kierunku_272,4744
+Employee,NameEmp273,LastSTEmp273,23232518188,1.8302034642752472,77,NameEmp273.lastname@onet.pl,1956-09-20,elektryk zakładowy,6167
+Pensioner,NamePen273,LastSTPen273,23232529589,1.8737757414762333,63,NamePen273.lastname@onet.pl,6926,5
+Student,NameStu273,LastSTStu273,23232537312,1.7778324685932116,94,NameStu273.lastname@onet.pl,Uczelnia_273,1,Nazwa kierunku_273,2727
+Employee,NameEmp274,LastSTEmp274,23232412001,1.6619233316530504,68,NameEmp274.lastname@onet.pl,1991-07-17,kowal,9092
+Pensioner,NamePen274,LastSTPen274,23232422597,1.6251865813531345,68,NamePen274.lastname@onet.pl,7807,19
+Student,NameStu274,LastSTStu274,23232431150,1.6603324882417625,85,NameStu274.lastname@onet.pl,Uczelnia_274,1,Nazwa kierunku_274,2802
+Employee,NameEmp275,LastSTEmp275,23232319334,1.679262843489514,66,NameEmp275.lastname@onet.pl,1972-03-15,specjalista ds. marketingu,6479
+Pensioner,NamePen275,LastSTPen275,23232327126,1.7694757171379332,49,NamePen275.lastname@onet.pl,4101,44
+Student,NameStu275,LastSTStu275,23232338472,1.7429512237689253,92,NameStu275.lastname@onet.pl,Uczelnia_275,1,Nazwa kierunku_275,2424
+Employee,NameEmp276,LastSTEmp276,23232219882,1.6161936810047837,77,NameEmp276.lastname@onet.pl,1954-09-01,asystent hr,8495
+Pensioner,NamePen276,LastSTPen276,23232229023,1.709021780796018,96,NamePen276.lastname@onet.pl,5473,10
+Student,NameStu276,LastSTStu276,23232232277,1.7908845996221978,99,NameStu276.lastname@onet.pl,Uczelnia_276,2,Nazwa kierunku_276,1627
+Employee,NameEmp277,LastSTEmp277,23232113702,1.9609850911606714,53,NameEmp277.lastname@onet.pl,2000-09-19,inżynier produkcji,12064
+Pensioner,NamePen277,LastSTPen277,23232128308,1.8565672731231928,60,NamePen277.lastname@onet.pl,4393,27
+Student,NameStu277,LastSTStu277,23232136920,1.9029946994609679,61,NameStu277.lastname@onet.pl,Uczelnia_277,3,Nazwa kierunku_277,1726
+Employee,NameEmp278,LastSTEmp278,23232015193,1.6517833344008797,90,NameEmp278.lastname@onet.pl,2017-11-07,programista,7802
+Pensioner,NamePen278,LastSTPen278,23232021694,1.9771435936134871,58,NamePen278.lastname@onet.pl,4546,15
+Student,NameStu278,LastSTStu278,23232035931,1.9381876436263643,90,NameStu278.lastname@onet.pl,Uczelnia_278,4,Nazwa kierunku_278,4485
+Employee,NameEmp279,LastSTEmp279,23231916985,1.8530312446132826,63,NameEmp279.lastname@onet.pl,1985-01-16,programista,8435
+Pensioner,NamePen279,LastSTPen279,23231926800,1.8224789833990114,64,NamePen279.lastname@onet.pl,6472,8
+Student,NameStu279,LastSTStu279,23231934673,1.7234505377611238,46,NameStu279.lastname@onet.pl,Uczelnia_279,2,Nazwa kierunku_279,4851
+Employee,NameEmp280,LastSTEmp280,23231818536,1.8578941294699045,55,NameEmp280.lastname@onet.pl,1978-10-10,elektryk zakładowy,7479
+Pensioner,NamePen280,LastSTPen280,23231826161,1.9196322387715128,49,NamePen280.lastname@onet.pl,6702,12
+Student,NameStu280,LastSTStu280,23231832313,1.6569106549454005,81,NameStu280.lastname@onet.pl,Uczelnia_280,1,Nazwa kierunku_280,3581
+Employee,NameEmp281,LastSTEmp281,23231717268,1.9446182896874797,82,NameEmp281.lastname@onet.pl,2011-10-05,specjalista ds.it,7398
+Pensioner,NamePen281,LastSTPen281,23231720793,1.809729589152595,45,NamePen281.lastname@onet.pl,4612,25
+Student,NameStu281,LastSTStu281,23231737198,1.9899277610889199,73,NameStu281.lastname@onet.pl,Uczelnia_281,1,Nazwa kierunku_281,3401
+Employee,NameEmp282,LastSTEmp282,23231618159,1.5658629025277087,69,NameEmp282.lastname@onet.pl,2019-09-21,inżynier produkcji,8086
+Pensioner,NamePen282,LastSTPen282,23231620392,1.7301925284259576,77,NamePen282.lastname@onet.pl,4647,15
+Student,NameStu282,LastSTStu282,23231634821,1.9886945800391633,82,NameStu282.lastname@onet.pl,Uczelnia_282,1,Nazwa kierunku_282,1148
+Employee,NameEmp283,LastSTEmp283,23231519915,1.9277706722529953,86,NameEmp283.lastname@onet.pl,1991-01-28,inżynier elektroniczny,10776
+Pensioner,NamePen283,LastSTPen283,23231524610,1.9074733392766694,79,NamePen283.lastname@onet.pl,7189,32
+Student,NameStu283,LastSTStu283,23231532826,1.8931570720153361,59,NameStu283.lastname@onet.pl,Uczelnia_283,2,Nazwa kierunku_283,2965
+Employee,NameEmp284,LastSTEmp284,23231410837,1.9544053384156315,69,NameEmp284.lastname@onet.pl,2009-02-17,programista,5363
+Pensioner,NamePen284,LastSTPen284,23231425387,1.9489954867321135,83,NamePen284.lastname@onet.pl,7434,44
+Student,NameStu284,LastSTStu284,23231430040,1.6660782274137143,89,NameStu284.lastname@onet.pl,Uczelnia_284,1,Nazwa kierunku_284,2915
+Employee,NameEmp285,LastSTEmp285,23231310090,1.659419940026839,82,NameEmp285.lastname@onet.pl,2013-01-21,kowal,11077
+Pensioner,NamePen285,LastSTPen285,23231320602,1.90521176563262,96,NamePen285.lastname@onet.pl,4166,18
+Student,NameStu285,LastSTStu285,23231331442,1.609851979096324,50,NameStu285.lastname@onet.pl,Uczelnia_285,1,Nazwa kierunku_285,4258
+Employee,NameEmp286,LastSTEmp286,23231217459,1.6615318964708545,67,NameEmp286.lastname@onet.pl,1957-07-26,programista,5361
+Pensioner,NamePen286,LastSTPen286,23231228336,1.6683328750759259,70,NamePen286.lastname@onet.pl,6083,37
+Student,NameStu286,LastSTStu286,23231230534,1.7672163882421925,87,NameStu286.lastname@onet.pl,Uczelnia_286,4,Nazwa kierunku_286,3959
+Employee,NameEmp287,LastSTEmp287,23231115062,1.9951917933237764,80,NameEmp287.lastname@onet.pl,2018-09-26,kowal,8835
+Pensioner,NamePen287,LastSTPen287,23231121176,1.6485234445253425,85,NamePen287.lastname@onet.pl,7183,46
+Student,NameStu287,LastSTStu287,23231130183,1.9456048157845214,72,NameStu287.lastname@onet.pl,Uczelnia_287,2,Nazwa kierunku_287,4123
+Employee,NameEmp288,LastSTEmp288,23231015152,1.8371642244446498,87,NameEmp288.lastname@onet.pl,2009-09-20,programista,6492
+Pensioner,NamePen288,LastSTPen288,23231023901,1.505470012481752,50,NamePen288.lastname@onet.pl,7035,26
+Student,NameStu288,LastSTStu288,23231032016,1.643832908357847,71,NameStu288.lastname@onet.pl,Uczelnia_288,3,Nazwa kierunku_288,1955
+Employee,NameEmp289,LastSTEmp289,23230914678,1.9482407641067856,48,NameEmp289.lastname@onet.pl,2018-11-02,inżynier elektroniczny,8982
+Pensioner,NamePen289,LastSTPen289,23230927469,1.755511727334861,84,NamePen289.lastname@onet.pl,7800,39
+Student,NameStu289,LastSTStu289,23230937516,1.7360753321538174,56,NameStu289.lastname@onet.pl,Uczelnia_289,5,Nazwa kierunku_289,3640
+Employee,NameEmp290,LastSTEmp290,23230817788,1.7923216692973,68,NameEmp290.lastname@onet.pl,2004-10-07,pomocnik elektryka,11413
+Pensioner,NamePen290,LastSTPen290,23230823266,1.5501433522221355,71,NamePen290.lastname@onet.pl,5568,25
+Student,NameStu290,LastSTStu290,23230833463,1.7048632971776851,49,NameStu290.lastname@onet.pl,Uczelnia_290,1,Nazwa kierunku_290,2740
+Employee,NameEmp291,LastSTEmp291,23230718307,1.5944377237273764,82,NameEmp291.lastname@onet.pl,1953-12-19,inżynier chemiczny,5543
+Pensioner,NamePen291,LastSTPen291,23230726872,1.8022737151470098,70,NamePen291.lastname@onet.pl,4822,2
+Student,NameStu291,LastSTStu291,23230732880,1.596697835411572,66,NameStu291.lastname@onet.pl,Uczelnia_291,3,Nazwa kierunku_291,3153
+Employee,NameEmp292,LastSTEmp292,23230612076,1.6859135807194847,67,NameEmp292.lastname@onet.pl,2004-09-18,asystent hr,8894
+Pensioner,NamePen292,LastSTPen292,23230620224,1.975085161213768,71,NamePen292.lastname@onet.pl,6458,15
+Student,NameStu292,LastSTStu292,23230639928,1.7121874359170635,48,NameStu292.lastname@onet.pl,Uczelnia_292,3,Nazwa kierunku_292,3958
+Employee,NameEmp293,LastSTEmp293,23230510398,1.9146187036480926,88,NameEmp293.lastname@onet.pl,1989-04-11,architekt,13112
+Pensioner,NamePen293,LastSTPen293,23230529316,1.9817758923827133,78,NamePen293.lastname@onet.pl,6182,26
+Student,NameStu293,LastSTStu293,23230537283,1.6483815673306217,85,NameStu293.lastname@onet.pl,Uczelnia_293,5,Nazwa kierunku_293,4360
+Employee,NameEmp294,LastSTEmp294,23230419482,1.8457917751475805,47,NameEmp294.lastname@onet.pl,1995-07-04,monter elektryczny,13005
+Pensioner,NamePen294,LastSTPen294,23230422038,1.5060852325876453,90,NamePen294.lastname@onet.pl,4213,49
+Student,NameStu294,LastSTStu294,23230434008,1.6488464970834658,83,NameStu294.lastname@onet.pl,Uczelnia_294,2,Nazwa kierunku_294,4405
+Employee,NameEmp295,LastSTEmp295,23230319554,1.519938307181683,80,NameEmp295.lastname@onet.pl,1951-02-02,inżynier elektroniczny,12539
+Pensioner,NamePen295,LastSTPen295,23230328759,1.8222421136101845,88,NamePen295.lastname@onet.pl,6191,6
+Student,NameStu295,LastSTStu295,23230338294,1.711289582154812,84,NameStu295.lastname@onet.pl,Uczelnia_295,4,Nazwa kierunku_295,1688
+Employee,NameEmp296,LastSTEmp296,23230215034,1.6148552801532416,91,NameEmp296.lastname@onet.pl,1958-04-01,specjalista ds. hr,11685
+Pensioner,NamePen296,LastSTPen296,23230224723,1.6186714461596303,60,NamePen296.lastname@onet.pl,4786,18
+Student,NameStu296,LastSTStu296,23230238711,1.5874803782328986,96,NameStu296.lastname@onet.pl,Uczelnia_296,5,Nazwa kierunku_296,4247
+Employee,NameEmp297,LastSTEmp297,23230115143,1.555547591856197,86,NameEmp297.lastname@onet.pl,1982-04-02,architekt,9641
+Pensioner,NamePen297,LastSTPen297,23230126274,1.6061161234311216,79,NamePen297.lastname@onet.pl,4030,18
+Student,NameStu297,LastSTStu297,23230137451,1.7645238673554364,77,NameStu297.lastname@onet.pl,Uczelnia_297,3,Nazwa kierunku_297,2468
+Employee,NameEmp298,LastSTEmp298,23222811268,1.8996608336064937,85,NameEmp298.lastname@onet.pl,1968-04-28,programista,14152
+Pensioner,NamePen298,LastSTPen298,23222821193,1.5076999831338496,82,NamePen298.lastname@onet.pl,7857,11
+Student,NameStu298,LastSTStu298,23222833425,1.6929003241824119,90,NameStu298.lastname@onet.pl,Uczelnia_298,4,Nazwa kierunku_298,4637
+Employee,NameEmp299,LastSTEmp299,23222719411,1.7771817819362676,87,NameEmp299.lastname@onet.pl,1955-02-13,kierownik projektu,14680
+Pensioner,NamePen299,LastSTPen299,23222727072,1.719888308537234,67,NamePen299.lastname@onet.pl,6562,16
+Student,NameStu299,LastSTStu299,23222736132,1.8848750600951445,67,NameStu299.lastname@onet.pl,Uczelnia_299,4,Nazwa kierunku_299,4418
+Employee,NameEmp300,LastSTEmp300,23222617635,1.9431183393332414,50,NameEmp300.lastname@onet.pl,1983-04-16,mlodszy specjalista hr,10817
+Pensioner,NamePen300,LastSTPen300,23222624082,1.7461202406064005,70,NamePen300.lastname@onet.pl,5185,26
+Student,NameStu300,LastSTStu300,23222631224,1.7804027608311848,59,NameStu300.lastname@onet.pl,Uczelnia_300,4,Nazwa kierunku_300,3777
+Employee,NameEmp301,LastSTEmp301,23222513234,1.8745832289895108,70,NameEmp301.lastname@onet.pl,1979-10-11,monter elektryczny,6012
+Pensioner,NamePen301,LastSTPen301,23222525120,1.7480482580437757,45,NamePen301.lastname@onet.pl,5294,23
+Student,NameStu301,LastSTStu301,23222533120,1.750859379514558,47,NameStu301.lastname@onet.pl,Uczelnia_301,5,Nazwa kierunku_301,2478
+Employee,NameEmp302,LastSTEmp302,23222413403,1.6453194865548757,95,NameEmp302.lastname@onet.pl,1956-01-17,wolny strzelec,6373
+Pensioner,NamePen302,LastSTPen302,23222423764,1.7529849724478161,89,NamePen302.lastname@onet.pl,6384,40
+Student,NameStu302,LastSTStu302,23222436075,1.9554971275510666,91,NameStu302.lastname@onet.pl,Uczelnia_302,5,Nazwa kierunku_302,1233
+Employee,NameEmp303,LastSTEmp303,23222316393,1.5032218683986358,92,NameEmp303.lastname@onet.pl,1990-01-20,specjalista ds. marketingu,7911
+Pensioner,NamePen303,LastSTPen303,23222328458,1.684049898047999,80,NamePen303.lastname@onet.pl,4246,8
+Student,NameStu303,LastSTStu303,23222335033,1.781894417561854,48,NameStu303.lastname@onet.pl,Uczelnia_303,5,Nazwa kierunku_303,3603
+Employee,NameEmp304,LastSTEmp304,23222215673,1.879177386935155,46,NameEmp304.lastname@onet.pl,2013-04-04,analityk biznesowy,5425
+Pensioner,NamePen304,LastSTPen304,23222221338,1.9574183501496794,84,NamePen304.lastname@onet.pl,5557,35
+Student,NameStu304,LastSTStu304,23222239813,1.6332138666381728,47,NameStu304.lastname@onet.pl,Uczelnia_304,3,Nazwa kierunku_304,4467
+Employee,NameEmp305,LastSTEmp305,23222112493,1.6331699149582524,95,NameEmp305.lastname@onet.pl,2006-04-13,elektryk zakładowy,5971
+Pensioner,NamePen305,LastSTPen305,23222127533,1.7988038771657846,75,NamePen305.lastname@onet.pl,6441,15
+Student,NameStu305,LastSTStu305,23222131621,1.659179727408813,79,NameStu305.lastname@onet.pl,Uczelnia_305,1,Nazwa kierunku_305,2460
+Employee,NameEmp306,LastSTEmp306,23222014202,1.638097459698248,93,NameEmp306.lastname@onet.pl,1967-04-06,inżynier produkcji,6534
+Pensioner,NamePen306,LastSTPen306,23222022488,1.8146729623568367,76,NamePen306.lastname@onet.pl,7362,13
+Student,NameStu306,LastSTStu306,23222030554,1.7703168475865085,95,NameStu306.lastname@onet.pl,Uczelnia_306,1,Nazwa kierunku_306,1082
+Employee,NameEmp307,LastSTEmp307,23221917301,1.8313362720194872,99,NameEmp307.lastname@onet.pl,1971-05-07,monter elektryczny,7189
+Pensioner,NamePen307,LastSTPen307,23221925176,1.887625371126782,61,NamePen307.lastname@onet.pl,7733,0
+Student,NameStu307,LastSTStu307,23221935588,1.9818532329330283,48,NameStu307.lastname@onet.pl,Uczelnia_307,2,Nazwa kierunku_307,2657
+Employee,NameEmp308,LastSTEmp308,23221814347,1.6700486261080727,77,NameEmp308.lastname@onet.pl,2005-01-25,inżynier elektroniczny,11018
+Pensioner,NamePen308,LastSTPen308,23221825995,1.8784816562182574,63,NamePen308.lastname@onet.pl,5487,44
+Student,NameStu308,LastSTStu308,23221830107,1.9029933093414688,78,NameStu308.lastname@onet.pl,Uczelnia_308,2,Nazwa kierunku_308,1645
+Employee,NameEmp309,LastSTEmp309,23221711841,1.8341051160561512,73,NameEmp309.lastname@onet.pl,1966-05-14,inżynier produkcji,8037
+Pensioner,NamePen309,LastSTPen309,23221726430,1.6129899265583743,77,NamePen309.lastname@onet.pl,7649,49
+Student,NameStu309,LastSTStu309,23221731324,1.9661872229206159,92,NameStu309.lastname@onet.pl,Uczelnia_309,1,Nazwa kierunku_309,4341
+Employee,NameEmp310,LastSTEmp310,23221617590,1.9907856319750166,50,NameEmp310.lastname@onet.pl,2014-02-07,specjalista ds. marketingu,13984
+Pensioner,NamePen310,LastSTPen310,23221620409,1.6974571773531708,58,NamePen310.lastname@onet.pl,6634,6
+Student,NameStu310,LastSTStu310,23221634840,1.5195469781883362,54,NameStu310.lastname@onet.pl,Uczelnia_310,4,Nazwa kierunku_310,2912
+Employee,NameEmp311,LastSTEmp311,23221511961,1.5137252029735002,86,NameEmp311.lastname@onet.pl,1974-08-16,asystent hr,14369
+Pensioner,NamePen311,LastSTPen311,23221524497,1.7995428189539129,69,NamePen311.lastname@onet.pl,4109,48
+Student,NameStu311,LastSTStu311,23221537311,1.518547192765034,97,NameStu311.lastname@onet.pl,Uczelnia_311,1,Nazwa kierunku_311,4403
+Employee,NameEmp312,LastSTEmp312,23221416228,1.7841567004208836,76,NameEmp312.lastname@onet.pl,2013-02-13,inżynier chemiczny,5727
+Pensioner,NamePen312,LastSTPen312,23221424130,1.7050661776420133,64,NamePen312.lastname@onet.pl,5187,11
+Student,NameStu312,LastSTStu312,23221435184,1.983077143291061,47,NameStu312.lastname@onet.pl,Uczelnia_312,2,Nazwa kierunku_312,1427
+Employee,NameEmp313,LastSTEmp313,23221319625,1.8889702073927008,91,NameEmp313.lastname@onet.pl,1995-07-18,monter elektryczny,11880
+Pensioner,NamePen313,LastSTPen313,23221327471,1.7946683035871467,81,NamePen313.lastname@onet.pl,6349,2
+Student,NameStu313,LastSTStu313,23221338749,1.7558356678875657,71,NameStu313.lastname@onet.pl,Uczelnia_313,2,Nazwa kierunku_313,2993
+Employee,NameEmp314,LastSTEmp314,23221213709,1.730917700067322,77,NameEmp314.lastname@onet.pl,1950-11-03,inżynier elektroniczny,11912
+Pensioner,NamePen314,LastSTPen314,23221227733,1.5463951179087956,90,NamePen314.lastname@onet.pl,7867,29
+Student,NameStu314,LastSTStu314,23221236397,1.9660767978978322,84,NameStu314.lastname@onet.pl,Uczelnia_314,3,Nazwa kierunku_314,1967
+Employee,NameEmp315,LastSTEmp315,23221118377,1.6224859683906456,68,NameEmp315.lastname@onet.pl,1953-10-23,programista,8698
+Pensioner,NamePen315,LastSTPen315,23221128765,1.631088559219897,49,NamePen315.lastname@onet.pl,6667,11
+Student,NameStu315,LastSTStu315,23221130693,1.7161354200098093,75,NameStu315.lastname@onet.pl,Uczelnia_315,4,Nazwa kierunku_315,4388
+Employee,NameEmp316,LastSTEmp316,23221012420,1.5117072654806019,60,NameEmp316.lastname@onet.pl,1969-01-13,architekt,8969
+Pensioner,NamePen316,LastSTPen316,23221021338,1.800163532859084,56,NamePen316.lastname@onet.pl,7668,21
+Student,NameStu316,LastSTStu316,23221033815,1.8475016728746751,94,NameStu316.lastname@onet.pl,Uczelnia_316,1,Nazwa kierunku_316,1160
+Employee,NameEmp317,LastSTEmp317,23220911923,1.7011406383871464,99,NameEmp317.lastname@onet.pl,1981-02-27,pomocnik elektryka,8710
+Pensioner,NamePen317,LastSTPen317,23220927200,1.864400141982163,63,NamePen317.lastname@onet.pl,4483,44
+Student,NameStu317,LastSTStu317,23220932456,1.8828995528806665,79,NameStu317.lastname@onet.pl,Uczelnia_317,4,Nazwa kierunku_317,1979
+Employee,NameEmp318,LastSTEmp318,23220816989,1.693195344187242,74,NameEmp318.lastname@onet.pl,1993-07-22,wolny strzelec,6022
+Pensioner,NamePen318,LastSTPen318,23220822479,1.6417910117892054,94,NamePen318.lastname@onet.pl,5179,48
+Student,NameStu318,LastSTStu318,23220830428,1.9255128666145924,99,NameStu318.lastname@onet.pl,Uczelnia_318,5,Nazwa kierunku_318,4437
+Employee,NameEmp319,LastSTEmp319,23220715174,1.8273226348917209,99,NameEmp319.lastname@onet.pl,2001-11-28,kierownik seals,12469
+Pensioner,NamePen319,LastSTPen319,23220726195,1.7785797339643716,94,NamePen319.lastname@onet.pl,4736,47
+Student,NameStu319,LastSTStu319,23220735339,1.828639205629421,62,NameStu319.lastname@onet.pl,Uczelnia_319,5,Nazwa kierunku_319,1408
+Employee,NameEmp320,LastSTEmp320,23220614830,1.9782165928685291,94,NameEmp320.lastname@onet.pl,1956-12-26,architekt,10895
+Pensioner,NamePen320,LastSTPen320,23220626463,1.5692918474957172,94,NamePen320.lastname@onet.pl,4346,28
+Student,NameStu320,LastSTStu320,23220635034,1.9053293589637463,70,NameStu320.lastname@onet.pl,Uczelnia_320,1,Nazwa kierunku_320,4563
+Employee,NameEmp321,LastSTEmp321,23220517717,1.5976486781996373,85,NameEmp321.lastname@onet.pl,1995-08-01,wolny strzelec,6874
+Pensioner,NamePen321,LastSTPen321,23220523905,1.9751473893258946,68,NamePen321.lastname@onet.pl,7357,3
+Student,NameStu321,LastSTStu321,23220539969,1.788654812841282,85,NameStu321.lastname@onet.pl,Uczelnia_321,4,Nazwa kierunku_321,1936
+Employee,NameEmp322,LastSTEmp322,23220416166,1.5161942427219355,56,NameEmp322.lastname@onet.pl,2006-12-03,wolny strzelec,11541
+Pensioner,NamePen322,LastSTPen322,23220422130,1.5057977559992402,92,NamePen322.lastname@onet.pl,7363,31
+Student,NameStu322,LastSTStu322,23220435456,1.9631813454850888,67,NameStu322.lastname@onet.pl,Uczelnia_322,5,Nazwa kierunku_322,2624
+Employee,NameEmp323,LastSTEmp323,23220319134,1.598547198033446,61,NameEmp323.lastname@onet.pl,1972-06-16,specjalista ds.it,12244
+Pensioner,NamePen323,LastSTPen323,23220326878,1.7791504795234232,71,NamePen323.lastname@onet.pl,4735,48
+Student,NameStu323,LastSTStu323,23220337757,1.8766495475256049,80,NameStu323.lastname@onet.pl,Uczelnia_323,3,Nazwa kierunku_323,1636
+Employee,NameEmp324,LastSTEmp324,23220214925,1.9755407798084188,53,NameEmp324.lastname@onet.pl,1991-09-16,inżynier chemiczny,13965
+Pensioner,NamePen324,LastSTPen324,23220227674,1.8639720370054997,63,NamePen324.lastname@onet.pl,4766,46
+Student,NameStu324,LastSTStu324,23220232058,1.6631568790183728,98,NameStu324.lastname@onet.pl,Uczelnia_324,3,Nazwa kierunku_324,1980
+Employee,NameEmp325,LastSTEmp325,23220113928,1.6667072884016738,86,NameEmp325.lastname@onet.pl,2008-07-26,specjalista ds.it,14723
+Pensioner,NamePen325,LastSTPen325,23220122345,1.8981466757193175,71,NamePen325.lastname@onet.pl,4759,27
+Student,NameStu325,LastSTStu325,23220132399,1.7064487417924272,79,NameStu325.lastname@onet.pl,Uczelnia_325,1,Nazwa kierunku_325,4064
+Employee,NameEmp326,LastSTEmp326,23213118930,1.5571175757282152,50,NameEmp326.lastname@onet.pl,1965-09-22,inżynier elektroniczny,8383
+Pensioner,NamePen326,LastSTPen326,23213123636,1.932796067393244,96,NamePen326.lastname@onet.pl,6043,47
+Student,NameStu326,LastSTStu326,23213139484,1.5048956426947802,62,NameStu326.lastname@onet.pl,Uczelnia_326,3,Nazwa kierunku_326,4803
+Employee,NameEmp327,LastSTEmp327,23213011333,1.7059015175922116,65,NameEmp327.lastname@onet.pl,1992-08-09,analityk biznesowy,5518
+Pensioner,NamePen327,LastSTPen327,23213020854,1.8730811865791166,79,NamePen327.lastname@onet.pl,7484,14
+Student,NameStu327,LastSTStu327,23213037793,1.9466092560886548,51,NameStu327.lastname@onet.pl,Uczelnia_327,3,Nazwa kierunku_327,1729
+Employee,NameEmp328,LastSTEmp328,23212913939,1.7203136881274255,85,NameEmp328.lastname@onet.pl,1999-11-28,kierownik seals,6576
+Pensioner,NamePen328,LastSTPen328,23212928670,1.7364332731871497,48,NamePen328.lastname@onet.pl,7227,46
+Student,NameStu328,LastSTStu328,23212932711,1.9149064799506443,52,NameStu328.lastname@onet.pl,Uczelnia_328,5,Nazwa kierunku_328,4782
+Employee,NameEmp329,LastSTEmp329,23212816031,1.6031136953033847,77,NameEmp329.lastname@onet.pl,2001-07-04,wolny strzelec,11455
+Pensioner,NamePen329,LastSTPen329,23212829968,1.724968221989825,83,NamePen329.lastname@onet.pl,7949,0
+Student,NameStu329,LastSTStu329,23212838376,1.7962064994301685,49,NameStu329.lastname@onet.pl,Uczelnia_329,5,Nazwa kierunku_329,1195
+Employee,NameEmp330,LastSTEmp330,23212717337,1.829867303103248,89,NameEmp330.lastname@onet.pl,1955-07-13,elektryk zakładowy,13571
+Pensioner,NamePen330,LastSTPen330,23212729556,1.5392995366665785,67,NamePen330.lastname@onet.pl,7169,17
+Student,NameStu330,LastSTStu330,23212734208,1.813256595552879,46,NameStu330.lastname@onet.pl,Uczelnia_330,4,Nazwa kierunku_330,4720
+Employee,NameEmp331,LastSTEmp331,23212612539,1.5775766861992337,99,NameEmp331.lastname@onet.pl,1991-04-25,specjalista ds. marketingu,14365
+Pensioner,NamePen331,LastSTPen331,23212627357,1.764635421593018,90,NamePen331.lastname@onet.pl,7629,35
+Student,NameStu331,LastSTStu331,23212639062,1.5739920972799202,75,NameStu331.lastname@onet.pl,Uczelnia_331,1,Nazwa kierunku_331,2903
+Employee,NameEmp332,LastSTEmp332,23212513681,1.6521439860985394,86,NameEmp332.lastname@onet.pl,1975-03-02,inżynier r&d,11879
+Pensioner,NamePen332,LastSTPen332,23212529533,1.9882203912176126,53,NamePen332.lastname@onet.pl,6782,44
+Student,NameStu332,LastSTStu332,23212532068,1.6081772108932646,96,NameStu332.lastname@onet.pl,Uczelnia_332,3,Nazwa kierunku_332,1525
+Employee,NameEmp333,LastSTEmp333,23212411686,1.6310365125575037,59,NameEmp333.lastname@onet.pl,1973-06-13,kierownik seals,12031

@@ -1,18 +1,18 @@
-package pl.kurs.persondiary.mapping.viewdto;
+package pl.kurs.persondiary.mapping;
 
 
 import org.modelmapper.Converter;
 import org.modelmapper.spi.MappingContext;
 import org.springframework.stereotype.Service;
-import pl.kurs.persondiary.dto.viewdto.PensionerViewDto;
+import pl.kurs.persondiary.dto.FullPensionerDto;
 import pl.kurs.persondiary.models.Pensioner;
 
 @Service
-public class PensionerToPensionerViewDtoCreator implements Converter<Pensioner, PensionerViewDto> {
+public class PensionerToFullPensionerDtoCreator implements Converter<Pensioner, FullPensionerDto> {
     @Override
-    public PensionerViewDto convert(MappingContext<Pensioner, PensionerViewDto> mappingContext) {
+    public FullPensionerDto convert(MappingContext<Pensioner, FullPensionerDto> mappingContext) {
         Pensioner source = mappingContext.getSource();
-        return PensionerViewDto.builder()
+        return FullPensionerDto.builder()
                 .type("pensioner")
                 .id(source.getId())
                 .firstName(source.getFirstName())

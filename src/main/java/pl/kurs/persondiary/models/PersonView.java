@@ -52,6 +52,9 @@ public class PersonView {
     @Column(name = "position")
     private String position;
 
+    @Column(name = "positions_history")
+    private String positionsHistory;
+
     @Column(name = "salary")
     private Double salary;
 

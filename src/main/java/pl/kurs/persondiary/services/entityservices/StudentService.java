@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.models.Student;
-import pl.kurs.persondiary.repositories.singlerepositories.StudentRepositories;
+import pl.kurs.persondiary.repositories.StudentRepositories;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

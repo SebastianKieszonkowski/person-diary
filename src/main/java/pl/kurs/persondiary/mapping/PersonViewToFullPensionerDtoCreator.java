@@ -4,16 +4,15 @@ package pl.kurs.persondiary.mapping;
 import org.modelmapper.Converter;
 import org.modelmapper.spi.MappingContext;
 import org.springframework.stereotype.Service;
-import pl.kurs.persondiary.dto.viewdto.StudentViewDto;
+import pl.kurs.persondiary.dto.FullPensionerDto;
 import pl.kurs.persondiary.models.PersonView;
 
 @Service
-public class PersonViewToStudentViewDtoCreator implements Converter<PersonView, StudentViewDto> {
-
+public class PersonViewToFullPensionerDtoCreator implements Converter<PersonView, FullPensionerDto> {
     @Override
-    public StudentViewDto convert(MappingContext<PersonView, StudentViewDto> mappingContext) {
+    public FullPensionerDto convert(MappingContext<PersonView, FullPensionerDto> mappingContext) {
         PersonView source = mappingContext.getSource();
-        return StudentViewDto.builder()
+        return FullPensionerDto.builder()
                 .type(source.getType())
                 .id(source.getId())
                 .firstName(source.getFirstName())
@@ -23,10 +22,8 @@ public class PersonViewToStudentViewDtoCreator implements Converter<PersonView, 
                 .weight(source.getWeight())
                 .email(source.getEmail())
                 .version(source.getVersion())
-                .universityName(source.getUniversityName())
-                .studyYear(source.getStudyYear())
-                .studyField(source.getStudyField())
-                .scholarship(source.getScholarship())
+                .pension(source.getPension())
+                .workedYears(source.getWorkedYears())
                 .build();
     }
 }

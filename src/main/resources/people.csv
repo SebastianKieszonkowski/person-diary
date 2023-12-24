@@ -38,6 +38,7 @@ Student,Marta,Sikorska,51012317989,1.68,72,marta.sikorska@gmail.com,Politechnika
 Student,Marek,Piotrowski,01212288848,1.85,85,marek.piotrowski@gmail.com,Uniwersytet Jagielloński,1,Informatyka,1600.0
 Student,Natalia,Borowska,90050158235,1.67,55,natalia.borowska@gmail.com,Politechnika Wrocławska,2,Psychologia,1500.0
 Student,Tomasz,Słowik,84081558432,1.79,72,tomasz.slowik@gmail.com,Uniwersytet Jagielloński,4,Inżynieria Chemiczna,1700.0
+Student,NameStu0,LastSTStu0,23322337088,1.9585424175318242,93,NameStu0.lastname@onet.pl,Uczelnia_0,1,Nazwa kierunku_0,3913
 Pensioner,Katarzyna,Nowak,67123036314,1.75,70,katarzyna.nowak@gmail.com,5200.0,25
 Pensioner,Adam,Kowalski,89040155969,1.8,80,adam.kowalski@gmail.com,4900.5,30
 Pensioner,Marta,Wójcik,57121451392,1.68,55,marta.wojcik@gmail.com,4800.75,22
@@ -58,6 +59,7 @@ Pensioner,Marta,Sikorska,61012716817,1.68,72,marta.sikorska@gmail.com,4800.5,40
 Pensioner,Marek,Piotrowski,76120945185,1.85,85,marek.piotrowski@gmail.com,6000.75,35
 Pensioner,Natalia,Borowska,67012949938,1.67,55,natalia.borowska@gmail.com,5200.25,28
 Pensioner,Tomasz,Słowik,61100992655,1.79,72,tomasz.slowik@gmail.com,5500.0,33
+Pensioner,NamePen0,LastSTPen0,23322327092,1.5563436193451479,53,NamePen0.lastname@onet.pl,4105,8
 Employee,Katarzyna,Nowak,67121848249,1.75,70,katarzyna.nowak@gmail.com,2023-11-30,Programista,18500.75
 Employee,Adam,Kowalski,63122546315,1.8,80,adam.kowalski@gmail.com,2023-11-29,Inżynier R&D,17000.5
 Employee,Marta,Wójcik,87112939738,1.68,55,marta.wojcik@gmail.com,2023-11-28,Analityk Finansowy,15699.2
@@ -78,3 +80,4 @@ Employee,Marta,Sikorska,84052787911,1.68,72,marta.sikorska@gmail.com,2023-11-14,
 Employee,Marek,Piotrowski,72053099883,1.85,85,marek.piotrowski@gmail.com,2023-11-13,Architekt,14200.0
 Employee,Natalia,Borowska,80082222925,1.67,55,natalia.borowska@gmail.com,2023-11-12,Specjalista ds. HR,15300.0
 Employee,Tomasz,Słowik,03291882687,1.79,72,tomasz.slowik@gmail.com,2023-11-11,Inżynier Elektroniczny,17000.0
+Employee,NameEmp0,LastSTEmp0,23322314455,1.8469861704566282,76,NameEmp0.lastname@onet.pl,1992-08-28,kierownik seals,11595

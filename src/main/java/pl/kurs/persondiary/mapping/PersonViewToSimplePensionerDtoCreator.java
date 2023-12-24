@@ -4,15 +4,15 @@ package pl.kurs.persondiary.mapping;
 import org.modelmapper.Converter;
 import org.modelmapper.spi.MappingContext;
 import org.springframework.stereotype.Service;
-import pl.kurs.persondiary.dto.viewdto.PensionerViewDto;
+import pl.kurs.persondiary.dto.SimplePensionerDto;
 import pl.kurs.persondiary.models.PersonView;
 
 @Service
-public class PersonViewToPensionerViewDtoCreator implements Converter<PersonView, PensionerViewDto> {
+public class PersonViewToSimplePensionerDtoCreator implements Converter<PersonView, SimplePensionerDto> {
     @Override
-    public PensionerViewDto convert(MappingContext<PersonView, PensionerViewDto> mappingContext) {
+    public SimplePensionerDto convert(MappingContext<PersonView, SimplePensionerDto> mappingContext) {
         PersonView source = mappingContext.getSource();
-        return PensionerViewDto.builder()
+        return SimplePensionerDto.builder()
                 .type(source.getType())
                 .id(source.getId())
                 .firstName(source.getFirstName())

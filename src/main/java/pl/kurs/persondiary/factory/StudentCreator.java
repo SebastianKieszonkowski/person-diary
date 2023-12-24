@@ -6,8 +6,10 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import pl.kurs.persondiary.command.CreateStudentCommand;
-import pl.kurs.persondiary.dto.IPersonDto;
-import pl.kurs.persondiary.dto.viewdto.StudentViewDto;
+import pl.kurs.persondiary.dto.IFullPersonDto;
+import pl.kurs.persondiary.dto.FullStudentDto;
+import pl.kurs.persondiary.dto.ISimplePersonDto;
+import pl.kurs.persondiary.dto.SimpleStudentDto;
 import pl.kurs.persondiary.models.Person;
 import pl.kurs.persondiary.models.PersonView;
 import pl.kurs.persondiary.models.Student;
@@ -63,14 +65,19 @@ public class StudentCreator implements PersonCreator {
     }
 
     @Override
-    public IPersonDto createDtoFromView(PersonView personView) {
-        return modelMapper.map(personView, StudentViewDto.class);
+    public IFullPersonDto createDtoFromView(PersonView personView) {
+        return modelMapper.map(personView, FullStudentDto.class);
     }
 
     @Override
-    public IPersonDto createDtoFromPerson(Person person) {
+    public ISimplePersonDto createSimpleDtoFromView(PersonView personView) {
+        return modelMapper.map(personView, SimpleStudentDto.class);
+    }
+
+    @Override
+    public IFullPersonDto createDtoFromPerson(Person person) {
         Student student = (Student) person;
-        return modelMapper.map(student, StudentViewDto.class);
+        return modelMapper.map(student, FullStudentDto.class);
     }
 
     @Override

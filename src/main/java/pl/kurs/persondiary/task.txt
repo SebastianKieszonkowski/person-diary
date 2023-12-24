@@ -84,6 +84,7 @@ dzieje [status, data stworzenia, data rozpoczecia, ilosc przeprocesowanych wiers
 - plik csv wyglada tak:
 TYP,imie,nazwisko,pesel,wzrost,waga,adres email,pozostale parametry dla konkretnej osoby
 - chcemy sprawic aby tylko jeden import w danym czasie mogl sie wykonywac.
+http://localhost:8080/persons/importCsv/b33362a2-2531-49d4-9608-bb9148313b3a
 
 Security:
 endpointy sa zabezpieczone security [uzytkownikow mozesz miec w bazie danych/ w pamieci/ na razie to wszystko jedno]

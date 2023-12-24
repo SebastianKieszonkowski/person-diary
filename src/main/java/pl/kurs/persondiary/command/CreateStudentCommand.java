@@ -5,7 +5,7 @@ import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.pl.PESEL;
+import pl.kurs.persondiary.validations.Pesel;
 
 @Getter
 @Setter
@@ -16,7 +16,7 @@ public class CreateStudentCommand implements ICreatePersonCommand {
     private String firstName;
     @NotBlank
     private String lastName;
-    @PESEL
+    @Pesel
     private String pesel;
     @Positive
     private Double height;

@@ -7,9 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,23 +16,20 @@ import pl.kurs.persondiary.command.CreatePersonCommand;
 import pl.kurs.persondiary.command.UpdateEmployeePositionCommand;
 import pl.kurs.persondiary.command.UpdatePersonCommand;
 import pl.kurs.persondiary.dto.FullEmployeePositionDto;
-import pl.kurs.persondiary.dto.IPersonDto;
+import pl.kurs.persondiary.dto.IFullPersonDto;
+import pl.kurs.persondiary.dto.ISimplePersonDto;
+import pl.kurs.persondiary.dto.StatusDto;
+import pl.kurs.persondiary.exeptions.ImportConcurrencyException;
 import pl.kurs.persondiary.factory.PersonFactory;
 import pl.kurs.persondiary.models.*;
 import pl.kurs.persondiary.services.PersonService;
 import pl.kurs.persondiary.services.ProgressService;
 import pl.kurs.persondiary.services.entityservices.EmployeeService;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @CrossOrigin
 @RestController
@@ -50,11 +45,12 @@ public class PersonController {
     private final EmployeeService employeeService;
     private final ModelMapper modelMapper;
 
+
     @GetMapping()
     public ResponseEntity getPersons(FindPersonQuery query, @PageableDefault Pageable pageable) {
         List<PersonView> personViewList = personService.findPersonByParameters(query, pageable);
-        List<IPersonDto> personDtoList = personViewList.stream()
-                .map(personFactory::createDtoFromView)
+        List<ISimplePersonDto> personDtoList = personViewList.stream()
+                .map(personFactory::createSimpleDtoFromView)
                 .collect(Collectors.toList());
         return new ResponseEntity<>(personDtoList, HttpStatus.OK);
     }
@@ -64,22 +60,21 @@ public class PersonController {
     public ResponseEntity createPerson(@RequestBody @Valid CreatePersonCommand createPersonCommand) {
         Person person = personFactory.create(createPersonCommand);
         person = personService.savePerson(person);
-        IPersonDto personDto = personFactory.createDtoFromPerson(person);
+        IFullPersonDto personDto = personFactory.createDtoFromPerson(person);
         return new ResponseEntity<>(personDto, HttpStatus.CREATED);
     }
 
     @PatchMapping(path = "/{pesel}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @Transactional
     public ResponseEntity editPerson(@PathVariable String pesel, @RequestBody @Valid UpdatePersonCommand updatePersonCommand) {
         Person personToUpdate = personService.getPersonByTypeAndPesel(pesel, updatePersonCommand.getType());
         personToUpdate = personFactory.update(personToUpdate, updatePersonCommand);
         Person person = personService.updatePerson(personToUpdate);
-        IPersonDto personDto = personFactory.createDtoFromPerson(person);
+        IFullPersonDto personDto = personFactory.createDtoFromPerson(person);
         return new ResponseEntity<>(personDto, HttpStatus.OK);
     }
 
-    @GetMapping(path = "/{pesel}/positions")
+    @GetMapping(path = "/{pesel}/position")
     public ResponseEntity getAllEmployeesPosition(@PathVariable String pesel) {
         Set<EmployeePosition> employeePositions = employeeService.findPersonByPeselWithPosition(pesel).getEmployeePositions();
         List<FullEmployeePositionDto> fullEmployeesPositionsDto = employeePositions.stream()
@@ -111,24 +106,19 @@ public class PersonController {
         return new ResponseEntity<>(fullEmployeePositionDto, HttpStatus.OK);
     }
 
-    @Async
     @PostMapping("/upload")
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_IMPORTER')")
-    public CompletableFuture<ResponseEntity<Void>> addManyAsCsvFile(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity addManyAsCsvFile(@RequestParam("file") MultipartFile file) {
         String taskId = UUID.randomUUID().toString();
-        System.out.println(taskId);
         progressService.startProgress(taskId);
-        AtomicLong counter = new AtomicLong(0);
+        if (!personService.getIsImportInProgress().get()) {
+            personService.processFileAsync(file, taskId);
+        } else {
+            progressService.abortedImport(taskId);
+            throw new ImportConcurrencyException("Cannot start import because another one is in progress, please try again later!");
+        }
 
-        return CompletableFuture.runAsync(() -> {
-            progressService.startImport(taskId);
-            try (Stream<String> lines = new BufferedReader(new InputStreamReader(file.getInputStream())).lines()) {
-                lines.forEach(line -> personService.importPerson(line, counter, taskId));
-                progressService.completeImport(taskId);
-            } catch (IOException e) {
-                throw new RuntimeException("Error processing the file", e);
-            }
-        }).thenApply(unused -> new ResponseEntity<Void>(HttpStatus.CREATED));
+        return new ResponseEntity<>(new StatusDto("Data import has started. Task number: " + taskId), HttpStatus.OK);
     }
 
     @GetMapping("/importCsv/{taskId}")

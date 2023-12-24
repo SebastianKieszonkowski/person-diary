@@ -24,35 +24,6 @@ public class EmployeePositionController {
     private final EmployeeService employeeService;
     private final ModelMapper modelMapper;
 
-//    @PostMapping
-//    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_EMPLOYEE')")
-//    public ResponseEntity<FullEmployeePositionDto> createEmployeePosition(@RequestBody @Valid CreateEmployeePositionCommand createEmployeePositionCommand) {
-//        if (!employeePositionService.checkDates(createEmployeePositionCommand.getStartDateOnPosition(), createEmployeePositionCommand.getEndDateOnPosition()
-//                , createEmployeePositionCommand.getEmployeeId()).isEmpty())
-//            throw new IncorrectDateRangeException("Podany okres pracy pokrywa się z juz istniejącymi!!!");
-//        EmployeePosition employeePosition = modelMapper.map(createEmployeePositionCommand, EmployeePosition.class);
-//        Employee employee = employeeService.get(createEmployeePositionCommand.getEmployeeId());
-//        employeePosition.setEmployee(employee);
-//        EmployeePosition employeePositionCreated = employeePositionService.add(employeePosition);
-//        FullEmployeePositionDto fullEmployeePositionDto = modelMapper.map(employeePositionCreated, FullEmployeePositionDto.class);
-//        return new ResponseEntity<>(fullEmployeePositionDto, HttpStatus.CREATED);
-//    }
-
-//    @PatchMapping(path = "/{id}")
-//    public ResponseEntity<FullEmployeePositionDto> editEmployeePosition(@PathVariable Long id, @RequestBody @Valid UpdateEmployeePositionCommand updateEmployeePositionCommand) {
-//        EmployeePosition employeePosition = employeePositionService.findById(id).orElseThrow();
-//        Optional.ofNullable(updateEmployeePositionCommand.getPositionName()).ifPresent(employeePosition::setPositionName);
-//        Optional.ofNullable(updateEmployeePositionCommand.getStartDateOnPosition()).ifPresent(employeePosition::setStartDateOnPosition);
-//        Optional.ofNullable(updateEmployeePositionCommand.getEndDateOnPosition()).ifPresent(employeePosition::setEndDateOnPosition);
-//        Optional.ofNullable(updateEmployeePositionCommand.getSalary()).ifPresent(employeePosition::setSalary);
-//        Optional.ofNullable(updateEmployeePositionCommand.getEmployeeId()).ifPresent(x -> {
-//            Employee employee = employeeService.get(updateEmployeePositionCommand.getEmployeeId());
-//            Optional.ofNullable(employee).ifPresent(employeePosition::setEmployee);
-//        });
-//        FullEmployeePositionDto fullEmployeePositionDto = modelMapper.map(employeePosition, FullEmployeePositionDto.class);
-//        return new ResponseEntity<>(fullEmployeePositionDto, HttpStatus.OK);
-//    }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<StatusDto> deleteEmployeePositionById(@PathVariable("id") Long id) {
         employeePositionService.delete(id);

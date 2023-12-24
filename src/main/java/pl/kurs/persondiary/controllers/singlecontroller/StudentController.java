@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import pl.kurs.persondiary.command.CreateStudentCommand;
 import pl.kurs.persondiary.dto.StatusDto;
-import pl.kurs.persondiary.dto.viewdto.StudentViewDto;
+import pl.kurs.persondiary.dto.FullStudentDto;
 import pl.kurs.persondiary.models.Student;
 import pl.kurs.persondiary.services.ProgressService;
 import pl.kurs.persondiary.services.entityservices.StudentService;
@@ -37,8 +37,8 @@ public class StudentController {
     @PostMapping
     public ResponseEntity createStudent(@RequestBody @Valid CreateStudentCommand createStudentCommand) {
         Student studentCreated = studentService.add(modelMapper.map(createStudentCommand, Student.class));
-        StudentViewDto studentViewDto = modelMapper.map(studentCreated, StudentViewDto.class);
-        return new ResponseEntity<>(studentViewDto, HttpStatus.CREATED);
+        FullStudentDto fullStudentDto = modelMapper.map(studentCreated, FullStudentDto.class);
+        return new ResponseEntity<>(fullStudentDto, HttpStatus.CREATED);
     }
 
     @GetMapping

@@ -10,9 +10,10 @@ import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.kurs.persondiary.factory.PersonFactory;
+import org.springframework.web.multipart.MultipartFile;
 import pl.kurs.persondiary.models.*;
 import pl.kurs.persondiary.repositories.PersonViewRepository;
 import pl.kurs.persondiary.services.entityservices.EmployeeService;
@@ -21,12 +22,17 @@ import pl.kurs.persondiary.services.entityservices.PensionerService;
 import pl.kurs.persondiary.services.entityservices.StudentService;
 import pl.kurs.persondiary.services.querybuilder.QueryFactoryComponent;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor
@@ -36,7 +42,6 @@ public class PersonService {
     private final EntityManager entityManager;
     private final PersonViewRepository personViewRepository;
     private final ServiceFactory serviceFactory;
-    private final PersonFactory personFactory;
 
     private final EmployeeService employeeService;
     private final PensionerService pensionerService;
@@ -46,29 +51,7 @@ public class PersonService {
 
     private final QueryFactoryComponent queryFactoryComponent;
 
-    public void importPerson(String line, AtomicLong counter, String taskId) {
-        String[] args = line.split(",");
-        try {
-            if (args[0].toLowerCase(Locale.ROOT).equals("employee")) {
-                Employee employee = new Employee(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
-                        args[6], 0, LocalDate.parse(args[7]), args[8], Double.parseDouble(args[9]));
-                employeeService.add(employee);
-            } else if (args[0].toLowerCase(Locale.ROOT).equals("student")) {
-                Student student = new Student(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
-                        args[6], 0, args[7], Integer.parseInt(args[8]), args[9], Double.parseDouble(args[10]));
-                studentService.add(student);
-            } else if (args[0].toLowerCase(Locale.ROOT).equals("pensioner")) {
-                Pensioner pensioner = new Pensioner(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
-                        args[6], 0, Double.parseDouble(args[7]), Integer.parseInt(args[8]));
-                pensionerService.add(pensioner);
-            }
-        } catch (Exception e) {
-            progressService.logException(taskId, e);
-        }
-
-        Long processedLines = counter.incrementAndGet();
-        progressService.updateProgress(taskId, processedLines);
-    }
+    private final AtomicBoolean isImportInProgress = new AtomicBoolean(false);
 
     @Transactional
     public Person savePerson(Person person) {
@@ -84,13 +67,13 @@ public class PersonService {
     }
 
     @Transactional(readOnly = true)
-    public Person getPersonByTypeAndPesel(String pesel, String type){
+    public Person getPersonByTypeAndPesel(String pesel, String type) {
         IManagementService<Person> updatePersonService = serviceFactory.prepareManager(type);
         return updatePersonService.findByPesel(pesel);
     }
 
     @Transactional(readOnly = true)
-    public boolean isPersonExists(String pesel, String type){
+    public boolean isPersonExists(String pesel, String type) {
         return personViewRepository.existsByPeselAndType(pesel, type);
     }
 
@@ -121,5 +104,54 @@ public class PersonService {
         List<PersonView> personViewList = typedQuery.getResultList();
 
         return personViewList;
+    }
+
+    @Async
+    public void processFileAsync(MultipartFile file, String taskId) {
+        AtomicLong counter = new AtomicLong(0);
+
+        if (isImportInProgress.compareAndSet(false, true)) {
+            try {
+                progressService.startImport(taskId);
+                try (Stream<String> lines = new BufferedReader(new InputStreamReader(file.getInputStream())).lines()) {
+                    lines.forEach(line -> importPerson(line, counter, taskId));
+                    progressService.completeImport(taskId);
+                } catch (IOException e) {
+                    progressService.logException(taskId, e);
+                    progressService.abortedImport(taskId);
+                    throw new RuntimeException("Error processing the file", e);
+                }
+            } finally {
+                isImportInProgress.set(false);
+            }
+        }
+    }
+
+    private void importPerson(String line, AtomicLong counter, String taskId) {
+        String[] args = line.split(",");
+        try {
+            if (args[0].toLowerCase(Locale.ROOT).equals("employee")) {
+                Employee employee = new Employee(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
+                        args[6], 0, LocalDate.parse(args[7]), args[8], Double.parseDouble(args[9]));
+                employeeService.add(employee);
+            } else if (args[0].toLowerCase(Locale.ROOT).equals("student")) {
+                Student student = new Student(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
+                        args[6], 0, args[7], Integer.parseInt(args[8]), args[9], Double.parseDouble(args[10]));
+                studentService.add(student);
+            } else if (args[0].toLowerCase(Locale.ROOT).equals("pensioner")) {
+                Pensioner pensioner = new Pensioner(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
+                        args[6], 0, Double.parseDouble(args[7]), Integer.parseInt(args[8]));
+                pensionerService.add(pensioner);
+            }
+        } catch (Exception e) {
+            progressService.logException(taskId, e);
+        }
+
+        Long processedLines = counter.incrementAndGet();
+        progressService.updateProgress(taskId, processedLines);
+    }
+
+    public AtomicBoolean getIsImportInProgress() {
+        return isImportInProgress;
     }
 }

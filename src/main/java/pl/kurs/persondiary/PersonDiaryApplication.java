@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.scheduling.annotation.EnableAsync;
 
+import java.io.IOException;
+
 @SpringBootApplication
 @EnableAsync(proxyTargetClass = true)
 @EnableCaching(proxyTargetClass = true)
@@ -14,7 +16,19 @@ public class PersonDiaryApplication {
     @SneakyThrows
     public static void main(String[] args) {
         SpringApplication.run(PersonDiaryApplication.class, args);
+        //generateDate();
+
     }
+
+    public static void generateDate(){
+        try {
+            DataGenerator.generateCsvFile("people_data.csv");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Done");
+    }
+
 }
 //People
 //TYP,Imie,Nazwisko,Pesel,Wzrost,Waga,Email,Data_Zatrudnienia/Emerytury/Start_Studiow,Stanowisko/Rok_Studiow/Kierunek,Stypendium/Pensja/Doswiadczenie

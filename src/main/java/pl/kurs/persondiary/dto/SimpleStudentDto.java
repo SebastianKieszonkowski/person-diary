@@ -1,14 +1,13 @@
-package pl.kurs.persondiary.dto.viewdto;
+package pl.kurs.persondiary.dto;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import pl.kurs.persondiary.dto.IPersonDto;
 
 @Getter
 @Setter
 @Builder
-public class StudentViewDto implements IPersonDto {
+public class SimpleStudentDto implements ISimplePersonDto {
     private String type;
     private Long id;
     private String firstName;

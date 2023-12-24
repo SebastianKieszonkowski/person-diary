@@ -1,4 +1,4 @@
-package pl.kurs.persondiary.repositories.singlerepositories;
+package pl.kurs.persondiary.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import pl.kurs.persondiary.models.Student;

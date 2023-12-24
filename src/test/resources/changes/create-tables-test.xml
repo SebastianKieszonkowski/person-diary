@@ -5,11 +5,7 @@
         xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
  http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog-ext.xsd">
-    <!--
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
- http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog-ext.xsd"
-     -->
+
     <changeSet id="20231215_001_sk" author="Sebastian">
         <createTable tableName="users">
             <column name="id_user" type="bigint" autoIncrement="true">
@@ -210,16 +206,17 @@
     <changeSet id="20231215_010_sk" author="Sebastian">
         <createView viewName="person_view" replaceIfExists="true">
             <![CDATA[
-                SELECT id, type, first_name, last_name, pesel, height, weight, email, version, birth_date, hire_date, position, salary, pension, worked_years, university_name, study_year, study_field, scholarship
+                SELECT id, type, first_name, last_name, pesel, height, weight, email, version, birth_date, hire_date, position, salary, pension, worked_years, university_name, study_year, study_field, scholarship, positions_history
     FROM (
-            SELECT 'employee' AS type, id, first_name, last_name, pesel, height, weight, email, version,
-            CASE WHEN SUBSTRING(pesel, 3, 2) > '20' AND SUBSTRING(pesel, 3, 2) < '33' THEN
-                CAST(CONCAT('20', SUBSTRING(pesel, 1, 2), '-', SUBSTRING(pesel, 3, 2) - 20 , '-', SUBSTRING(pesel, 5, 2)) AS DATE)
+            SELECT 'employee' AS type,  e.id, e.first_name, e.last_name, e.pesel, e.height,  e.weight, e.email, e.version,
+            CASE WHEN SUBSTRING(e.pesel, 3, 2) > '20' AND SUBSTRING(e.pesel, 3, 2) < '33' THEN
+                CAST(CONCAT('20', SUBSTRING(e.pesel, 1, 2), '-', SUBSTRING(e.pesel, 3, 2) - 20 , '-', SUBSTRING(e.pesel, 5, 2)) AS DATE)
             ELSE
-                CAST(CONCAT('19', SUBSTRING(pesel, 1, 2), '-', SUBSTRING(pesel, 3, 2), '-', SUBSTRING(pesel, 5, 2)) AS DATE)
-            END AS birth_date, hire_date, position, salary, NULL as pension, NULL as worked_years, NULL as university_name, NULL as study_year,
-            NULL as study_field, NULL as scholarship
-            FROM employees
+                CAST(CONCAT('19', SUBSTRING(e.pesel, 1, 2), '-', SUBSTRING(e.pesel, 3, 2), '-', SUBSTRING(e.pesel, 5, 2)) AS DATE)
+            END AS birth_date, e.hire_date, e.position, e.salary, NULL as pension, NULL as worked_years, NULL as university_name,
+            NULL as study_year, NULL as study_field, NULL as scholarship,
+            (SELECT COUNT(*) FROM positions p WHERE p.employee_id = e.id) AS positions_history
+            FROM employees e
             UNION
             SELECT 'pensioner' AS type, id, first_name, last_name, pesel, height, weight, email, version,
             CASE WHEN SUBSTRING(pesel, 3, 2) > '20' AND SUBSTRING(pesel, 3, 2) < '33' THEN
@@ -227,17 +224,17 @@
             ELSE
                 CAST(CONCAT('19', SUBSTRING(pesel, 1, 2), '-', SUBSTRING(pesel, 3, 2), '-', SUBSTRING(pesel, 5, 2)) AS DATE)
             END AS birth_date, NULL as hire_date, NULL as position, NULL as salary, pension, worked_years, NULL as university_name,
-            NULL as study_year, NULL as study_field, NULL as scholarship
+            NULL as study_year, NULL as study_field, NULL as scholarship, NULL as positions_history
             FROM pensioners
             UNION
-            SELECT 'student' AS type, id, first_name, last_name, pesel, height, weight, email, version,
-            CASE WHEN SUBSTRING(pesel, 3, 2) > '20' AND SUBSTRING(pesel, 3, 2) < '33' THEN
-                CAST(CONCAT('20', SUBSTRING(pesel, 1, 2), '-', SUBSTRING(pesel, 3, 2) - 20 , '-', SUBSTRING(pesel, 5, 2)) AS DATE)
+            SELECT 'student' AS type, s.id, s.first_name, s.last_name, s.pesel, s.height, s.weight, s.email, s.version,
+            CASE WHEN SUBSTRING(s.pesel, 3, 2) > '20' AND SUBSTRING(s.pesel, 3, 2) < '33' THEN
+                CAST(CONCAT('20', SUBSTRING(s.pesel, 1, 2), '-', SUBSTRING(s.pesel, 3, 2) - 20 , '-', SUBSTRING(s.pesel, 5, 2)) AS DATE)
             ELSE
-                CAST(CONCAT('19', SUBSTRING(pesel, 1, 2), '-', SUBSTRING(pesel, 3, 2), '-', SUBSTRING(pesel, 5, 2)) AS DATE)
-            END AS birth_date, NULL as hire_date, NULL as position, NULL as salary, NULL as pension, NULL as worked_years, university_name,
-            study_year, study_field, scholarship
-            FROM students)AS combined
+                CAST(CONCAT('19', SUBSTRING(s.pesel, 1, 2), '-', SUBSTRING(s.pesel, 3, 2), '-', SUBSTRING(s.pesel, 5, 2)) AS DATE)
+            END AS birth_date, NULL as hire_date, NULL as position, NULL as salary, NULL as pension, NULL as worked_years, s.university_name,
+            s.study_year, s.study_field, s.scholarship, NULL as positions_history
+            FROM students s)AS combined
         ]]>
         </createView>
     </changeSet>
