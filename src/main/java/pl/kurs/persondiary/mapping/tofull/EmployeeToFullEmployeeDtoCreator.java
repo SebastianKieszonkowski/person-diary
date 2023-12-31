@@ -1,9 +1,9 @@
-package pl.kurs.persondiary.mapping;
+package pl.kurs.persondiary.mapping.tofull;
 
 import org.modelmapper.Converter;
 import org.modelmapper.spi.MappingContext;
 import org.springframework.stereotype.Service;
-import pl.kurs.persondiary.dto.FullEmployeeDto;
+import pl.kurs.persondiary.dto.fulldto.FullEmployeeDto;
 import pl.kurs.persondiary.models.Employee;
 
 @Service
@@ -21,6 +21,7 @@ public class EmployeeToFullEmployeeDtoCreator implements Converter<Employee, Ful
                 .height(source.getHeight())
                 .weight(source.getWeight())
                 .email(source.getEmail())
+                .birthdate(source.getBirthdate())
                 .version((source.getVersion()))
                 .hireDate(source.getHireDate())
                 .position(source.getPosition())

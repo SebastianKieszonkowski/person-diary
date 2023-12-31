@@ -3,10 +3,9 @@ package pl.kurs.persondiary.models;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -27,11 +26,21 @@ public class Student extends Person {
     private Double scholarship;
 
     public Student(String firstName, String lastName, String pesel, Double height, Double weight, String email,
-                   Integer version, String universityName, Integer studyYear, String studyField, Double scholarship) {
-        super(firstName, lastName, pesel, height, weight, email, version);
+                   LocalDate birthdate, Integer version, String universityName, Integer studyYear, String studyField, Double scholarship) {
+        super(firstName, lastName, pesel, height, weight, email, birthdate, version);
         this.universityName = universityName;
         this.studyYear = studyYear;
         this.studyField = studyField;
         this.scholarship = scholarship;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{ " + super.toString() +
+                "universityName='" + universityName + '\'' +
+                ", studyYear=" + studyYear +
+                ", studyField='" + studyField + '\'' +
+                ", scholarship=" + scholarship +
+                '}';
     }
 }

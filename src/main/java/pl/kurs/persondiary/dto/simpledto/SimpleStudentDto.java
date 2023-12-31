@@ -1,12 +1,11 @@
-package pl.kurs.persondiary.dto;
+package pl.kurs.persondiary.dto.simpledto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
-@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class SimpleStudentDto implements ISimplePersonDto {
     private String type;
     private Long id;
@@ -21,4 +20,5 @@ public class SimpleStudentDto implements ISimplePersonDto {
     private Integer studyYear;
     private String studyField;
     private Double scholarship;
+
 }

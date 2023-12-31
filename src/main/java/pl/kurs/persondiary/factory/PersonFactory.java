@@ -3,10 +3,9 @@ package pl.kurs.persondiary.factory;
 import org.springframework.stereotype.Service;
 import pl.kurs.persondiary.command.CreatePersonCommand;
 import pl.kurs.persondiary.command.UpdatePersonCommand;
-import pl.kurs.persondiary.dto.IFullPersonDto;
-import pl.kurs.persondiary.dto.ISimplePersonDto;
+import pl.kurs.persondiary.dto.fulldto.IFullPersonDto;
+import pl.kurs.persondiary.dto.simpledto.ISimplePersonDto;
 import pl.kurs.persondiary.models.Person;
-import pl.kurs.persondiary.models.PersonView;
 
 import java.util.Locale;
 import java.util.Map;
@@ -23,6 +22,10 @@ public class PersonFactory {
         this.creators = creators.stream().collect(Collectors.toMap(PersonCreator::getType, Function.identity()));
     }
 
+    public PersonCreator getCreator(String type) {
+        return creators.get(type.toLowerCase(Locale.ROOT));
+    }
+
     public Person create(CreatePersonCommand command) {
         return creators.get(command.getType().toLowerCase(Locale.ROOT)).create(command.getParameters());
     }
@@ -31,20 +34,12 @@ public class PersonFactory {
         return creators.get(command.getType().toLowerCase(Locale.ROOT)).update(person, command.getParameters());
     }
 
-    public IFullPersonDto createDtoFromView(PersonView personView) {
-        return creators.get(personView.getType().toLowerCase(Locale.ROOT)).createDtoFromView(personView);
-    }
-
-    public ISimplePersonDto createSimpleDtoFromView(PersonView personView) {
-        return creators.get(personView.getType().toLowerCase(Locale.ROOT)).createSimpleDtoFromView(personView);
+    public ISimplePersonDto createSimpleDtoFromPerson(Person person) {
+        return creators.get(person.getClass().getSimpleName().toLowerCase(Locale.ROOT)).createSimpleDtoFromPerson(person);
     }
 
     public IFullPersonDto createDtoFromPerson(Person person) {
         return creators.get(person.getClass().getSimpleName().toLowerCase(Locale.ROOT)).createDtoFromPerson(person);
-    }
-
-    public Person createPersonFromView(PersonView personView) {
-        return creators.get(personView.getType().toLowerCase(Locale.ROOT)).createPersonFromView(personView);
     }
 }
 

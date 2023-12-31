@@ -9,29 +9,35 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import org.modelmapper.ModelMapper;
+import org.springframework.dao.DuplicateKeyException;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import pl.kurs.persondiary.models.*;
-import pl.kurs.persondiary.repositories.PersonViewRepository;
+import pl.kurs.persondiary.dto.simpledto.ISimplePersonDto;
+import pl.kurs.persondiary.factory.PersonFactory;
+import pl.kurs.persondiary.models.Person;
+import pl.kurs.persondiary.services.importcsv.ImportFactory;
 import pl.kurs.persondiary.services.personservices.EmployeeService;
 import pl.kurs.persondiary.services.personservices.IManagementService;
 import pl.kurs.persondiary.services.personservices.PensionerService;
 import pl.kurs.persondiary.services.personservices.StudentService;
 import pl.kurs.persondiary.services.querybuilder.QueryFactoryComponent;
+import pl.kurs.persondiary.services.querybuilder.QueryPensionerBuilderComponent;
+import pl.kurs.persondiary.services.querybuilder.QueryStudentBuilderComponent;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Field;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
@@ -40,15 +46,22 @@ public class PersonService {
 
     @PersistenceContext
     private final EntityManager entityManager;
-    private final QueryFactoryComponent queryFactoryComponent;
     private final FactoryPersonService factoryPersonService;
+
+    private final QueryStudentBuilderComponent queryStudentBuilderComponent;
+    private final QueryPensionerBuilderComponent queryPensionerBuilderComponent;
+    private final QueryFactoryComponent queryFactoryComponent;
 
     private final EmployeeService employeeService;
     private final PensionerService pensionerService;
     private final StudentService studentService;
     private final ProgressService progressService;
 
-    private final PersonViewRepository personViewRepository;
+    private final ModelMapper modelMapper;
+
+    private final ImportFactory importFactory;
+
+    private final PersonFactory personFactory;
 
     private final AtomicBoolean isImportInProgress = new AtomicBoolean(false);
 
@@ -71,41 +84,55 @@ public class PersonService {
         return updatePersonService.findByPesel(pesel);
     }
 
-    @Transactional(readOnly = true)
-    public boolean isPersonExists(String pesel, String type) {
-        return personViewRepository.existsByPeselAndType(pesel, type);
-    }
+//    @Transactional(readOnly = true)
+//    public boolean isPersonExists(String pesel, String type) {
+//       return personRepository.existsByPeselAndType(pesel, type);
+//    }
 
     @Transactional(readOnly = true)
     @SneakyThrows
-    public List<PersonView> findPersonByParameters(FindPersonQuery query, Pageable pageable) {
+    public PageImpl findPersonByParameters(Map<String, String> query, Pageable pageable) {
 
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<PersonView> criteriaQuery = builder.createQuery(PersonView.class);
-        Root<PersonView> root = criteriaQuery.from(PersonView.class);
+        CriteriaQuery<Person> criteriaQuery = builder.createQuery(Person.class);
+        Root<Person> root = criteriaQuery.from(Person.class);
         List<Predicate> predicates = new ArrayList<>();
 
-        for (Field field : FindPersonQuery.class.getDeclaredFields()) {
-            field.setAccessible(true);
-            Object value = field.get(query);
-            if (value != null) {
-                predicates.add(queryFactoryComponent.buildPredicate(field.getName(), builder, root, value));
-            }
-        }
+        query.forEach((key, value) -> {
+            queryFactoryComponent.buildPredicate(key, builder, root, value)
+                    .ifPresent(predicates::add);
+        });
+        criteriaQuery.where(predicates.toArray(new Predicate[0]));
 
-        if (predicates.size() != 0) {
-            criteriaQuery.where(predicates.toArray(new Predicate[predicates.size()]));
-        }
-
-        TypedQuery<PersonView> typedQuery = entityManager.createQuery(criteriaQuery);
+        TypedQuery<Person> typedQuery = entityManager.createQuery(criteriaQuery);
         typedQuery.setFirstResult(pageable.getPageNumber() * pageable.getPageSize());
         typedQuery.setMaxResults(pageable.getPageSize());
-        List<PersonView> personViewList = typedQuery.getResultList();
 
-        return personViewList;
+        List<Person> personList = typedQuery.getResultList();
+
+        List<ISimplePersonDto> personSimpleDto;
+        personSimpleDto = personList.stream()
+                .map(personFactory::createSimpleDtoFromPerson)
+                .collect(Collectors.toList());
+
+        long total = getTotalInfo(builder);
+
+        return new PageImpl<>(personSimpleDto, pageable, total);
+    }
+
+    private long getTotalInfo(CriteriaBuilder builder) {
+        CriteriaQuery<Long> countQuery = builder.createQuery(Long.class);
+        Root<Person> countRoot = countQuery.from(Person.class);
+        List<Predicate> countPredicates = new ArrayList<>();
+
+        countQuery.select(builder.count(countRoot)).where(countPredicates.toArray(new Predicate[0]));
+        TypedQuery<Long> countTypedQuery = entityManager.createQuery(countQuery);
+        long total = countTypedQuery.getSingleResult();
+        return total;
     }
 
     @Async
+    @Transactional
     public void processFileAsync(MultipartFile file, String taskId) {
         AtomicLong counter = new AtomicLong(0);
 
@@ -115,7 +142,7 @@ public class PersonService {
                 try (Stream<String> lines = new BufferedReader(new InputStreamReader(file.getInputStream())).lines()) {
                     lines.forEach(line -> importPerson(line, counter, taskId));
                     progressService.completeImport(taskId);
-                } catch (IOException e) {
+                } catch (IOException | DuplicateKeyException e) {
                     progressService.logException(taskId, e);
                     progressService.abortedImport(taskId);
                     throw new RuntimeException("Error processing the file", e);
@@ -126,26 +153,10 @@ public class PersonService {
         }
     }
 
+
     private void importPerson(String line, AtomicLong counter, String taskId) {
         String[] args = line.split(",");
-        try {
-            if (args[0].toLowerCase(Locale.ROOT).equals("employee")) {
-                Employee employee = new Employee(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
-                        args[6], 0, LocalDate.parse(args[7]), args[8], Double.parseDouble(args[9]));
-                employeeService.add(employee);
-            } else if (args[0].toLowerCase(Locale.ROOT).equals("student")) {
-                Student student = new Student(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
-                        args[6], 0, args[7], Integer.parseInt(args[8]), args[9], Double.parseDouble(args[10]));
-                studentService.add(student);
-            } else if (args[0].toLowerCase(Locale.ROOT).equals("pensioner")) {
-                Pensioner pensioner = new Pensioner(args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
-                        args[6], 0, Double.parseDouble(args[7]), Integer.parseInt(args[8]));
-                pensionerService.add(pensioner);
-            }
-        } catch (Exception e) {
-            progressService.logException(taskId, e);
-        }
-
+        importFactory.importPerson(args);
         Long processedLines = counter.incrementAndGet();
         progressService.updateProgress(taskId, processedLines);
     }

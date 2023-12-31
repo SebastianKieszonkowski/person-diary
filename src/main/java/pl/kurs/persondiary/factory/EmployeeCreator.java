@@ -5,13 +5,12 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import pl.kurs.persondiary.command.CreateEmployeeCommand;
-import pl.kurs.persondiary.dto.FullEmployeeDto;
-import pl.kurs.persondiary.dto.IFullPersonDto;
-import pl.kurs.persondiary.dto.ISimplePersonDto;
-import pl.kurs.persondiary.dto.SimpleEmployeeDto;
+import pl.kurs.persondiary.dto.fulldto.FullEmployeeDto;
+import pl.kurs.persondiary.dto.fulldto.IFullPersonDto;
+import pl.kurs.persondiary.dto.simpledto.ISimplePersonDto;
+import pl.kurs.persondiary.dto.simpledto.SimpleEmployeeDto;
 import pl.kurs.persondiary.models.Employee;
 import pl.kurs.persondiary.models.Person;
-import pl.kurs.persondiary.models.PersonView;
 
 import java.util.Map;
 import java.util.Optional;
@@ -30,16 +29,16 @@ public class EmployeeCreator implements PersonCreator {
 
     @Override
     public Person create(Map<String, Object> parameters) {
-        CreateEmployeeCommand createEmployeeCommand = new CreateEmployeeCommand(
-                getStringParameter("firstName", parameters),
-                getStringParameter("lastName", parameters),
-                getStringParameter("pesel", parameters),
-                getDoubleParameter("height", parameters),
-                getDoubleParameter("weight", parameters),
-                getStringParameter("email", parameters),
-                getLocalDataParameter("hireDate", parameters),
-                getStringParameter("position", parameters),
-                getDoubleParameter("salary", parameters));
+        CreateEmployeeCommand createEmployeeCommand = new CreateEmployeeCommand(getStringParameter("firstName", parameters)
+                , getStringParameter("lastName", parameters)
+                , getStringParameter("pesel", parameters)
+                , getDoubleParameter("height", parameters)
+                , getDoubleParameter("weight", parameters)
+                , getStringParameter("email", parameters)
+                , getBirthdateFromPesel(getStringParameter("pesel", parameters))
+                , getLocalDataParameter("hireDate", parameters)
+                , getStringParameter("position", parameters)
+                , getDoubleParameter("salary", parameters));
 
         commandValidator(createEmployeeCommand, (org.springframework.validation.Validator) validator);
         return modelMapper.map(createEmployeeCommand, Employee.class);
@@ -50,7 +49,10 @@ public class EmployeeCreator implements PersonCreator {
         Employee employee = (Employee) person;
         Optional.ofNullable(getStringParameter("firstName", parameters)).ifPresent(employee::setFirstName);
         Optional.ofNullable(getStringParameter("lastName", parameters)).ifPresent(employee::setLastName);
-        Optional.ofNullable(getStringParameter("pesel", parameters)).ifPresent(employee::setPesel);
+        Optional.ofNullable(getStringParameter("pesel", parameters)).ifPresent(x -> {
+            employee.setPesel(x);
+            employee.setBirthdate(getBirthdateFromPesel(x));
+        });
         Optional.ofNullable(getDoubleParameter("height", parameters)).ifPresent(employee::setHeight);
         Optional.ofNullable(getDoubleParameter("weight", parameters)).ifPresent(employee::setWeight);
         Optional.ofNullable(getStringParameter("email", parameters)).ifPresent(employee::setEmail);
@@ -62,13 +64,9 @@ public class EmployeeCreator implements PersonCreator {
     }
 
     @Override
-    public IFullPersonDto createDtoFromView(PersonView personView) {
-        return modelMapper.map(personView, FullEmployeeDto.class);
-    }
-
-    @Override
-    public ISimplePersonDto createSimpleDtoFromView(PersonView personView) {
-        return modelMapper.map(personView, SimpleEmployeeDto.class);
+    public ISimplePersonDto createSimpleDtoFromPerson(Person person) {
+        Employee employee = (Employee) person;
+        return modelMapper.map(employee,  SimpleEmployeeDto.class);
     }
 
     @Override
@@ -78,8 +76,7 @@ public class EmployeeCreator implements PersonCreator {
     }
 
     @Override
-    public Person createPersonFromView(PersonView personView) {
-        return modelMapper.map(personView, Employee.class);
+    public Object getEntityClass() {
+        return Employee.class;
     }
-
 }

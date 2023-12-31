@@ -29,9 +29,9 @@ public class Employee extends Person {
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<EmployeePosition> employeePositions = new HashSet<>();
 
-    public Employee(String firstName, String lastName, String pesel, Double height, Double weight, String email, Integer version,
-                    LocalDate hireDate, String position, Double salary) {
-        super(firstName, lastName, pesel, height, weight, email, version);
+    public Employee(String firstName, String lastName, String pesel, Double height, Double weight, String email,
+                    LocalDate birthdate, Integer version, LocalDate hireDate, String position, Double salary) {
+        super(firstName, lastName, pesel, height, weight, email, birthdate, version);
         this.hireDate = hireDate;
         this.position = position;
         this.salary = salary;

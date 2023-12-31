@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.Setter;
 import pl.kurs.persondiary.validations.Pesel;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -24,6 +26,8 @@ public class CreateStudentCommand implements ICreatePersonCommand {
     private Double weight;
     @Email
     private String email;
+    @Past
+    private LocalDate birthdate;
     @NotBlank
     private String universityName;
     @Min(1)

@@ -1,14 +1,13 @@
 package pl.kurs.persondiary.command;
 
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import pl.kurs.persondiary.validations.Pesel;
+
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -27,6 +26,8 @@ public class CreatePensionerCommand implements ICreatePersonCommand {
     private Double weight;
     @Email
     private String email;
+    @Past
+    private LocalDate birthdate;
     @Positive
     private Double pension;
     @PositiveOrZero

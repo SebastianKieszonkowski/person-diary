@@ -1,13 +1,12 @@
-package pl.kurs.persondiary.dto;
+package pl.kurs.persondiary.dto.simpledto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
-@Builder
-public class FullPensionerDto implements IFullPersonDto {
+@AllArgsConstructor
+@NoArgsConstructor
+public class SimplePensionerDto implements ISimplePersonDto {
     private String type;
     private Long id;
     private String firstName;

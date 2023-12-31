@@ -5,13 +5,12 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import pl.kurs.persondiary.command.CreatePensionerCommand;
-import pl.kurs.persondiary.dto.FullPensionerDto;
-import pl.kurs.persondiary.dto.IFullPersonDto;
-import pl.kurs.persondiary.dto.ISimplePersonDto;
-import pl.kurs.persondiary.dto.SimplePensionerDto;
+import pl.kurs.persondiary.dto.fulldto.FullPensionerDto;
+import pl.kurs.persondiary.dto.fulldto.IFullPersonDto;
+import pl.kurs.persondiary.dto.simpledto.ISimplePersonDto;
+import pl.kurs.persondiary.dto.simpledto.SimplePensionerDto;
 import pl.kurs.persondiary.models.Pensioner;
 import pl.kurs.persondiary.models.Person;
-import pl.kurs.persondiary.models.PersonView;
 
 import java.util.Map;
 import java.util.Optional;
@@ -30,15 +29,15 @@ public class PensionerCreator implements PersonCreator {
 
     @Override
     public Person create(Map<String, Object> parameters) {
-        CreatePensionerCommand createPensionerCommand = new CreatePensionerCommand(
-                getStringParameter("firstName", parameters),
-                getStringParameter("lastName", parameters),
-                getStringParameter("pesel", parameters),
-                getDoubleParameter("height", parameters),
-                getDoubleParameter("weight", parameters),
-                getStringParameter("email", parameters),
-                getDoubleParameter("pension", parameters),
-                getIntegerParameter("workedYears", parameters));
+        CreatePensionerCommand createPensionerCommand = new CreatePensionerCommand(getStringParameter("firstName", parameters)
+                , getStringParameter("lastName", parameters)
+                , getStringParameter("pesel", parameters)
+                , getDoubleParameter("height", parameters)
+                , getDoubleParameter("weight", parameters)
+                , getStringParameter("email", parameters)
+                , getBirthdateFromPesel(getStringParameter("pesel", parameters))
+                , getDoubleParameter("pension", parameters)
+                , getIntegerParameter("workedYears", parameters));
 
         commandValidator(createPensionerCommand, (org.springframework.validation.Validator) validator);
         return modelMapper.map(createPensionerCommand, Pensioner.class);
@@ -49,7 +48,10 @@ public class PensionerCreator implements PersonCreator {
         Pensioner pensioner = (Pensioner) person;
         Optional.ofNullable(getStringParameter("firstName", parameters)).ifPresent(pensioner::setFirstName);
         Optional.ofNullable(getStringParameter("lastName", parameters)).ifPresent(pensioner::setLastName);
-        Optional.ofNullable(getStringParameter("pesel", parameters)).ifPresent(pensioner::setPesel);
+        Optional.ofNullable(getStringParameter("pesel", parameters)).ifPresent(x -> {
+            pensioner.setPesel(x);
+            pensioner.setBirthdate(getBirthdateFromPesel(x));
+        });
         Optional.ofNullable(getDoubleParameter("height", parameters)).ifPresent(pensioner::setHeight);
         Optional.ofNullable(getDoubleParameter("weight", parameters)).ifPresent(pensioner::setWeight);
         Optional.ofNullable(getStringParameter("email", parameters)).ifPresent(pensioner::setEmail);
@@ -60,13 +62,9 @@ public class PensionerCreator implements PersonCreator {
     }
 
     @Override
-    public IFullPersonDto createDtoFromView(PersonView personView) {
-        return modelMapper.map(personView, FullPensionerDto.class);
-    }
-
-    @Override
-    public ISimplePersonDto createSimpleDtoFromView(PersonView personView) {
-        return modelMapper.map(personView, SimplePensionerDto.class);
+    public ISimplePersonDto createSimpleDtoFromPerson(Person person) {
+        Pensioner pensioner = (Pensioner) person;
+        return modelMapper.map(pensioner, SimplePensionerDto.class);
     }
 
     @Override
@@ -76,8 +74,8 @@ public class PensionerCreator implements PersonCreator {
     }
 
     @Override
-    public Person createPersonFromView(PersonView personView) {
-        return modelMapper.map(personView, Pensioner.class);
+    public Object getEntityClass() {
+        return Pensioner.class;
     }
 
 }

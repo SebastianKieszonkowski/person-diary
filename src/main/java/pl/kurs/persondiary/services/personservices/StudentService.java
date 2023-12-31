@@ -17,11 +17,11 @@ import java.util.stream.Stream;
 public class StudentService extends AbstractGenericManagementService<Student, StudentRepositories> {
 
     private final JdbcTemplate jdbcTemplate;
-    private static final String INSERT_SQL = "insert into student (first_name, last_name," +
+    private static final String INSERT_SQL = "insert into students (first_name, last_name," +
             " pesel, height, weight, email,version, university_name, study_year, study_field, scholarship) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 
-    public StudentService(StudentRepositories repository, JdbcTemplate jdbcTemplate, StudentRepositories studentRepositories) {
+    public StudentService(StudentRepositories repository, JdbcTemplate jdbcTemplate) {
         super(repository);
         this.jdbcTemplate = jdbcTemplate;
     }
@@ -43,7 +43,7 @@ public class StudentService extends AbstractGenericManagementService<Student, St
         Stream<String> lines = new BufferedReader(new InputStreamReader((file.getInputStream()))).lines();
         lines.map(line -> line.split(","))
                 .forEach(args -> jdbcTemplate.update(INSERT_SQL, args[1], args[2], args[3], Double.parseDouble(args[4]), Double.parseDouble(args[5]),
-                        args[6], args[7], Integer.parseInt(args[8]), args[9], Double.parseDouble(args[10])));
+                        args[6], 0, args[7], Integer.parseInt(args[8]), args[9], Double.parseDouble(args[10])));
     }
 
 }

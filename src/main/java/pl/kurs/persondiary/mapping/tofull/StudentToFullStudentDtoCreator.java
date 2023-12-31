@@ -1,9 +1,9 @@
-package pl.kurs.persondiary.mapping;
+package pl.kurs.persondiary.mapping.tofull;
 
 import org.modelmapper.Converter;
 import org.modelmapper.spi.MappingContext;
 import org.springframework.stereotype.Service;
-import pl.kurs.persondiary.dto.FullStudentDto;
+import pl.kurs.persondiary.dto.fulldto.FullStudentDto;
 import pl.kurs.persondiary.models.Student;
 
 @Service
@@ -22,6 +22,7 @@ public class StudentToFullStudentDtoCreator implements Converter<Student, FullSt
                 .weight(source.getWeight())
                 .email(source.getEmail())
                 .version((source.getVersion()))
+                .birthdate(source.getBirthdate())
                 .universityName(source.getUniversityName())
                 .studyField(source.getStudyField())
                 .scholarship(source.getScholarship())

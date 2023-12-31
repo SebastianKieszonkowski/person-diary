@@ -4,28 +4,28 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
 import org.springframework.validation.Validator;
 import pl.kurs.persondiary.command.ICreatePersonCommand;
-import pl.kurs.persondiary.dto.IFullPersonDto;
-import pl.kurs.persondiary.dto.ISimplePersonDto;
+import pl.kurs.persondiary.dto.fulldto.IFullPersonDto;
+import pl.kurs.persondiary.dto.simpledto.ISimplePersonDto;
 import pl.kurs.persondiary.models.Person;
-import pl.kurs.persondiary.models.PersonView;
+import pl.kurs.persondiary.services.CommonService;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Map;
 
 public interface PersonCreator {
     String getType();
 
+    Object getEntityClass();
+
     Person create(Map<String, Object> parameters);
 
     Person update(Person person, Map<String, Object> parameters);
 
-    IFullPersonDto createDtoFromView(PersonView personView);
-
-    ISimplePersonDto createSimpleDtoFromView(PersonView personView);
+    ISimplePersonDto createSimpleDtoFromPerson(Person person);
 
     IFullPersonDto createDtoFromPerson(Person person);
-
-    Person createPersonFromView(PersonView personView);
 
     default String getStringParameter(String name, Map<String, Object> parameters) {
         return (String) parameters.get(name);
@@ -44,6 +44,17 @@ public interface PersonCreator {
         if (parameters.get(name) != null)
             date = LocalDate.parse(parameters.get(name).toString());
         return date;
+    }
+
+    default LocalDate getBirthdateFromPesel(String pesel) {
+        if (pesel != null) {
+            try {
+                return LocalDate.parse(CommonService.getBirthday(pesel), DateTimeFormatter.ISO_LOCAL_DATE);
+            } catch (DateTimeParseException e) {
+                return null;
+            }
+        }
+        return null;
     }
 
     default void commandValidator(ICreatePersonCommand createPersonCommand, Validator validator) {

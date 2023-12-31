@@ -1,7 +1,8 @@
-package pl.kurs.persondiary.dto;
+package pl.kurs.persondiary.dto.simpledto;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.hateoas.RepresentationModel;
 
@@ -9,7 +10,8 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class SimpleEmployeeDto extends RepresentationModel<SimpleEmployeeDto> implements ISimplePersonDto {
     private String type;
     private Long id;
@@ -24,4 +26,5 @@ public class SimpleEmployeeDto extends RepresentationModel<SimpleEmployeeDto> im
     private String position;
     private Double salary;
     private String positionsHistory;
+
 }

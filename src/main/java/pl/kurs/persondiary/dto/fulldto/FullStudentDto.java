@@ -1,16 +1,15 @@
-package pl.kurs.persondiary.dto;
+package pl.kurs.persondiary.dto.fulldto;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.hateoas.RepresentationModel;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @Builder
-public class FullEmployeeDto extends RepresentationModel<FullEmployeeDto> implements IFullPersonDto {
+public class FullStudentDto implements IFullPersonDto {
     private String type;
     private Long id;
     private String firstName;
@@ -19,9 +18,10 @@ public class FullEmployeeDto extends RepresentationModel<FullEmployeeDto> implem
     private Double height;
     private Double weight;
     private String email;
+    private LocalDate birthdate;
     private Integer version;
-    private LocalDate hireDate;
-    private String position;
-    private Double salary;
-    private String positionsHistory;
+    private String universityName;
+    private Integer studyYear;
+    private String studyField;
+    private Double scholarship;
 }

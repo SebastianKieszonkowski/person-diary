@@ -1,10 +1,7 @@
 package pl.kurs.persondiary.command;
 
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.PastOrPresent;
-import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,6 +27,8 @@ public class CreateEmployeeCommand implements ICreatePersonCommand {
     private Double weight;
     @Email
     private String email;
+    @Past
+    private LocalDate birthdate;
     @PastOrPresent
     private LocalDate hireDate;
     @NotBlank

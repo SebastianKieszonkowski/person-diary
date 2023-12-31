@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -22,8 +24,9 @@ public class Pensioner extends Person {
     @Column(nullable = false)
     private Integer workedYears;
 
-    public Pensioner(String firstName, String lastName, String pesel, Double height, Double weight, String email, Integer version, Double pension, Integer workedYears) {
-        super(firstName, lastName, pesel, height, weight, email, version);
+    public Pensioner(String firstName, String lastName, String pesel, Double height, Double weight, String email,
+                     LocalDate birthdate, Integer version, Double pension, Integer workedYears) {
+        super(firstName, lastName, pesel, height, weight, email, birthdate, version);
         this.pension = pension;
         this.workedYears = workedYears;
     }
