@@ -5,6 +5,6 @@ import pl.kurs.persondiary.models.Pensioner;
 
 import java.util.Optional;
 
-public interface PensionerRepositories extends JpaRepository<Pensioner, Long> {
+public interface PensionerRepository extends JpaRepository<Pensioner, Long> {
     Optional<Pensioner> getByPesel(String pesel);
 }

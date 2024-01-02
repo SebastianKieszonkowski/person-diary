@@ -4,12 +4,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.models.Pensioner;
-import pl.kurs.persondiary.repositories.PensionerRepositories;
+import pl.kurs.persondiary.repositories.PensionerRepository;
 
 @Service
-public class PensionerService extends AbstractGenericManagementService<Pensioner, PensionerRepositories> {
+public class PensionerService extends AbstractGenericManagementService<Pensioner, PensionerRepository> {
 
-    public PensionerService(PensionerRepositories repository) {
+    public PensionerService(PensionerRepository repository) {
         super(repository);
     }
 

@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-public interface EmployeePositionRepositories extends JpaRepository<EmployeePosition, Long> {
+public interface EmployeePositionRepository extends JpaRepository<EmployeePosition, Long> {
 
     @Query("SELECT ep FROM EmployeePosition ep " +
             "WHERE (ep.startDateOnPosition BETWEEN :startNewDate AND :endNewDate " +

@@ -7,21 +7,21 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.models.Student;
-import pl.kurs.persondiary.repositories.StudentRepositories;
+import pl.kurs.persondiary.repositories.StudentRepository;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.stream.Stream;
 
 @Service
-public class StudentService extends AbstractGenericManagementService<Student, StudentRepositories> {
+public class StudentService extends AbstractGenericManagementService<Student, StudentRepository> {
 
     private final JdbcTemplate jdbcTemplate;
     private static final String INSERT_SQL = "insert into students (first_name, last_name," +
             " pesel, height, weight, email,version, university_name, study_year, study_field, scholarship) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 
-    public StudentService(StudentRepositories repository, JdbcTemplate jdbcTemplate) {
+    public StudentService(StudentRepository repository, JdbcTemplate jdbcTemplate) {
         super(repository);
         this.jdbcTemplate = jdbcTemplate;
     }

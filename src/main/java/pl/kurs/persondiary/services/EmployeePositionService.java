@@ -4,16 +4,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.kurs.persondiary.exeptions.ResourceNotFoundException;
 import pl.kurs.persondiary.models.EmployeePosition;
-import pl.kurs.persondiary.repositories.EmployeePositionRepositories;
+import pl.kurs.persondiary.repositories.EmployeePositionRepository;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class EmployeePositionService {
-    private final EmployeePositionRepositories repository;
+    private final EmployeePositionRepository repository;
 
-    public EmployeePositionService(EmployeePositionRepositories repositories) {
+    public EmployeePositionService(EmployeePositionRepository repositories) {
         this.repository = repositories;
     }
 

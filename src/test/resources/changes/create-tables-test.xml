@@ -254,4 +254,29 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="20240101_001_sk" author="Sebastian">
+        <createTable tableName="imports">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="creation_time" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_time" type="datetime"/>
+            <column name="finish_time" type="datetime"/>
+            <column name="status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="processed_lines" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="failure_lines" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="task" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>

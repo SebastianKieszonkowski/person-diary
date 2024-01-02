@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
@@ -17,7 +18,12 @@ import pl.kurs.persondiary.services.EmployeePositionService;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
 
+import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest(classes = PersonDiaryApplication.class, properties = "src/test/resources/application.properties")
@@ -209,37 +215,94 @@ class ImportControllerTest {
                 Files.readAllBytes(secondFile.toPath()));
 
         //when
-//        Long personViewSizeBeforeImport = personRepository.getTableSize();
-        MvcResult firstImportResult = postman.perform(MockMvcRequestBuilders.multipart("/import/upload")
-                .file(firstMockMultipartFile)
-                .contentType(MediaType.MULTIPART_FORM_DATA)
-                .header("Authorization", "Bearer " + adminToken))
-                .andExpect(status().isOk())
-                .andReturn();
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        CountDownLatch latch = new CountDownLatch(2);
 
-        String firstResponseString = firstImportResult.getResponse().getContentAsString();
-        String firstTaskId = objectMapper.readTree(firstResponseString).get("status").textValue().substring(38);
+        AtomicBoolean isOkReceived = new AtomicBoolean(false);
+        AtomicBoolean isConflictReceived = new AtomicBoolean(false);
 
-        postman.perform(MockMvcRequestBuilders.multipart("/import/upload")
-                .file(secondMockMultipartFile)
-                .contentType(MediaType.MULTIPART_FORM_DATA)
-                .header("Authorization", "Bearer " + adminToken))
-                .andExpect(status().isConflict())
-                .andReturn();
-
-        String firstImportStatus = null;
-        for (int i = 0; i < 10; i++) {
-            Thread.sleep(1000);
-            MvcResult firstStatusResult = postman.perform(MockMvcRequestBuilders.get("/import/status/" + firstTaskId)
-                    .header("Authorization", "Bearer " + adminToken))
-                    .andExpect(status().isOk())
-                    .andReturn();
-            String firstStatusResponse = firstStatusResult.getResponse().getContentAsString();
-            firstImportStatus = objectMapper.readTree(firstStatusResponse).get("status").textValue();
-            if (firstImportStatus.equals("Completed")) {
-                break;
+        Runnable firstTask = () -> {
+            try {
+                postman.perform(MockMvcRequestBuilders.multipart("/import/upload")
+                        .file(firstMockMultipartFile)
+                        .contentType(MediaType.MULTIPART_FORM_DATA)
+                        .header("Authorization", "Bearer " + adminToken))
+                        .andExpect(result -> {
+                            if (result.getResponse().getStatus() == HttpStatus.OK.value()) {
+                                isOkReceived.set(true);
+                            } else if (result.getResponse().getStatus() == HttpStatus.CONFLICT.value()) {
+                                isConflictReceived.set(true);
+                            }
+                        });
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                latch.countDown();
             }
-        }
+        };
+
+        Runnable secondTask = () -> {
+            try {
+                postman.perform(MockMvcRequestBuilders.multipart("/import/upload")
+                        .file(secondMockMultipartFile)
+                        .contentType(MediaType.MULTIPART_FORM_DATA)
+                        .header("Authorization", "Bearer " + adminToken))
+                        .andExpect(result -> {
+                            if (result.getResponse().getStatus() == HttpStatus.OK.value()) {
+                                isOkReceived.set(true);
+                            } else if (result.getResponse().getStatus() == HttpStatus.CONFLICT.value()) {
+                                isConflictReceived.set(true);
+                            }
+                        });
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                latch.countDown();
+            }
+        };
+
+        executorService.submit(firstTask);
+        executorService.submit(secondTask);
+
+        latch.await();
+        executorService.shutdown();
+
+        // then
+        assertTrue(isOkReceived.get());
+        assertTrue(isConflictReceived.get());
+//        Long personViewSizeBeforeImport = personRepository.getTableSize();
+
+//        MvcResult firstImportResult = postman.perform(MockMvcRequestBuilders.multipart("/import/upload")
+//                .file(firstMockMultipartFile)
+//                .contentType(MediaType.MULTIPART_FORM_DATA)
+//                .header("Authorization", "Bearer " + adminToken))
+//                .andExpect(status().isOk())
+//                .andReturn();
+//
+//        String firstResponseString = firstImportResult.getResponse().getContentAsString();
+//        String firstTaskId = objectMapper.readTree(firstResponseString).get("status").textValue().substring(38);
+//
+//        postman.perform(MockMvcRequestBuilders.multipart("/import/upload")
+//                .file(secondMockMultipartFile)
+//                .contentType(MediaType.MULTIPART_FORM_DATA)
+//                .header("Authorization", "Bearer " + adminToken))
+//                .andExpect(status().isConflict())
+//                .andReturn();
+//
+//        String firstImportStatus = null;
+//        for (int i = 0; i < 10; i++) {
+//            Thread.sleep(1000);
+//            MvcResult firstStatusResult = postman.perform(MockMvcRequestBuilders.get("/import/status/" + firstTaskId)
+//                    .header("Authorization", "Bearer " + adminToken))
+//                    .andExpect(status().isOk())
+//                    .andReturn();
+//            String firstStatusResponse = firstStatusResult.getResponse().getContentAsString();
+//            firstImportStatus = objectMapper.readTree(firstStatusResponse).get("status").textValue();
+//            if (firstImportStatus.equals("Completed")) {
+//                break;
+//            }
+//        }
+
         // then
 //        Long personViewSizeAfterImport = personRepository.getTableSize();
 //        Long personViewExpectedSize = personViewSizeBeforeImport + 1000L;

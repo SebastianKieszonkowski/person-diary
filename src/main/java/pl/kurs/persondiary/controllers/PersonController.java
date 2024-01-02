@@ -35,15 +35,6 @@ public class PersonController {
         return new ResponseEntity<>(persons, HttpStatus.OK);
     }
 
-//    @GetMapping()
-//    public ResponseEntity<List<ISimplePersonDto>> getPersons(FindPersonQuery query, @PageableDefault Pageable pageable) {
-//        List<PersonView> personViewList = personService.findPersonByParameters(query, pageable);
-//        List<ISimplePersonDto> personDtoList = personViewList.stream()
-//                .map(personFactory::createSimpleDtoFromView)
-//                .collect(Collectors.toList());
-//        return new ResponseEntity<>(personDtoList, HttpStatus.OK);
-//    }
-
     @PostMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<IFullPersonDto> createPerson(@RequestBody @Valid CreatePersonCommand createPersonCommand) {

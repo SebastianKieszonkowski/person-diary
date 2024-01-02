@@ -34,7 +34,6 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/
             <column name="role_id" type="integer">
                 <constraints nullable="false"/>
             </column>
-            <!-- <primaryKey name="pk_user_roles" columnNames="id_user, role_id"/> -->
         </createTable>
 
         <addForeignKeyConstraint constraintName="fk_user_roles_users"
@@ -307,6 +306,43 @@ http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/
         <addForeignKeyConstraint constraintName="fk_employee_position_employee"
                                  baseTableName="positions" baseColumnNames="employee_id"
                                  referencedTableName="employees" referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="20231231_004_sk" author="Sebastian">
+        <createTable tableName="current_import">
+            <column name="import_id" type="varchar(255)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20231231_005_sk" author="Sebastian">
+        <insert tableName="current_import">
+            <column name="import_id" value="null"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="20240101_001_sk" author="Sebastian">
+        <createTable tableName="imports">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="creation_time" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_time" type="datetime"/>
+            <column name="finish_time" type="datetime"/>
+            <column name="status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="processed_lines" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="failure_lines" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="task" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
     </changeSet>
 
 </databaseChangeLog>
