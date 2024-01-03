@@ -20,4 +20,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     @Query("SELECT e FROM Employee e WHERE e.pesel = :pesel")
     Optional<Employee> getByPesel(String pesel);
+
+    boolean existsByPesel(String pesel);
+
 }

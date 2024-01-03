@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Setter
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 @ToString
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)

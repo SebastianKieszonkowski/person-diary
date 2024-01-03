@@ -13,15 +13,15 @@ public class PensionerToSimplePensionerDtoCreator implements Converter<Pensioner
     public SimplePensionerDto convert(MappingContext<Pensioner, SimplePensionerDto> mappingContext) {
         Pensioner source = mappingContext.getSource();
         return new SimplePensionerDto("pensioner"
-                ,source.getId()
-                ,source.getFirstName()
-                ,source.getLastName()
-                ,source.getPesel()
-                ,source.getHeight()
-                ,source.getWeight()
-                ,source.getEmail()
-                ,source.getVersion()
-                ,source.getPension()
-                ,source.getWorkedYears());
+                , source.getId()
+                , source.getFirstName()
+                , source.getLastName()
+                , source.getPesel()
+                , source.getHeight()
+                , source.getWeight()
+                , source.getEmail()
+                , source.getVersion()
+                , source.getPension()
+                , source.getWorkedYears());
     }
 }

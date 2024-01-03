@@ -20,6 +20,13 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler({ClassCastException.class})
+    public ResponseEntity<ExceptionResponseDto> handleImportConcurrencyException(ClassCastException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                new ExceptionResponseDto(List.of(e.getMessage()), "BAD_REQUEST", LocalDateTime.now())
+        );
+    }
+
     @ExceptionHandler({ImportConcurrencyException.class})
     public ResponseEntity<ExceptionResponseDto> handleImportConcurrencyException(ImportConcurrencyException e) {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(

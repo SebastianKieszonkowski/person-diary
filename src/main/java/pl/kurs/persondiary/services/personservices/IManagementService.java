@@ -19,4 +19,8 @@ public interface IManagementService<T> {
     String getType();
 
     void deleteAll();
+
+    boolean existsByPesel(String pesel);
+
+    Long getSize();
 }

@@ -95,12 +95,6 @@ Employee,NameEmp31,LastSTEmp31,23312216185,1.8727748804496598,74,NameEmp31.lastn
 Pensioner,NamePen31,LastSTPen31,23312220388,1.7395041623233956,69,NamePen31.lastname@onet.pl,7230,15
 Student,NameStu31,LastSTStu31,23312232105,1.8293225367055992,95,NameStu31.lastname@onet.pl,Uczelnia_31,1,Nazwa kierunku_31,4175
 Employee,NameEmp32,LastSTEmp32,23312115274,1.739242784443157,69,NameEmp32.lastname@onet.pl,1961-05-05,monter elektryczny,14879
-Pensioner,NamePen32,LastSTPen32,23312122800,1.7605535959347227,95,NamePen32.lastname@onet.pl,4326,15
-Student,NameStu32,LastSTStu32,23312139732,1.8442239168443357,53,NameStu32.lastname@onet.pl,Uczelnia_32,3,Nazwa kierunku_32,2581
-Employee,NameEmp33,LastSTEmp33,23312015960,1.5540810572268597,56,NameEmp33.lastname@onet.pl,1991-04-02,specjalista ds.it,14167
-Pensioner,NamePen33,LastSTPen33,23312023256,1.9305987191222806,93,NamePen33.lastname@onet.pl,5861,7
-Student,NameStu33,LastSTStu33,23312037331,1.8688381087472599,95,NameStu33.lastname@onet.pl,Uczelnia_33,2,Nazwa kierunku_33,4461
-Employee,NameEmp34,LastSTEmp34,23311918063,1.7297015878063413,70,NameEmp34.lastname@onet.pl,1964-01-07,praktykant,10166
 Pensioner,NamePen34,LastSTPen34,23311921962,1.590153720207999,70,NamePen34.lastname@onet.pl,5095,47
 Student,NameStu34,LastSTStu34,23311932275,1.7284213743734065,84,NameStu34.lastname@onet.pl,Uczelnia_34,2,Nazwa kierunku_34,2298
 Employee,NameEmp35,LastSTEmp35,23311810378,1.9068905184852603,64,NameEmp35.lastname@onet.pl,1980-05-18,architekt,11376
@@ -998,3 +992,9 @@ Employee,NameEmp332,LastSTEmp332,23212513681,1.6521439860985394,86,NameEmp332.la
 Pensioner,NamePen332,LastSTPen332,23212529533,1.9882203912176126,53,NamePen332.lastname@onet.pl,6782,44
 Student,NameStu332,LastSTStu332,23212532068,1.6081772108932646,96,NameStu332.lastname@onet.pl,Uczelnia_332,3,Nazwa kierunku_332,1525
 Employee,NameEmp333,LastSTEmp333,23212411686,1.6310365125575037,59,NameEmp333.lastname@onet.pl,1973-06-13,kierownik seals,12031
+Pensioner,NamePen33,LastSTPen33,23312023256,1.9305987191222806,93,NamePen33.lastname@onet.pl,5861,7
+Student,NameStu33,LastSTStu33,23312037331,1.8688381087472599,95,NameStu33.lastname@onet.pl,Uczelnia_33,2,Nazwa kierunku_33,4461
+Employee,NameEmp34,LastSTEmp34,23311918063,1.7297015878063413,70,NameEmp34.lastname@onet.pl,1964-01-07,praktykant,10166
+Pensioner,NamePen32,LastSTPen32,23312122800,1.7605535959347227,95,NamePen32.lastname@onet.pl,4326,15
+Student,NameStu32,LastSTStu32,23312139732,1.8442239168443357,53,NameStu32.lastname@onet.pl,Uczelnia_32,3,Nazwa kierunku_32,2581
+Employee,NameEmp33,LastSTEmp33,23312015960,1.5540810572268597,56,NameEmp33.lastname@onet.pl,1991-04-02,specjalista ds.it,14167

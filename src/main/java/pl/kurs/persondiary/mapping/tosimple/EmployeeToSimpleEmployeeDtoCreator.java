@@ -18,18 +18,18 @@ public class EmployeeToSimpleEmployeeDtoCreator implements Converter<Employee, S
         Employee source = mappingContext.getSource();
         SimpleEmployeeDto dto = new SimpleEmployeeDto(
                 "employee"
-                ,source.getId()
-                ,source.getFirstName()
-                ,source.getLastName()
-                ,source.getPesel()
-                ,source.getHeight()
-                ,source.getWeight()
-                ,source.getEmail()
-                ,source.getVersion()
-                ,source.getHireDate()
-                ,source.getPosition()
-                ,source.getSalary()
-                ,String.valueOf(source.getEmployeePositions().size()));
+                , source.getId()
+                , source.getFirstName()
+                , source.getLastName()
+                , source.getPesel()
+                , source.getHeight()
+                , source.getWeight()
+                , source.getEmail()
+                , source.getVersion()
+                , source.getHireDate()
+                , source.getPosition()
+                , source.getSalary()
+                , String.valueOf(source.getEmployeePositions().size()));
 
         dto.add(linkTo(methodOn(EmployeeController.class).getAllEmployeesPosition(source.getPesel())).withRel("employee-positions"));
         dto.add(linkTo(methodOn(EmployeeController.class).createEmployeePosition(source.getPesel(), null)).withRel("create-employee-position"));

@@ -87,4 +87,8 @@ public class EmployeeService extends AbstractGenericManagementService<Employee, 
         return employeePositionService.add(existPosition);
     }
 
+    @Override
+    public boolean existsByPesel(String pesel) {
+        return repository.existsByPesel(pesel);
+    }
 }

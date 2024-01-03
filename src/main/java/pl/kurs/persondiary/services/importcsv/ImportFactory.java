@@ -20,7 +20,7 @@ public class ImportFactory {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void importPerson(String[] args){
+    public void importPerson(String[] args) {
         imports.get(args[0].toLowerCase(Locale.ROOT)).importPerson(args, jdbcTemplate);
     }
 }

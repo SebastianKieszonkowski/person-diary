@@ -30,4 +30,8 @@ public class PensionerService extends AbstractGenericManagementService<Pensioner
                 .orElseThrow(() -> new ResourceNotFoundException("Not found entity with pesel: " + pesel));
     }
 
+    @Override
+    public boolean existsByPesel(String pesel) {
+        return repository.existsByPesel(pesel);
+    }
 }

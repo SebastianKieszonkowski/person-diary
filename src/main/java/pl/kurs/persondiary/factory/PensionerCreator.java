@@ -4,7 +4,8 @@ import jakarta.validation.Validator;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import pl.kurs.persondiary.command.CreatePensionerCommand;
+import pl.kurs.persondiary.command.personcreate.CreatePensionerCommand;
+import pl.kurs.persondiary.command.personupdate.UpdatePensionerCommand;
 import pl.kurs.persondiary.dto.fulldto.FullPensionerDto;
 import pl.kurs.persondiary.dto.fulldto.IFullPersonDto;
 import pl.kurs.persondiary.dto.simpledto.ISimplePersonDto;
@@ -46,18 +47,26 @@ public class PensionerCreator implements PersonCreator {
     @Override
     public Person update(Person person, Map<String, Object> parameters) {
         Pensioner pensioner = (Pensioner) person;
-        Optional.ofNullable(getStringParameter("firstName", parameters)).ifPresent(pensioner::setFirstName);
-        Optional.ofNullable(getStringParameter("lastName", parameters)).ifPresent(pensioner::setLastName);
-        Optional.ofNullable(getStringParameter("pesel", parameters)).ifPresent(x -> {
-            pensioner.setPesel(x);
-            pensioner.setBirthdate(getBirthdateFromPesel(x));
-        });
-        Optional.ofNullable(getDoubleParameter("height", parameters)).ifPresent(pensioner::setHeight);
-        Optional.ofNullable(getDoubleParameter("weight", parameters)).ifPresent(pensioner::setWeight);
-        Optional.ofNullable(getStringParameter("email", parameters)).ifPresent(pensioner::setEmail);
-        Optional.ofNullable(getIntegerParameter("version", parameters)).ifPresent(pensioner::setVersion);
-        Optional.ofNullable(getDoubleParameter("pension", parameters)).ifPresent(pensioner::setPension);
-        Optional.ofNullable(getIntegerParameter("workedYears", parameters)).ifPresent(pensioner::setWorkedYears);
+
+        UpdatePensionerCommand updatePensioner = new UpdatePensionerCommand(
+                Optional.ofNullable(getStringParameter("firstName", parameters)).orElse(pensioner.getFirstName()),
+                Optional.ofNullable(getStringParameter("lastName", parameters)).orElse(pensioner.getLastName()),
+                Optional.ofNullable(getDoubleParameter("height", parameters)).orElse(pensioner.getHeight()),
+                Optional.ofNullable(getDoubleParameter("weight", parameters)).orElse(pensioner.getWeight()),
+                Optional.ofNullable(getStringParameter("email", parameters)).orElse(pensioner.getEmail()),
+                Optional.ofNullable(getDoubleParameter("pension", parameters)).orElse(pensioner.getPension()),
+                Optional.ofNullable(getIntegerParameter("workedYears", parameters)).orElse(pensioner.getWorkedYears()));
+
+        commandValidator(updatePensioner, (org.springframework.validation.Validator) validator);
+
+        pensioner.setFirstName(updatePensioner.getFirstName());
+        pensioner.setLastName(updatePensioner.getLastName());
+        pensioner.setHeight(updatePensioner.getHeight());
+        pensioner.setWeight(updatePensioner.getWeight());
+        pensioner.setEmail(updatePensioner.getEmail());
+        pensioner.setPension(updatePensioner.getPension());
+        pensioner.setWorkedYears(updatePensioner.getWorkedYears());
+
         return pensioner;
     }
 

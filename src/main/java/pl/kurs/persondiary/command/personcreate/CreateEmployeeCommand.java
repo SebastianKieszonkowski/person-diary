@@ -1,18 +1,20 @@
-package pl.kurs.persondiary.command;
+package pl.kurs.persondiary.command.personcreate;
 
 
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import pl.kurs.persondiary.command.ICreatePersonCommand;
 import pl.kurs.persondiary.validations.Pesel;
+import pl.kurs.persondiary.validations.PositionName;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @AllArgsConstructor
-public class CreatePensionerCommand implements ICreatePersonCommand {
+public class CreateEmployeeCommand implements ICreatePersonCommand {
 
     @NotBlank
     private String firstName;
@@ -28,8 +30,12 @@ public class CreatePensionerCommand implements ICreatePersonCommand {
     private String email;
     @Past
     private LocalDate birthdate;
+    @PastOrPresent
+    private LocalDate hireDate;
+    @NotBlank
+    @PositionName
+    private String position;
     @Positive
-    private Double pension;
-    @PositiveOrZero
-    private Integer workedYears;
+    private Double salary;
+
 }

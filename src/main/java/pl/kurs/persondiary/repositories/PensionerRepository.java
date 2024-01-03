@@ -7,4 +7,7 @@ import java.util.Optional;
 
 public interface PensionerRepository extends JpaRepository<Pensioner, Long> {
     Optional<Pensioner> getByPesel(String pesel);
+
+    boolean existsByPesel(String pesel);
+
 }

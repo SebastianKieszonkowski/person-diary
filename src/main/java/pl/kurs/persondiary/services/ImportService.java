@@ -45,9 +45,10 @@ public class ImportService {
         AtomicLong counter = new AtomicLong(0);
         try {
             try (Stream<String> lines = new BufferedReader(new InputStreamReader(file.getInputStream())).lines()) {
-                lines.forEach(line -> importPerson(line, counter, taskId));
+                lines.forEach(line -> importPerson(line, counter));
                 importProgressService.completeImport();
             } catch (IOException | DuplicateKeyException e) {
+                importProgressService.logException(taskId, e);
                 throw new RuntimeException("Error processing the file", e);
             }
         } catch (Exception e) {
@@ -56,11 +57,10 @@ public class ImportService {
         }
     }
 
-    private void importPerson(String line, AtomicLong counter, String taskId) {
+    private void importPerson(String line, AtomicLong counter) {
         String[] args = line.split(",");
         importFactory.importPerson(args);
         Long processedLines = counter.incrementAndGet();
         importProgressService.updateProgress(processedLines);
     }
-
 }

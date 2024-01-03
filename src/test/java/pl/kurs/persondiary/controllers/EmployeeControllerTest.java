@@ -90,8 +90,8 @@ class EmployeeControllerTest {
         String employeePositionJson = objectMapper.writeValueAsString(createEmployeePositionCommand);
 
         //when
-//        boolean isExist = personService.isPersonExists(pesel, "employee");
-//        assertEquals(isExist, true);
+        boolean isExist = personService.isPersonExists(pesel, "employee");
+        assertEquals(isExist, true);
 
         postman.perform(MockMvcRequestBuilders.post("/employees/" + pesel + "/position")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -113,8 +113,8 @@ class EmployeeControllerTest {
         String employeePositionJson = objectMapper.writeValueAsString(createEmployeePositionCommand);
 
         //when
-//        boolean isExist = personService.isPersonExists(pesel, "employee");
-//        assertEquals(isExist, true);
+        boolean isExist = personService.isPersonExists(pesel, "employee");
+        assertEquals(isExist, true);
 
         postman.perform(MockMvcRequestBuilders.post("/employees/" + pesel + "/position")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -136,8 +136,8 @@ class EmployeeControllerTest {
         String employeePositionJson = objectMapper.writeValueAsString(createEmployeePositionCommand);
 
         //when
-//        boolean isExist = personService.isPersonExists(pesel, "employee");
-//        assertEquals(isExist, true);
+        boolean isExist = personService.isPersonExists(pesel, "employee");
+        assertEquals(isExist, true);
 
         postman.perform(MockMvcRequestBuilders.post("/employees/" + pesel + "/position")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -159,8 +159,8 @@ class EmployeeControllerTest {
         String employeePositionJson = objectMapper.writeValueAsString(createEmployeePositionCommand);
 
         //when
-//        boolean isExist = personService.isPersonExists(pesel, "employee");
-//        assertEquals(isExist, true);
+        boolean isExist = personService.isPersonExists(pesel, "employee");
+        assertEquals(isExist, true);
 
         MvcResult newPositionMvc = postman.perform(MockMvcRequestBuilders.post("/employees/" + pesel + "/position")
                 .header("Authorization", "Bearer " + employeeToken)

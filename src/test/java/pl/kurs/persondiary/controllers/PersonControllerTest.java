@@ -14,13 +14,12 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import pl.kurs.persondiary.PersonDiaryApplication;
-import pl.kurs.persondiary.command.CreateEmployeeCommand;
-import pl.kurs.persondiary.command.CreatePensionerCommand;
+import pl.kurs.persondiary.command.personcreate.CreateEmployeeCommand;
+import pl.kurs.persondiary.command.personcreate.CreatePensionerCommand;
 import pl.kurs.persondiary.command.CreatePersonCommand;
-import pl.kurs.persondiary.command.CreateStudentCommand;
+import pl.kurs.persondiary.command.personcreate.CreateStudentCommand;
 import pl.kurs.persondiary.models.Student;
 import pl.kurs.persondiary.services.CommonService;
-import pl.kurs.persondiary.services.EmployeePositionService;
 import pl.kurs.persondiary.services.PersonService;
 
 import java.time.LocalDate;
@@ -31,6 +30,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -44,14 +44,8 @@ class PersonControllerTest {
     @Autowired
     private PersonService personService;
 
-//    @Autowired
-//    private PersonRepository personRepository;
-
     @Autowired
     private ObjectMapper objectMapper;
-
-    @Autowired
-    private EmployeePositionService employeePositionService;
 
     public String getAdminToken() throws Exception {
         String jsonRequest = "{\"username\":\"AdamAdmin\", \"password\":\"admin\"}";
@@ -132,7 +126,7 @@ class PersonControllerTest {
     @Test
     @WithMockUser(username = "JanekUser", roles = {"USER"})
     void getPersonsShouldReturnFemaleAgeBetween25And30YearsOldAndStudentType() throws Exception {
-        postman.perform(MockMvcRequestBuilders.get("/persons?gender=female&ageFrom=25&ageTo=30&type=stud"))
+        postman.perform(MockMvcRequestBuilders.get("/persons?type=student&gender=female&ageFrom=25&ageTo=30"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].type").value("student"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].firstName").value("Anna"))
@@ -153,7 +147,8 @@ class PersonControllerTest {
     void getPersonsShouldReturn10people() throws Exception {
         postman.perform(MockMvcRequestBuilders.get("/persons"))
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(10));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.pageable.pageNumber").value(0))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.pageable.pageSize").value(10));
     }
 
     @Test
@@ -165,7 +160,7 @@ class PersonControllerTest {
                 .header("Authorization", "Bearer " + userToken))
                 .andExpect(status().isBadRequest())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.errorMessages").isArray())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.errorMessages[0]").value(Matchers.containsString("Field: salaryTo / rejected value: 'duzo'")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.errorMessages[0]").value(Matchers.containsString("For input string: \"duzo\"")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.errorCode").value("BAD_REQUEST"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.timestamp").exists());
     }
@@ -201,8 +196,8 @@ class PersonControllerTest {
         createPersonCommand.setParameters(studentMap);
         String studentJson = objectMapper.writeValueAsString(createPersonCommand);
         //when
-//        boolean isExist = personService.isPersonExists(student.getPesel(), type);
-//        assertEquals(isExist, false);
+        boolean isExist = personService.isPersonExists(student.getPesel(), type);
+        assertEquals(isExist, false);
 
         postman.perform(MockMvcRequestBuilders.post("/persons")
                 .header("Authorization", "Bearer " + adminToken)
@@ -252,8 +247,8 @@ class PersonControllerTest {
         createPersonCommand.setParameters(pensionerMap);
         String studentJson = objectMapper.writeValueAsString(createPersonCommand);
         //when
-//        boolean isExist = personService.isPersonExists(pensioner.getPesel(), type);
-//        assertEquals(isExist, false);
+        boolean isExist = personService.isPersonExists(pensioner.getPesel(), type);
+        assertEquals(isExist, false);
 
         postman.perform(MockMvcRequestBuilders.post("/persons")
                 .header("Authorization", "Bearer " + adminToken)
@@ -300,8 +295,8 @@ class PersonControllerTest {
         createPersonCommand.setParameters(employeeMap);
         String studentJson = objectMapper.writeValueAsString(createPersonCommand);
         //when
-//        boolean isExist = personService.isPersonExists(employee.getPesel(), type);
-//        assertEquals(isExist, false);
+        boolean isExist = personService.isPersonExists(employee.getPesel(), type);
+        assertEquals(isExist, false);
 
         postman.perform(MockMvcRequestBuilders.post("/persons")
                 .header("Authorization", "Bearer " + adminToken)
@@ -349,8 +344,8 @@ class PersonControllerTest {
         createPersonCommand.setParameters(studentMap);
         String studentJson = objectMapper.writeValueAsString(createPersonCommand);
         //when
-//        boolean isExist = personService.isPersonExists(student.getPesel(), type);
-//        assertEquals(isExist, true);
+        boolean isExist = personService.isPersonExists(student.getPesel(), type);
+        assertEquals(isExist, true);
 
         postman.perform(MockMvcRequestBuilders.post("/persons")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -385,8 +380,8 @@ class PersonControllerTest {
         createPersonCommand.setParameters(studentMap);
         String studentJson = objectMapper.writeValueAsString(createPersonCommand);
         //when
-//        boolean isExist = personService.isPersonExists(student.getPesel(), type);
-//        assertEquals(isExist, false);
+        boolean isExist = personService.isPersonExists(student.getPesel(), type);
+        assertEquals(isExist, false);
 
         postman.perform(MockMvcRequestBuilders.post("/persons")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -421,8 +416,6 @@ class PersonControllerTest {
         createPersonCommand.setParameters(studentMap);
         String studentJson = objectMapper.writeValueAsString(createPersonCommand);
         //when
-//        boolean isExist = personService.isPersonExists(student.getPesel(), type);
-//        assertEquals(isExist, false);
 
         postman.perform(MockMvcRequestBuilders.post("/persons")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -456,8 +449,8 @@ class PersonControllerTest {
         createPersonCommand.setParameters(employeeMap);
         String studentJson = objectMapper.writeValueAsString(createPersonCommand);
         //when
-//        boolean isExist = personService.isPersonExists(employee.getPesel(), type);
-//        assertEquals(isExist, false);
+        boolean isExist = personService.isPersonExists(employee.getPesel(), type);
+        assertEquals(isExist, false);
 
         postman.perform(MockMvcRequestBuilders.post("/persons")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -492,8 +485,8 @@ class PersonControllerTest {
         createPersonCommand.setParameters(employeeMap);
         String studentJson = objectMapper.writeValueAsString(createPersonCommand);
         //when
-//        boolean isExist = personService.isPersonExists(employee.getPesel(), type);
-//        assertEquals(isExist, false);
+        boolean isExist = personService.isPersonExists(employee.getPesel(), type);
+        assertEquals(isExist, false);
 
         postman.perform(MockMvcRequestBuilders.post("/persons")
                 .header("Authorization", "Bearer " + userToken)
@@ -523,8 +516,8 @@ class PersonControllerTest {
         createPersonCommand.setParameters(employeeMap);
         String studentJson = objectMapper.writeValueAsString(createPersonCommand);
         //when
-//        boolean isExist = personService.isPersonExists(employee.getPesel(), type);
-//        assertEquals(isExist, false);
+        boolean isExist = personService.isPersonExists(employee.getPesel(), type);
+        assertEquals(isExist, false);
 
         postman.perform(MockMvcRequestBuilders.post("/persons")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -556,8 +549,8 @@ class PersonControllerTest {
         createPersonCommand.setParameters(studentMap);
         String studentJson = objectMapper.writeValueAsString(createPersonCommand);
         //when
-//        boolean isExist = personService.isPersonExists(student.getPesel(), type);
-//        assertEquals(isExist, true);
+        boolean isExist = personService.isPersonExists(student.getPesel(), type);
+        assertEquals(isExist, true);
 
         Student student1 = (Student) personService.getPersonByTypeAndPesel("89110459476", "student");
         System.out.println(student1);
@@ -593,7 +586,7 @@ class PersonControllerTest {
         CreatePensionerCommand pensioner = new CreatePensionerCommand("Tomasz", "Słowik", "61100992655", 1.79, 72.0,
                 "tomasz.slowik@gmail.com", LocalDate.of(1961,10,9), 5500.0, 33);
         //changes
-        pensioner.setEmail("t.slowik@gmail@onet.pl");
+        pensioner.setEmail("t.slowik@onet.pl");
         pensioner.setPension(5700.69);
 
         String type = "pensioner";
@@ -605,8 +598,8 @@ class PersonControllerTest {
         createPersonCommand.setParameters(pensionerMap);
         String studentJson = objectMapper.writeValueAsString(createPersonCommand);
         //when
-//        boolean isExist = personService.isPersonExists(pensioner.getPesel(), type);
-//        assertEquals(isExist, true);
+        boolean isExist = personService.isPersonExists(pensioner.getPesel(), type);
+        assertEquals(isExist, true);
 
         postman.perform(MockMvcRequestBuilders.patch("/persons/" + pensioner.getPesel())
                 .header("Authorization", "Bearer " + adminToken)
@@ -651,8 +644,8 @@ class PersonControllerTest {
         createPersonCommand.setParameters(employeeMap);
         String studentJson = objectMapper.writeValueAsString(createPersonCommand);
         //when
-//        boolean isExist = personService.isPersonExists(employee.getPesel(), type);
-//        assertEquals(isExist, true);
+        boolean isExist = personService.isPersonExists(employee.getPesel(), type);
+        assertEquals(isExist, true);
 
         postman.perform(MockMvcRequestBuilders.patch("/persons/" + employee.getPesel())
                 .contentType(MediaType.APPLICATION_JSON)
@@ -760,8 +753,8 @@ class PersonControllerTest {
         createPersonCommand.setParameters(employeeMap);
         String studentJson = objectMapper.writeValueAsString(createPersonCommand);
         //when
-//        boolean isExist = personService.isPersonExists(employee.getPesel(), type);
-//        assertEquals(isExist, true);
+        boolean isExist = personService.isPersonExists(employee.getPesel(), type);
+        assertEquals(isExist, true);
 
         postman.perform(MockMvcRequestBuilders.patch("/persons/" + employee.getPesel())
                 .header("Authorization", "Bearer " + employeeToken)

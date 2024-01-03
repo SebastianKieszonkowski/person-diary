@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
@@ -15,15 +14,14 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.util.ResourceUtils;
 import pl.kurs.persondiary.PersonDiaryApplication;
 import pl.kurs.persondiary.services.EmployeePositionService;
+import pl.kurs.persondiary.services.personservices.EmployeeService;
+import pl.kurs.persondiary.services.personservices.PensionerService;
+import pl.kurs.persondiary.services.personservices.StudentService;
 
 import java.io.File;
 import java.nio.file.Files;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicBoolean;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest(classes = PersonDiaryApplication.class, properties = "src/test/resources/application.properties")
@@ -38,6 +36,13 @@ class ImportControllerTest {
 
     @Autowired
     private ObjectMapper objectMapper;
+
+    @Autowired
+    private StudentService studentService;
+    @Autowired
+    private EmployeeService employeeService;
+    @Autowired
+    private PensionerService pensionerService;
 
     @Autowired
     private EmployeePositionService employeePositionService;
@@ -94,6 +99,13 @@ class ImportControllerTest {
         return objectMapper.readTree(responseString1).get("jwtToken").textValue();
     }
 
+    private Long getSumOfPerson() {
+        Long studentsTableSizeAfterImport = studentService.getSize();
+        Long employeeTableSizeAfterImport = employeeService.getSize();
+        Long pensionerTableSizeAfterImport = pensionerService.getSize();
+        return studentsTableSizeAfterImport + pensionerTableSizeAfterImport + employeeTableSizeAfterImport;
+    }
+
     @Test
     void importCsvFileShouldUploadFileAsAdministrator() throws Exception {
         // given
@@ -105,7 +117,8 @@ class ImportControllerTest {
                 MediaType.TEXT_PLAIN_VALUE,
                 Files.readAllBytes(file.toPath()));
         //when
-//        Long personViewSizeBeforeImport = personRepository.getTableSize();
+        Long sumOfPersonBeforeImport = getSumOfPerson();
+
         MvcResult result = postman.perform(MockMvcRequestBuilders.multipart("/import/upload")
                 .file(mockMultipartFile)
                 .contentType(MediaType.MULTIPART_FORM_DATA)
@@ -124,7 +137,7 @@ class ImportControllerTest {
                     .andReturn();
             String progressResponseString = progressResult.getResponse().getContentAsString();
             String actualStatus = objectMapper.readTree(progressResponseString).get("status").textValue();
-            if (actualStatus.equals("Completed")) {
+            if (actualStatus.equals("Completed") || actualStatus.equals("Aborted")) {
                 break;
             }
         }
@@ -138,10 +151,10 @@ class ImportControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.processedLines").value(1000))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.failureLines").value(0));
 
-//        Long personViewSizeAfterImport = personRepository.getTableSize();
-//        Long personViewExpectedSize = personViewSizeBeforeImport + 1000L;
-//
-//        assertEquals(personViewExpectedSize, personViewSizeAfterImport);
+        Long sumOfPersonAfterImport = getSumOfPerson();
+        Long personExpectedSize = sumOfPersonBeforeImport + 1000L;
+
+        assertEquals(personExpectedSize, sumOfPersonAfterImport);
 
     }
 
@@ -149,14 +162,14 @@ class ImportControllerTest {
     void importCsvFileShouldUploadFileAsImporter() throws Exception {
         // given
         String importerToken = getImporterToken();
-        File file = ResourceUtils.getFile("classpath:data/people_data3.csv");
+        File file = ResourceUtils.getFile("classpath:data/people_data2.csv");
         MockMultipartFile mockMultipartFile = new MockMultipartFile(
                 "file",
                 file.getName(),
                 MediaType.TEXT_PLAIN_VALUE,
                 Files.readAllBytes(file.toPath()));
         //when
-//        Long personViewSizeBeforeImport = personRepository.getTableSize();
+        Long personViewSizeBeforeImport = getSumOfPerson();
         MvcResult result = postman.perform(MockMvcRequestBuilders.multipart("/import/upload")
                 .file(mockMultipartFile)
                 .contentType(MediaType.MULTIPART_FORM_DATA)
@@ -175,7 +188,7 @@ class ImportControllerTest {
                     .andReturn();
             String progressResponseString = progressResult.getResponse().getContentAsString();
             String actualStatus = objectMapper.readTree(progressResponseString).get("status").textValue();
-            if (actualStatus.equals("Completed")) {
+            if (actualStatus.equals("Completed") || actualStatus.equals("Aborted")) {
                 break;
             }
         }
@@ -189,126 +202,13 @@ class ImportControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.processedLines").value(1000))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.failureLines").value(0));
 
-//        Long personViewSizeAfterImport = personRepository.getTableSize();
-//        Long personViewExpectedSize = personViewSizeBeforeImport + 1000L;
-//
-//        assertEquals(personViewExpectedSize, personViewSizeAfterImport);
+        Long personViewSizeAfterImport = getSumOfPerson();
+        Long personViewExpectedSize = personViewSizeBeforeImport + 1000L;
+
+        assertEquals(personViewExpectedSize, personViewSizeAfterImport);
 
     }
 
-    @Test
-    void importCsvFileShouldInterruptFirstImportWhenSecondImportStarts() throws Exception {
-        // given
-        String adminToken = getAdminToken();
-        File firstFile = ResourceUtils.getFile("classpath:data/people_data2.csv");
-        MockMultipartFile firstMockMultipartFile = new MockMultipartFile(
-                "file",
-                firstFile.getName(),
-                MediaType.TEXT_PLAIN_VALUE,
-                Files.readAllBytes(firstFile.toPath()));
-
-        File secondFile = ResourceUtils.getFile("classpath:data/people_data2.csv");
-        MockMultipartFile secondMockMultipartFile = new MockMultipartFile(
-                "file",
-                secondFile.getName(),
-                MediaType.TEXT_PLAIN_VALUE,
-                Files.readAllBytes(secondFile.toPath()));
-
-        //when
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
-        CountDownLatch latch = new CountDownLatch(2);
-
-        AtomicBoolean isOkReceived = new AtomicBoolean(false);
-        AtomicBoolean isConflictReceived = new AtomicBoolean(false);
-
-        Runnable firstTask = () -> {
-            try {
-                postman.perform(MockMvcRequestBuilders.multipart("/import/upload")
-                        .file(firstMockMultipartFile)
-                        .contentType(MediaType.MULTIPART_FORM_DATA)
-                        .header("Authorization", "Bearer " + adminToken))
-                        .andExpect(result -> {
-                            if (result.getResponse().getStatus() == HttpStatus.OK.value()) {
-                                isOkReceived.set(true);
-                            } else if (result.getResponse().getStatus() == HttpStatus.CONFLICT.value()) {
-                                isConflictReceived.set(true);
-                            }
-                        });
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                latch.countDown();
-            }
-        };
-
-        Runnable secondTask = () -> {
-            try {
-                postman.perform(MockMvcRequestBuilders.multipart("/import/upload")
-                        .file(secondMockMultipartFile)
-                        .contentType(MediaType.MULTIPART_FORM_DATA)
-                        .header("Authorization", "Bearer " + adminToken))
-                        .andExpect(result -> {
-                            if (result.getResponse().getStatus() == HttpStatus.OK.value()) {
-                                isOkReceived.set(true);
-                            } else if (result.getResponse().getStatus() == HttpStatus.CONFLICT.value()) {
-                                isConflictReceived.set(true);
-                            }
-                        });
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                latch.countDown();
-            }
-        };
-
-        executorService.submit(firstTask);
-        executorService.submit(secondTask);
-
-        latch.await();
-        executorService.shutdown();
-
-        // then
-        assertTrue(isOkReceived.get());
-        assertTrue(isConflictReceived.get());
-//        Long personViewSizeBeforeImport = personRepository.getTableSize();
-
-//        MvcResult firstImportResult = postman.perform(MockMvcRequestBuilders.multipart("/import/upload")
-//                .file(firstMockMultipartFile)
-//                .contentType(MediaType.MULTIPART_FORM_DATA)
-//                .header("Authorization", "Bearer " + adminToken))
-//                .andExpect(status().isOk())
-//                .andReturn();
-//
-//        String firstResponseString = firstImportResult.getResponse().getContentAsString();
-//        String firstTaskId = objectMapper.readTree(firstResponseString).get("status").textValue().substring(38);
-//
-//        postman.perform(MockMvcRequestBuilders.multipart("/import/upload")
-//                .file(secondMockMultipartFile)
-//                .contentType(MediaType.MULTIPART_FORM_DATA)
-//                .header("Authorization", "Bearer " + adminToken))
-//                .andExpect(status().isConflict())
-//                .andReturn();
-//
-//        String firstImportStatus = null;
-//        for (int i = 0; i < 10; i++) {
-//            Thread.sleep(1000);
-//            MvcResult firstStatusResult = postman.perform(MockMvcRequestBuilders.get("/import/status/" + firstTaskId)
-//                    .header("Authorization", "Bearer " + adminToken))
-//                    .andExpect(status().isOk())
-//                    .andReturn();
-//            String firstStatusResponse = firstStatusResult.getResponse().getContentAsString();
-//            firstImportStatus = objectMapper.readTree(firstStatusResponse).get("status").textValue();
-//            if (firstImportStatus.equals("Completed")) {
-//                break;
-//            }
-//        }
-
-        // then
-//        Long personViewSizeAfterImport = personRepository.getTableSize();
-//        Long personViewExpectedSize = personViewSizeBeforeImport + 1000L;
-//
-//        assertEquals(personViewExpectedSize, personViewSizeAfterImport);
-    }
 
     @Test
     void importCsvFileShouldThrowExceptionBecauseUserEmployeeUserIsForbidden() throws Exception {

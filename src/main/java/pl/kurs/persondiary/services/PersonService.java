@@ -72,10 +72,11 @@ public class PersonService {
         return updatePersonService.findByPesel(pesel);
     }
 
-//    @Transactional(readOnly = true)
-//    public boolean isPersonExists(String pesel, String type) {
-//       return personRepository.existsByPeselAndType(pesel, type);
-//    }
+    @Transactional(readOnly = true)
+    public boolean isPersonExists(String pesel, String type) {
+        IManagementService<Person> personService = factoryPersonService.prepareManager(type);
+        return personService.existsByPesel(pesel);
+    }
 
     @Transactional(readOnly = true)
     @SneakyThrows

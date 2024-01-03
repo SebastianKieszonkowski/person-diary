@@ -13,18 +13,18 @@ public class StudentToSimpleStudentDtoCreator implements Converter<Student, Simp
     public SimpleStudentDto convert(MappingContext<Student, SimpleStudentDto> mappingContext) {
         Student source = mappingContext.getSource();
         return new SimpleStudentDto("student"
-                ,source.getId()
-                ,source.getFirstName()
-                ,source.getLastName()
-                ,source.getPesel()
-                ,source.getHeight()
-                ,source.getWeight()
-                ,source.getEmail()
-                ,source.getVersion()
-                ,source.getUniversityName()
-                ,source.getStudyYear()
-                ,source.getStudyField()
-                ,source.getScholarship());
+                , source.getId()
+                , source.getFirstName()
+                , source.getLastName()
+                , source.getPesel()
+                , source.getHeight()
+                , source.getWeight()
+                , source.getEmail()
+                , source.getVersion()
+                , source.getUniversityName()
+                , source.getStudyYear()
+                , source.getStudyField()
+                , source.getScholarship());
 
     }
 }

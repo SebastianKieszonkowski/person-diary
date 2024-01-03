@@ -5,7 +5,8 @@ import jakarta.validation.Validator;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import pl.kurs.persondiary.command.CreateStudentCommand;
+import pl.kurs.persondiary.command.personcreate.CreateStudentCommand;
+import pl.kurs.persondiary.command.personupdate.UpdateStudentCommand;
 import pl.kurs.persondiary.dto.fulldto.FullStudentDto;
 import pl.kurs.persondiary.dto.fulldto.IFullPersonDto;
 import pl.kurs.persondiary.dto.simpledto.ISimplePersonDto;
@@ -49,20 +50,30 @@ public class StudentCreator implements PersonCreator {
     @Override
     public Person update(Person person, Map<String, Object> parameters) {
         Student student = (Student) person;
-        Optional.ofNullable(getStringParameter("firstName", parameters)).ifPresent(student::setFirstName);
-        Optional.ofNullable(getStringParameter("lastName", parameters)).ifPresent(student::setLastName);
-        Optional.ofNullable(getStringParameter("pesel", parameters)).ifPresent(x -> {
-            student.setPesel(x);
-            student.setBirthdate(getBirthdateFromPesel(x));
-        });
-        Optional.ofNullable(getDoubleParameter("height", parameters)).ifPresent(student::setHeight);
-        Optional.ofNullable(getDoubleParameter("weight", parameters)).ifPresent(student::setWeight);
-        Optional.ofNullable(getStringParameter("email", parameters)).ifPresent(student::setEmail);
-        Optional.ofNullable(getIntegerParameter("version", parameters)).ifPresent(student::setVersion);
-        Optional.ofNullable(getStringParameter("universityName", parameters)).ifPresent(student::setUniversityName);
-        Optional.ofNullable(getIntegerParameter("studyYear", parameters)).ifPresent(student::setStudyYear);
-        Optional.ofNullable(getStringParameter("studyField", parameters)).ifPresent(student::setStudyField);
-        Optional.ofNullable(getDoubleParameter("scholarship", parameters)).ifPresent(student::setScholarship);
+
+        UpdateStudentCommand updateStudent = new UpdateStudentCommand(
+                Optional.ofNullable(getStringParameter("firstName", parameters)).orElse(student.getFirstName()),
+                Optional.ofNullable(getStringParameter("lastName", parameters)).orElse(student.getLastName()),
+                Optional.ofNullable(getDoubleParameter("height", parameters)).orElse(student.getHeight()),
+                Optional.ofNullable(getDoubleParameter("weight", parameters)).orElse(student.getWeight()),
+                Optional.ofNullable(getStringParameter("email", parameters)).orElse(student.getEmail()),
+                Optional.ofNullable(getStringParameter("universityName", parameters)).orElse(student.getUniversityName()),
+                Optional.ofNullable(getIntegerParameter("studyYear", parameters)).orElse(student.getStudyYear()),
+                Optional.ofNullable(getStringParameter("studyField", parameters)).orElse(student.getStudyField()),
+                Optional.ofNullable(getDoubleParameter("scholarship", parameters)).orElse(student.getScholarship()));
+
+        commandValidator(updateStudent, (org.springframework.validation.Validator) validator);
+
+        student.setFirstName(updateStudent.getFirstName());
+        student.setLastName(updateStudent.getLastName());
+        student.setHeight(updateStudent.getHeight());
+        student.setWeight(updateStudent.getWeight());
+        student.setEmail(updateStudent.getEmail());
+        student.setUniversityName(updateStudent.getUniversityName());
+        student.setStudyYear(updateStudent.getStudyYear());
+        student.setStudyField(updateStudent.getStudyField());
+        student.setScholarship(updateStudent.getScholarship());
+
         return student;
     }
 

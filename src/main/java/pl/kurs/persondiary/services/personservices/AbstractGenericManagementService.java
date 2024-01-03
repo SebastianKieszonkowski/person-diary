@@ -19,7 +19,7 @@ public abstract class AbstractGenericManagementService<T extends Identificationa
     @Override
     @Transactional
     public T add(T entity) {
-        return repository.saveAndFlush(entity);
+        return repository.save(entity);
     }
 
     @Override
@@ -50,5 +50,9 @@ public abstract class AbstractGenericManagementService<T extends Identificationa
         repository.deleteAll();
     }
 
-
+    @Override
+    @Transactional(readOnly = true)
+    public Long getSize() {
+        return repository.count();
+    }
 }

@@ -4,7 +4,8 @@ import jakarta.validation.Validator;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import pl.kurs.persondiary.command.CreateEmployeeCommand;
+import pl.kurs.persondiary.command.personcreate.CreateEmployeeCommand;
+import pl.kurs.persondiary.command.personupdate.UpdateEmployeeCommand;
 import pl.kurs.persondiary.dto.fulldto.FullEmployeeDto;
 import pl.kurs.persondiary.dto.fulldto.IFullPersonDto;
 import pl.kurs.persondiary.dto.simpledto.ISimplePersonDto;
@@ -47,26 +48,35 @@ public class EmployeeCreator implements PersonCreator {
     @Override
     public Person update(Person person, Map<String, Object> parameters) {
         Employee employee = (Employee) person;
-        Optional.ofNullable(getStringParameter("firstName", parameters)).ifPresent(employee::setFirstName);
-        Optional.ofNullable(getStringParameter("lastName", parameters)).ifPresent(employee::setLastName);
-        Optional.ofNullable(getStringParameter("pesel", parameters)).ifPresent(x -> {
-            employee.setPesel(x);
-            employee.setBirthdate(getBirthdateFromPesel(x));
-        });
-        Optional.ofNullable(getDoubleParameter("height", parameters)).ifPresent(employee::setHeight);
-        Optional.ofNullable(getDoubleParameter("weight", parameters)).ifPresent(employee::setWeight);
-        Optional.ofNullable(getStringParameter("email", parameters)).ifPresent(employee::setEmail);
-        Optional.ofNullable(getIntegerParameter("version", parameters)).ifPresent(employee::setVersion);
-        Optional.ofNullable(getLocalDataParameter("hireDate", parameters)).ifPresent(employee::setHireDate);
-        Optional.ofNullable(getStringParameter("position", parameters)).ifPresent(employee::setPosition);
-        Optional.ofNullable(getDoubleParameter("salary", parameters)).ifPresent(employee::setSalary);
+
+        UpdateEmployeeCommand updateEmployee = new UpdateEmployeeCommand(
+                Optional.ofNullable(getStringParameter("firstName", parameters)).orElse(employee.getFirstName()),
+                Optional.ofNullable(getStringParameter("lastName", parameters)).orElse(employee.getLastName()),
+                Optional.ofNullable(getDoubleParameter("height", parameters)).orElse(employee.getHeight()),
+                Optional.ofNullable(getDoubleParameter("weight", parameters)).orElse(employee.getWeight()),
+                Optional.ofNullable(getStringParameter("email", parameters)).orElse(employee.getEmail()),
+                Optional.ofNullable(getLocalDataParameter("hireDate", parameters)).orElse(employee.getHireDate()),
+                Optional.ofNullable(getStringParameter("position", parameters)).orElse(employee.getPosition()),
+                Optional.ofNullable(getDoubleParameter("salary", parameters)).orElse(employee.getSalary()));
+
+        commandValidator(updateEmployee, (org.springframework.validation.Validator) validator);
+
+        employee.setFirstName(updateEmployee.getFirstName());
+        employee.setLastName(updateEmployee.getLastName());
+        employee.setHeight(updateEmployee.getHeight());
+        employee.setWeight(updateEmployee.getWeight());
+        employee.setEmail(updateEmployee.getEmail());
+        employee.setHireDate(updateEmployee.getHireDate());
+        employee.setPosition(updateEmployee.getPosition());
+        employee.setSalary(updateEmployee.getSalary());
+
         return employee;
     }
 
     @Override
     public ISimplePersonDto createSimpleDtoFromPerson(Person person) {
         Employee employee = (Employee) person;
-        return modelMapper.map(employee,  SimpleEmployeeDto.class);
+        return modelMapper.map(employee, SimpleEmployeeDto.class);
     }
 
     @Override
