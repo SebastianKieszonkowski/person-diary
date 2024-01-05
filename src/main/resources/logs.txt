@@ -1,0 +1,8 @@
+Task ID: 9592d39d-a228-4ffc-9e4a-16bd038f9e36 | Time: 2024-01-05T00:55:53.542901400 | Error: Problem witch imported line: 998!!!
+PreparedStatementCallback; SQL [insert into students (id, first_name, last_name, pesel, height, weight, email, birthdate, version, university_name, study_year, study_field, scholarship) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]; Duplicate entry '23312139732' for key 'students.UC_STUDENT_PESEL'
+Task ID: 9592d39d-a228-4ffc-9e4a-16bd038f9e36 | Time: 2024-01-05T01:15:44.888871500 | Error: Problem witch imported line: 998!!!
+PreparedStatementCallback; SQL [insert into students (id, first_name, last_name, pesel, height, weight, email, birthdate, version, university_name, study_year, study_field, scholarship) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]; Duplicate entry '23312139732' for key 'students.UC_STUDENT_PESEL'
+Task ID: 9592d39d-a228-4ffc-9e4a-16bd038f9e36 | Time: 2024-01-05T01:16:13.778888900 | Error: Problem witch imported line: 998!!!
+PreparedStatementCallback; SQL [insert into students (id, first_name, last_name, pesel, height, weight, email, birthdate, version, university_name, study_year, study_field, scholarship) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]; Duplicate entry '23312139732' for key 'students.UC_STUDENT_PESEL'
+Task ID: 9592d39d-a228-4ffc-9e4a-16bd038f9e36 | Time: 2024-01-05T01:52:14.970180800 | Error: Problem witch imported line: 0!!!
+PreparedStatementCallback; SQL [insert into pensioners (id, first_name, last_name, pesel, height, weight, email, birthdate, version, pension, worked_years) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]; Duplicate entry '23212420426' for key 'pensioners.UC_PENSIONER_PESEL'

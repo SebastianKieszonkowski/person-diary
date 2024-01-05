@@ -1,6 +1,7 @@
 package pl.kurs.persondiary.exeptions.excepthandling;
 
 import jakarta.validation.ConstraintViolationException;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.NonUniqueResultException;
 import org.hibernate.StaleObjectStateException;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import pl.kurs.persondiary.dto.ExceptionResponseDto;
 import pl.kurs.persondiary.exeptions.*;
+import pl.kurs.persondiary.services.ImportProgressService;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDateTime;
@@ -18,10 +20,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @ControllerAdvice
+@RequiredArgsConstructor
 public class GlobalExceptionHandler {
+    private final ImportProgressService importProgressService;
 
     @ExceptionHandler({ClassCastException.class})
-    public ResponseEntity<ExceptionResponseDto> handleImportConcurrencyException(ClassCastException e) {
+    public ResponseEntity<ExceptionResponseDto> handleClassCastException(ClassCastException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                 new ExceptionResponseDto(List.of(e.getMessage()), "BAD_REQUEST", LocalDateTime.now())
         );
@@ -29,6 +33,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler({ImportConcurrencyException.class})
     public ResponseEntity<ExceptionResponseDto> handleImportConcurrencyException(ImportConcurrencyException e) {
+        importProgressService.pushImportStatusToDb();
         return ResponseEntity.status(HttpStatus.CONFLICT).body(
                 new ExceptionResponseDto(List.of(e.getMessage()), "CONFLICT", LocalDateTime.now())
         );

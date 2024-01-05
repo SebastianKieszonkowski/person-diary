@@ -12,6 +12,8 @@ import pl.kurs.persondiary.models.ImportProgressInfo;
 import pl.kurs.persondiary.services.ImportProgressService;
 import pl.kurs.persondiary.services.ImportService;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping(path = "/import")
 @RequiredArgsConstructor
@@ -24,7 +26,9 @@ public class ImportController {
     @PostMapping("/upload")
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_IMPORTER')")
     public ResponseEntity<StatusDto> importCsvFile(@RequestParam("file") MultipartFile file) {
-        String taskId = importService.importFile(file);
+        String taskId = UUID.randomUUID().toString();
+        importProgressService.initImport(taskId);
+        importService.importFile(file, taskId);
         return new ResponseEntity<>(new StatusDto("Data import has started. Task number: " + taskId), HttpStatus.OK);
     }
 

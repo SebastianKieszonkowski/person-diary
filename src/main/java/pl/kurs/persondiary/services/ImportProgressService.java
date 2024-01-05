@@ -1,11 +1,11 @@
 package pl.kurs.persondiary.services;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.kurs.persondiary.models.ImportProgressInfo;
 import pl.kurs.persondiary.repositories.ImportProgressRepository;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,11 +16,10 @@ import java.time.LocalDateTime;
 public class ImportProgressService {
 
     private final ImportProgressRepository importProgressRepository;
-    private File logFile;
     private ImportProgressInfo importProgressInfo;
 
-    public void startProgress(String taskId) {
-        logFile = new File("src/importlogs", "logs.txt");
+    @Transactional
+    public void initImport(String taskId) {
         importProgressInfo = new ImportProgressInfo(taskId);
         importProgressInfo = importProgressRepository.saveAndFlush(importProgressInfo);
     }
@@ -47,20 +46,24 @@ public class ImportProgressService {
     public void abortedImport() {
         importProgressInfo.setFinishTime(LocalDateTime.now());
         importProgressInfo.setStatus("Aborted");
-        importProgressRepository.saveAndFlush(importProgressInfo);
     }
 
     public void completeImport() {
         importProgressInfo.setFinishTime(LocalDateTime.now());
         importProgressInfo.setStatus("Completed");
-        importProgressRepository.saveAndFlush(importProgressInfo);
     }
 
     public ImportProgressInfo getProgressInfo(String taskId) {
-        if (importProgressInfo != null ) {
-            if(importProgressInfo.getTask().equals(taskId))
+        if (importProgressInfo != null) {
+            if (importProgressInfo.getTask().equals(taskId))
                 return importProgressInfo;
         }
         return importProgressRepository.findByTask(taskId).orElse(new ImportProgressInfo());
     }
+
+    @Transactional
+    public void pushImportStatusToDb() {
+        importProgressRepository.saveAndFlush(importProgressInfo);
+    }
+
 }
