@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler({ImportConcurrencyException.class})
     public ResponseEntity<ExceptionResponseDto> handleImportConcurrencyException(ImportConcurrencyException e) {
-        importProgressService.pushImportStatusToDb();
+        importProgressService.pushImportStatusToDb(e.getTask());
         return ResponseEntity.status(HttpStatus.CONFLICT).body(
                 new ExceptionResponseDto(List.of(e.getMessage()), "CONFLICT", LocalDateTime.now())
         );

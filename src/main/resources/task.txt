@@ -118,3 +118,8 @@ przypisywac stanowisko moze tylko ADMIN lub inny EMPLOYEE
 Testy:
 calosc nalezy pokryc testami integracyjnymi.
 Uzyj spring boot 3.0.x
+
+Import
+1Milion - ponad 3min
+5Milion - ponad 3min
+10Milion - ponad 3min

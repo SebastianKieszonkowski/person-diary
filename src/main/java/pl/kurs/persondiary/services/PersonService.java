@@ -9,7 +9,6 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -17,18 +16,12 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.kurs.persondiary.dto.simpledto.ISimplePersonDto;
 import pl.kurs.persondiary.factory.PersonFactory;
 import pl.kurs.persondiary.models.Person;
-import pl.kurs.persondiary.services.personservices.EmployeeService;
 import pl.kurs.persondiary.services.personservices.IManagementService;
-import pl.kurs.persondiary.services.personservices.PensionerService;
-import pl.kurs.persondiary.services.personservices.StudentService;
 import pl.kurs.persondiary.services.querybuilder.QueryFactoryComponent;
-import pl.kurs.persondiary.services.querybuilder.QueryPensionerBuilderComponent;
-import pl.kurs.persondiary.services.querybuilder.QueryStudentBuilderComponent;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
 @Service
@@ -38,20 +31,8 @@ public class PersonService {
     @PersistenceContext
     private final EntityManager entityManager;
     private final FactoryPersonService factoryPersonService;
-
-    private final QueryStudentBuilderComponent queryStudentBuilderComponent;
-    private final QueryPensionerBuilderComponent queryPensionerBuilderComponent;
     private final QueryFactoryComponent queryFactoryComponent;
-
-    private final EmployeeService employeeService;
-    private final PensionerService pensionerService;
-    private final StudentService studentService;
-
-    private final ModelMapper modelMapper;
-
     private final PersonFactory personFactory;
-
-    private final AtomicBoolean isImportInProgress = new AtomicBoolean(false);
 
     @Transactional
     public Person savePerson(Person person) {

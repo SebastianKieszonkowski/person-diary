@@ -19,11 +19,11 @@ public class ImportService {
     @Transactional
     public void importFile(MultipartFile file, String taskId) {
         if (!importProgressRepository.existsByStatus("In Progress")) {
-            importProgressService.startImport();
+            importProgressService.startImport(taskId);
             asyncFileProcessor.processFileAsync(file, taskId);
         } else {
-            importProgressService.abortedImport();
-            throw new ImportConcurrencyException("Cannot start import because another one is in progress, please try again later!");
+            importProgressService.abortedImport(taskId);
+            throw new ImportConcurrencyException("Cannot start import because another one is in progress, please try again later!", taskId);
         }
     }
 }

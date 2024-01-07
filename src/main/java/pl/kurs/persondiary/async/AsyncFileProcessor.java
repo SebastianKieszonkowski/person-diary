@@ -26,33 +26,33 @@ public class AsyncFileProcessor {
     private final TransactionTemplate transactionTemplate;
 
     @Async
-    public void processFileAsync(MultipartFile file, String taskId) {
+    public void processFileAsync(MultipartFile file, String task) {
         transactionTemplate.execute(new TransactionCallbackWithoutResult() {
             @Override
             protected void doInTransactionWithoutResult(TransactionStatus status) {
                 try {
                     AtomicLong counter = new AtomicLong(0);
                     try (Stream<String> lines = new BufferedReader(new InputStreamReader(file.getInputStream())).lines()) {
-                        lines.forEach(line -> importPerson(line, counter));
-                        importProgressService.completeImport();
+                        lines.forEach(line -> importPerson(line, counter, task));
+                        importProgressService.completeImport(task);
                     } catch (IOException | DuplicateKeyException e) {
                         throw new ImportLineProcessException("Problem witch imported line: " + counter + "!!!\n" + e.getMessage());
                     }
                 } catch (Exception e) {
-                    importProgressService.logException(taskId, e);
-                    importProgressService.abortedImport();
+                    importProgressService.logException(task, e);
+                    importProgressService.abortedImport(task);
                     status.setRollbackOnly();
                 }
             }
         });
-        importProgressService.pushImportStatusToDb();
+        importProgressService.pushImportStatusToDb(task);
     }
 
-    private void importPerson(String line, AtomicLong counter) {
+    private void importPerson(String line, AtomicLong counter, String task) {
         String[] args = line.split(",");
         importFactory.importPerson(args);
         Long processedLines = counter.incrementAndGet();
-        importProgressService.updateProgress(processedLines);
+        importProgressService.updateProgress(processedLines, task);
     }
 }
 

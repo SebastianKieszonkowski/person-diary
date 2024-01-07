@@ -9,7 +9,6 @@ import pl.kurs.persondiary.repositories.StudentRepository;
 @Service
 public class StudentService extends AbstractGenericManagementService<Student, StudentRepository> {
 
-
     public StudentService(StudentRepository repository) {
         super(repository);
     }
